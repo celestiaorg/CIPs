@@ -212,32 +212,13 @@ the below status:
 * **Review**: A CIP Author marks a CIP as ready for and requesting
   Peer Review.
 * **Last Call**: The final review window for a CIP before moving to
-  Final or Accepted. A CIP editor assigns Last Call status and sets a review end
+  Final. A CIP editor assigns Last Call status and sets a review end
   date (last-call-deadline), typically 14 days later.
-  * ❌ Draft: A Last Call which results in material changes or substantial
+  * ❌ Review: A Last Call which results in material changes or substantial
     unaddressed technical complaints will cause the CIP to revert
-    to Draft.
-  * ➡️  Accepted (Core and Data Availability and Netowrking only):
-    A successful Last Call without material changes or unaddressed
-    technical complaints will become Accepted.
-  * ✅ Final (Interface, CRCs and non-Standard CIPs): A successful Last
-    Call without material changes or unaddressed technical complaints
-    will become Final.
-* **Accepted (Core, Data Availability and Netowrking CIPs only)**:
-  This status signals that material changes are unlikely and Celestia
-  client developers should consider this CIP for inclusion. Their
-  process for deciding whether to encode it into their clients as
-  part of a hard fork is not part of the CIP process.
-  * ⬅️  Draft: The Core Devs can decide to move this CIP back to
-    the Draft status at their discretion. E.g. a major, but
-    correctable, flaw was found in the CIP.
-  * ❌ Rejected: The Core Devs can decide to mark this CIP as
-    Rejected at their discretion. E.g. a major, but uncorrectable,
-    flaw was found in the CIP.
-  * ✅ Final: Standards Track (Core, Data Availability, and Networking)
-    CIPs must be implemented in the Celestia client before it can be
-    considered Final. When the implementation is complete and
-    adopted by the community, the status will be changed to “Final”.
+    to Review.
+  * ✅ Final: A successful Last Call without material changes or
+    unaddressed technical complaints will become Final.
 * **Final**: This CIP represents the final standard. A Final CIP
   exists in a state of finality and should only be updated to correct
   errata and add non-normative clarifications. A PR moving a CIP from
@@ -248,17 +229,17 @@ the below status:
 #### Other Statuses
 
 * **Stagnant**: Any CIP in Draft, Review, or Last Call that remains
-inactive for 6 months or more is moved to Stagnant. Authors or CIP
-Editors can resurrect a proposal from this state by moving it back
-to Draft or its earlier status. If not resurrected, a proposal may
-stay forever in this status.
+  inactive for 6 months or more is moved to Stagnant. Authors or CIP
+  Editors can resurrect a proposal from this state by moving it back
+  to Draft or its earlier status. If not resurrected, a proposal may
+  stay forever in this status.
 * **Withdrawn**: The CIP Author(s) have withdrawn the proposed CIP.
-This state has finality and can no longer be resurrected using this
-CIP number. If the idea is pursued at a later date, it is considered
-a new proposal.
+  This state has finality and can no longer be resurrected using this
+  CIP number. If the idea is pursued at a later date, it is considered
+  a new proposal.
 * **Living**: A special status for CIPs designed to be continually
-updated and not reach a state of finality. This status caters to
-dynamic CIPs that require ongoing updates.
+  updated and not reach a state of finality. This status caters to
+  dynamic CIPs that require ongoing updates.
 
 As you embark on this exciting journey of shaping Celestia's future
 with your valuable ideas, remember that your contributions matter.
@@ -272,51 +253,51 @@ A successful Celestia Improvement Proposal (CIP) should consist of
 the following parts:
 
 * **Preamble**: RFC 822 style headers containing metadata about the CIP,
-including the CIP number, a short descriptive title (limited to a maximum
-of 44 characters), a description (limited to a maximum of 140 characters),
-and the author details. Regardless of the category, the title and description
-should not include the CIP number. See below for details.
+  including the CIP number, a short descriptive title (limited to a maximum
+  of 44 characters), a description (limited to a maximum of 140 characters),
+  and the author details. Regardless of the category, the title and description
+  should not include the CIP number. See below for details.
 * **Abstract**: A multi-sentence (short paragraph) technical summary that
-provides a terse and human-readable version of the specification section.
-By reading the abstract alone, someone should be able to grasp the essence
-of what the proposal entails.
+  provides a terse and human-readable version of the specification section.
+  By reading the abstract alone, someone should be able to grasp the essence
+  of what the proposal entails.
 * **Motivation (optional)**: A motivation section is crucial for CIPs that
-seek to change the Celestia protocol. It should clearly explain why the
-existing protocol specification is insufficient for addressing the problem
-the CIP solves. If the motivation is evident, this section can be omitted.
+  seek to change the Celestia protocol. It should clearly explain why the
+  existing protocol specification is insufficient for addressing the problem
+  the CIP solves. If the motivation is evident, this section can be omitted.
 * **Specification**: The technical specification should describe the syntax
-and semantics of any new feature. The specification should be detailed
-enough to enable competing, interoperable implementations for any of the
-current Celestia platforms.
+  and semantics of any new feature. The specification should be detailed
+  enough to enable competing, interoperable implementations for any of the
+  current Celestia platforms.
 * **Rationale**: The rationale elaborates on the specification by explaining
-the reasoning behind the design and the choices made during the design process.
-It should discuss alternative designs that were considered and any related work.
-The rationale should address important objections or concerns raised during
-discussions around the CIP.
+  the reasoning behind the design and the choices made during the design process.
+  It should discuss alternative designs that were considered and any related work.
+  The rationale should address important objections or concerns raised during
+  discussions around the CIP.
 * **Backwards Compatibility (optional)**: For CIPs introducing backwards
-incompatibilities, this section must describe these incompatibilities and
-their consequences. The CIP must explain how the author proposes to handle
-these incompatibilities. If the proposal does not introduce any backwards
-incompatibilities, this section can be omitted.
+  incompatibilities, this section must describe these incompatibilities and
+  their consequences. The CIP must explain how the author proposes to handle
+  these incompatibilities. If the proposal does not introduce any backwards
+  incompatibilities, this section can be omitted.
 * **Test Cases (optional)**: Test cases are mandatory for CIPs affecting
-consensus changes. They should either be inlined in the CIP as data (such
-as input/expected output pairs) or included in `../assets/cip-###/<filename>`.
-This section can be omitted for non-Core proposals.
+  consensus changes. They should either be inlined in the CIP as data (such
+  as input/expected output pairs) or included in `../assets/cip-###/<filename>`.
+  This section can be omitted for non-Core proposals.
 * **Reference Implementation (optional)**: This optional section contains
-a reference/example implementation that people can use to better understand
-or implement the specification. This section can be omitted for all CIPs.
+  a reference/example implementation that people can use to better understand
+  or implement the specification. This section can be omitted for all CIPs.
 * **Security Considerations**: All CIPs must include a section discussing
-relevant security implications and considerations. This section should
-provide information critical for security discussions, expose risks, and
-be used throughout the proposal's life-cycle. Examples include security-relevant
-design decisions, concerns, significant discussions, implementation-specific
-guidance, pitfalls, an outline of threats and risks, and how they are
-addressed. CIP submissions lacking a "Security Considerations" section
-will be rejected. A CIP cannot reach "Final" status without a Security
-Considerations discussion deemed sufficient by the reviewers.
+  relevant security implications and considerations. This section should
+  provide information critical for security discussions, expose risks, and
+  be used throughout the proposal's life-cycle. Examples include security-relevant
+  design decisions, concerns, significant discussions, implementation-specific
+  guidance, pitfalls, an outline of threats and risks, and how they are
+  addressed. CIP submissions lacking a "Security Considerations" section
+  will be rejected. A CIP cannot reach "Final" status without a Security
+  Considerations discussion deemed sufficient by the reviewers.
 * **Copyright Waiver**: All CIPs must be in the public domain. The
-copyright waiver MUST link to the license file and use the following
-wording: Copyright and related rights waived via CC0.
+  copyright waiver MUST link to the license file and use the following
+  wording: Copyright and related rights waived via CC0.
 
 ## CIP Formats and Templates
 
@@ -333,18 +314,18 @@ and followed by three hyphens (---). This header is also termed
 * `title`: The CIP title is a few words, not a complete sentence
 * `description`: Description is one full (short) sentence
 * `author`: The list of the author’s or authors’ name(s) and/or
-username(s), or name(s) and email(s). Details are below.
+  username(s), or name(s) and email(s). Details are below.
 * `discussions-to`: The url pointing to the official discussion thread
 * `status`: Draft, Review, Last Call, Final, Stagnant, Withdrawn, Living
 * `last-call-deadline`: The date last call period ends on (Optional field,
-only needed when status is Last Call)
+  only needed when status is Last Call)
 * `type`: One of Standards Track, Meta, or Informational
 * `category`: One of Core, Data Availability, Networking, Interface, or
   CRC (Optional field, only needed for Standards Track CIPs)
 * `created`: Date the CIP was created on
 * `requires`: CIP number(s) (Optional field)
 * `withdrawal-reason`: A sentence explaining why the CIP was withdrawn.
-(Optional field, only needed when status is Withdrawn)
+  (Optional field, only needed when status is Withdrawn)
 
 Headers that permit lists must separate elements with commas.
 
@@ -600,11 +581,11 @@ If you would like to become a CIP editor, please check [CIP-2](./cip-2.md).
 For each new CIP that comes in, an editor does the following:
 
 * Read the CIP to check if it is ready: sound and complete. The ideas
-must make technical sense, even if they don't seem likely to get to
-final status.
+  must make technical sense, even if they don't seem likely to get to
+  final status.
 * The title should accurately describe the content.
 * Check the CIP for language (spelling, grammar, sentence
-structure, etc.), markup (GitHub flavored Markdown), code style
+  structure, etc.), markup (GitHub flavored Markdown), code style
 
 If the CIP isn't ready, the editor will send it back to the
 author for revision, with specific instructions.
@@ -612,7 +593,7 @@ author for revision, with specific instructions.
 Once the CIP is ready for the repository, the CIP editor will:
 
 * Assign an CIP number (generally the PR number, but the decision
-is with the editors)
+  is with the editors)
 * Merge the corresponding [pull request](https://github.com/celestiaorg/CIPs/pulls)
 * Send a message back to the CIP author with the next step.
 
