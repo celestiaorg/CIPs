@@ -177,7 +177,12 @@ IETF's [RFC 7282](https://www.rfc-editor.org/rfc/rfc7282) which
 is a helpful document to understand how decisions are made in
 Celestia CoreDevCalls. This consensus assumes that CIPs are not
 contentious enough to cause a network split and are technically
-sound.
+sound. One important excerpt from the document that highlights
+based on [Dave Clark's 1992 presentation](http://www.ietf.org/proceedings/24.pdf)
+is the following:
+
+> *We reject: kings, presidents and voting.*
+  *We believe in: rough consensus and running code.*
 
 :warning: The burden falls on client implementers to estimate
 community sentiment, obstructing the technical coordination
