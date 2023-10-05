@@ -4,7 +4,7 @@ title: CIP Editor Handbook
 description: Handy reference for CIP editors and those who want to become one
 author: Yaz Khoury (@YazzyYaz)
 discussions-to: https://forum.celestia.org
-status: Living
+status: Draft
 type: Informational
 created: 2023-04-13
 requires: 1
