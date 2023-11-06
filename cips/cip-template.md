@@ -63,6 +63,8 @@ The current placeholder is acceptable for a draft: *"No backward compatibility i
 
 ## Test Cases
 
+This section is optional.
+
 The Test Cases section should include expected input/output pairs, but may include a succinct set of executable tests. It should not include project build files. No new requirements may be be introduced here (meaning an implementation following only the Specification section should pass all tests here.)
 
 If the test suite is too large to reasonably be included inline, then consider adding it as one or more files in `../assets/cip-####/`. External links will not be allowed
