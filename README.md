@@ -1,4 +1,4 @@
-# Celestia Improvement Proposal (CIP) Process
+# Celestia Improvement Proposal (CIP) process
 
 Read [CIP-1](https://github.com/celestiaorg/CIPs/blob/main/cips/cip-1.md)https://github.com/celestiaorg/CIPs/blob/main/cips/cip-1.md for information on the CIP Process.
 
