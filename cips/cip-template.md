@@ -63,6 +63,8 @@ The current placeholder is acceptable for a draft: *"No backward compatibility i
 
 ## Test Cases
 
+This section is optional.
+
 The Test Cases section should include expected input/output pairs, but may include a succinct set of executable tests. It should not include project build files. No new requirements may be be introduced here (meaning an implementation following only the Specification section should pass all tests here.)
 
 If the test suite is too large to reasonably be included inline, then consider adding it as one or more files in `../assets/cip-####/`. External links will not be allowed
@@ -81,7 +83,7 @@ If the reference implementation is too large to reasonably be included inline, t
 
 ## Security Considerations
 
-All CIPs must contain a section that discusses the security implications/considerations relevant to the proposed change. Include information that might be important for security discussions, surfaces risks and can be used throughout the life cycle of the proposal. For example, include security-relevant design decisions, concerns, important discussions, implementation-specific guidance and pitfalls, an outline of threats and risks and how they are being addressed. cIP submissions missing the "Security Considerations" section will be rejected. An cIP cannot proceed to status "Final" without a Security Considerations discussion deemed sufficient by the reviewers.
+All CIPs must contain a section that discusses the security implications/considerations relevant to the proposed change. Include information that might be important for security discussions, surfaces risks and can be used throughout the life cycle of the proposal. For example, include security-relevant design decisions, concerns, important discussions, implementation-specific guidance and pitfalls, an outline of threats and risks and how they are being addressed. CIP submissions missing the "Security Considerations" section will be rejected. An CIP cannot proceed to status "Final" without a Security Considerations discussion deemed sufficient by the reviewers.
 
 The current placeholder is acceptable for a draft.
 
