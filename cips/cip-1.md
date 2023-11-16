@@ -1,6 +1,6 @@
 ---
 cip: 1
-title: Celestia Improvement Proposal Process and Guidelines
+title: Celestia Improvement Proposal process and guidelines
 status: Draft
 type: Meta
 author: Yaz Khoury <yaz@celestia.org>
@@ -10,32 +10,32 @@ created: 2023-04-13
 ## Table of Contents
 
 * What is a CIP?
-* CIP Rationale
-* CIP Types
-* CIP Work Flow
+* CIP rationale
+* CIP types
+* CIP workflow
   * Shepherding a CIP
   * Core CIPs
-  * CIP Process
+  * CIP process
 * What belongs in a successful CIP?
-* CIP Formats and Templates
-* CIP Header Preamble
+* CIP formats and templates
+* CIP header preamble
   * author header
   * discussions-to header
   * type header
   * category header
   * created header
   * requires header
-* Linking to External Resources
-  * Data Availability Specifications
-  * Consensus Layer Specifications
-  * Networking Specifications
-  * Digital Object Identifier System
+* Linking to external resources
+  * Data availability specifications
+  * Consensus layer specifications
+  * Networking specifications
+  * Digital object identifier system
 * Linking to other CIPs
-* Auxiliary Files
-* Transferring CIP Ownership
-* CIP Editors
-* CIP Editor Responsibilities
-* Style Guide
+* Auxiliary files
+* Transferring CIP ownership
+* CIP editors
+* CIP editor responsibilities
+* Style guide
   * Titles
   * Descriptions
   * CIP numbers
@@ -54,7 +54,7 @@ of the feature and a rationale for the feature. The CIP
 author is responsible for building consensus within the
 community and documenting dissenting opinions.
 
-## CIP Rationale
+## CIP rationale
 
 We intend CIPs to be the primary mechanisms for proposing
 new features, for collecting community technical input on
@@ -70,7 +70,7 @@ that they have implemented. This will give end users a
 convenient way to know the current status of a given
 implementation or library.
 
-## CIP Types
+## CIP types
 
 There are three types of CIP:
 
