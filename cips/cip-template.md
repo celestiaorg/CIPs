@@ -5,7 +5,7 @@ author: a comma separated list of the author’s or authors’ name + GitHub use
 discussions-to: URL
 status: Draft
 type: Standards Track, Meta, or Informational
-category: Core, Networking, Interface, or CRC. Only required for Standards Track. Otherwise, remove this field.
+category: Core, Data Availability, Networking, Interface, or CRC. Only required for Standards Track. Otherwise, remove this field.
 created: Date created on, in ISO 8601 (yyyy-mm-dd) format
 requires: CIP number(s). Only required when you reference an CIP in the `Specification` section. Otherwise, remove this field.
 ---
