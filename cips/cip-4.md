@@ -1,4 +1,5 @@
 ---
+cip: 4
 title: Standardize data expiry time for pruned nodes
 description: Standardize default data expiry time for pruned nodes to 30 days.
 author: Mustafa Al-Bassam (@musalbas)
