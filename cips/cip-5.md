@@ -1,4 +1,5 @@
 ---
+cip: 5
 title: Rename data availability to data publication
 description: Renaming data avaiability to data publication to better reflect the message
 author: msfew (@fewwwww) <msfew@hyperoracle.io>, Kartin <kartin@hyperoracle.io>, Xiaohang Yu (@xhyumiracle)
