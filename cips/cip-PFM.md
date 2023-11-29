@@ -207,8 +207,10 @@ packet amount if the fee percentage is non-zero.
 ## Security Considerations
 
 The origin sender (sender on the first chain) is retained in case of a failure to receive the packet (max-timeouts or ack error) on any chain in the sequence, so funds will be refunded to the right sender in the case of an error.
-Any intermediate receivers, though, are not used anymore. PFM will receive the funds into the hashed account (hash of sender from previous chain + channel received on the current chain). This gives a deterministic account for the origin sender to see events on intermediate chains. With PFM's atomic acks (examples on README), there is no possibility of funds getting stuck on an intermediate chain, they will either make it to the final destination successfully, or be refunded back to the origin sender.
-Then, as a bonus, we can recommend that users set the intermediate receivers to a string such as "pfm" (since PFM does not care what the intermediate receiver is), so that in case users accidentally send a packet intended for PFM to a chain that does not have PFM, they will get an ack error and refund instead of funds landing in the intermediate receiver account. I.e it gives us a PFM detection mechanism with a graceful error.
+
+Any intermediate receivers, though, are not used anymore. PFM will receive the funds into the hashed account (hash of sender from previous chain + channel received on the current chain). This gives a deterministic account for the origin sender to see events on intermediate chains. With PFM's atomic acks, there is no possibility of funds getting stuck on an intermediate chain, they will either make it to the final destination successfully, or be refunded back to the origin sender.
+
+We recommend that users set the intermediate receivers to a string such as "pfm" (since PFM does not care what the intermediate receiver is), so that in case users accidentally send a packet intended for PFM to a chain that does not have PFM, they will get an ack error and refunded instead of funds landing in the intermediate receiver account. This results in a PFM detection mechanism with a graceful error.
 
 ## Copyright
 
