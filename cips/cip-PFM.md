@@ -16,13 +16,15 @@ This CIP integrates Packet Forward Middleware, the IBC middleware that enables m
 
 ## Specification
 
-The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in RFC 2119 and RFC 8174.
+_The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in RFC 2119 and RFC 8174._
 
-Celestia MUST import and integrate Packet Forward Middleware. This integration SHOULD use defaults for the following configs: [Retries On Timeout, Timeout Period, Refund Timeout, Fee Percentage]. Celestia MAY choose different values for these configs if the community would rather have auto-retries, different timeout periods, and/or collect fees from forwarded packets.
+- Celestia MUST import and integrate Packet Forward Middleware. 
+- This integration SHOULD use defaults for the following configs: [`Retries On Timeout`, `Timeout Period`, `Refund Timeout`, `Fee Percentage`]. 
+- Celestia MAY choose different values for these configs if the community would rather have auto-retries, different timeout periods, and/or collect fees from forwarded packets.
 
 ## Rationale
 
-The defaults set in Packet Forward Middleware ensure sensible timeouts so user funds are returned in a timely manner after incomplete transfers. Timeout follows IBC defaults and Refund Timeout is 28 days to ensure funds don't remain stuck in the packet forward module. Retries On Timeout is defaulted to 0, as app developers or cli users may want to control this themselves. Fee Percentage is defaulted to 0 for superior user experience; however, the Celestia community may decide to collect fees as a revenue source.
+The defaults set in Packet Forward Middleware ensure sensible timeouts so user funds are returned in a timely manner after incomplete transfers. `Timeout` follows IBC defaults and `Refund Timeout` is 28 days to ensure funds don't remain stuck in the packet forward module. `Retries On Timeout` is defaulted to 0, as app developers or cli users may want to control this themselves. `Fee Percentage` is defaulted to 0 for superior user experience; however, the Celestia community may decide to collect fees as a revenue source.
 
 ## Backwards Compatibility
 
@@ -32,8 +34,8 @@ The defaults set in Packet Forward Middleware ensure sensible timeouts so user f
 
 The integration steps include the following:
 1. Import the PFM, initialize the PFM Module & Keeper, initialize the store keys and module params, and initialize the Begin/End Block logic and InitGenesis order.
-2. Configure the IBC application stack including the transfer module.
-3. Configuration of additional options such as timeout period, number of retries on timeout, refund timeout period, and fee percentage.
+2. Configure the IBC application stack (including the transfer module).
+3. Configuration of additional options such as `timeout period`, number of `retries on timeout`, `refund timeout` period, and `fee percentage`.
 
 Integration of the PFM should take approximately 20 minutes.
 
@@ -193,10 +195,10 @@ can be used to take a fee from each forwarded packet which will then be distribu
 `OnRecvPacket` callback `ForwardTransferPacket` is invoked which will attempt to subtract a fee from the forwarded
 packet amount if the fee percentage is non-zero.
 
-- Retries On Timeout - how many times will a forward be re-attempted in the case of a timeout.
-- Timeout Period - how long can a forward be in progress before giving up.
-- Refund Timeout - how long can a forward be in progress before issuing a refund back to the original source chain.
-- Fee Percentage - % of the forwarded packet amount which will be subtracted and distributed to the community pool.
+- `Retries On Timeout`: how many times will a forward be re-attempted in the case of a timeout.
+- `Timeout Period`: how long can a forward be in progress before giving up.
+- `Refund Timeout`: how long can a forward be in progress before issuing a refund back to the original source chain.
+- `Fee Percentage`: % of the forwarded packet amount which will be subtracted and distributed to the community pool.
 
 ## Security Considerations
 
