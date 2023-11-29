@@ -10,12 +10,6 @@ created: Date created on, in ISO 8601 (yyyy-mm-dd) format
 ---
 <!-- markdownlint-disable MD013 -->
 
-> Note:
-**READ CIP-1 BEFORE USING THIS TEMPLATE!**
-This is the suggested template for new CIPs. After you have filled in the requisite fields, please delete these comments. Note that an CIP number will be assigned by an editor. When opening a pull request to submit your CIP, please use an abbreviated title in the filename, `cip-draft_title_abbrev.md`. The title should be 44 characters or less. It should not repeat the CIP number in title, irrespective of the category.
-
-**TODO: Remove the note before submitting**
-
 ## Abstract
 
 This CIP integrates Packet Forward Middleware, the IBC middleware that enables multi-hop IBC and path unwinding to preserve fungibility for IBC-transferred tokens.
