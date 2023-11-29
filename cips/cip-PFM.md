@@ -216,11 +216,9 @@ packet amount if the fee percentage is non-zero.
 
 ## Security Considerations
 
-All CIPs must contain a section that discusses the security implications/considerations relevant to the proposed change. Include information that might be important for security discussions, surfaces risks and can be used throughout the life cycle of the proposal. For example, include security-relevant design decisions, concerns, important discussions, implementation-specific guidance and pitfalls, an outline of threats and risks and how they are being addressed. CIP submissions missing the "Security Considerations" section will be rejected. An CIP cannot proceed to status "Final" without a Security Considerations discussion deemed sufficient by the reviewers.
-
-The current placeholder is acceptable for a draft.
-
-**TODO: Remove the previous comments before submitting**
+The origin sender (sender on the first chain) is retained in case of a failure to receive the packet (max-timeouts or ack error) on any chain in the sequence, so funds will be refunded to the right sender in the case of an error.
+Any intermediate receivers, though, are not used anymore. PFM will receive the funds into the hashed account (hash of sender from previous chain + channel received on the current chain). This gives a deterministic account for the origin sender to see events on intermediate chains. With PFM's atomic acks (examples on README), there is no possibility of funds getting stuck on an intermediate chain, they will either make it to the final destination successfully, or be refunded back to the origin sender.
+Then, as a bonus, we can recommend that users set the intermediate receivers to a string such as "pfm" (since PFM does not care what the intermediate receiver is), so that in case users accidentally send a packet intended for PFM to a chain that does not have PFM, they will get an ack error and refund instead of funds landing in the intermediate receiver account. I.e it gives us a PFM detection mechanism with a graceful error.
 
 ## Copyright
 
