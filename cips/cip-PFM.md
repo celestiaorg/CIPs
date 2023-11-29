@@ -34,16 +34,6 @@ The defaults set in Packet Forward Middleware ensure sensible timeouts so user f
 
 *"No backward compatibility issues found."*
 
-## Test Cases
-
-This section is optional.
-
-The Test Cases section should include expected input/output pairs, but may include a succinct set of executable tests. It should not include project build files. No new requirements may be be introduced here (meaning an implementation following only the Specification section should pass all tests here.)
-
-If the test suite is too large to reasonably be included inline, then consider adding it as one or more files in `../assets/cip-####/`. External links will not be allowed
-
-**TODO: Remove the previous comments before submitting**
-
 ## Reference Implementation
 
 The integration steps include the following:
@@ -169,7 +159,7 @@ Here is an example of how to create an application stack using `transfer` and `p
 The following `transferStack` is configured in `app/app.go` and added to the IBC `Router`. 
 The in-line comments describe the execution flow of packets between the application stack and IBC core.
 
-For more information on configuring an IBC application stack see the ibc-go docs [here](https://github.com/cosmos/ibc-go/blob/main/docs/middleware/ics29-fee/integration.md#configuring-an-application-stack-with-fee-middleware).
+For more information on configuring an IBC application stack see the ibc-go docs
 
 
 ```go
