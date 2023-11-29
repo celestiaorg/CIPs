@@ -53,7 +53,7 @@ The integration steps include the following:
 
 Integration of the PFM should take approximately 20 minutes.
 
-# Example integration of the Packet Forward Middleware
+### Example integration of the Packet Forward Middleware
 
 ```go
 // app.go
@@ -163,7 +163,7 @@ func initParamsKeeper(appCodec codec.BinaryCodec, legacyAmino *codec.LegacyAmino
 }
 ```
 
-# Configuring the transfer application stack with Packet Forward Middleware
+### Configuring the transfer application stack with Packet Forward Middleware
 
 Here is an example of how to create an application stack using `transfer` and `packet-forward-middleware`. 
 The following `transferStack` is configured in `app/app.go` and added to the IBC `Router`. 
@@ -197,7 +197,7 @@ transferStack = packetforward.NewIBCMiddleware(
 ibcRouter.AddRoute(ibctransfertypes.ModuleName, transferStack)
 ```
 
-# Configurable options in the Packet Forward Middleware
+### Configurable options in the Packet Forward Middleware
 
 The Packet Forward Middleware has several configurable options available when initializing the IBC application stack. 
 You can see these passed in as arguments to `packetforward.NewIBCMiddleware` and they include the number of retries that
