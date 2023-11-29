@@ -24,11 +24,11 @@ This CIP integrates Packet Forward Middleware, the IBC middleware that enables m
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in RFC 2119 and RFC 8174.
 
-Celestia MUST import and integrate Packet Forward Middleware. This integration SHOULD use sensible defaults for the following configs: [Retries On Timeout, Timeout Period, Refund Timeout, Fee Percentage].
+Celestia MUST import and integrate Packet Forward Middleware. This integration SHOULD use defaults for the following configs: [Retries On Timeout, Timeout Period, Refund Timeout, Fee Percentage]. Celestia MAY choose different values for these configs if the community would rather have auto-retries, different timeout periods, and/or collect fees from forwarded packets.
 
 ## Rationale
 
-**TODO: What are the recommended defaults?**
+The defaults set in Packet Forward Middleware ensure sensible timeouts so user funds are returned in a timely manner after incomplete transfers. Timeout follows IBC defaults and Refund Timeout is 28 days to ensure funds don't remain stuck in the packet forward module. Retries On Timeout is defaulted to 0, as app developers or cli users may want to control this themselves. Fee Percentage is defaulted to 0 for superior user experience; however, the Celestia community may decide to collect fees as a revenue source.
 
 ## Backwards Compatibility
 
