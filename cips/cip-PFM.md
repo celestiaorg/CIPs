@@ -18,19 +18,7 @@ This is the suggested template for new CIPs. After you have filled in the requis
 
 ## Abstract
 
-The Abstract is a multi-sentence (short paragraph) technical summary. This should be a very terse and human-readable version of the specification section. Someone should be able to read only the abstract to get the gist of what this specification does.
-
-**TODO: Remove the previous comments before submitting**
-
-## Motivation
-
-This section is optional.
-
-The motivation section should include a description of any nontrivial problems the CIP solves. It should not describe how the CIP solves those problems, unless it is not immediately obvious. It should not describe why the CIP should be made into a standard, unless it is not immediately obvious.
-
-With a few exceptions, external links are not allowed. If you feel that a particular resource would demonstrate a compelling case for your CIP, then save it as a printer-friendly PDF, put it in the assets folder, and link to that copy.
-
-**TODO: Remove the previous comments before submitting**
+This CIP integrates Packet Forward Middleware, the IBC middleware that enables multi-hop IBC and path unwinding to preserve fungibility for IBC-transferred tokens.
 
 ## Specification
 
@@ -42,7 +30,11 @@ It is recommended to follow RFC 2119 and RFC 8170. Do not remove the key word de
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in RFC 2119 and RFC 8174.
 
+Celestia MUST import and integrate Packet Forward Middleware. This integration SHOULD use sensible defaults for the following configs: [Retries On Timeout, Timeout Period, Refund Timeout, Fee Percentage].
+
 ## Rationale
+
+**TODO: What are the recommended defaults?**
 
 The rationale fleshes out the specification by describing what motivated the design and why particular design decisions were made. It should describe alternate designs that were considered and related work, e.g. how the feature is supported in other languages.
 
