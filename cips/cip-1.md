@@ -1,10 +1,10 @@
 ---
 cip: 1
 title: Celestia Improvement Proposal Process and Guidelines
+author: Yaz Khoury <yaz@celestia.org>
 status: Last Call
 last-call-deadline: 2023-12-13
 type: Meta
-author: Yaz Khoury <yaz@celestia.org>
 created: 2023-04-13
 ---
 
@@ -260,7 +260,7 @@ the following parts:
 
 * **Preamble**: RFC 822 style headers containing metadata about the CIP,
   including the CIP number, a short descriptive title (limited to a maximum
-  of 44 characters), a description (limited to a maximum of 140 characters),
+  of 44 words), a description (limited to a maximum of 140 words),
   and the author details. Regardless of the category, the title and description
   should not include the CIP number. See below for details.
 * **Abstract**: A multi-sentence (short paragraph) technical summary that
@@ -291,7 +291,8 @@ the following parts:
   This section can be omitted for non-Core proposals.
 * **Reference Implementation (optional)**: This optional section contains
   a reference/example implementation that people can use to better understand
-  or implement the specification. This section can be omitted for all CIPs.
+  or implement the specification. This section can be omitted for all CIPs (
+  mandatory for Core CIPs to reach the Final stage).
 * **Security Considerations**: All CIPs must include a section discussing
   relevant security implications and considerations. This section should
   provide information critical for security discussions, expose risks, and
