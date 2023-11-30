@@ -9,7 +9,6 @@ category: Core, Data Availability, Networking, Interface, or CRC. Only required 
 created: Date created on, in ISO 8601 (yyyy-mm-dd) format
 requires: CIP number(s). Only required when you reference an CIP in the `Specification` section. Otherwise, remove this field.
 ---
-<!-- markdownlint-disable MD013 -->
 
 > Note:
 **READ CIP-1 BEFORE USING THIS TEMPLATE!**
@@ -92,4 +91,3 @@ The current placeholder is acceptable for a draft.
 ## Copyright
 
 Copyright and related rights waived via [CC0](../LICENSE).
-<!-- markdownlint-disable MD013 -->
