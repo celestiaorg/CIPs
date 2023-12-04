@@ -199,6 +199,10 @@ packet amount if the fee percentage is non-zero.
 - `Refund Timeout`: how long can a forward be in progress before issuing a refund back to the original source chain.
 - `Fee Percentage`: % of the forwarded packet amount which will be subtracted and distributed to the community pool.
 
+## Test Cases
+
+Testing cases will be added later to this CIP
+
 ## Security Considerations
 
 The origin sender (sender on the first chain) is retained in case of a failure to receive the packet (max-timeouts or ack error) on any chain in the sequence, so funds will be refunded to the right sender in the case of an error.
