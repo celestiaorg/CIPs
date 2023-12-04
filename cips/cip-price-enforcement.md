@@ -30,7 +30,7 @@ We define the gas price as the fee divided by the gas. In other words, this is t
 
 Both of these rules are block validity rules. Correct validators will vote `nil` or against the proposal if the proposed block contains any transaction that violates these two rules.
 
-Note that validators may in addition set their own constraints as to what they deem acceptable in a proposed block. For example, they may only propose blocks with a gas-price that is higher than the global minimum. However, correct validators, SHOULD gossip all valid transactions that are above the defined minimum gas price and not their own local price.
+Note that validators may in addition set their own constraints as to what they deem acceptable in a proposed block. For example, they may only propose blocks with a gas-price that is higher than the global minimum. However, correct validators, SHOULD gossip all valid transactions that are above the defined global minimum gas price and not their own local price.
 
 This minimum gas price SHOULD be queryable by client implementations.
 
@@ -44,9 +44,17 @@ Lastly, this change removes the possible incongruity that would form when it com
 
 ## Backwards Compatibility
 
-This requires a modification to the block validity rules and is thus breaks the state machine. It will need to be introduced in a major release.
+This requires a modification to the block validity rules and thus breaks the state machine. It will need to be introduced in a major release.
 
 It is important to consider that if this minimum gas price becomes more dynamic that wallets will need to be modified to continually query the network for the latest minimum gas price to be used for transaction submission.
+
+## Test Cases
+
+The target for testing will be to remove the ability for block proposers to offer block space to users in a way that circumvents the fee system currently in place. The exact tests cases will be expanded on later
+
+## Reference Implementation
+
+This section will be revised and fulfilled following its implementation
 
 ## Security Considerations
 
