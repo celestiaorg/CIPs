@@ -1,4 +1,5 @@
 ---
+cip: 7
 title: Managing Working Groups in the Celestia Improvement Proposal Process
 description: A guide to effectively managing working groups within the Celestia Improvement Proposal process.
 author: Yaz Khoury
@@ -59,7 +60,7 @@ The rationale for this approach is based on established practices in standardiza
 
 ## Security Considerations
 
-The management of working groups primarily involves process and communication security. Ensuring transparent and secure communication channels and document management practices is essential.
+The management of working groups primarily involves process and communication security. Ensuring transparent and secure communication channels and documenting management practices is essential.
 
 ## Copyright
 
