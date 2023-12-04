@@ -1,4 +1,5 @@
 ---
+cip: 6
 title: Price enforcement
 description: Enforce payment of the gas for a transaction based on a global minimum price 
 author: Callum Waters (@cmwaters)
@@ -51,11 +52,11 @@ It is important to consider that if this minimum gas price becomes more dynamic 
 
 ## Test Cases
 
-The target for testing will be to remove the ability for block proposers to offer block space to users in a way that circumvents the fee system currently in place. The exact tests cases will be expanded on later
+The target for testing will be to remove the ability for block proposers to offer block space to users in a way that circumvents the fee system currently in place. The exact tests cases will be expanded on later.
 
 ## Reference Implementation
 
-This section will be revised and fulfilled following its implementation
+This section will be revised and fulfilled following its implementation.
 
 ## Security Considerations
 
