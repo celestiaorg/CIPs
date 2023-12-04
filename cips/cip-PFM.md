@@ -27,7 +27,7 @@ The defaults set in Packet Forward Middleware ensure sensible timeouts so user f
 
 ## Backwards Compatibility
 
-*"No backward compatibility issues found."*
+No backward compatibility issues found.
 
 ## Reference Implementation
 
@@ -210,4 +210,3 @@ We recommend that users set the intermediate receivers to a string such as "pfm"
 ## Copyright
 
 Copyright and related rights waived via [CC0](../LICENSE).
-<!-- markdownlint-disable MD013 -->
