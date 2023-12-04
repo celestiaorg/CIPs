@@ -6,9 +6,8 @@ discussions-to: URL
 status: Draft
 type: Standards Track
 category: Core
-created: Date created on, in ISO 8601 (yyyy-mm-dd) format
+created: 2023-12-01
 ---
-<!-- markdownlint-disable MD013 -->
 
 ## Abstract
 
