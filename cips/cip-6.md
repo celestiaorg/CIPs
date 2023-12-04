@@ -3,6 +3,7 @@ cip: 6
 title: Price enforcement
 description: Enforce payment of the gas for a transaction based on a global minimum price 
 author: Callum Waters (@cmwaters)
+discussions-to: https://forum.celestia.org/t/cip-006-price-enforcement/1351
 status: Draft
 type: Standards Track
 category: Core
