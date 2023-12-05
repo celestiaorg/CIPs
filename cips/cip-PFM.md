@@ -17,8 +17,14 @@ This CIP integrates Packet Forward Middleware, the IBC middleware that enables m
 
 _The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in RFC 2119 and RFC 8174._
 
+The packet-forward-middleware is an IBC middleware module built for Cosmos blockchains utilizing the IBC protocol. A chain which incorporates the packet-forward-middleware is able to route incoming IBC packets from a source chain to a destination chain.
+
 - Celestia MUST import and integrate Packet Forward Middleware. 
-- This integration SHOULD use defaults for the following configs: [`Retries On Timeout`, `Timeout Period`, `Refund Timeout`, `Fee Percentage`]. 
+- This integration SHOULD use defaults for the following configs: [`Retries On Timeout`, `Timeout Period`, `Refund Timeout`, `Fee Percentage`].
+ - Retries On Timeout - how many times will a forward be re-attempted in the case of a timeout.
+ - Timeout Period - how long can a forward be in progress before giving up.
+ - Refund Timeout - how long can a forward be in progress before issuing a refund back to the original source chain.
+ - Fee Percentage - % of the forwarded packet amount which will be subtracted and distributed to the community pool.
 - Celestia MAY choose different values for these configs if the community would rather have auto-retries, different timeout periods, and/or collect fees from forwarded packets.
 
 ## Rationale
