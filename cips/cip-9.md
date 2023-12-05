@@ -1,4 +1,5 @@
 ---
+cip: 9
 title: Packet Forward Middleware
 description: Adopt Packet Forward Middleware for multi-hop IBC and path unwinding
 author: Alex Cheng (@akc2267)
