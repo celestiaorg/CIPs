@@ -1,4 +1,5 @@
 ---
+cip: 6
 title: Price enforcement
 description: Enforce payment of the gas for a transaction based on a global minimum price 
 author: Callum Waters (@cmwaters)
