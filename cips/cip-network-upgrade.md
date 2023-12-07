@@ -34,7 +34,7 @@ message MsgSignalVersion {
 message MsgTryUpgrade { string signer = 1; }
 ```
 
-Only validators can submit `MsgSignalVersion` . The Celestia state machine tracks which version each validator has signalled for. The signalled version MUST either be the same version or the next. There is no support for skipping versions or downgrading.
+Only validators can submit `MsgSignalVersion`. The Celestia state machine tracks which version each validator has signalled for. The signalled version MUST either be the same version or the next. There is no support for skipping versions or downgrading.
 
 Clients may query the tally for each version as follows:
 
