@@ -4,7 +4,7 @@ title: Price enforcement
 description: Enforce payment of the gas for a transaction based on a global minimum price 
 author: Callum Waters (@cmwaters)
 discussions-to: https://forum.celestia.org/t/cip-006-price-enforcement/1351
-status: Draft
+status: Review
 type: Standards Track
 category: Core
 created: 2023-11-30
@@ -52,11 +52,28 @@ It is important to consider that if this minimum gas price becomes more dynamic 
 
 ## Test Cases
 
-The target for testing will be to remove the ability for block proposers to offer block space to users in a way that circumvents the fee system currently in place. The exact tests cases will be expanded on later.
+The target for testing will be to remove the ability for block proposers to offer block space to users in a way that circumvents the fee system currently in place.
 
 ## Reference Implementation
 
-This section will be revised and fulfilled following its implementation.
+In order to ensure transaction validity with respect to having a minimum balance to cover the gas allocated, the `celestia-app` go implementation requires a small change to `ProcessProposal`, namely:
+
+```diff
+sdkTx, err := app.txConfig.TxDecoder()(tx)
+if err != nil {
+- // we don't reject the block here because it is not a block validity
+- // rule that all transactions included in the block data are
+- // decodable
+- continue
++ return reject()
+}
+```
+
+Note, that no changes are required to `PrepareProposal` or within `CheckTx` as these functions already check that the received bytes can be decoded into the CosmosSDK `Tx` type. All other checks are already in place.
+
+The mechanism to enforce a minimum fee is already in place in the `DeductFeeDecorator`. Currently, this is the validators locally set value sourced from their config. Instead this will be replaced with the `global_min_gas_price`, which resides within the `sdk.Context`. This value will initially be hardcoded to `0.002utia` until a dynamic pricing mechanism is implemented.
+
+The minimum gas price can already be queried through the gRPC client.
 
 ## Security Considerations
 
