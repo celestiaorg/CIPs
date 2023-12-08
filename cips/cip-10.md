@@ -1,4 +1,5 @@
 ---
+cip: 10
 title: Coordinated network upgrades
 description: Protocol for coordinating major network upgrades
 author: Callum Waters (@cmwaters)
