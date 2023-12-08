@@ -66,6 +66,10 @@ This feature modifies the functionality of the state machine in a breaking way a
 
 As the API is additive, there is no need to consider backwards compatibility for clients.
 
+## Reference Implementation
+
+TBA
+
 ## Security Considerations
 
 See the section on rationale for understanding the network halting risk.
