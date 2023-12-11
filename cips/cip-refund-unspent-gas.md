@@ -2,7 +2,7 @@
 title: Refund unspent gas
 description: Refund allocated but unspent gas to the transaction fee payer.
 author: Rootul Patel (@rootulp)
-discussions-to: URL
+discussions-to: https://forum.celestia.org/t/cip-refund-unspent-gas/1374
 status: Draft
 type: Standards Track
 category: Core
