@@ -1,6 +1,7 @@
 ---
+cip: 12
 title: ICS-29 Relayer Incentivisation Middleware
-description: Adding ics-29 to celestia to move towards sustainable relayer funding for IBC
+description: Adding ics-29 to Celestia to move towards sustainable relayer funding for IBC
 author: Susannah Evans susannah@interchain.io @womensrights, Aditya Sripal aditya@interchain.io @AdityaSripal
 discussions-to: URL
 status: Draft
@@ -563,11 +564,11 @@ In order for an incentivized chain to maintain backwards compatibility with an u
 
 ## Test Cases
 
-To Do
+TBA
 
 ## Reference Implementation
 
-The implementation of this specification can be found in the ibc-go respository.
+The implementation of this specification can be found in the [ibc-go respository](https://github.com/cosmos/ibc-go).
 
 
 ## Security Considerations
@@ -576,7 +577,7 @@ All CIPs must contain a section that discusses the security implications/conside
 
 The current placeholder is acceptable for a draft.
 
-##### Correctness
+### Correctness
 
 The fee module is responsible for correctly escrowing and distributing funds to the provided relayers. The ack and timeout relayers are trivially retrievable since they are the senders of the acknowledgment and timeout message. The forward relayer is responsible for registering their source address before sending `recvPacket` messages, so that the destination fee middleware can embed this address in the acknowledgement. The fee middleware on source will then use the address in acknowledgement to pay the forward relayer on the source chain.
 
