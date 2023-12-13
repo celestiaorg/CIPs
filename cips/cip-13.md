@@ -1,8 +1,9 @@
 ---
-title: Mainnet Governance Parameters for Celestia Network
+cip: 13
+title: On-chain Governance Parameters for Celestia Network
 description: Specification of Mainnet governance parameters in the Celestia network
 author: Yaz Khoury <yaz@celestia.org>,  Evan Forbes <evan@celestia.org>
-discussions-to: URL
+discussions-to: https://forum.celestia.org/t/cip-13-mainnet-on-chain-governance-parameters/1390
 status: Draft
 type: Standards Track
 category: Core
@@ -11,7 +12,7 @@ created: 2023-12-08
 
 ## Abstract
 
-This CIP outlines the governance parameters for the Celestia Mainnet. It details both global and module-specific parameters, including their default settings, summaries, and whether they are changeable via governance. This CIP serves as a foundation for ensuring transparent and effective governance processes on the Celestia Mainnet.
+This CIP outlines the on-chain governance parameters for the Celestia Mainnet. It details both global and module-specific parameters, including their default settings, summaries, and whether they are changeable via on-chain governance. This CIP serves as a reference to making on-chain governance parameters in their current status on Celestia Mainnet transparent for all contributors.
 
 ## Motivation
 
@@ -19,11 +20,11 @@ Given the Celestia community and core developers are adopting the CIP process, i
 
 Because of that, the recommendation for this CIP is to move towards being a Living status for a document as on-chain governance parameters will change over time.
 
-Furthermore, the motivation of adding on-chain governance parameters as a reference CIP in the CIP process is to ensure discussions about on-chain parameters can still happen off-chain and in the Core Devs Calls and working groups given those are steered by the core developers of the Celestia community. This doesn't necessarily need to apply to parameters that are not part of the Core track of the CIP process.
+Furthermore, the motivation for adding on-chain governance parameters as a reference CIP in the CIP process is to ensure discussions about on-chain parameters can still happen off-chain and in the Core Devs Calls and working groups given those are steered by the core developers of the Celestia community. This does not necessarily need to apply to parameters that are not part of the Core track of the CIP process.
 
 ## Specification
 
-These are the parameters that are active on Celestia Mainnet. Note that not all of these parameters are changeable via governance. This list also includes parameter that require a hardfork to change due to being manually hardcoded in the application or they are blocked by the `x/paramfilter` module. The Celestia Mainnet governance parameters are as follows:
+These are the parameters that are active on Celestia Mainnet. Note that not all of these parameters are changeable via on-chain governance. This list also includes parameter that require a hardfork to change due to being manually hardcoded in the application or they are blocked by the `x/paramfilter` module. The Celestia Mainnet on-chain governance parameters are as follows:
 
 ### Global parameters
 
@@ -85,13 +86,13 @@ These are the parameters that are active on Celestia Mainnet. Note that not all 
 
 ## Rationale
 
-This section will cover the rationale of making a CIP to track Mainnet on-chain governance parameters is to help the CIP process be the primarily specification reference over time for those parameters. Parameters change over time, some can be added in future CIPs and authors can update this CIP doc with future ones in order to conveniently reflect the changes that are active on Celestia Mainnet. 
+This section will cover the rationale of making a CIP to track Mainnet on-chain governance parameters to help the CIP process be the primary specification reference over time for those parameters. Parameters change over time, some can be added in future CIPs and authors can update this CIP doc with future ones to conveniently reflect the changes that are active on Celestia Mainnet. 
 
-This is the primary reason for recommending this document becomes a Living document. Futhermore as mentioned in the Motivation section, it helps ensure that changes to on-chain governance parameters happen off-chain due to ensuring the client teams in the Core Devs Call ensure rough consensus prior to proposing changes to consensus-critical on-chain governance parameters and activations that require a network upgrade.
+This is the primary reason for recommending this document become a Living document. Furthermore as mentioned in the Motivation section, it helps ensure that changes to on-chain governance parameters happen off-chain due to ensuring the client teams in the Core Devs Call ensure rough consensus before proposing changes to consensus-critical on-chain governance parameters and activations that require a network upgrade.
 
 ## Backwards Compatibility
 
-The proposed parameters are intended for the Mainnet and some of the parameters do require a hardfork, so that introduces backward incompatibility after a network upgrade if one of those values needs to be changed.
+The proposed parameters are intended for the Mainnet and some of the parameters do require a hardfork, which introduces backward incompatibility after a network upgrade if one of those values needs to be changed.
 
 ## Security Considerations
 
