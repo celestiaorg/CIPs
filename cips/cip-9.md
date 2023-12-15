@@ -208,7 +208,12 @@ packet amount if the fee percentage is non-zero.
 
 ## Test Cases
 
-Testing cases will be added later to this CIP
+The targets for testing will be:
+1. Successful path unwinding from gaia-testnet-1 to celestia-testnet to gaia-testnet-2
+2. Proper refunding in a multi-hop IBC flow if any step returns a `recv_packet` error
+3. Ensure `Retries On Timeout` config works, with the intended number of retry attempts upon hitting the `Timeout Period`
+4. Ensure `Refund Timeout` issues a refund when a forward is in progress for too long
+5. If `Fee Percentage` is not set to 0, ensure the proper token amount is claimed from packets and sent to the Community Pool.
 
 ## Security Considerations
 
