@@ -8,6 +8,10 @@ type: Meta
 created: 2023-04-13
 ---
 
+| CIP | Title | Author | Status | Last Call Deadline | Type | Created |
+|-----|-------|--------|--------|-------------------|------|---------|
+| {{ $frontmatter.cip }} | {{ $frontmatter.title }} | {{ $frontmatter.author }} | {{ $frontmatter.status }} | {{ new Date($frontmatter['last-call-deadline']).toISOString().split('T')[0] }} | {{ $frontmatter.type }} | {{ new Date($frontmatter.created).toISOString().split('T')[0] }} |
+
 ## Table of Contents
 
 * What is a CIP?
