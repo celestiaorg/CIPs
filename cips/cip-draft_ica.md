@@ -1,46 +1,26 @@
 ---
-title: The CIP title is a few words, not a complete sentence
-description: Description is one full (short) sentence
-author: a comma separated list of the author’s or authors’ name + GitHub username (in parenthesis), or name and email (in angle brackets). Example, FirstName LastName (@GitHubUsername), FirstName LastName foo@bar.com, FirstName (@GitHubUsername) and GitHubUsername (@GitHubUsername)
-discussions-to: URL
+title: ICS-27 Interchain Accounts 
+description: Adding ICS-27 Interchain Accounts to Celestia to enable cross-chain account management
+author:  Susannah Evans <susannah@interchain.io> (@womensrights), Aidan Salzmann <aidan@stridelabs.co> (@asalzmann)
+discussions-to: TODO
 status: Draft
-type: Standards Track, Meta, or Informational
-category: Core, Data Availability, Networking, Interface, or CRC. Only required for Standards Track. Otherwise, remove this field.
-created: Date created on, in ISO 8601 (yyyy-mm-dd) format
-requires: CIP number(s). Only required when you reference an CIP in the `Specification` section. Otherwise, remove this field.
+type: Standards Track
+category: Core
+created: 2023-12-20
 ---
-
-> Note:
-**READ CIP-1 BEFORE USING THIS TEMPLATE!**
-This is the suggested template for new CIPs. After you have filled in the requisite fields, please delete these comments. Note that an CIP number will be assigned by an editor. When opening a pull request to submit your CIP, please use an abbreviated title in the filename, `cip-draft_title_abbrev.md`. The title should be 44 characters or less. It should not repeat the CIP number in title, irrespective of the category.
-
-**TODO: Remove the note before submitting**
 
 ## Abstract
 
-The Abstract is a multi-sentence (short paragraph) technical summary. This should be a very terse and human-readable version of the specification section. Someone should be able to read only the abstract to get the gist of what this specification does.
-
-**TODO: Remove the previous comments before submitting**
 
 ## Motivation
 
-This section is optional.
-
-The motivation section should include a description of any nontrivial problems the CIP solves. It should not describe how the CIP solves those problems, unless it is not immediately obvious. It should not describe why the CIP should be made into a standard, unless it is not immediately obvious.
-
-With a few exceptions, external links are not allowed. If you feel that a particular resource would demonstrate a compelling case for your CIP, then save it as a printer-friendly PDF, put it in the assets folder, and link to that copy.
-
-**TODO: Remove the previous comments before submitting**
 
 ## Specification
+The specification has been copied directly from the ICS-27 specification approved in the ibc protocol repository.
 
-The Specification section should describe the syntax and semantics of any new feature. The specification should be detailed enough to allow competing, interoperable implementations for any of the current Celestia clients (celestia-node, celestia-core, celestia-app).
+### Definitions
 
-It is recommended to follow RFC 2119 and RFC 8170. Do not remove the key word definitions if RFC 2119 and RFC 8170 are followed.
 
-**TODO: Remove the previous comments before submitting**
-
-The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in RFC 2119 and RFC 8174.
 
 ## Rationale
 
