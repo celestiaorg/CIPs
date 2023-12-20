@@ -2,7 +2,7 @@
 title: ICS-27 Interchain Accounts 
 description: Adding ICS-27 Interchain Accounts to Celestia to enable cross-chain account management
 author:  Susannah Evans <susannah@interchain.io> (@womensrights), Aidan Salzmann <aidan@stridelabs.co> (@asalzmann)
-discussions-to: TODO
+discussions-to: [TODO]
 status: Draft
 type: Standards Track
 category: Core
@@ -888,41 +888,19 @@ func initParamsKeeper(appCodec codec.BinaryCodec, legacyAmino *codec.LegacyAmino
 
 ## Rationale
 
-The rationale fleshes out the specification by describing what motivated the design and why particular design decisions were made. It should describe alternate designs that were considered and related work, e.g. how the feature is supported in other languages.
-
-The current placeholder is acceptable for a draft.
-
-**TODO: Remove the previous comments before submitting**
+[COPY FROM GOOGLE DOC ONCE COMPLETE]
 
 ## Backwards Compatibility
 
-This section is optional.
-
-All CIPs that introduce backwards incompatibilities must include a section describing these incompatibilities and their severity. The CIP must explain how the author proposes to deal with these incompatibilities. CIP submissions without a sufficient backwards compatibility treatise may be rejected outright.
-
-The current placeholder is acceptable for a draft: *"No backward compatibility issues found."*
-
-**TODO: Remove the previous comments before submitting**
+No backward compatibility issues found
 
 ## Test Cases
 
-This section is optional.
-
-The Test Cases section should include expected input/output pairs, but may include a succinct set of executable tests. It should not include project build files. No new requirements may be be introduced here (meaning an implementation following only the Specification section should pass all tests here.)
-
-If the test suite is too large to reasonably be included inline, then consider adding it as one or more files in `../assets/cip-####/`. External links will not be allowed
-
-**TODO: Remove the previous comments before submitting**
+TBA
 
 ## Reference Implementation
 
-This section is optional.
-
-The Reference Implementation section should include a minimal implementation that assists in understanding or implementing this specification. It should not include project build files. The reference implementation is not a replacement for the Specification section, and the proposal should still be understandable without it.
-
-If the reference implementation is too large to reasonably be included inline, then consider adding it as one or more files in `../assets/cip-####/`. External links will not be allowed.
-
-**TODO: Remove the previous comments before submitting**
+The implementation of this specification can be found in the [ibc-go respository](https://github.com/cosmos/ibc-go).
 
 ## Security Considerations
 
