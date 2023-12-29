@@ -4,7 +4,7 @@ title: Rename data availability to data publication
 description: Renaming data avaiability to data publication to better reflect the message
 author: msfew (@fewwwww) <msfew@hyperoracle.io>, Kartin <kartin@hyperoracle.io>, Xiaohang Yu (@xhyumiracle)
 discussions-to: https://forum.celestia.org/t/informational-cip-rename-data-availability-to-data-publication/1287
-status: Draft
+status: Review
 type: Informational
 created: 2023-11-06
 ---
@@ -23,6 +23,8 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 The term `data availability` is RECOMMENDED to be renamed to `data publication`.
 
+`Data availability` in existing works, such as research papers and docs, and cohesive terms, such as `data availability sampling`, MAY retain the existing wording.
+
 ## Rationale
 
 Motivations:
@@ -33,6 +35,7 @@ Motivations:
 Alternative designs:
 - `Proof of publication`: While intuitive, it differs in structure from `data availability` and may be too closely associated with terms like `proof of work`, potentially causing confusion within consensus-related mechanisms.
 - `Data availability proof`: While logically coherent, it may create issues when used in conjunction with other terms, as the emphasis falls on "proof". For instance, "verify a rollup's data availability" and "verify a rollup's data availability proof" might not refer to the same concept.
+- `Data caching`: While indicative of the intended time frame of the existence of proof of publication, the term "caching" is not widely adopted within the context of blockchain networks.
 
 ## Copyright
 
