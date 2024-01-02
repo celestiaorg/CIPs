@@ -1,7 +1,7 @@
 ---
 title: ICS-27 Interchain Accounts 
 description: Adding ICS-27 Interchain Accounts to Celestia to enable cross-chain account management
-author:  Susannah Evans <susannah@interchain.io> (@womensrights), Aidan Salzmann <aidan@stridelabs.co> (@asalzmann)
+author:  Susannah Evans <susannah@interchain.io> (@womensrights), Aidan Salzmann <aidan@stridelabs.co> (@asalzmann), Sam Pochyly <sam@stridelabs.co> (@sampocs)
 discussions-to: [TODO]
 status: Draft
 type: Standards Track
