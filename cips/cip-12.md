@@ -564,7 +564,18 @@ In order for an incentivized chain to maintain backwards compatibility with an u
 
 ## Test Cases
 
-TBA
+The targets for testing will be:
+
+1. Channel handshake with a fee-enabled counterparty will setup a fee-enabled channel.
+2. Channel handshake with a non-fee-enabled counterparty will automatically downgrade to a non-fee-enabled channel.
+3. Packet sent on fee-enabled channel without a fee set can still be relayed.
+4. RecvFee set by the packet sender will be paid out to relayer who sent RecvPacket upon packet lifecycle completion.
+5. AckFee set by the packet sender will be paid out to relayer who sent AckPacket upon packet lifecycle completeion.
+6. TimeoutFee set by the packet sender will be paid out to relayer who sent TimeoutPacket upon packet lifecycle completion.
+7. Any additional funds escrowed by sender that isn't sent to relayers will be refunded to original escrower(s).
+8. Additional fees may be escrowed after initial fee payment before packet lifecycle completes.
+
+All of the above have been tested in end-to-end tests on the ibc-go repository. See [e2e tests](https://github.com/cosmos/ibc-go/blob/main/e2e/tests/transfer/incentivized_test.go).
 
 ## Reference Implementation
 
