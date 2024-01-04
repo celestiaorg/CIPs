@@ -11,11 +11,19 @@ created: 2023-12-20
 
 ## Abstract
 
-[COPY FROM GOOGLE DOC ONCE COMPLETE]
+This proposal outlines the integration of the Interchain Accounts (ICA) host implementation into Celestia, as defined by ICS-27. ICS-27 specifies a cross-chain account management system built on IBC. The ICS-27 implementation consists of a module at both ends of an IBC channel, enabling one chain to act as the account controller, and the other chain to act as the account manager and message recipient. Messages are sent from the controller chain and executed by the host chain. Most of the largest IBC-enabled blockchains have had ICA enabled for more than a year (Cosmos Hub, Osmosis, Neutron, Stride). The integration of the host ICA module into Celestia would enhance interoperability with external chains, specifically in the context of liquid staking and other DeFi applications.
 
 ## Motivation
 
-[COPY FROM GOOGLE DOC ONCE COMPLETE]
+ICS-27 enabled chains can programmatically create ICAs (interchain accounts) on other ICS-27 enabled chains and control ICAs via IBC transactions (instead of signing with a private key). ICAs can retain all of the capabilities of a normal account (i.e. stake, send, vote) but instead are managed by a separate chain via IBC such that the owner account on the controller chain retains full control over any interchain account(s) it registers on host chain(s). The host chain (Celestia) can restrict which messages ICAs have access to call in an “allow list”.
+
+ICA is secure, minimal, and battle-tested. Secure: ICA one of a few core apps implemented by the ibc go team. The ICA implementation has been audited by Informal Systems. Minimal: Adding ICA to a chain is around 100 LoC, and the controller module itself is lightweight. Battle-tested: ICA modules have been used in production on most large IBC enabled chains for more than a year, and ICAs currently hold hundreds of millions of dollars.
+
+While ICAs are flexible and enable numerous use cases, they’ve mainly been used for liquid staking. Liquid staking has high product market fit in crypto, evidenced by Lido on Ethereum, which holds the highest TVL of any DeFi protocol. Its popularity stems from key advantages over native staking for many users: it gives users liquidity on their stake, while still accumulating staking rewards and decreases the DeFi hurdle rate (e.g. you can lend your stake to earn additional yield). 
+
+It’s necessary to implement liquid staking in a way that’s as safe and aligned as possible, since it’s close to the metal of PoS networks. LSPs can accumulate a large share of stake and impact the decentralization of the network, depending on how validators are selected. Given the high market demand for liquid staked TIA and impact LSPs can have on network decentralization, Celestia’s LSPs should align with Celestia’s core values: decentralization, trust minimization, and community governance. The current market offerings for liquid staking, while functional, fall short of these core principles by adding additional layers of trust and centralization risk (~$10M has been liquid staked on Celestia so far, custodied by a multisig). Multisig custody is suboptimal for a few reasons: custodians have arbitrary protocol ugprade powers, key management is complex ($1B+ has been stolen from multisig protocols due to key compromises), and custodians aren’t slashable. However, the main risk is that the market doesn’t care; recently defi projects using multisig custody have attracted over $1B.
+
+By enabling ICA on an accelerated timeline, Celestia can enable battle-tested protocols like Stride to provide more decentralized, trust-minimized liquid staking services that are more credibly governed by the Celestia community.
 
 ## Specification
 
