@@ -896,7 +896,7 @@ func initParamsKeeper(appCodec codec.BinaryCodec, legacyAmino *codec.LegacyAmino
 
 ## Backwards Compatibility
 
-No backward compatibility issues found
+This proposal is backwards-incompatible because it is state-machine breaking. The feature must be released introduced in a new major version.
 
 ## Test Cases
 
