@@ -4,7 +4,7 @@ title: Refund unspent gas
 description: Refund allocated but unspent gas to the transaction fee payer.
 author: Rootul Patel (@rootulp)
 discussions-to: https://forum.celestia.org/t/cip-refund-unspent-gas/1374
-status: Draft
+status: Withdrawn
 type: Standards Track
 category: Core
 created: 2023-12-07
@@ -52,7 +52,7 @@ TBA
 
 ## Reference Implementation
 
-TBA
+<https://github.com/celestiaorg/celestia-app/pull/2887>
 
 ## Security Considerations
 
@@ -60,9 +60,10 @@ TBA
 
 This proposal has implications on how many transactions can be processed in a block. Currently `consensus/max_gas = -1` which means there is no upper bound on the amount of gas consumed in a block. However, if this proposal is implemented AND the `consensus/max_gas` parameter is modified, then a single transaction could prevent other transactions from being included in the block by specifying a large gas limit and actually consuming a small amount of gas. Since the unspent gas would be refunded to the fee payer, an attacker could perform this attack for low cost. Notably, this attack vector arises because the block gas meter is deducted by `BaseApp.runTx` after transaction processing.
 
-Proposed mitigation strategy:
+Proposed mitigation strategies:
 
-Consider bounding the amount of gas that can be refunded to the fee payer. For example bound the amount of gas that can be refunded to 50% of the original gas limit.
+1. Consider bounding the amount of gas that can be refunded to the fee payer. For example bound the amount of gas that can be refunded to 50% of the gas consumed.
+1. Make the block gas limit aware of gas refunds. This approach has a prerequisite on celestia-app adopting some flavor of immediate or optimistic execution.
 
 ### Gas metering during unspent gas refund
 
