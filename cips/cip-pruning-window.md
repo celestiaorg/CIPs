@@ -29,9 +29,9 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 Nodes that prune block data SHOULD store and distribute data in blocks that were created in the last 30 days.
 
-On the Celestia data availability network, both pruned and non-pruned nodes MAY advertise themselves under the existing `full` peer discovery topic, in which case the nodes MUST store and distribute data in blocks that were created in the last 30 days.
+On the Celestia data availability network, both pruned and non-pruned nodes MAY advertise themselves under the existing `full` peer discovery tag, in which case the nodes MUST store and distribute data in blocks that were created in the last 30 days.
 
-Non-pruned nodes MAY advertise themselves under a new `archival` topic, in which case the nodes MUST store and distribute data in all blocks.
+Non-pruned nodes MAY advertise themselves under a new `archival` tag, in which case the nodes MUST store and distribute data in all blocks.
 
 Data availability sampling light nodes SHOULD sample blocks created in the last 30 days.
 
