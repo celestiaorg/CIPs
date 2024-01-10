@@ -29,18 +29,21 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 Nodes that prune block data SHOULD store and distribute data in blocks that were created in the last 30 days.
 
+On the Celestia data availability network, both pruned and non-pruned nodes MAY advertise themselves under the existing `full` peer discovery topic, in which case the nodes MUST store and distribute data in blocks that were created in the last 30 days.
+
+Non-pruned nodes MAY advertise themselves under a new `archival` topic, in which case the nodes MUST store and distribute data in all blocks.
+
+Data availability sampling light nodes SHOULD sample blocks created in the last 30 days.
+
 ## Rationale
 
 30 days is chosen for the following reasons:
 * Data availability sampling light nodes need to at least sample data within the Tendermint weak subjectivity period of 21 days in order to independently verify the data availability of the chain, and so they need to be able to sample data up to at least 21 days old.
 * 30 days ought to be a reasonable amount of time for data to be downloaded from the chain by any application that needs it.
-* EIP-4844 also proposes [30 days](https://notes.ethereum.org/@vbuterin/proto_danksharding_faq#If-data-is-deleted-after-30-days-how-would-users-access-older-blobs).
 
 ## Backwards Compatibility
 
-On the Celestia data availability network, there is only one topic under which storage nodes can be discovered, where all nodes discovered under that topic are expected to be non-pruned nodes.
-
-An additional new topic will be created for pruned nodes, so that nodes discovered under the existing topic will not unexpectedly have missing block data when being queried.
+TODO
 
 ## Security Considerations
 
