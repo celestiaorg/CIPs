@@ -1,7 +1,7 @@
 ---
 title: Standardize data expiry time for pruned nodes
 description: Standardize default data expiry time for pruned nodes to 30 days.
-author: Mustafa Al-Bassam (@musalbas)
+author: Mustafa Al-Bassam (@musalbas), Rene Lubov (@renaynay)
 discussions-to: URL
 status: Draft
 type: Standards Track
@@ -33,7 +33,7 @@ On the Celestia data availability network, both pruned and non-pruned nodes MAY 
 
 Non-pruned nodes MAY advertise themselves under a new `archival` tag, in which case the nodes MUST store and distribute data in all blocks.
 
-Data availability sampling light nodes SHOULD sample blocks created in the last 30 days.
+Data availability sampling light nodes SHOULD sample blocks created in the last 30 days (the sampling window).
 
 ## Rationale
 
@@ -45,9 +45,9 @@ Data availability sampling light nodes SHOULD sample blocks created in the last 
 
 The implementation of the sampling window will break backwards compatibility in a few ways: 
 
-1. Light nodes running on older software (without the sampling window) will not be able to sample historical data (blocks older than 30 days) as nodes advertising on the `full` topic will no longer be expected to provide historical blocks. 
-2. Similarly, full nodes running on older software (without the sampling window) will not be able to sync historical blocks without discovering non-pruned nodes on the `archival` topic.
-3. Requesting blobs from historical blocks via a light node or full node will not be possible without discovering non-pruned nodes on the `archival` topic or partial nodes advertising on the topic associated with the namespace of the blobs.
+1. Light nodes running on older software (without the sampling window) will not be able to sample historical data (blocks older than 30 days) as nodes advertising on the `full` tag will no longer be expected to provide historical blocks. 
+2. Similarly, full nodes running on older software will not be able to sync historical blocks without discovering non-pruned nodes on the `archival` tag.
+3. Requesting blobs from historical blocks via a light node or full node will not be possible without discovering non-pruned nodes on the `archival` tag.
 
 ## Security Considerations
 
