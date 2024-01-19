@@ -43,7 +43,11 @@ Data availability sampling light nodes SHOULD sample blocks created in the last 
 
 ## Backwards Compatibility
 
-TODO
+The implementation of the sampling window will break backwards compatibility in a few ways: 
+
+1. Light nodes running on older software (without the sampling window) will not be able to sample historical data (blocks older than 30 days) as nodes advertising on the `full` topic will no longer be expected to provide historical blocks. 
+2. Similarly, full nodes running on older software (without the sampling window) will not be able to sync historical blocks without discovering non-pruned nodes on the `archival` topic.
+3. Requesting blobs from historical blocks via a light node or full node will not be possible without discovering non-pruned nodes on the `archival` topic or partial nodes advertising on the topic associated with the namespace of the blobs.
 
 ## Security Considerations
 
