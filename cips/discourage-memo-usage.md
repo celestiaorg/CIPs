@@ -2,7 +2,7 @@
 title: Discourage memo usage
 description: Discourage memo usage by modifying two auth params.
 author: Rootul Patel (@rootulp), Gabriel Blaut (@nashqueue)
-discussions-to: URL
+discussions-to: https://forum.celestia.org/t/cip-discourage-memo-usage/1508
 status: Draft
 type: Standards Track
 category: Core
