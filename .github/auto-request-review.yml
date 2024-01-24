@@ -1,0 +1,15 @@
+reviewers:
+    defaults:
+      - editors
+    groups:
+      editors:
+        - jcstein
+        - yazzyyaz
+files:
+'**':
+    - editors
+options:
+    ignore_draft: true
+    ignored_keywords:
+        - WIP
+    number_of_reviewers: 2
