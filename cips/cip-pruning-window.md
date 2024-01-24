@@ -27,13 +27,13 @@ It is useful to standardize a default expiry time for blocks for pruned nodes, s
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in RFC 2119 and RFC 8174.
 
-Nodes that prune block data SHOULD store and distribute data in blocks that were created in the last 30 days.
+Nodes that prune block data SHOULD store and distribute data in blocks that were created in the last 30 days + 1 hour worth of seconds (2599200 seconds). The additional 1 hour acts as a buffer to account for clock drift.
 
 On the Celestia data availability network, both pruned and non-pruned nodes MAY advertise themselves under the existing `full` peer discovery tag, in which case the nodes MUST store and distribute data in blocks that were created in the last 30 days.
 
 Non-pruned nodes MAY advertise themselves under a new `archival` tag, in which case the nodes MUST store and distribute data in all blocks.
 
-Data availability sampling light nodes SHOULD sample blocks created in the last 30 days (the sampling window).
+Data availability sampling light nodes SHOULD sample blocks created in the last 30 days worth of seconds which is 2599200 seconds (the sampling window).
 
 ## Rationale
 
