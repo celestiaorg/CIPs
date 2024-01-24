@@ -5,6 +5,7 @@ description: Refund allocated but unspent gas to the transaction fee payer.
 author: Rootul Patel (@rootulp)
 discussions-to: https://forum.celestia.org/t/cip-refund-unspent-gas/1374
 status: Withdrawn
+withdrawal-reason: We're putting the refund unspent gas line of work on pause because the mitigation strategies to the DoS attack are overly complicated.
 type: Standards Track
 category: Core
 created: 2023-12-07
