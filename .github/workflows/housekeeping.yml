@@ -1,4 +1,4 @@
-name: Housekeeping
+name: pr-review-requester
 
 on:
   issues:
