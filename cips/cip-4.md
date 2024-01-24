@@ -3,7 +3,7 @@ title: Standardize data expiry time for pruned nodes
 description: Standardize default data expiry time for pruned nodes to 30 days.
 author: Mustafa Al-Bassam (@musalbas), Rene Lubov (@renaynay)
 discussions-to: URL
-status: Draft
+status: Last Call
 type: Standards Track
 category: Data Availability
 created: 2023-11-23
