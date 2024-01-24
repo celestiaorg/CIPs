@@ -1,4 +1,5 @@
 ---
+cip: 15
 title: Discourage memo usage
 description: Discourage memo usage by modifying two auth params.
 author: Rootul Patel (@rootulp), Gabriel Blaut (@nashqueue)
