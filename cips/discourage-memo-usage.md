@@ -129,6 +129,10 @@ Param                    | Celestia | Cosmos Hub | Osmosis
 
 This proposal is backwards compatible. However, clients that hard-coded gas estimation based on the previous `auth.TxSizeCostPerByte` value will need to be updated.
 
+## Test Cases
+
+1. Test this proposal on Mocha testnet
+
 ## Security Considerations
 
 Since this CIP restricts usage of the memo field, projects that are no longer viable will need to migrate to alternative mechanisms. Ideally project migrate to blob data but as [Data Insertion in Bitcoin's Blockchain](https://www.researchgate.net/publication/345644650_Data_Insertion_in_Bitcoin%27s_Blockchain) points out, there are other mechanisms to store data in a blockchain. The two most applicable alternatives in Celestia's case are:
