@@ -60,7 +60,7 @@ This proposal seeks to realign incentives so that protocol builders are encourag
 
 Given this context, what is the distribution of memo lengths in practice? How often are they used vs. empty?
 
-![Number of txs vs. memo length](../assets/memo-length.svg)
+![Number of txs vs. memo length](../assets/cip-15/memo-length.svg)
 
 Observe that the distribution of memo lengths is spikey at 80 and 59 characters. The spike at 0 is expected (txs by default don't contain a memo). To learn why the other spikes exist, we have to inspect the most common memos:
 
