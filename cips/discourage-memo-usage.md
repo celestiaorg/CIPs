@@ -41,6 +41,13 @@ As of January 17, 2024, 0.51 GiB of data has been published to the Celestia netw
 
 This proposal seeks to realign incentives so that protocol builders are encouraged to favor application-specific namespace blob data over memo fields.
 
+## Specification
+
+Param                    | Current | Proposed
+-------------------------|---------|---------
+`auth.MaxMemoCharacters` | 256     | 16
+`auth.TxSizeCostPerByte` | 10      | 16
+
 ## Rationale
 
 ### `auth.MaxMemoCharacters`
@@ -49,13 +56,13 @@ This proposal seeks to realign incentives so that protocol builders are encourag
 
 1. Crypto exchanges use memos to uniquely identify the user depositing into an exchange.
 
-    Exchange | Memo characters
-    ---------|----------------
-    Binance  | 13
-    Bithumb  | 10
-    Coinbase | 10
-    Gemini   | 13
-    KuCoin   | 10
+Exchange | Memo characters
+---------|----------------
+Binance  | 13
+Bithumb  | 10
+Coinbase | 10
+Gemini   | 13
+KuCoin   | 10
 
 2. Some IBC relayers include the Hermes version in their memo. For [example](https://www.mintscan.io/celestia/tx/5FED84C1DA596EFC7F9005866573B31CC593770C6022B16B60834F1D22365E49?height=556792): `mzonder | hermes 1.7.4+ab73266 (https://hermes.informal.systems)` which is 64 characters.
 
@@ -92,7 +99,7 @@ It is worth noting that `auth.TxSizeCostPerByte` is important outside the contex
 How expensive are transactions after a `auth.TxSizeCostPerByte` increase?
 
 `auth.TxSizeCostPerByte` | MsgSend without memo | MsgSend with 256 character memo | MsgPFB with 256 byte blob
--------------------------|----------------------|---------------------------------|----------------------
+-------------------------|----------------------|---------------------------------|--------------------------
 10                       | 77004 gas            | 79594 gas                       | 67765 gas
 16                       | 78906 gas            | 83050 gas                       | 69763 gas
 100                      | 105534 gas           | 131434 gas                      | 97735 gas
@@ -101,7 +108,7 @@ How expensive are transactions after a `auth.TxSizeCostPerByte` increase?
 Assuming `minimum-gas-prices = "0.002utia"`
 
 `auth.TxSizeCostPerByte` | MsgSend without memo | MsgSend with 256 character memo | MsgPFB with 256 byte blob
--------------------------|----------------------|---------------------------------|----------------------
+-------------------------|----------------------|---------------------------------|--------------------------
 10                       | 154 utia             | 159 utia                        | 135 utia
 16                       | 157 utia (+2%)       | 166 utia (+4%)                  | 139 utia (+3%)
 100                      | 211 utia (+37%)      | 262 utia (+65%)                 | 195 utia (+44%)
