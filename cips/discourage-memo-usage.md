@@ -56,13 +56,13 @@ Param                    | Current | Proposed
 
 1. Crypto exchanges use memos to uniquely identify the user depositing into an exchange.
 
-Exchange | Memo characters
----------|----------------
-Binance  | 13
-Bithumb  | 10
-Coinbase | 10
-Gemini   | 13
-KuCoin   | 10
+    Exchange | Memo characters
+    ---------|----------------
+    Binance  | 13
+    Bithumb  | 10
+    Coinbase | 10
+    Gemini   | 13
+    KuCoin   | 10
 
 2. Some IBC relayers include the Hermes version in their memo. For [example](https://www.mintscan.io/celestia/tx/5FED84C1DA596EFC7F9005866573B31CC593770C6022B16B60834F1D22365E49?height=556792): `mzonder | hermes 1.7.4+ab73266 (https://hermes.informal.systems)` which is 64 characters.
 
@@ -132,6 +132,51 @@ This proposal is backwards compatible. However, clients that hard-coded gas esti
 ## Test Cases
 
 1. Test this proposal on Mocha testnet
+
+## Reference Implementation
+
+Repeat the steps below for tesnet then mainnet.
+
+1. Query the auth params. Verify they match the current values in the [specification](#specification).
+
+    ```bash
+    celestia-appd query auth params
+    ```
+
+1. Create a `proposal.json` file with the following contents
+
+    ```json
+    {
+        "title": "Discourage memo usage",
+        "description": "See CIP-15",
+        "changes": [
+            {
+                "subspace": "auth",
+                "key": "MaxMemoCharacters",
+                "value": "16"
+            },
+            {
+                "subspace": "auth",
+                "key": "TxSizeCostPerByte",
+                "value": "16"
+            }
+        ],
+        "deposit": "10000000000utia"
+    }
+    ```
+
+1. Submit the governance proposal
+
+    ```bash
+    celestia-appd tx gov submit-legacy-proposal param-change proposal.json --from $FROM --fees $FEES --yes
+    ```
+
+1. Reach out to network participants to vote on the proposal.
+1. After the proposal has passed, query the auth params. Verify they match the proposed values in the [specification](#specification).
+
+    ```bash
+    celestia-appd query auth params
+    ```
 
 ## Security Considerations
 
