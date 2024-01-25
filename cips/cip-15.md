@@ -2,7 +2,7 @@
 cip: 15
 title: Discourage memo usage
 description: Discourage memo usage by modifying two auth params.
-author: Rootul Patel (@rootulp), Gabriel Blaut (@nashqueue)
+author: Rootul Patel (@rootulp), NashQueue (@nashqueue)
 discussions-to: https://forum.celestia.org/t/cip-discourage-memo-usage/1508
 status: Draft
 type: Standards Track
@@ -92,9 +92,7 @@ Observe that seven of the top ten are base64 encoded data. Three of the top ten 
 
 ### `auth.TxSizeCostPerByte`
 
-`auth.TxSizeCostPerByte` is the gas cost per byte of a transaction. The current value of 10 is a Cosmos SDK default and it is comparable to the current `blob.GasPerBlobByte` value of 8. In order to discourage the usage of the memo field and encourage the use of blob data, we propose increasing `auth.TxSizeCostPerByte` to 16 so that each memo byte costs roughly twice as much as a blob byte.
-
-It is worth noting that `auth.TxSizeCostPerByte` is important outside the context of transactions memos because this parameter is used for all transaction bytes. Non-memo transaction contents may similarly bloat the `TRANSACTION_NAMESPACE`. For example, [ICS-020](https://github.com/cosmos/ibc/blob/0da326fbedfd2c96aad807ed25e6eafd1399db07/spec/app/ics-020-fungible-token-transfer/README.md?plain=1#L46) token transfers may contain an unbounded memo field. We can expect the usage and size of this memo field to increase if Packet Forward Middleware is adopted (see [CIP-9](./cip-9)).
+`auth.TxSizeCostPerByte` is the gas cost per byte of a transaction. The current value of 10 is a Cosmos SDK default and it is comparable to the current `blob.GasPerBlobByte` value of 8. In order to discourage the usage of the memo field and encourage the use of blob data, we propose increasing `auth.TxSizeCostPerByte` to 16 so that each memo byte costs roughly twice as much as a blob byte. It is worth noting that `auth.TxSizeCostPerByte` is important outside the context of transactions memos because this parameter is used for all transaction bytes. Non-memo transaction contents may similarly bloat the `TRANSACTION_NAMESPACE`.
 
 How expensive are transactions after a `auth.TxSizeCostPerByte` increase?
 
@@ -118,12 +116,16 @@ Therefore, increasing from 10 to 16 is a conserative increase.
 
 ### FAQ
 
-What do other blockchains use for these params?
+**What do other blockchains use for these params?**
 
 Param                    | Celestia | Cosmos Hub | Osmosis
 -------------------------|----------|------------|--------
 `auth.MaxMemoCharacters` | 256      | 512        | 256
 `auth.TxSizeCostPerByte` | 10       | 10         | 10
+
+**How does this proposal affect [ICS-020](https://github.com/cosmos/ibc/blob/0da326fbedfd2c96aad807ed25e6eafd1399db07/spec/app/ics-020-fungible-token-transfer/README.md?plain=1#L46) memos?**
+
+The ICS-20 memo is distinct from the transaction memo so `auth.MaxMemoCharacters` does not constrain the ICS-20 memo field. The ICS-20 memo field counts towards a transaction's bytes so transactions with large ICS-20 memo fields will be more expensive if `auth.TxSizeCostPerByte` is increased. This is relevant because we can expect the usage and size of the ICS-20 memo field to increase if Packet Forward Middleware is adopted (see [CIP-9](./cip-9)).
 
 ## Backwards Compatibility
 
