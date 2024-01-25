@@ -33,7 +33,7 @@ On the Celestia data availability network, both pruned and non-pruned nodes MAY 
 
 Non-pruned nodes MAY advertise themselves under a new `archival` tag, in which case the nodes MUST store and distribute data in all blocks.
 
-Data availability sampling light nodes SHOULD sample blocks created in the last 30 days worth of seconds which is 2599200 seconds (the sampling window).
+Data availability sampling light nodes SHOULD sample blocks created in the last 30 days worth of seconds which is 2592000 seconds (the sampling window).
 
 ## Rationale
 
