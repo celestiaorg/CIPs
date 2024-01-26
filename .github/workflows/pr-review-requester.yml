@@ -1,8 +1,6 @@
 name: pr-review-requester
 
 on:
-  issues:
-    types: [opened]
   pull_request_target:
     types: [opened, ready_for_review]
 
