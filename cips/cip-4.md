@@ -5,6 +5,7 @@ description: Standardize default data expiry time for pruned nodes to 30 days.
 author: Mustafa Al-Bassam (@musalbas), Rene Lubov (@renaynay)
 discussions-to: https://forum.celestia.org/t/cip-standardize-data-expiry-time-for-pruned-nodes/1326
 status: Last Call
+last-call-deadline: 2024-02-07
 type: Standards Track
 category: Data Availability
 created: 2023-11-23
