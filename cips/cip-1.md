@@ -580,6 +580,7 @@ The current CIP editors are
 
 * Yaz Khoury (@YazzyYaz)
 * Josh Stein (@jcstein)
+* Ethan Buchman (@ebuchman)
 
 If you would like to become a CIP editor, please check [CIP-2](./cip-2.md).
 
