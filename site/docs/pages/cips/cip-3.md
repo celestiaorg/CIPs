@@ -65,5 +65,5 @@ The Celestia ecosystem is built on openness and free access, and the CIP process
 
 ## Copyright
 
-Copyright and related rights waived via [CC0](../LICENSE).
+Copyright and related rights waived via [CC0](https://github.com/celestiaorg/CIPs/blob/main/LICENSE).
 <!-- markdownlint-enable MD013 -->

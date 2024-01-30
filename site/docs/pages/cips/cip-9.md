@@ -225,4 +225,4 @@ We recommend that users set the intermediate receivers to a string such as "pfm"
 
 ## Copyright
 
-Copyright and related rights waived via [CC0](../LICENSE).
+Copyright and related rights waived via [CC0](https://github.com/celestiaorg/CIPs/blob/main/LICENSE).

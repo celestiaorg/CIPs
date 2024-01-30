@@ -6,11 +6,18 @@ function addFrontmatterToContent(filePath) {
   const fileContent = fs.readFileSync(filePath, 'utf-8');
   const parsedContent = matter(fileContent);
 
-  // Check if frontmatter already exists
-  if (parsedContent.data.title && parsedContent.data.cip && parsedContent.data.author && parsedContent.data.status && parsedContent.data.type && parsedContent.data.created) {
-    return; // If frontmatter already exists, return without writing the file
+  // Check if frontmatter already exists in the markdown body
+  const frontmatterInBody = parsedContent.content.includes(`**CIP**: ${parsedContent.data.cip}`) &&
+                            parsedContent.content.includes(`**Author**: ${parsedContent.data.author}`) &&
+                            parsedContent.content.includes(`**Status**: ${parsedContent.data.status}`) &&
+                            parsedContent.content.includes(`**Type**: ${parsedContent.data.type}`) &&
+                            parsedContent.content.includes(`**Created**: ${parsedContent.data.created}`);
+
+  if (frontmatterInBody) {
+    return; // If frontmatter already exists in the markdown body, return without writing the file
   }
   
+  // If frontmatter doesn't exist in the markdown body, add it
   let newContent = `# ${parsedContent.data.title}\n\n`;
   newContent += `**CIP**: ${parsedContent.data.cip}\n\n`;
   newContent += `**Author**: ${parsedContent.data.author}\n\n`;
@@ -26,10 +33,6 @@ function addFrontmatterToContent(filePath) {
     newContent += `**Discussions To**: ${parsedContent.data['discussions-to']}\n\n`;
   }
 
-  if (parsedContent.data['last-call-deadline']) {
-    newContent += `**Last Call Deadline**: ${parsedContent.data['last-call-deadline']}\n\n`;
-  }
-
   if (parsedContent.data.category) {
     newContent += `**Category**: ${parsedContent.data.category}\n\n`;
   }
@@ -38,14 +41,9 @@ function addFrontmatterToContent(filePath) {
     newContent += `**Requires**: ${parsedContent.data.requires}\n\n`;
   }
 
-  if (parsedContent.data['withdrawal-reason']) {
-    newContent += `**Withdrawal Reason**: ${parsedContent.data['withdrawal-reason']}\n\n`;
-  }
-
   newContent += parsedContent.content;
 
-  const outputFilePath = path.join('docs/cips', path.relative(directoryPath, filePath));
-  fs.writeFileSync(outputFilePath, newContent, 'utf-8');
+  fs.writeFileSync(filePath, newContent, 'utf-8');
 }
 
 const directoryPath = 'docs/pages/cips';

@@ -10,6 +10,27 @@ created: Date created on, in ISO 8601 (yyyy-mm-dd) format
 requires: CIP number(s). Only required when you reference an CIP in the `Specification` section. Otherwise, remove this field.
 ---
 
+# The CIP title is a few words, not a complete sentence
+
+**CIP**: undefined
+
+**Author**: a comma separated list of the author’s or authors’ name + GitHub username (in parenthesis), or name and email (in angle brackets). Example, FirstName LastName (@GitHubUsername), FirstName LastName foo@bar.com, FirstName (@GitHubUsername) and GitHubUsername (@GitHubUsername)
+
+**Status**: Draft
+
+**Type**: Standards Track, Meta, or Informational
+
+**Created**: Date created on, in ISO 8601 (yyyy-mm-dd) format
+
+**Description**: Description is one full (short) sentence
+
+**Discussions To**: URL
+
+**Category**: Core, Data Availability, Networking, Interface, or CRC. Only required for Standards Track. Otherwise, remove this field.
+
+**Requires**: CIP number(s). Only required when you reference an CIP in the `Specification` section. Otherwise, remove this field.
+
+
 > Note:
 **READ CIP-1 BEFORE USING THIS TEMPLATE!**
 This is the suggested template for new CIPs. After you have filled in the requisite fields, please delete these comments. Note that an CIP number will be assigned by an editor. When opening a pull request to submit your CIP, please use an abbreviated title in the filename, `cip-draft_title_abbrev.md`. The title should be 44 characters or less. It should not repeat the CIP number in title, irrespective of the category.
@@ -90,4 +111,4 @@ The current placeholder is acceptable for a draft.
 
 ## Copyright
 
-Copyright and related rights waived via [CC0](../LICENSE).
+Copyright and related rights waived via [CC0](https://github.com/celestiaorg/CIPs/blob/main/LICENSE).
