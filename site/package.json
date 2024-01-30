@@ -3,11 +3,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vocs dev",
-    "build": "vocs build",
+    "dev": "node addFrontmatter.js && vocs dev",
+    "build": "node addFrontmatter.js && vocs build",
     "preview": "vocs preview"
   },
   "dependencies": {
+    "gray-matter": "^4.0.3",
     "react": "latest",
     "react-dom": "latest",
     "vocs": "latest"

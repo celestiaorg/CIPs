@@ -1,6 +1,9 @@
 import { defineConfig } from 'vocs'
 
 export default defineConfig({
+  theme: {
+    colorScheme: 'system'
+  },
   title: 'CIPs',
   sidebar: [
     {
