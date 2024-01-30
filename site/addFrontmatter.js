@@ -1,6 +1,6 @@
-const fs = require('fs');
-const path = require('path');
-const matter = require('gray-matter');
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
 
 function addFrontmatterToContent(filePath) {
   const fileContent = fs.readFileSync(filePath, 'utf-8');
@@ -44,7 +44,7 @@ function addFrontmatterToContent(filePath) {
 
   newContent += parsedContent.content;
 
-  const outputFilePath = path.join('site/content', path.relative(directoryPath, filePath));
+  const outputFilePath = path.join('docs/cips', path.relative(directoryPath, filePath));
   fs.writeFileSync(outputFilePath, newContent, 'utf-8');
 }
 
