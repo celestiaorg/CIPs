@@ -13,7 +13,7 @@ Read [CIP-1](https://github.com/celestiaorg/CIPs/blob/main/cips/cip-1.md) for in
 
 ## Celestia Improvement Proposals (CIPs)
 
-|  №  |      Title       | Author |
+|  №  |      Title       | Author(s) |
 |:---:|:---------------:|:------:|
 | [1](/cips/cip-1.md) | Celestia Improvement Proposal Process and Guidelines | Yaz Khoury <yaz@celestia.org> |
 | [2](/cips/cip-2.md) | CIP Editor Handbook | Yaz Khoury (@YazzyYaz) |
