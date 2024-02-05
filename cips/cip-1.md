@@ -2,8 +2,7 @@
 cip: 1
 title: Celestia Improvement Proposal Process and Guidelines
 author: Yaz Khoury <yaz@celestia.org>
-status: Last Call
-last-call-deadline: 2023-12-13
+status: Living
 type: Meta
 created: 2023-04-13
 ---
@@ -581,6 +580,7 @@ The current CIP editors are
 
 * Yaz Khoury (@YazzyYaz)
 * Josh Stein (@jcstein)
+* Ethan Buchman (@ebuchman)
 
 If you would like to become a CIP editor, please check [CIP-2](./cip-2.md).
 
