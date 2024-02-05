@@ -57,7 +57,7 @@ The implementation of pruned nodes will break backwards compatibility in a few w
 
 Implementation for light nodes can be quite simple, where a satisfactory implementation merely behaves in that the choice to sample headers should not occur for headers whose timestamp is outside the given sampling window.
 
-Given a hypothetical "sample" function that performs data availability sampling of incoming extended headers from the network, the decision to sample or not should be taken by inspecting the header's timestamp, and ignoring it in any sampling operation if the duration between the header's timestamp and the current time exceeds the duration of the sampling window. For example
+Given a hypothetical "sample" function that performs data availability sampling of incoming extended headers from the network, the decision to sample or not should be taken by inspecting the header's timestamp, and ignoring it in any sampling operation if the duration between the header's timestamp and the current time exceeds the duration of the sampling window. For example:
 
 ```go
 
