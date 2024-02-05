@@ -79,7 +79,7 @@ Pruning of data outside the availability window will be highly implementation sp
 
 A satisfactory implementation would be where any node implementing storage pruning may, if NOT advertising oneself to peers as an archival node on the 'full' topic, discard stored data outside the 30 day availability window. A variety of options exist for how any implementation might schedule pruning of data, and there are no requirements around how this is implemented. The only requirement is merely that the time guarantees around data within the availability window are properly respected, and that data availability nodes correctly advertise themselves to peers.
 
-An example implementation of storage pruning (WIP at time of writing) in [celestia node](https://github.com/celestiaorg/celestia-node/pull/3150/files)
+[An example implementation of storage pruning (WIP at time of writing) in celestia node](https://github.com/celestiaorg/celestia-node/pull/3150/files)
 
 ## Security Considerations
 
