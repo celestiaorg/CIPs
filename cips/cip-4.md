@@ -60,7 +60,6 @@ Implementation for light nodes can be quite simple, where a satisfactory impleme
 Given a hypothetical "sample" function that performs data availability sampling of incoming extended headers from the network, the decision to sample or not should be taken by inspecting the header's timestamp, and ignoring it in any sampling operation if the duration between the header's timestamp and the current time exceeds the duration of the sampling window. For example:
 
 ```go
-
 const windowSize = time.Second * 86400 * 30 // 30 days
 
 func sample(header Header) error{
