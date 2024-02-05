@@ -1,10 +1,10 @@
 ---
 cip: 6
 title: Price enforcement
-description: Enforce payment of the gas for a transaction based on a global minimum price 
+description: Enforce payment of the gas for a transaction based on a governance modifiable global minimum gas price 
 author: Callum Waters (@cmwaters)
 discussions-to: https://forum.celestia.org/t/cip-006-price-enforcement/1351
-status: Last Call
+status: Review
 last-call-deadline: 2024-01-30
 type: Standards Track
 category: Core
@@ -13,7 +13,7 @@ created: 2023-11-30
 
 ## Abstract
 
-Implement a global, consensus-enforced minimum gas price on all transactions. Ensure that all transactions can be decoded and have a valid signer with sufficient balance to cover the cost of the gas allocated in the transaction.
+Implement a global, consensus-enforced minimum gas price on all transactions. Ensure that all transactions can be decoded and have a valid signer with sufficient balance to cover the cost of the gas allocated in the transaction. The minimum gas price can be modified via on-chain governance.
 
 ## Motivation
 
@@ -21,7 +21,7 @@ The Celestia network was launched with the focus on having all the necessary pro
 
 This is not to say that no fee market system exists. Celestia inherited the default system provided by the Cosmos SDK. However, the present system has several inadequacies that need to be addressed in order to achieve better pricing certainty and transaction guarantees for it’s users and to find a “fair” price for both the sellers (validators) and buyers (rollups) of data availability.
 
-This proposal should be viewed as a sub component of a more broader effort and thus it’s scope is strictly focused towards the more foundational aspect of fee enforcement: **ensuring that the value captured goes to those that provided that value**. It does not pertain to actual pricing mechanisms, tipping, refunds, futures and other possible future works.
+This proposal should be viewed as a foundational component of a more broader effort and thus it’s scope is strictly focused towards the enforcement of some minimum fee: **ensuring that the value captured goes to those that provided that value**. It does not pertain to actual pricing mechanisms, tipping, refunds, futures and other possible future works. Dynamic systems like EIP-1559 and uniform price auctions can and should be prioritised only once the network starts to experience congestion over block space.
 
 ## Specification
 
@@ -33,15 +33,20 @@ We define the gas price as the fee divided by the gas. In other words, this is t
 
 Both of these rules are block validity rules. Correct validators will vote `nil` or against the proposal if the proposed block contains any transaction that violates these two rules.
 
-Note that validators may in addition set their own constraints as to what they deem acceptable in a proposed block. For example, they may only propose blocks with a gas-price that is higher than the global minimum. However, correct validators, SHOULD gossip all valid transactions that are above the defined global minimum gas price and not their own local price.
+The global minimum gas price can be modified via on-chain governance.
+
+Note that validators may in addition set their own constraints as to what they deem acceptable in a proposed block. For example, they may only accept transaction with a gas-price that is higher than their locally configured minimum.
 
 This minimum gas price SHOULD be queryable by client implementations.
 
 ## Rationale
 
-The primary rationale for this decision is to prevent the payment system for data availability from migrating off-chain and manifesting in secondary markets. As a concrete example, currently validators would earn more revenue if they convinced users to pay them out of band and set the transaction fee to 0 such that all revenue went to the proposer and none to the rest of the validators/delegators.
+The primary rationale for this decision is to prevent the payment system for data availability from migrating off-chain and manifesting in secondary markets. As a concrete example, currently validators would earn more revenue if they convinced users to pay them out of band and set the transaction fee to 0 such that all revenue went to the proposer and none to the rest of the validators/delegators. This is known as off-chain agreements (OCA)
 
-Having the means to enforce payment also supports the introduction of more advanced payment algorithms in the future.
+There are two other reasons:
+
+- Better UX as clients or wallets can query the on-chain state for the global min gas price whereas currently each node might have a separate min gas price and given the proposer is anonymous it’s difficult to know whether the user is paying a sufficient fee.
+- Easier to coordinate: a governance proposal that is passed automatically updates the state machine whereas to manually change requires telling all nodes to halt, modify their config, and restart their node
 
 Lastly, this change removes the possible incongruity that would form when it comes to gossiping transactions when consensus nodes use different minimum gas prices.
 
@@ -49,7 +54,7 @@ Lastly, this change removes the possible incongruity that would form when it com
 
 This requires a modification to the block validity rules and thus breaks the state machine. It will need to be introduced in a major release.
 
-It is important to consider that if this minimum gas price becomes more dynamic that wallets will need to be modified to continually query the network for the latest minimum gas price to be used for transaction submission.
+Wallets and other transaction submitting clients will need to monitor the minimum gas price and adjust accordingly.
 
 ## Test Cases
 
@@ -70,17 +75,19 @@ if err != nil {
 }
 ```
 
-Note, that no changes are required to `PrepareProposal` or within `CheckTx` as these functions already check that the received bytes can be decoded into the CosmosSDK `Tx` type. All other checks are already in place.
+This will now reject undecodable transactions. Decodable transactions will still have to pass the `AnteHandlers` before being accepted in a block so no further change is required.
 
-The mechanism to enforce a minimum fee is already in place in the `DeductFeeDecorator`. Currently, this is the validators locally set value sourced from their config. Instead this will be replaced with the `global_min_gas_price`, which resides within the `sdk.Context`. This value will initially be hardcoded to `0.002utia` until a dynamic pricing mechanism is implemented.
+A mechanism to enforce a minimum fee is already in place in the `DeductFeeDecorator`. Currently, this is the validators locally set value sourced from their config. To switch to a network-wide value, we introduce a new `param.Subspace` which solely consisty of the min gas price. If this is unpopulated, it will be set to the default value of `0.002utia` (which matches the current local min gas price). As a `param.Subspace`, this value can be modified via governance as can any other parameter.
 
-The minimum gas price can already be queried through the gRPC client.
+The `DeductFeeDecorator` antehandler will receive a new `ante.TxFeeChecker` function called `CheckTxFeeWithGlobalMinGasPrices` which will have access to the same `param.Subspace`. For `CheckTx`, it will use the max of either the global min gas price or the local min gas price. For `PrepareProposal`, `ProcessProposal` and `DeliverTx` it will only check using the global min gas price and ignore the locally set min gas price.
+
+The minimum gas price can already be queried through the gRPC client as can any other parameter. 
 
 ## Security Considerations
 
 Any modification to the block validity rules (through `PrepareProposal` and `ProcessProposal`) introduces implementation risk that may cause the chain to halt.
 
-In the initial version of this where a static value is used, changing the value because it is too high or too low will require another major upgrade and thus the value should begin quite conservative until the dynamic pricing mechanism is introduced.
+Given a voting period of one week, it will take at least one week for the network to update the minimum gas price. This could potentially be too slow given large swings in the underlying price of TIA.
 
 ## Copyright
 
