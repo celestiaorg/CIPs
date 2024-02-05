@@ -72,7 +72,7 @@ func sample(header Header) error{
 }
 ```
 
-Example implementation by [celestia node](https://github.com/celestiaorg/celestia-node/pull/2991)
+[Example implementation by celestia node](https://github.com/celestiaorg/celestia-node/pull/2991)
 
 ### Storage Pruning
 
