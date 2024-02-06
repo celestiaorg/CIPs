@@ -5,7 +5,6 @@ description: Enforce payment of the gas for a transaction based on a governance 
 author: Callum Waters (@cmwaters)
 discussions-to: https://forum.celestia.org/t/cip-006-price-enforcement/1351
 status: Review
-last-call-deadline: 2024-01-30
 type: Standards Track
 category: Core
 created: 2023-11-30
