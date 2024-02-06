@@ -12,10 +12,12 @@ created: 2024-01-21
 
 ## Abstract
 
-This proposal aims to discourage the use of transaction memos in Celestia by modifying two governance parameters:
+This proposal aims to discourage the use of transaction memos in Celestia by modifying two parameters:
 
 - Decrease `auth.MaxMemoCharacters` from 256 to 16.
 - Increase `auth.TxSizeCostPerByte` from 10 to 16.
+
+Additionally, this CIP converts these two parameters from governance modifiable to hard-coded values that are unmodifiable by governance.
 
 ## Motivation
 
@@ -127,58 +129,29 @@ Param                    | Celestia | Cosmos Hub | Osmosis
 
 The ICS-20 memo is distinct from the transaction memo so `auth.MaxMemoCharacters` does not constrain the ICS-20 memo field. The ICS-20 memo field counts towards a transaction's bytes so transactions with large ICS-20 memo fields will be more expensive if `auth.TxSizeCostPerByte` is increased. This is relevant because we can expect the usage and size of the ICS-20 memo field to increase if Packet Forward Middleware is adopted (see [CIP-9](./cip-9)).
 
+**Why convert these params from governance modifiable to hard-coded values?**
+
+The CIP process defined in [CIP-1](./cip-1.md) is distinct from on-chain governance which relies on token voting. The authors of this CIP would rather use the CIP process to reach "rough consensus" than implement the param changes desired via an on-chain governance proposal. Since the CIP process can not enforce the outcome of an on-chain governance vote, this CIP suggests removing the ability for on-chain governance to modify these parameters in favor of explicitly setting them via hard-coded values. Put another way, this CIP moves the authority to modify these parameters from on-chain governance to the CIP process. This is directionally consistent with the rationale for CIPs:
+
+> We intend CIPs to be the primary mechanisms for proposing new features, for collecting community technical input on an issue, and for documenting the design decisions that have gone into Celestia.
+
+One downside of moving these parameters from governance modifiable to CIP modifiable is that they will only be modifiable via subsequent hard-forks which are expected to be less frequent than the current on-chain governance voting period of one week.
+
 ## Backwards Compatibility
 
 This proposal is backwards compatible. However, clients that hard-coded gas estimation based on the previous `auth.TxSizeCostPerByte` value will need to be updated.
 
 ## Test Cases
 
-1. Test this proposal on Mocha testnet
+TBA
 
 ## Reference Implementation
 
-Repeat the steps below for tesnet then mainnet.
+Rough steps:
 
-1. Query the auth params. Verify they match the current values in the [specification](#specification).
-
-    ```bash
-    celestia-appd query auth params
-    ```
-
-1. Create a `proposal.json` file with the following contents
-
-    ```json
-    {
-        "title": "Discourage memo usage",
-        "description": "See CIP-15",
-        "changes": [
-            {
-                "subspace": "auth",
-                "key": "MaxMemoCharacters",
-                "value": "16"
-            },
-            {
-                "subspace": "auth",
-                "key": "TxSizeCostPerByte",
-                "value": "16"
-            }
-        ],
-        "deposit": "10000000000utia"
-    }
-    ```
-
-1. Submit the governance proposal
-
-    ```bash
-    celestia-appd tx gov submit-legacy-proposal param-change proposal.json --from $FROM --fees $FEES --yes
-    ```
-
-1. Reach out to network participants to vote on the proposal.
-1. After the proposal has passed, query the auth params. Verify they match the proposed values in the [specification](#specification).
-
-    ```bash
-    celestia-appd query auth params
-    ```
+1. Add two parameters to the [paramfilter](https://github.com/celestiaorg/celestia-app/tree/main/x/paramfilter) block list.
+1. Define two new versioned constants in the v2 directory for the two proposed parameter values.
+1. Explicitly set the two parameters to the versioned constants defined in step 2.
 
 ## Security Considerations
 
