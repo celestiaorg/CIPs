@@ -40,7 +40,7 @@ Data availability sampling light nodes SHOULD sample blocks created in the last 
 
 30 days worth of seconds (2592000 seconds) is chosen for the following reasons:
 * Data availability sampling light nodes need to at least sample data within the Tendermint weak subjectivity period of 21 days in order to independently verify the data availability of the chain, and so they need to be able to sample data up to at least 21 days old.
-* 30 days worth of seconds (2,592,000 seconds) ought to be a reasonable amount of time for data to be downloaded from the chain by any application that needs it.
+* 30 days worth of seconds (2592000 seconds) ought to be a reasonable amount of time for data to be downloaded from the chain by any application that needs it.
 
 ## Backwards Compatibility
 
