@@ -36,6 +36,12 @@ Non-pruned nodes MAY advertise themselves under a new `archival` tag, in which c
 
 Data availability sampling light nodes SHOULD sample blocks created in the last 30 days worth of seconds (the sampling window of 2592000 seconds).
 
+## Definitions
+
+**Sampling Window** - the period within which light nodes should sample blocks, specified at 30 days worth of seconds. 
+
+**Pruning Window** - the period within which both pruned and non-pruned full storage nodes must store and distribute data in blocks, specified at 30 days + 1 hour worth of seconds. 
+
 ## Rationale
 
 30 days worth of seconds (2592000 seconds) is chosen for the following reasons:
