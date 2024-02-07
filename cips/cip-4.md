@@ -34,19 +34,19 @@ On the Celestia data availability network, both pruned and non-pruned nodes MAY 
 
 Non-pruned nodes MAY advertise themselves under a new `archival` tag, in which case the nodes MUST store and distribute data in all blocks.
 
-Data availability sampling light nodes SHOULD sample blocks created in the last 30 days + 1 hour worth of seconds (the sampling window of 2595600 seconds).
+Data availability sampling light nodes SHOULD sample blocks created in the last 30 days worth of seconds (the sampling window of 2592000 seconds).
 
 ## Rationale
 
-30 days + 1 hour worth of seconds (2595600 seconds) is chosen for the following reasons:
+30 days worth of seconds (2592000 seconds) is chosen for the following reasons:
 * Data availability sampling light nodes need to at least sample data within the Tendermint weak subjectivity period of 21 days in order to independently verify the data availability of the chain, and so they need to be able to sample data up to at least 21 days old.
-* 30 days + 1 hour worth of seconds (2595600 seconds) ought to be a reasonable amount of time for data to be downloaded from the chain by any application that needs it, accounting for clock drift.
+* 30 days worth of seconds (2,592,000 seconds) ought to be a reasonable amount of time for data to be downloaded from the chain by any application that needs it.
 
 ## Backwards Compatibility
 
 The implementation of pruned nodes will break backwards compatibility in a few ways:
 
-1. Light nodes running on older software (without the sampling window) will not be able to sample historical data (blocks older than 30 days + 1 hour) as nodes advertising on the `full` tag will no longer be expected to provide historical blocks.
+1. Light nodes running on older software (without the sampling window) will not be able to sample historical data (blocks older than 30 days) as nodes advertising on the `full` tag will no longer be expected to provide historical blocks.
 2. Similarly, full nodes running on older software will not be able to sync historical blocks without discovering non-pruned nodes on the `archival` tag.
 3. Requesting blobs from historical blocks via a light node or full node will not be possible without discovering non-pruned nodes on the `archival` tag.
 
@@ -59,7 +59,7 @@ Implementation for light nodes can be quite simple, where a satisfactory impleme
 Given a hypothetical "sample" function that performs data availability sampling of incoming extended headers from the network, the decision to sample or not should be taken by inspecting the header's timestamp, and ignoring it in any sampling operation if the duration between the header's timestamp and the current time exceeds the duration of the sampling window. For example:
 
 ```go
-const windowSize = time.Second * 86400 * 30 + (1 * 60 * 60) // 30 days + 1 hour worth of seconds (2595600 seconds)
+const windowSize = time.Second * 86400 * 30 // 30 days worth of seconds (2592000 seconds)
 
 func sample(header Header) error{
     if time.Since(header.Time()) > windowSize {
@@ -82,7 +82,7 @@ A satisfactory implementation would be where any node implementing storage pruni
 
 ## Security Considerations
 
-As discussed in Rationale, data availability sampling light nodes need to at least sample data within the Tendermint weak subjectivity period of 21 days in order to independently verify the data availability of the chain. 30 days + 1 hour of seconds (2595600 seconds) exceeds this.
+As discussed in Rationale, data availability sampling light nodes need to at least sample data within the Tendermint weak subjectivity period of 21 days in order to independently verify the data availability of the chain. 30 days of seconds (2592000 seconds) exceeds this.
 
 ## Copyright
 
