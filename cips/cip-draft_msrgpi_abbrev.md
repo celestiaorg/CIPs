@@ -20,7 +20,6 @@ Consensus protocols play an important role in Celestia. As a Data Availability s
 
 ## Specification
 
-
 |  Param \ Changeable via Governance   | Current | **Proposed**  |
 |:------------------------------------:|:-------:|:-------------:|
 | `consensus.evidence.MaxAgeDuration`  |  True   |   **False**   |
@@ -33,7 +32,6 @@ Consensus protocols play an important role in Celestia. As a Data Availability s
 Adopting an on-chain governance method comes with inherent risks of governance attacks, particularly concerning parameters related to `consensus.evidence`.
 As outlined in the [decentralized governance documentation](https://docs.celestia.org/learn/staking-governance-supply), all holders of the native token TIA can propose and vote on on-chain governance proposals. It is unrealistic to expect the majority of holders to understand the technical details of the protocol and implementation thoroughly. Consequently, on-chain governance participants (a.k.a. TIA holders) may be incentivized (or, in some cases, bribed) to vote for or against a proposal without understanding the potential impact. Any changeable parameter within the `Governance Parameter for Celestia` could be targeted for changes through on-chain governance proposals. Therefore, making security-related parameters unchangeable for the on-chain governance proposal could serve as an effective solution to alleviate introduced risks.
 
-
 ### Inconsistency
 
 | Module.Parameter                     | Default                    | Summary                                                                                                                             | Changeable via Governance |
@@ -44,8 +42,6 @@ As outlined in the [decentralized governance documentation](https://docs.celesti
 | `staking.UnbondingTime`              | 1814400 (21 days)          | Duration of time for unbonding in seconds.                                                                                          | False                     |
 
 This is a part of the table introduced in [CIP-13](cip-13.md). The summary of parameter `consensus.evidence.MaxAgeDuration` states *"...This value should be identical to the unbonding period"*. Meanwhile, the parameter `staking.UnbondingTime` is NOT changeable since the `Changeable via Governance` is set to False. Suppose an on-chain governance proposal tries to modify the default value of `consensus.evidence.MaxAgeDuration` from `1814400000000000 (21 days)` to a different value. It would create an inconsistency between the description and implementation because the modified value would no longer be identical to the unbonding period.
-
-
 
 ### Security Risk
 
@@ -64,16 +60,13 @@ Those two parameters are used in the function of `verify.go`, which is responsib
 
 Additionally, suppose that an on-chain governance proposal sets the `evidence.MaxAgeDuration` and `evidence.MaxAgeNumBlocks` to extremely low values, meaning that evidence expires quickly. If a malicious validator were to engage in Duplicate Vote or Light Client Attack, it would lead to consensus instability. Given that Celestia is a solution data availability, this consensus instability would introduce security risk to the upper-layer applications (e.g. rollup). A detailed discussion can be found in the Security Considerations.
 
-
 ### Summary
 
 In summary, configuring these two parameters as immutable values that can NOT be changed via on-chain governance can mitigate the risks of inconsistency and security issues introduced by unintentional (or malicious) governance activities. Moreover, in the face of a security incident that concerns these parameters, reliance on on-chain governance may be inadequate. Implementing modifications through a hard fork represents a more resilient approach.
 
-
 ## Backwards Compatibility
 
 It maintains backward compatibility provided that NO on-chain governance proposal to change the two parameters has been approved at the time of this CIP implementation.
-
 
 ## Reference Implementation
 
@@ -92,13 +85,11 @@ The above example serves as a conceptual illustration, and `MaxBytes` in `ParamS
 
 Besides, relevant documents should be updated accordingly, such as [Celestia App Specifications](https://github.com/celestiaorg/celestia-app/blob/main/specs/src/specs/params.md)
 
-
 ## Security Considerations
 
 This CIP recommends setting those two parameters as immutable constants that are NOT allowed to change via on-chain governance proposals. Adopting this CIP means future changes about those two parameters require community coordination and hard forks. Although hard forks carry the community-divided risk, it is worth noting that many blockchain communities have successfully navigated multiple hard forks. The risks of division and disagreement can be minimized by having thorough discussions and working towards widespread agreement before moving forward with a hard fork. Consequently, the risk is manageable and should not be a significant concern.
 
 However, if modifications to those two parameters via on-chain governance are allowed to persist, this could not only result in the inconsistency between the protocol and implementation but also introduce the following potential security risks:
-
 
 ### Consensus Instability
 
@@ -124,11 +115,9 @@ However, if modifications to those two parameters via on-chain governance are al
 
 Assuming that `evidence.MaxAgeDuration` and `evidence.MaxAgeNumBlocks` are configured with extremely low values, such a configuration implies that evidence would expire rapidly. Under these conditions, malicious validators might exploit the system by double voting on two blocks simultaneously, potentially leading to temporary network partitions. In the context of a Data Availability solution like Celestia, any instability in consensus could compromise the blob transactions. This situation risks the security and reliability of upper-layer rollups dependent on this infrastructure.
 
-
 ### Resource Consumption
 
 Resource consumption attacks targeting ComeBFT consensus algorithms aim to exploit the resource constraints of nodes within the network. The summary of `consensus.evidence.MaxAgeNumBlocks` states *"...This value will stop CometBFT from pruning block data"*. If the pruned window is set too large, nodes must store all the relevant data for the extended period, which can inundate their storage and memory capacity.
-
 
 ## Copyright
 
