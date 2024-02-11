@@ -58,7 +58,7 @@ func (evpool *Pool) verify(evidence types.Evidence) error {
 
 Those two parameters are used in the function of `verify.go`, which is responsible for verifying whether evidence has expired or not. According to the `if` statement, even without modifying `consensus.evidence.MaxAgeDuration`, it is still possible to prolong the expiration time of evidence by increasing `consensus.evidence.MaxAgeNumBlocks`, which means that older evidence will be considered valid. An extended expiration time of evidence introduces the potential risk of Resource Consumption, and a detailed discussion can be found in the Security Considerations. 
 
-Additionally, suppose that an on-chain governance proposal sets the `evidence.MaxAgeDuration` and `evidence.MaxAgeNumBlocks` to extremely low values, meaning that evidence expires quickly. If a malicious validator were to engage in Duplicate Vote or Light Client Attack, it would lead to consensus instability. Given that Celestia is a solution data availability, this consensus instability would introduce security risk to the upper-layer applications (e.g. rollup). A detailed discussion can be found in the Security Considerations.
+Additionally, suppose that an on-chain governance proposal sets the `evidence.MaxAgeDuration` and `evidence.MaxAgeNumBlocks` to extremely low values, meaning that evidence expires quickly. If a malicious validator were to engage in Duplicate Vote or Light Client Attack, it would lead to consensus instability. Given that Celestia is a solution to data availability, this consensus instability would introduce security risk to the upper-layer applications (e.g. rollup). A detailed discussion can be found in the Security Considerations.
 
 ### Summary
 
