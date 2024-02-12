@@ -16,7 +16,7 @@ Implement a global, consensus-enforced minimum gas price on all transactions. En
 
 | Parameter     | Default | Summary                                                                                                                | Changeable via Governance |
 |---------------|---------|------------------------------------------------------------------------------------------------------------------------|---------------------------|
-| gas.MinimumGasPrice | 0.002utia  | Globally set minimum price per unit of gas                                                            | True                     |
+| minfee.MinimumGasPrice | 0.002utia  | Globally set minimum price per unit of gas                                                            | True                     |
 
 ## Motivation
 
