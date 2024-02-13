@@ -11,16 +11,23 @@ created: 2024-02-02
 
 ## Abstract
 
-This document describes the core of Shwap p2p protocol. Shwap provides scalable and extensible framework for exchanging 
-and swapping of shared data for Celestia's Data Availability network and beyond.
+This document describes a high level overview of the Shwap p2p protocol. Shwap provides scalable and extensible 
+framework for exchanging and swapping of shared data for Celestia's Data Availability network and beyond.
 
 ## Motivation
 
-The Shwap protocol addresses network round trip inefficiencies in Celestia's Data Availability network, initially 
-introduced by adopting the Bitswap protocol and IPFS/IPLD's data access patterns for Data Availability Sampling (DAS) and 
-block synchronization. Despite transitioning to the optimized [ShrEx protocol][shrex] for block synchronization and integrating 
-[CAR and DAGStore-based storage][storage], data sampling performance was left untouched, preserving low network performance. Shwap 
-specifically addresses and mitigates these inefficiencies, improving operations and overall network efficiency.
+Current Data Availability Sampling (DAS) network protocol is inefficient. A _single_ sample operation takes O(log2(N)) network
+round-trips(where N is the square size). This is not practical and does not scale for theoretically unlimited data square
+Celestia network enables. The main motive here is a protocol with O(1) round-trip for _multiple_ samples, preserving 
+the assumption of having a 1/N honest peers connected.
+
+Initially, the Bitswap and IPLD were adopted as a base for the DA network protocols, including DAS, 
+block synchronization (BS) and blob/namespace data retrieval (ND). They gave battle tested protocols and tooling with 
+plugability to rapidly scaffold Celestia's DA network. However, it came with the price of scalability limits and 
+round-trips resulting in BS slower than block production. Before network launch, the transition 
+to the optimized [ShrEx protocol][shrex] for BS and integrating [CAR and DAGStore-based storage][storage] happened 
+optimizing BS and ND. However, DAS was left untouched preserving its weak scalability and roundtrip inefficiency. Shwap 
+specifically addresses these and additionally provides an extensible and flexible framework for BS, ND and beyond. 
 
 ## Specification
 
