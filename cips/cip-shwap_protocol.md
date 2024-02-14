@@ -12,7 +12,8 @@ created: 2024-02-02
 ## Abstract
 
 This document describes a high level overview of the Shwap p2p protocol. Shwap provides scalable and extensible 
-framework for exchanging and swapping of shared data for Celestia's Data Availability network and beyond.
+framework for exchanging and swapping of shared data for Celestia's Data Availability network and beyond. Shwap is a 
+portmanteau of share and swap.
 
 ## Motivation
 
