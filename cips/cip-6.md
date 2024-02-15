@@ -1,6 +1,6 @@
 ---
 cip: 6
-title: Price enforcement
+title: Mininum gas price enforcement
 description: Enforce payment of the gas for a transaction based on a governance modifiable global minimum gas price 
 author: Callum Waters (@cmwaters)
 discussions-to: https://forum.celestia.org/t/cip-006-price-enforcement/1351
@@ -14,13 +14,17 @@ created: 2023-11-30
 
 Implement a global, consensus-enforced minimum gas price on all transactions. Ensure that all transactions can be decoded and have a valid signer with sufficient balance to cover the cost of the gas allocated in the transaction. The minimum gas price can be modified via on-chain governance.
 
+| Parameter     | Default | Summary                                                                                                                | Changeable via Governance |
+|---------------|---------|------------------------------------------------------------------------------------------------------------------------|---------------------------|
+| minfee.MinimumGasPrice | 0.002utia  | Globally set minimum price per unit of gas                                                            | True                     |
+
 ## Motivation
 
 The Celestia network was launched with the focus on having all the necessary protocols in place to provide secure data availability first and to focus on building an effective fee market system that correctly captures that value afterwards.
 
 This is not to say that no fee market system exists. Celestia inherited the default system provided by the Cosmos SDK. However, the present system has several inadequacies that need to be addressed in order to achieve better pricing certainty and transaction guarantees for it’s users and to find a “fair” price for both the sellers (validators) and buyers (rollups) of data availability.
 
-This proposal should be viewed as a foundational component of a more broader effort and thus it’s scope is strictly focused towards the enforcement of some minimum fee: **ensuring that the value captured goes to those that provided that value**. It does not pertain to actual pricing mechanisms, tipping, refunds, futures and other possible future works. Dynamic systems like EIP-1559 and uniform price auctions can and should be prioritised only once the network starts to experience congestion over block space.
+This proposal should be viewed as a foundational component of a broader effort and thus its scope is strictly focused towards the enforcement of some minimum fee: **ensuring that the value captured goes to those that provided that value**. It does not pertain to actual pricing mechanisms, tipping, refunds, futures and other possible future works. Dynamic systems like EIP-1559 and uniform price auctions can and should be prioritised only once the network starts to experience congestion over block space.
 
 ## Specification
 
