@@ -1,4 +1,5 @@
 ---
+cip: 16
 title: Make Security Related Governance Parameters Immutable
 description: Consensus-related parameters should not be modified via on-chain governance in the Celestia network.
 author: Mingpei CAO (@caomingpei)
