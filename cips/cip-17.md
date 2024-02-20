@@ -19,7 +19,7 @@ This Meta CIP lists the CIPs included in the Lemongrass network upgrade.
 ### Included CIPs
 
 - [CIP-10](https://github.com/celestiaorg/CIPs/blob/main/cips/cip-10.md): Coordinated Upgrades
-- [CIP-14](https://github.com/celestiaorg/CIPs/blob/main/cips/cip-1%.md): Interchain Accounts
+- [CIP-14](https://github.com/celestiaorg/CIPs/blob/main/cips/cip-14.md): Interchain Accounts
 - [CIP-9](https://github.com/celestiaorg/CIPs/blob/main/cips/cip-9.md): Packet Forward Middleware
 - [CIP-12](https://github.com/celestiaorg/CIPs/blob/main/cips/cip-12.md): Incentivization middleware ICS-29
 - [CIP-6](https://github.com/celestiaorg/CIPs/blob/main/cips/cip-6.md): Price Enforcement
