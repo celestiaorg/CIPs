@@ -7,7 +7,7 @@ discussions-to: https://forum.celestia.org/t/lemongrass-hardfork/1589
 status: Draft
 type: Meta
 created: 2024-02-16
-requires: [CIP-6](https://github.com/celestiaorg/CIPs/blob/main/cips/cip-6.md), [CIP-9](https://github.com/celestiaorg/CIPs/blob/main/cips/cip-9.md), [CIP-10](https://github.com/celestiaorg/CIPs/blob/main/cips/cip-10.md), [CIP-12](https://github.com/celestiaorg/CIPs/blob/main/cips/cip-12.md), [CIP-14](https://github.com/celestiaorg/CIPs/blob/main/cips/cip-14.md)
+requires: CIP-6, CIP-9, CIP-10, CIP-12, CIP-14
 ---
 
 ## Abstract
