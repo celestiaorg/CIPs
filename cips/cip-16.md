@@ -8,7 +8,7 @@ status: Draft
 type: Standards Track
 category: Core
 created: 2024-02-07
-requires: 13
+requires: [CIP-13](https://github.com/celestiaorg/CIPs/blob/main/cips/cip-13.md)
 ---
 
 ## Abstract
