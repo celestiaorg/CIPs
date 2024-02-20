@@ -1,8 +1,9 @@
 ---
-title: Hardfork Meta - lemongrass
-description: CIPs included in the lemongrass Hardfork
+cip: 17
+title: Lemongrass Hardfork
+description: Reference specifications included in the Lemongrass Hardfork
 author: Evan Forbes (@evan-forbes)
-discussions-to: TODO forum post
+discussions-to: https://forum.celestia.org/t/lemongrass-hardfork/1589
 status: Draft
 type: Meta
 created: 2024-02-16
@@ -11,7 +12,7 @@ requires: [CIP-6](https://github.com/celestiaorg/CIPs/blob/main/cips/cip-6.md), 
 
 ## Abstract
 
-This Meta CIP lists the CIPs included in the lemongrass network upgrade.
+This Meta CIP lists the CIPs included in the Lemongrass network upgrade.
 
 ## Specification
 
@@ -20,14 +21,14 @@ This Meta CIP lists the CIPs included in the lemongrass network upgrade.
 - [CIP-10](https://github.com/celestiaorg/CIPs/blob/main/cips/cip-10.md): Coordinated Upgrades
 - [CIP-14](https://github.com/celestiaorg/CIPs/blob/main/cips/cip-1%.md): Interchain Accounts
 - [CIP-9](https://github.com/celestiaorg/CIPs/blob/main/cips/cip-9.md): Packet Forward Middleware
-- [CIP-12](https://github.com/celestiaorg/CIPs/blob/main/cips/cip-12.md): Incentivization middlewear ICS-29
+- [CIP-12](https://github.com/celestiaorg/CIPs/blob/main/cips/cip-12.md): Incentivization middleware ICS-29
 - [CIP-6](https://github.com/celestiaorg/CIPs/blob/main/cips/cip-6.md): Price Enforcement
 
 All of the above CIPs are state breaking, and thus require a hardfork. The activation of this hardfork will be different from future hardforks, as described in [CIP-10](https://github.com/celestiaorg/CIPs/blob/main/cips/cip-10.md).
 
 ## Rationale
 
-This CIP provides a complete list of breaking changes for the lemongrass upgrade, along with links to those specs.
+This CIP provides a complete list of breaking changes for the Lemongrass upgrade, along with links to those specs.
 
 ## Security Considerations
 
