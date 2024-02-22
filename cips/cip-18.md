@@ -39,12 +39,6 @@ Implement implementations of this inteface for
 Groth16-BN254, Groth16-BLS12377
 PlonK-BN254, PlonK-BLS12377.
 
-
-
-
-
-
-
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in RFC 2119 and RFC 8174.
 
 ## Rationale
