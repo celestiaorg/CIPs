@@ -22,7 +22,7 @@ A more expressive Celestia base layer will enable rollup developers to more tigh
 
 ## Specification
 
-Future CIPs that leverage SNARKs MUST use the following proof systems [GROTH16](https://eprint.iacr.org/2016/260) or [PlonK](https://eprint.iacr.org/2019/953). Future CIP SHOULD use either the BN254 or the BLS-12-377 pairing elleptic curves to instantiate the proof system.
+Future CIPs that leverage SNARKs MUST use the following proof systems [GROTH16](https://eprint.iacr.org/2016/260) or [PlonK](https://eprint.iacr.org/2019/953). Future CIPs SHOULD use either the BN254 or the BLS-12-377 pairing elliptic curves to instantiate the proof system.
 
 To implement these future CIPs, the [GNARK library](https://github.com/Consensys/gnark) is recommended as a Go implementation. Celestia-core SHOULD add a release that conforms to the Security Considerations section.
 
