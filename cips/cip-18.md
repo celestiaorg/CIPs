@@ -9,7 +9,6 @@ category: Core
 created: 2024-02-20
 ---
 
-
 ## Abstract
 
 This CIP proposes to add the GNARK library which contains the implementation of multiple pairing based Elleptic curves, the GROTH16 and PLONK proof systems. Adding this function to Celestia Core enables future CIPS to develop protocols that rely on proofs generated with these tools.
