@@ -26,7 +26,7 @@ Future CIPs that leverage SNARKs MUST use the following proof systems [GROTH16](
 
 To implement these future CIPs, the [GNARK library](https://github.com/Consensys/gnark) is reccomended as a GO implementation. celestia-core SHOULD add a release that conforms to the Security Considerations section.
 
-Implement  a new SNARK interface in the crypto package.
+Implement a new SNARK interface in the crypto package.
 
 ```golang
 
