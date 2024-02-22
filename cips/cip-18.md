@@ -18,7 +18,7 @@ This CIP proposes to add the GNARK library which contains the implementation of 
 
 ## Motivation
 
-A more expressive Celestia base layer will enable rollup developers to more tightly integrate their protocols with the TIA asset and interoperate with core protocol features like staking, slashing, governance. Celestia's core value is keep the the base layer as minimal as possible. This precludes integrating an expressive smart contract language for integrating with the base layer. Snarks provide a useful compromise. The succinctness property of a SNARK means that a developer can extend the Celestia base layer with an extremely small state footprint.
+A more expressive Celestia base layer will enable rollup developers to more tightly integrate their protocols with the TIA asset and interoperate with core protocol features like staking, slashing, governance. Celestia's core value is keep the the base layer as minimal as possible. This precludes integrating an expressive smart contract language for integrating with the base layer. SNARKs provide a useful compromise. The succinctness property of a SNARK means that a developer can extend the Celestia base layer with an extremely small state footprint.
 
 ## Specification
 
