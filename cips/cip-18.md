@@ -1,7 +1,7 @@
 ---
 title: Support ZK-SNARKS via GNARK in the Celestia Core cryptography
 description: Add the GNARK library to the Celestia Core codebase and make it available as an implementation tool for future CIPs.
-author: Sam Hart (@hxrts), Barry Plunkett (@bpiv400),Kristi Poldsam (@poldsam), Zaki Manian (@zmanian)
+author: Sam Hart (@hxrts), Barry Plunkett (@bpiv400), Kristi Poldsam (@poldsam), Zaki Manian (@zmanian)
 discussions-to: 
 status: Draft
 type: Standards Track
