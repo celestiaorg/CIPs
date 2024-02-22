@@ -29,11 +29,9 @@ To implement these future CIPs, the [GNARK library](https://github.com/Consensys
 Implement a new SNARK interface in the crypto package.
 
 ```golang
-
 type SNARK interface{
    Verify{[]bytes Proof} bool
 }
-
 ```
 
 Implement implementations of this inteface for 
