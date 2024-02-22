@@ -44,20 +44,15 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 The authors prefer these solutions.
 
-1. GNARK is the most mature SNARK implementation in Go. Rust is by far the most popular language for ZK cryptography development. Other implementations would require embedding rust code in the celestia-core build system and making FFI calls. This will have cascading implications for the entire build, test, deploy process for Celestia. The authors prefer to defer these burdens until a future CIP.
+1. GNARK is the most mature SNARK implementation in Go. Rust is by far the most popular language for ZK cryptography development. Other implementations would require embedding Rust code in the celestia-core build system and making foreign function interface (FFI) calls. This will have cascading implications for the entire build, test, deploy process for Celestia. The authors prefer to defer these burdens until a future CIP.
 
-2. BN254 is available as a Ethereum precompile as a result there a wide range of tools, trusted setup artifacts and more that target this curve.
+2. BN254 is available as a Ethereum precompile; as a result there a wide range of tools, trusted setup artifacts and more that target this curve.
 
 3. BLS12-377 has the property of enabling effecient depth 1 recursions. This makes it a compelling choice for protocols that benefit from either privacy or aggregation of proofs. There is a also a wide range of tools available for this curve because of prior usage in protocols like Celo.
 
 4. GROTH16 has been in production since ZCash's sapling protocol. It represents the MVP of SNARK proof systems. It can also act as "universal adapter" for other proof systems because there circuits that verify other proof systems available. GROTH16 requires a two phase trusted setup. The first phase is universal for a given circuit size but the second phase 
 
 5. PlonK is a widely adapted SNARK that features a "universal" trusted setup. This means that for a target circuit size the trusted setup needs to only be performed once. This is a differentiator from Groth16 that might be of substantial interest to future CIP authors.
-
-
-
-
-
 
 ## Backwards Compatibility
 
@@ -88,7 +83,7 @@ GNARK has only had a limited audit that covers only a portion of functionality.
 The scope of this work is a code audit of the Product written in Go, with a particular attention to safe implementation of hashing, randomness generation, protocol verification, and potential for misuse and leakage of secrets. The client has noted that constant-time analysis of the Product is out of scope of this audit. The target of the audit was the cryptographic code related to the elliptic curves BLS12- 381 and BN254 at https://github.com/ConsenSys/gnark-crypto. The BN254 curve is also named alt_bn128 in different context [6]. We audited the commit number: 450e0206211eea38bbb5b5ffddf262efe65bd011 of the repository/
 ```
 
-The Audit scope required to deploy GNARK on celestia would require auditing the BLS-12-377 implementation, the GROTH16 verifier and PLONK verifier.
+The Audit scope required to deploy GNARK on Celestia would require auditing the BLS-12-377 implementation, the GROTH16 verifier and PLONK verifier.
 
 Production deployment should be blocked until such an audit is completed.
 ## Copyright
