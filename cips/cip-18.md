@@ -100,9 +100,6 @@ The scope of this work is a code audit of the Product written in Go, with a part
 The Audit scope required to deploy GNARK on celestia would require auditing the BLS-12-377 implementation, the GROTH16 verifier and PLONK verifier.
 
 Production deployment should be blocked until such an audit is completed.
-
-
-
 ## Copyright
 
 Copyright and related rights waived via [CC0](../LICENSE).
