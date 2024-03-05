@@ -346,6 +346,12 @@ However, new bugs may be introduced, as with any new protocol.
 Protobuf is a widely adopted serialization format and is used within Celestia's protocols. This was quite an obvious choice
 for consistency reasons, even though we could choose other more efficient and advanced formats like Cap'n Proto.
 
+### Sampling and Reconstruction
+
+Shwap deliberately avoids specifying sampling and reconstruction logic The sampling concerns on randomness selection and 
+sample picking are out of Shwap's scope and a matter of following CIPs. Shwap only provides messaging for sampling(via
+[SampleID](#sampleid) and [Sample container](#sample-container)). 
+
 ## Reference Implementation
 
 - [Go reference implementation with Bitswap composition][gimpl]
