@@ -315,8 +315,8 @@ should be extended whenever any new share identifier is added.
 
 | Name     | Multihash | Codec  |
 |----------|-----------|--------|
-| RowID    | 0x7811    | 0x7810 |
-| SampleID | 0x7801    | 0x7800 |
+| RowID    | 0x7801    | 0x7800 |
+| SampleID | 0x7811    | 0x7810 |
 | DataID   | 0x7821    | 0x7820 |
 
 ## Backwards Compatibility
