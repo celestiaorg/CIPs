@@ -15,23 +15,23 @@ This document specifies Shwap - the simple and expressive yet extensible and fut
 solve critical inefficiencies and standardize messaging of Celestia's Data Availability p2p network.
 
 Shwap defines a messaging framework to be exchanged around the DA p2p network in a trust-minimized way without enforcing
-transport(QUIC/TCP or IP) or application layer protocol semantics(e.g., HTTP/x). Using this framework, Shwap
+transport (QUIC/TCP or IP) or application layer protocol semantics (e.g., HTTP/x). Using this framework, Shwap
 declares the most common messages and provides options for stacking them with lower-level protocols.
 Shwap can be stacked together with application protocol like HTTP/x, [KadDHT][kaddht], [Bitswap][bitswap] or any custom
 protocol.
 
 ## Motivation
 
-The current Data Availability Sampling (DAS) network protocol is inefficient. A _single_ sample operation takes log2(k)
+The current Data Availability Sampling (DAS) network protocol is inefficient. A _single_ sample operation takes log₂(k)
 network roundtrips (where k is the square size). This is not practical and does not scale for the theoretically unlimited
 data square that the Celestia network enables. The main motive here is a protocol with O(1) roundtrip for _multiple_
-samples, preserving the assumption of having 1/n honest peers connected.
+samples, preserving the assumption of having 1/N honest peers connected.
 
 Initially, Bitswap and IPLD were adopted as the basis for the DA network protocols, including DAS,
 block synchronization (BS), and blob/namespace data retrieval (ND). They gave battle-tested protocols and tooling with
 pluggability to rapidly scaffold Celestia's DA network. However, it came with the price of scalability limits and
 roundtrips, resulting in slower BS than block production. Before the network launch, the transition
-to the optimized [ShrEx protocol][shrex] for BS and integrating [CAR and DAGStore-based storage][storage] happened
+to the optimized [ShrEx protocol][shrex] for BS and integrating [CAR and DAGStore-based storage][storage] happened,
 optimizing BS and ND. However, DAS was left untouched, preserving its weak scalability and roundtrip inefficiency.
 
 Shwap messaging stacked together with Bitswap protocol directly addresses described inefficiency and provides a foundation
@@ -40,7 +40,7 @@ for efficient communication for BS, ND, and beyond.
 ## Rationale
 
 The atomic primitive of Celestia's DA network is the share. Shwap standardizes messaging and serialization for shares.
-Shares are grouped together, forming more complex data types(Rows, Blobs, etc.). These data types are encapsulated in
+Shares are grouped together, forming more complex data types (Rows, Blobs, etc.). These data types are encapsulated in
 containers, e.g., Row container groups shares of a particular row. Containers can be identified with the share identifiers
 in order to request, advertise or index the containers. The combination of containers and identifiers provides an extensible
 and expressive messaging framework for groups of shares and enables efficient single roundtrip request-response
@@ -269,7 +269,7 @@ Each share MUST follow [share formatting and validity][shares-format] rules.
 and be verified against the respective root from the Row or Column axis in [DAH][dah]. The axis is defined by the ProofType field.
 
 Namespace data may span over multiple rows, in which case all the data is encapsulated in multiple containers. This is
-done
+done.
 
 ## Protocol Compositions
 
@@ -348,7 +348,7 @@ for consistency reasons, even though we could choose other more efficient and ad
 
 ### Sampling and Reconstruction
 
-Shwap deliberately avoids specifying sampling and reconstruction logic The sampling concerns on randomness selection and 
+Shwap deliberately avoids specifying sampling and reconstruction logic. The sampling concerns on randomness selection and 
 sample picking are out of Shwap's scope and a matter of following CIPs. Shwap only provides messaging for sampling(via
 [SampleID](#sampleid) and [Sample container](#sample-container)). 
 
