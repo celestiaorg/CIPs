@@ -80,9 +80,9 @@ _**[Namespace][ns]**_: The namespace grouping sets of shares.
 _**Peer**_: An entity that can participate in a Shwap protocol. There are three types of peers:
 client, server, and node.
 
-_**Client**_: The Peer that requests content by content identifies over Shwap.
+_**Client**_: The Peer that requests content by share identifiers over Shwap.
 
-_**Server**_: The Peer that responds with content over Shwap.
+_**Server**_: The Peer that responds with shares over Shwap.
 
 _**Node**_: The peer that is both the client and the server.
 
@@ -91,8 +91,7 @@ _**Proof**_: A Merkle inclusion proof of the data in the DataSquare.
 ### Message Framework
 
 This section defines Shwap's messaging framework. Every group of shares that needs to be exchanged over the network
-MUST define its [share identifier](#share-identifiers) and [share container](#share-containers), as well as, follow
-their described rules.
+MUST define its [share identifier](#share-identifiers) and [share container](#share-containers) and follow their described rules.
 
 #### Share Identifiers
 
@@ -156,9 +155,10 @@ The fields with validity rules that form Row containers are:
 
 [**RowID**](#rowid): A RowID of the Row Container. It MUST follow [RowID](#rowid) formatting and field validity rules.
 
-**RowHalf**: A two-dimensional variable size byte arrays representing left half of shares in the row. It MUST equal the number of Columns roots in [DAH][dah] divided by two. These shares MUST only be from the left half of the row.
-The right half is computed using Leopard GF16 Reed-Solomon erasure-coding. Afterward, the [NMT][nmt] is built over both
-halves and the computed NMT root MUST be equal to the respective Row root in [DAH][dah].
+**RowHalf**: A two-dimensional variable size byte array representing left half of shares in the row. Its length MUST be 
+equal to the number of Column roots in [DAH][dah] divided by two. These shares MUST only be from the left half of the 
+row. The right half is computed using Leopard GF16 Reed-Solomon erasure-coding. Afterward, the [NMT][nmt] is built over 
+both halves and the computed NMT root MUST be equal to the respective Row root in [DAH][dah].
 
 #### SampleID
 
@@ -235,7 +235,7 @@ The fields with validity rules that form DataID are:
 
 [**RowID**](#rowid): A RowID of the namespace data. It MUST follow [RowID](#rowid) formatting and field validity rules.
 
-[**Namespace**][ns]: A fixed-size bytes array representing the Namespace of interest. It MUST follow [Namespace][ns]
+[**Namespace**][ns]: A fixed-size 29 bytes array representing the Namespace of interest. It MUST follow [Namespace][ns]
 formatting and its validity rules.
 
 Serialized DataID MUST have a length of 39 bytes.
@@ -261,14 +261,15 @@ The fields with validity rules that form Data containers are:
 [**DataID**](#dataid): A DataID of the Data container. It MUST follow [DataID](#dataid) formatting and field validity
 rules.
 
-**DataShares**: A two-dimensional variable size byte arrays representing left data shares of a namespace in the row.
+**DataShares**: A two-dimensional variable size byte array representing left data shares of a namespace in the row.
 Each share MUST follow [share formatting and validity][shares-format] rules.
 
 **Proof**: A [protobuf formated][nmt-pb] [NMT][nmt] proof of share inclusion. It MUST follow [NMT proof verification][nmt-verify]
-and be verified against the respective root from the Row or Column axis in [DAH][dah]. The axis is defined by the ProofType field.
+and be verified against the respective root from the Row root axis in [DAH][dah].
 
-Namespace data may span over multiple rows, in which case all the data is encapsulated in multiple containers. This is
-done.
+Namespace data may span over multiple rows, in which case all the data is encapsulated in multiple containers. This
+enables parallelization of namespace data retrieval and certain [compositions](#protocol-compositions) may get advantage
+of that by requesting containers of a single namespace from multiple servers simultaneously. 
 
 ## Protocol Compositions
 
@@ -321,7 +322,7 @@ should be extended whenever any new share identifier is added.
 
 ## Backwards Compatibility
 
-Swap is incompatible with the old sampling protocol.
+Shwap is incompatible with the old sampling protocol.
 
 After rigorous investigation, the celestia-node team decided against _implementing_ backward compatibility with
 the old protocol into the node client due to the immense complications it brings. Instead, the simple and time-efficient
