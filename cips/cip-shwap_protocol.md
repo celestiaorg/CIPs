@@ -1,6 +1,6 @@
 ---
 title: Shwap Protocol 
-description: Shwap - the new extensible sampling protocol 
+description: Shwap - a new messaging framework for DA and sampling
 author: Hlib Kanunnikov (@Wondertan)
 discussions-to: https://forum.celestia.org/t/cip-shwap-protocol/1551
 status: Draft
@@ -11,7 +11,7 @@ created: 2024-02-02
 
 ## Abstract
 
-This document specifies Shwap - the simple and expressive yet extensible and future-proof messaging framework aiming to
+This document specifies Shwap - the simple and expressive yet extensible messaging framework aiming to
 solve critical inefficiencies and standardize messaging of Celestia's Data Availability p2p network.
 
 Shwap defines a messaging framework to be exchanged around the DA p2p network in a trust-minimized way without enforcing
@@ -30,9 +30,9 @@ samples, preserving the assumption of having 1/N honest peers connected.
 Initially, Bitswap and IPLD were adopted as the basis for the DA network protocols, including DAS,
 block synchronization (BS), and blob/namespace data retrieval (ND). They gave battle-tested protocols and tooling with
 pluggability to rapidly scaffold Celestia's DA network. However, it came with the price of scalability limits and
-roundtrips, resulting in slower BS than block production. Before the network launch, the transition
-to the optimized [ShrEx protocol][shrex] for BS and integrating [CAR and DAGStore-based storage][storage] happened,
-optimizing BS and ND. However, DAS was left untouched, preserving its weak scalability and roundtrip inefficiency.
+roundtrips, resulting in slower BS than block production. Before the network launch, we transitioned to the optimized 
+[ShrEx protocol][shrex] for BS and integrated [CAR and DAGStore-based storage][storage] optimizing BS and ND. However, 
+DAS was left untouched, preserving its weak scalability and roundtrip inefficiency.
 
 Shwap messaging stacked together with Bitswap protocol directly addresses described inefficiency and provides a foundation
 for efficient communication for BS, ND, and beyond.
@@ -41,16 +41,15 @@ for efficient communication for BS, ND, and beyond.
 
 The atomic primitive of Celestia's DA network is the share. Shwap standardizes messaging and serialization for shares.
 Shares are grouped together, forming more complex data types (Rows, Blobs, etc.). These data types are encapsulated in
-containers, e.g., Row container groups shares of a particular row. Containers can be identified with the share identifiers
-in order to request, advertise or index the containers. The combination of containers and identifiers provides an extensible
-and expressive messaging framework for groups of shares and enables efficient single roundtrip request-response
-communication.
+containers, For example, row container groups shares of a particular row. Containers can be identified with the share 
+identifiers in order to request, advertise or index the containers. The combination of containers and identifiers 
+provides an extensible and expressive messaging framework for groups of shares and enables efficient single roundtrip 
+request-response communication.
 
 Many share groups or containers are known in the Celestia network, and systemizing this is the main reason behind setting
 up this simple messaging framework. A single place with all the possible Celestia DA messages must be defined, which node
-software and protocol researchers can rely on and coordinate. Besides, this framework is designed to be
-future-proof and sustain changes in the core protocol's data structures and proving system as long shares stay the
-de facto atomic data type.
+software and protocol researchers can rely on and coordinate. Besides, this framework is designed to be sustain changes 
+in the core protocol's data structures and proving system as long shares stay the de facto atomic data type.
 
 Besides, there needs to be systematization and a joint knowledge base with all the edge cases for possible protocol
 compositions of Shwap with lower-level protocols Bitswap, KadDHT, or Shrex, which Shwap aims to describe.
