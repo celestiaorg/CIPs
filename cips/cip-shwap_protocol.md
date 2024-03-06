@@ -25,7 +25,7 @@ protocol.
 The current Data Availability Sampling (DAS) network protocol is inefficient. A _single_ sample operation takes log₂(k)
 network roundtrips (where k is the square size). This is not practical and does not scale for the theoretically unlimited
 data square that the Celestia network enables. The main motive here is a protocol with O(1) roundtrip for _multiple_
-samples, preserving the assumption of having 1/N honest peers connected.
+samples, preserving the assumption of having 1/N honest peers connected possessing the data.
 
 Initially, Bitswap and IPLD were adopted as the basis for the DA network protocols, including DAS,
 block synchronization (BS), and blob/namespace data retrieval (ND). They gave battle-tested protocols and tooling with
