@@ -101,6 +101,11 @@ to varints and lack of fixed size arrays. Instead, identifiers use simple binary
 Identifiers MAY embed each other to narrow down the scope of needed shares. For example, [SampleID](#sampleid) embeds
 [RowID](#rowid) as every sample lay on a particular row.
 
+##### Serialization
+
+Share identifiers MUST be serialized by concatenating big-endian representations of fields in the order defined by their
+respective formatting section.
+
 #### Share Containers
 
 Share containers encapsulate a set of data shares with [DAH][dah] inclusion proof. Share containers are identified by
@@ -133,10 +138,10 @@ The fields with validity rules that form RowID are:
 
 **Height**: A uint64 representing the chain height with the data square. It MUST be bigger than zero.
 
-**RowIndex**: An uint16 representing row index points to a particular row. It MUST not exceed the number of Row roots in
-[DAH][dah].
+**RowIndex**: An uint16 representing row index points to a particular row. The 16 bit limit fits data squares up to 2TB.
+It MUST not exceed the number of Row roots in[DAH][dah].
 
-Serialized RowID MUST have a length of 10 bytes.
+[Serialized](#serialization) RowID MUST have a length of 10 bytes.
 
 #### Row Container
 
@@ -177,10 +182,10 @@ The fields with validity rules that form SampleID are:
 
 [**RowID**](#rowid): A RowID of the sample. It MUST follow [RowID](#rowid) formatting and field validity rules.
 
-**ColumnIndex**: A uint16 representing the column index of the sampled share; in other words, the share index in the row. It
-MUST stay within the number of Column roots in [DAH][dah].
+**ColumnIndex**: A uint16 representing the column index of the sampled share; in other words, the share index in the row.
+The 16 bit limit fits data squares up to 2TB. It MUST stay within the number of Column roots in [DAH][dah].
 
-Serialized SampleID MUST have a length of 12 bytes.
+[Serialized](#serialization) SampleID MUST have a length of 12 bytes.
 
 #### Sample Container
 
@@ -238,7 +243,7 @@ The fields with validity rules that form DataID are:
 [**Namespace**][ns]: A fixed-size 29 bytes array representing the Namespace of interest. It MUST follow [Namespace][ns]
 formatting and its validity rules.
 
-Serialized DataID MUST have a length of 39 bytes.
+[Serialized](#serialization) DataID MUST have a length of 39 bytes.
 
 #### Data Container
 
@@ -343,8 +348,9 @@ However, new bugs may be introduced, as with any new protocol.
 
 ### Protobuf Serialization
 
-Protobuf is a widely adopted serialization format and is used within Celestia's protocols. This was quite an obvious choice
-for consistency reasons, even though we could choose other more efficient and advanced formats like Cap'n Proto.
+Protobuf is used t serialize [share containers](#share-containers). It is a widely adopted serialization format and is 
+used within Celestia's protocols. This was quite an obvious choice for consistency reasons, even though we could choose 
+other more efficient and advanced formats like Cap'n Proto.
 
 ### Sampling and Reconstruction
 
