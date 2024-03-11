@@ -91,25 +91,35 @@ _**Proof**_: A Merkle inclusion proof of the data in the DataSquare.
 ### Message Framework
 
 This section defines Shwap's messaging framework. Every group of shares that needs to be exchanged over the network
-MUST define its [share identifier](#share-identifiers) and [share container](#share-containers) and follow their described rules.
+MUST define its [share identifier](#share-identifiers) and [share container](#share-containers) and follow their
+described rules. Every identifier and container MUST define its serialization format, which MAY NOT be consistent with
+other identifiers and containers.
+
+
+#### Share Containers
+
+Share containers encapsulate a set of data shares with proof. Share containers are identified by [share identifiers](#share-identifiers).
+
+Containers SHOULD contain shares within a single DataSquare and MAY NOT be adjacent. Containers MUST have a [DAH][dah]
+inclusion proof field defined.
+
+##### Serialization
+
+Share containers are RECOMMENDED to use protobuf (proto3) encoding, and other formats MAY be used for serialization. A 
+container MAY define multiple serialization formats.
 
 #### Share Identifiers
 
-Identifiers MUST have a fixed size for their fields. Subsequently, protobuf SHOULD NOT be used for CID serialization due
-to varints and lack of fixed size arrays. Instead, identifiers use simple binary big endian serialization.
+Share identifiers identify [share containers](#share-containers). Identifiers are not collision-resistant and there MAY 
+be different identifiers referencing the same container.
 
 Identifiers MAY embed each other to narrow down the scope of needed shares. For example, [SampleID](#sampleid) embeds
 [RowID](#rowid) as every sample lay on a particular row.
 
 ##### Serialization
 
-Share identifiers MUST be serialized by concatenating big-endian representations of fields in the order defined by their
-respective formatting section.
-
-#### Share Containers
-
-Share containers encapsulate a set of data shares with [DAH][dah] inclusion proof. Share containers are identified by
-[share identifiers](#share-identifiers).
+Share identifiers SHOULD be serialized by concatenating big-endian representations of fields in the order defined by 
+their respective formatting section. Serialized identifiers SHOULD have constant and predetermined lengths in bytes.
 
 #### Versioning
 
@@ -298,24 +308,27 @@ libp2p provides together with transport protocol advancements introduced in QUIC
 
 #### Multihashes and CID
 
-Bitswap is tightly coupled with Multihash and CID notions, establishing the [content addressability property][content-address].
+Bitswap is tightly coupled with [Multihash][mh] and [CID][cid] notions, establishing the [content addressability property][content-address].
 Bitswap operates over Blocks of data that are addressed and verified by CIDs. Based on that, Shwap integrates into
 Bitswap by complying with both of these interfaces. The [Share Containers](#share-containers) are Blocks that are identified
 via [Share Identifiers](#share-identifiers).
 
 Even though Shwap takes inspiration from content addressability, it breaks free from the hash-based model to optimize
 message sizes and data request patterns. In some way, it hacks into multihash abstraction to make it contain data that
-is not, in fact, a hash. Furthermore, the protocol does not include hash digests in the multihashes. The authentication of
-the messages happens using externally provided data commitment.
+is not, in fact, a hash. Furthermore, the protocol does not include hash digests in the multihashes. The authentication
+of the messages happens using externally provided data commitment.
 
-This creates a bunch of complexities with the [reference Golang implementation][gimpl] that are necessary if forking
-and substantially diverging the upstream is not an option. The naive question would be: "Why not make content
-verification after Bitswap provided it back over its API?" Intuitively, this would simplify much and would not require
-"hacking" CID. However, this has an important downside - the Bitswap, in such a case, would consider the request finalized
-and the content as fetched and valid, sending a DONT_WANT message to its peers. In contrast, the message might still be invalid
-according to the verification rules.
+However, breaking-free from hashes creates issues necessary to be solved on the implementation level, particularly in 
+[the reference Golang implementation][gimpl], if forking and substantially diverging from the upstream is not an option. 
+CIDs are required to have fixed and deterministic sizes. Making share identifiers compliant with CID 
+prevents protobuf usage due to its reliance on varints and dynamic byte arrays serialization in.
 
-However, Bitswap still requires multihashes and CID codecs to be registered. Therefore, we provide a table for the
+The naive question would be: "Why not make content verification after Bitswap provided it back over its API?" Intuitively,
+this would simplify much and would not require "hacking" CID. However, this has an important downside - the Bitswap, in 
+such a case, would consider the request finalized and the content as fetched and valid, sending a DONT_WANT message to 
+its peers. In contrast, the message might still be invalid according to the verification rules.
+
+Bitswap still requires multihashes and CID codecs to be registered. Therefore, we provide a table for the
 supported [share identifiers](#share-identifiers) with their respective multihash and CID codec codes. This table
 should be extended whenever any new share identifier is added.
 
@@ -348,9 +361,16 @@ However, new bugs may be introduced, as with any new protocol.
 
 ### Protobuf Serialization
 
-Protobuf is used t serialize [share containers](#share-containers). It is a widely adopted serialization format and is 
+Protobuf is recommended used to serialize [share containers](#share-containers). It is a widely adopted serialization format and is 
 used within Celestia's protocols. This was quite an obvious choice for consistency reasons, even though we could choose 
 other more efficient and advanced formats like Cap'n Proto.
+
+### Constant-size Identifier Serialization
+
+Share identifiers should be of a constant size according to the spec. This is needed to support [Bitswap composition](#bitswap),
+which has an implementation level limitation that enforces constant size identifiers. Ideally, this should be avoided as
+Shwap aims to be protocol agnostic, and future iterations of Shwap may introduce dynamically sized identifiers if constant
+ever becomes problematic.
 
 ### Sampling and Reconstruction
 
@@ -370,6 +390,8 @@ Copyright and related rights waived via [CC0](../LICENSE).
 [shrex]: https://github.com/celestiaorg/celestia-node/blob/0abd16bbb05bf3016595498844a588ef55c63d2d/docs/adr/adr-013-blocksync-overhaul-part-2.md
 [storage]: https://github.com/celestiaorg/celestia-node/blob/a33c80e20da684d656c7213580be7878bcd27cf4/docs/adr/adr-011-blocksync-overhaul-part-1.md
 [bitswap]: https://docs.ipfs.tech/concepts/bitswap/
+[cid]: https://docs.ipfs.tech/concepts/content-addressing/
+[mh]: https://multiformats.io/multihash/
 [content-address]: https://fission.codes/blog/content-addressing-what-it-is-and-how-it-works/
 [kaddht]: https://pdos.csail.mit.edu/~petar/papers/maymounkov-kademlia-lncs.pdf
 [square]: https://celestiaorg.github.io/celestia-app/specs/data_structures.html#2d-reed-solomon-encoding-scheme
