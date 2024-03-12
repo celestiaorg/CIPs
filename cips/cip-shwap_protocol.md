@@ -12,7 +12,7 @@ created: 2024-02-02
 
 ## Abstract
 
-This document specifies Shwap - the simple and expressive yet extensible messaging framework aiming to
+This document specifies Shwap (a portmanteau of share and swap)  - the simple, expressive, and extensible messaging framework aiming to
 solve critical inefficiencies and standardize messaging of Celestia's Data Availability p2p network.
 
 Shwap defines a messaging framework to be exchanged around the DA p2p network in a trust-minimized way without enforcing
@@ -24,7 +24,7 @@ protocol.
 ## Motivation
 
 The current Data Availability Sampling (DAS) network protocol is inefficient. A _single_ sample operation takes log₂(k)
-network roundtrips (where k is the square size). This is not practical and does not scale for the theoretically unlimited
+network roundtrips (where k is the extended square size). This is not practical and does not scale for the theoretically unlimited
 data square that the Celestia network enables. The main motive here is a protocol with O(1) roundtrip for _multiple_
 samples, preserving the assumption of having 1/N honest peers connected possessing the data.
 
@@ -42,7 +42,7 @@ for efficient communication for BS, ND, and beyond.
 
 The atomic primitive of Celestia's DA network is the share. Shwap standardizes messaging and serialization for shares.
 Shares are grouped together, forming more complex data types (Rows, Blobs, etc.). These data types are encapsulated in
-containers, For example, row container groups shares of a particular row. Containers can be identified with the share 
+containers. For example, a row container groups the shares of a particular row. Containers can be identified with the share 
 identifiers in order to request, advertise or index the containers. The combination of containers and identifiers 
 provides an extensible and expressive messaging framework for groups of shares and enables efficient single roundtrip 
 request-response communication.
@@ -130,7 +130,7 @@ suffixed with a new major version starting from v1. E.g., if the Row message nee
 ### Messages
 
 This section defines all the supported Shwap messages, including share identifiers and containers. All the new
-future messages should be described in the section.
+future messages should be described in this section.
 
 #### RowID
 
@@ -150,7 +150,7 @@ The fields with validity rules that form RowID are:
 **Height**: A uint64 representing the chain height with the data square. It MUST be bigger than zero.
 
 **RowIndex**: An uint16 representing row index points to a particular row. The 16 bit limit fits data squares up to 2TB.
-It MUST not exceed the number of Row roots in[DAH][dah].
+It MUST not exceed the number of Row roots in [DAH][dah].
 
 [Serialized](#serialization) RowID MUST have a length of 10 bytes.
 
