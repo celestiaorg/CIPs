@@ -213,7 +213,18 @@ This proposal is backwards-incompatible because it is state-machine breaking. Th
 
 ## Test Cases
 
-TBA
+The following test cases are available in the [ibc-go e2e repository.](https://github.com/cosmos/ibc-go/tree/main/e2e/tests/interchain_accounts)
+
+- Registration of an interchain account
+- Transfer funds from interchain account to a different account on the same chain using an unordered or ordered channel
+- A failed transfer of funds from interchain account to a different account on the same chain due to insufficient funds
+- Transfer funds from interchain account to a different account on the same chain after an ordered channel closure
+- A transfer of funds from an interchain account to a different account on the same chain using a gov controller
+- A transfer of funds from an interchain account to a different account on the same chain using a groups controller
+- A transfer of funds from an interchain account to a different account on the same chain using an incentivised IBC packet
+- Registration of an interchain account, and transfer of funds from an interchain account to a different account on the same chain through the localhost client, and after reopening a channel
+- Query if host functionality is enabled
+- Transfer funds from interchain account to a different account after upgrading the channel from ordered to unordered
 
 ## Reference Implementation
 
