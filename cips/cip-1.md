@@ -274,6 +274,7 @@ the following parts:
   and semantics of any new feature. The specification should be detailed
   enough to enable competing, interoperable implementations for any of the
   current Celestia platforms.
+* **Parameters**: Summary of any parameters introduced by or changed by the CIP.
 * **Rationale**: The rationale elaborates on the specification by explaining
   the reasoning behind the design and the choices made during the design process.
   It should discuss alternative designs that were considered and any related work.

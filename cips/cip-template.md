@@ -42,6 +42,26 @@ It is recommended to follow RFC 2119 and RFC 8170. Do not remove the key word de
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in RFC 2119 and RFC 8174.
 
+## Parameters
+
+The parameters section should summarize any changes to global or module parameters, including any new parameters, introduced by the CIP. All mainnet parameters are tracked in [CIP-13](./cip-13.md). Once a CIP is accepted and deployed to mainnet, CIP-13 MUST be updated with these parameter changes. If there are no parameter changes in the CIP, this section can be omitted. 
+
+**TODO: Remove the previous comments and update the following table before submitting**
+
+| Parameter     | Proposed value | Description                                                                                                                | Changeable via Governance |
+|---------------|---------|------------------------------------------------------------------------------------------------------------------------|---------------------------|
+| module1.Name1 | ProposedValue1  | Description1                                                            | bool                     |
+| module2.Name2 | ProposedValue2  | Description2                                                            | bool                     |
+
+For changes to existing parameters, use the following table:
+
+| Parameter     | Current value | Proposed value | Description  | Changeable via Governance |
+|---------------|---------------|----------------|--------------|---------------------------|
+| module1.Name1 | CurrentValue1 | ProposedValue1 | Description1 | bool                      |
+| module2.Name1 | CurrentValue2 | ProposedValue2 | Description2 | bool                      |	
+	
+For new parameters the Current value column can be omitted.
+
 ## Rationale
 
 The rationale fleshes out the specification by describing what motivated the design and why particular design decisions were made. It should describe alternate designs that were considered and related work, e.g. how the feature is supported in other languages.
