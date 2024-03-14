@@ -48,7 +48,7 @@ The parameters section should summarize any changes to global or module paramete
 
 **TODO: Remove the previous comments and update the following table before submitting**
 
-| Parameter     | Default | Summary                                                                                                                | Changeable via Governance |
+| Parameter     | Proposed value | Description                                                                                                                | Changeable via Governance |
 |---------------|---------|------------------------------------------------------------------------------------------------------------------------|---------------------------|
 | module1.Name1 | Value1  | Description1                                                            | bool                     |
 | module2.Name2 | Value2  | Description2                                                            | bool                     |
