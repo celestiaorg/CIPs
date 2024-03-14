@@ -50,8 +50,8 @@ The parameters section should summarize any changes to global or module paramete
 
 | Parameter     | Proposed value | Description                                                                                                                | Changeable via Governance |
 |---------------|---------|------------------------------------------------------------------------------------------------------------------------|---------------------------|
-| module1.Name1 | Value1  | Description1                                                            | bool                     |
-| module2.Name2 | Value2  | Description2                                                            | bool                     |
+| module1.Name1 | ProposedValue1  | Description1                                                            | bool                     |
+| module2.Name2 | ProposedValue2  | Description2                                                            | bool                     |
 
 For changes to existing parameters, use the following table:
 
@@ -61,6 +61,7 @@ For changes to existing parameters, use the following table:
 | module2.Name1 | CurrentValue2 | ProposedValue2 | Description2 | bool                      |	
 	
 For new parameters the Current value column can be omitted.
+
 ## Rationale
 
 The rationale fleshes out the specification by describing what motivated the design and why particular design decisions were made. It should describe alternate designs that were considered and related work, e.g. how the feature is supported in other languages.
