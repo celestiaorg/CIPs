@@ -331,7 +331,7 @@ its peers. In contrast, the message might still be invalid according to the veri
 
 Bitswap still requires multihashes and CID codecs to be registered. Therefore, we provide a table for the
 supported [share identifiers](#share-identifiers) with their respective multihash and CID codec codes. This table
-should be extended whenever any new share identifier is added.
+should be extended whenever any new share identifier or new version of an existing identifier is added.
 
 | Name     | Multihash | Codec  |
 |----------|-----------|--------|
