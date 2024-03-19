@@ -21,6 +21,7 @@ The purpose of data availability layers such as Celestia is to ensure that block
 Block archival nodes are nodes that store a full copy of the historical chain, whereas pruned nodes store only the latest blocks. Consensus nodes running Tendermint are able to prune blocks by specifying a `min-retain-blocks` parameter in their configuration. Data availability nodes running celestia-node will also [soon have the ability to prune blocks](https://github.com/celestiaorg/celestia-node/pull/3150/).
 
 It is useful to standardize a default expiry time for blocks for pruned nodes, so that:
+
 * Rollups and applications have an expectation of how long data will be retrievable from pruned nodes before it can only be retrieved from block archival nodes.
 * Light nodes that want to query data in namespaces can discover pruned nodes over the peer-to-peer network and know which blocks they likely have, versus non-pruned nodes.
 
@@ -38,13 +39,14 @@ Data availability sampling light nodes SHOULD sample blocks created in the last 
 
 ## Definitions
 
-**Sampling Window** - the period within which light nodes should sample blocks, specified at 30 days worth of seconds. 
+**Sampling Window** - the period within which light nodes should sample blocks, specified at 30 days worth of seconds.
 
-**Pruning Window** - the period within which both pruned and non-pruned full storage nodes must store and distribute data in blocks, specified at 30 days + 1 hour worth of seconds. 
+**Pruning Window** - the period within which both pruned and non-pruned full storage nodes must store and distribute data in blocks, specified at 30 days + 1 hour worth of seconds.
 
 ## Rationale
 
 30 days worth of seconds (2592000 seconds) is chosen for the following reasons:
+
 * Data availability sampling light nodes need to at least sample data within the Tendermint weak subjectivity period of 21 days in order to independently verify the data availability of the chain, and so they need to be able to sample data up to at least 21 days old.
 * 30 days worth of seconds (2592000 seconds) ought to be a reasonable amount of time for data to be downloaded from the chain by any application that needs it.
 

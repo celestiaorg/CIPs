@@ -20,12 +20,12 @@ _The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "
 
 The packet-forward-middleware is an IBC middleware module built for Cosmos blockchains utilizing the IBC protocol. A chain which incorporates the packet-forward-middleware is able to route incoming IBC packets from a source chain to a destination chain.
 
-- Celestia MUST import and integrate Packet Forward Middleware. 
+- Celestia MUST import and integrate Packet Forward Middleware.
 - This integration SHOULD use defaults for the following configs: [`Retries On Timeout`, `Timeout Period`, `Refund Timeout`, `Fee Percentage`].
- - Retries On Timeout - how many times will a forward be re-attempted in the case of a timeout.
- - Timeout Period - how long can a forward be in progress before giving up.
- - Refund Timeout - how long can a forward be in progress before issuing a refund back to the original source chain.
- - Fee Percentage - % of the forwarded packet amount which will be subtracted and distributed to the community pool.
+- Retries On Timeout - how many times will a forward be re-attempted in the case of a timeout.
+- Timeout Period - how long can a forward be in progress before giving up.
+- Refund Timeout - how long can a forward be in progress before issuing a refund back to the original source chain.
+- Fee Percentage - % of the forwarded packet amount which will be subtracted and distributed to the community pool.
 - Celestia MAY choose different values for these configs if the community would rather have auto-retries, different timeout periods, and/or collect fees from forwarded packets.
 
 ## Rationale
@@ -39,6 +39,7 @@ No backward compatibility issues found.
 ## Reference Implementation
 
 The integration steps include the following:
+
 1. Import the PFM, initialize the PFM Module & Keeper, initialize the store keys and module params, and initialize the Begin/End Block logic and InitGenesis order.
 2. Configure the IBC application stack (including the transfer module).
 3. Configuration of additional options such as `timeout period`, number of `retries on timeout`, `refund timeout` period, and `fee percentage`.
@@ -157,12 +158,11 @@ func initParamsKeeper(appCodec codec.BinaryCodec, legacyAmino *codec.LegacyAmino
 
 ### Configuring the transfer application stack with Packet Forward Middleware
 
-Here is an example of how to create an application stack using `transfer` and `packet-forward-middleware`. 
-The following `transferStack` is configured in `app/app.go` and added to the IBC `Router`. 
+Here is an example of how to create an application stack using `transfer` and `packet-forward-middleware`.
+The following `transferStack` is configured in `app/app.go` and added to the IBC `Router`.
 The in-line comments describe the execution flow of packets between the application stack and IBC core.
 
 For more information on configuring an IBC application stack see the ibc-go docs
-
 
 ```go
 // Create Transfer Stack
@@ -191,13 +191,13 @@ ibcRouter.AddRoute(ibctransfertypes.ModuleName, transferStack)
 
 ### Configurable options in the Packet Forward Middleware
 
-The Packet Forward Middleware has several configurable options available when initializing the IBC application stack. 
+The Packet Forward Middleware has several configurable options available when initializing the IBC application stack.
 You can see these passed in as arguments to `packetforward.NewIBCMiddleware` and they include the number of retries that
 will be performed on a forward timeout, the timeout period that will be used for a forward, and the timeout period that
 will be used for performing refunds in the case that a forward is taking too long.
 
 Additionally, there is a fee percentage parameter that can be set in `InitGenesis`, this is an optional parameter that
-can be used to take a fee from each forwarded packet which will then be distributed to the community pool. In the 
+can be used to take a fee from each forwarded packet which will then be distributed to the community pool. In the
 `OnRecvPacket` callback `ForwardTransferPacket` is invoked which will attempt to subtract a fee from the forwarded
 packet amount if the fee percentage is non-zero.
 
@@ -209,6 +209,7 @@ packet amount if the fee percentage is non-zero.
 ## Test Cases
 
 The targets for testing will be:
+
 1. Successful path unwinding from gaia-testnet-1 to celestia-testnet to gaia-testnet-2
 2. Proper refunding in a multi-hop IBC flow if any step returns a `recv_packet` error
 3. Ensure `Retries On Timeout` config works, with the intended number of retry attempts upon hitting the `Timeout Period`

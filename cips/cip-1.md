@@ -345,7 +345,7 @@ authors/owners of the CIP. Those who prefer anonymity may use a username
 only, or a first name and a username. The format of the `author` header
 value must be:
 
-> Random J. User &lt;address@dom.ain&gt;
+> Random J. User &lt;<address@dom.ain>&gt;
 
 or
 
@@ -353,7 +353,7 @@ or
 
 or
 
-> Random J. User (@username) &lt;address@dom.ain&gt;
+> Random J. User (@username) &lt;<address@dom.ain>&gt;
 
 if the email address and/or GitHub username is included, and
 
