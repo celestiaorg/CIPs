@@ -216,7 +216,7 @@ This proposal is backwards-incompatible because it is state-machine breaking. Th
 The following test cases are available in the [ibc-go e2e repository.](https://github.com/cosmos/ibc-go/tree/main/e2e/tests/interchain_accounts)
 
 - Registration of an interchain account - [test link](https://github.com/cosmos/ibc-go/blob/main/e2e/tests/interchain_accounts/base_test.go#L46)
-- Transfer funds from interchain account to a different account on the same chain using an unordered channel - [test link](https://github.com/cosmos/ibc-go/blob/main/e2e/tests/interchain_accounts/base_test.go#L56)
+- [OPTIONAL] Transfer funds from interchain account to a different account on the same chain using an unordered channel - [test link](https://github.com/cosmos/ibc-go/blob/main/e2e/tests/interchain_accounts/base_test.go#L56). Note: requires ibc-go >= v8.1.0.
 - Transfer funds from interchain account to a different account on the same chain using an ordered channel - [test link](https://github.com/cosmos/ibc-go/blob/main/e2e/tests/interchain_accounts/base_test.go#L52)
 - A failed transfer of funds from interchain account to a different account on the same chain due to insufficient funds in the interchain account balance - [test link](https://github.com/cosmos/ibc-go/blob/main/e2e/tests/interchain_accounts/base_test.go#L159)
 - Transfer funds from interchain account to a different account on the same chain after an ordered channel closes and a new channel is reopened to connect to the existing interchain account - [test link](https://github.com/cosmos/ibc-go/blob/main/e2e/tests/interchain_accounts/base_test.go#L249)
