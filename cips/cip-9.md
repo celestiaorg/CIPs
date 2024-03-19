@@ -22,10 +22,10 @@ The packet-forward-middleware is an IBC middleware module built for Cosmos block
 
 - Celestia MUST import and integrate Packet Forward Middleware.
 - This integration SHOULD use defaults for the following configs: [`Retries On Timeout`, `Timeout Period`, `Refund Timeout`, `Fee Percentage`].
-- Retries On Timeout - how many times will a forward be re-attempted in the case of a timeout.
-- Timeout Period - how long can a forward be in progress before giving up.
-- Refund Timeout - how long can a forward be in progress before issuing a refund back to the original source chain.
-- Fee Percentage - % of the forwarded packet amount which will be subtracted and distributed to the community pool.
+  - Retries On Timeout - how many times will a forward be re-attempted in the case of a timeout.
+  - Timeout Period - how long can a forward be in progress before giving up.
+  - Refund Timeout - how long can a forward be in progress before issuing a refund back to the original source chain.
+  - Fee Percentage - % of the forwarded packet amount which will be subtracted and distributed to the community pool.
 - Celestia MAY choose different values for these configs if the community would rather have auto-retries, different timeout periods, and/or collect fees from forwarded packets.
 
 ## Rationale
@@ -78,7 +78,7 @@ type App struct {
 
 ...
 
-// Create store keys 
+// Create store keys
 keys := sdk.NewKVStoreKeys(
     ...
     packetforwardtypes.StoreKey,
@@ -115,7 +115,7 @@ app.TransferKeeper = ibctransferkeeper.NewKeeper(
 
 app.PacketForwardKeeper.SetTransferKeeper(app.TransferKeeper)
 
-// See the section below for configuring an application stack with the packet forward middleware 
+// See the section below for configuring an application stack with the packet forward middleware
 
 ...
 
