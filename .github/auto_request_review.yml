@@ -6,6 +6,7 @@ reviewers:
         - jcstein
         - yazzyyaz
         - ebuchman
+        - rootulp
 files:
 '**':
     - editors

@@ -1,6 +1,6 @@
 ---
 cip: 14
-title: ICS-27 Interchain Accounts 
+title: ICS-27 Interchain Accounts
 description: Adding ICS-27 Interchain Accounts to Celestia to enable cross-chain account management
 author:  Susannah Evans <susannah@interchain.io> (@womensrights), Aidan Salzmann <aidan@stridelabs.co> (@asalzmann), Sam Pochyly <sam@stridelabs.co> (@sampocs)
 discussions-to: https://forum.celestia.org/t/moving-toward-safer-and-more-aligned-tia-liquid-staking/1422
@@ -28,31 +28,40 @@ By enabling ICA on an accelerated timeline, Celestia can enable battle-tested pr
 
 ## Specification
 
-For context, both the host and controller module specification are described below; however, this proposal is to integrate only the host module. For the full technical specification, see the [ICS-27 spec](https://github.com/cosmos/ibc/tree/main/spec/app/ics-027-interchain-accounts) in the ibc protocol repository. 
+For context, both the host and controller module specification are described below; however, this proposal is to integrate only the host module. For the full technical specification, see the [ICS-27 spec](https://github.com/cosmos/ibc/tree/main/spec/app/ics-027-interchain-accounts) in the ibc protocol repository.
 
+Adoption of the host module implies the addition of new parameters:
 
-### Definitions 
+| Module.Parameter      | Proposed value                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Description                                                                                                                                                                                                        | Changeable via Governance |
+|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
+| icahost.HostEnabled   | `true`                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Controls a chains ability to service ICS-27 host specific logic.                                                                                                                                               | False                     |
+| icahost.AllowMessages | `["/ibc.applications.transfer.v1.MsgTransfer", "/cosmos.bank.v1beta1.MsgSend", "/cosmos.staking.v1beta1.MsgDelegate", "/cosmos.staking.v1beta1.MsgBeginRedelegate", "/cosmos.staking.v1beta1.MsgUndelegate", "/cosmos.staking.v1beta1.MsgCancelUnbondingDelegation", "/cosmos.distribution.v1beta1.MsgSetWithdrawAddress", "/cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward", "/cosmos.distribution.v1beta1.MsgFundCommunityPool", "/cosmos.gov.v1.MsgVote"]` | Provides the ability for a chain to limit the types of messages or transactions that hosted interchain accounts are authorized to execute by defining an allowlist using the Protobuf message type URL format. | False                     |
+
+### Definitions
 
 - `Host Chain`: The chain where the interchain account is registered. The host chain listens for IBC packets from a controller chain which contain instructions (e.g. cosmos SDK messages) that the interchain account will execute.
 - `Controller Chain`: The chain registering and controlling an account on a host chain. The controller chain sends IBC packets to the host chain to control the account.
-- `Interchain Account`: An account on a host chain. An interchain account has all the capabilities of a normal account. However, rather than signing transactions with a private key, a controller chain will send IBC packets to the host chain which signals what transactions the interchain account must execute. 
-- `Interchain Account Owner`: An account on the controller chain. Every interchain account on a host chain has a respective owner account on the controller chain. 
+- `Interchain Account`: An account on a host chain. An interchain account has all the capabilities of a normal account. However, rather than signing transactions with a private key, a controller chain will send IBC packets to the host chain which signals what transactions the interchain account must execute.
+- `Interchain Account Owner`: An account on the controller chain. Every interchain account on a host chain has a respective owner account on the controller chain.
 
 The IBC handler interface & IBC relayer module interface are as defined in [ICS-25](../../core/ics-025-handler-interface) and [ICS-26](../../core/ics-026-routing-module), respectively.
 
-### General design 
+### General design
 
-A chain can utilize one or both parts of the interchain accounts protocol (*controlling* and *hosting*). A controller chain that registers accounts on other host chains (that support interchain accounts) does not necessarily have to allow other controller chains to register accounts on its chain, and vice versa. 
+A chain can utilize one or both parts of the interchain accounts protocol (*controlling* and *hosting*). A controller chain that registers accounts on other host chains (that support interchain accounts) does not necessarily have to allow other controller chains to register accounts on its chain, and vice versa.
 
 This specification defines the general way to register an interchain account and send tx bytes to be executed on behalf of the owner account. The host chain is responsible for deserializing and executing the tx bytes and the controller chain must know how the host chain will handle the tx bytes in advance of sending a packet, thus this must be negotiated during channel creation.
 
 ### High level flow
+
 #### Registering an Account
+
 1. The controller chain binds a new IBC port for a given *interchain account owner*
 2. The controller chain creates a new IBC channel for the associated account owner. Only the owner is authorized to send packets over the channel.
 3. During the channel handshake, the host chain registers an *interchain account address* that is mapped to the account owner on the controller chain
 
 #### Submitting Transactions
+
 1. The controller chain serializes messages and sends them along the channel associated with the account
 2. The host chain receives the IBC packet and deserializes the message
 3. The host chain authenticates the transaction by retrieving the relevant address from the controller's portID, and confirming it matches the signer of the message
@@ -60,7 +69,7 @@ This specification defines the general way to register an interchain account and
 
 ### Integration of host module
 
-The interchain accounts module should be registered as an `AppModule` in the same way all SDK modules are registered on a chain, as well as an `IBCModule`. 
+The interchain accounts module should be registered as an `AppModule` in the same way all SDK modules are registered on a chain, as well as an `IBCModule`.
 
 ```go
 // app.go
@@ -72,7 +81,7 @@ ModuleBasics = module.NewBasicManager(
   ...
 )
 
-... 
+...
 
 // Add module account permissions for the Interchain Accounts module
 // Only necessary for host chain functionality
@@ -85,7 +94,7 @@ maccPerms = map[string][]string{
 ...
 
 // Add Interchain Accounts Keepers for each submodule used and the authentication module
-// If a submodule is being statically disabled, the associated Keeper does not need to be added. 
+// If a submodule is being statically disabled, the associated Keeper does not need to be added.
 type App struct {
   ...
   ICAHostKeeper       icahostkeeper.Keeper
@@ -101,7 +110,7 @@ keys := sdk.NewKVStoreKeys(
   ...
 )
 
-... 
+...
 
 // Create the scoped keepers for the host submodule
 scopedICAHostKeeper := app.CapabilityKeeper.ScopeToModule(icahosttypes.SubModuleName)
@@ -120,7 +129,7 @@ app.ICAHostKeeper = icahostkeeper.NewKeeper(
 // Since only the host module is registered, nil is passed as the controller keeper
 icaModule := ica.NewAppModule(nil, &app.ICAHostKeeper)
 
-// Create a host IBC module 
+// Create a host IBC module
 icaHostIBCModule := icahost.NewIBCModule(app.ICAHostKeeper)
 
 // Register host route
@@ -166,14 +175,15 @@ func initParamsKeeper(appCodec codec.BinaryCodec, legacyAmino *codec.LegacyAmino
 ```
 
 ### Host module parameters
-| Key                    | Type     | Default Value |
-|------------------------|----------|---------------|
-| `HostEnabled`          | bool     | `true`        |
-| `AllowMessages`        | []string | `["*"]`       |
+
+| Key             | Type     | Default Value |
+|-----------------|----------|---------------|
+| `HostEnabled`   | bool     | `true`        |
+| `AllowMessages` | []string | `["*"]`       |
 
 #### HostEnabled
 
-The `HostEnabled` parameter controls a chain's ability to service ICS-27 host specific logic. 
+The `HostEnabled` parameter controls a chain's ability to service ICS-27 host specific logic.
 
 #### AllowMessages
 
@@ -181,7 +191,7 @@ The `AllowMessages` parameter provides the ability for a chain to limit the type
 
 For example, a Cosmos SDK-based chain that elects to provide hosted Interchain Accounts with the ability of staking and unstaking will define its parameters as follows:
 
-```
+```json
 "params": {
     "host_enabled": true,
     "allow_messages": ["/cosmos.staking.v1beta1.MsgDelegate", "/cosmos.staking.v1beta1.MsgUndelegate"]
@@ -190,7 +200,7 @@ For example, a Cosmos SDK-based chain that elects to provide hosted Interchain A
 
 There is also a special wildcard `"*"` value which allows any type of message to be executed by the interchain account. This must be the only value in the `allow_messages` array.
 
-```
+```json
 "params": {
     "host_enabled": true,
     "allow_messages": ["*"]
