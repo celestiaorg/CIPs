@@ -1,5 +1,5 @@
 ---
-cip: 18
+cip: 19
 title: Shwap Protocol 
 description: Shwap - a new messaging framework for DA and sampling
 author: Hlib Kanunnikov (@Wondertan)
