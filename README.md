@@ -34,3 +34,5 @@ Read [CIP-1](https://github.com/celestiaorg/CIPs/blob/main/cips/cip-1.md) for in
 | [14](/cips/cip-14.md) | ICS-27 Interchain Accounts | Susannah Evans <susannah@interchain.io> (@womensrights), Aidan Salzmann <aidan@stridelabs.co> (@asalzmann), Sam Pochyly <sam@stridelabs.co> (@sampocs) |
 | [15](/cips/cip-15.md) | Discourage memo usage | Rootul Patel (@rootulp), NashQueue (@nashqueue) |
 | [16](/cips/cip-16.md) | Make Security Related Governance Parameters Immutable | Mingpei CAO (@caomingpei) |
+| [17](/cips/cip-17.md) | Lemongrass Hardfork | Evan Forbes (@evan-forbes) |
+| [18](/cips/cip-18.md) | Standardised Gas and Pricing Estimation Interface | Callum Waters (@cmwaters) |

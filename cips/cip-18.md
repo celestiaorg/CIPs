@@ -1,4 +1,5 @@
 ---
+cip: 18
 title: Standardised Gas and Pricing Estimation Interface
 description: A standardised interface for estimating gas usage and gas pricing for transactions
 author: Callum Waters (@cmwaters)
