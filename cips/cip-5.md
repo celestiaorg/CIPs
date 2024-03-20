@@ -28,11 +28,13 @@ The term `data availability` is RECOMMENDED to be renamed to `data publication`.
 ## Rationale
 
 Motivations:
+
 - `Data publication` is the act of making data publicly accessible. In Celestia's context, it means the block data was actually published to the network and ready to be accessed, downloaded, and verified. This aligns more precisely with the intended meaning, which revolves around whether data has been published.
 - The community already favors and commonly uses the term `data publication`.
 - `Data publication` maintains a similar structure to `data availability`, making it easier for those familiar with the latter term to transition.
 
 Alternative designs:
+
 - `Proof of publication`: While intuitive, it differs in structure from `data availability` and may be too closely associated with terms like `proof of work`, potentially causing confusion within consensus-related mechanisms.
 - `Data availability proof`: While logically coherent, it may create issues when used in conjunction with other terms, as the emphasis falls on "proof". For instance, "verify a rollup's data availability" and "verify a rollup's data availability proof" might not refer to the same concept.
 - `Data caching`: While indicative of the intended time frame of the existence of proof of publication, the term "caching" is not widely adopted within the context of blockchain networks.

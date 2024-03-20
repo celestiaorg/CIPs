@@ -17,15 +17,14 @@ ICS-29 defines a specification for incentivising relayers to deliver IBC packets
 
 ## Motivation
 
-In the past 30 days (11th Dec 2023 at time of writing), Celestia has had an IBC volume of $90M from 72k transfers from inbound and outbound combined. 
-Using rough estimates of fees for each transfer with a lower bound of 0.002 TIA and an upper bound of 0.02 TIA, we can estimate between 144 - 1440 TIA has been spent by relayers on IBC fees. 
+In the past 30 days (11th Dec 2023 at time of writing), Celestia has had an IBC volume of $90M from 72k transfers from inbound and outbound combined.
+Using rough estimates of fees for each transfer with a lower bound of 0.002 TIA and an upper bound of 0.02 TIA, we can estimate between 144 - 1440 TIA has been spent by relayers on IBC fees.
 
-In general, relayers are either subsidised through off-chain arrangements such as delegations or service agreements, or are acting on a pure loss basis. This is not a sustainable, long-term solution for ensuring IBC packets are reliably and promptly delivered. 
-
+In general, relayers are either subsidised through off-chain arrangements such as delegations or service agreements, or are acting on a pure loss basis. This is not a sustainable, long-term solution for ensuring IBC packets are reliably and promptly delivered.
 
 ## Specification
 
-The specification has been copied directly from the ICS-29 specification approved in the ibc protocol repository. 
+The specification has been copied directly from the ICS-29 specification approved in the ibc protocol repository.
 
 ### Definitions
 
@@ -85,7 +84,7 @@ paid out in a different token. Imagine a connection between IrisNet and the Cosm
 - AckFee: 0.001 IRIS
 - TimeoutFee: 0.002 IRIS
 
-Ideally the fees can easily be redeemed in native tokens on both sides, but relayers may select others. In this example, the relayer collects a fair bit of IRIS, covering its costs there and more. It also collects channel-7/ATOM vouchers from many packets. After relaying a few thousand packets, the account on the Cosmos Hub is running low, so the relayer will send those channel-7/ATOM vouchers back over channel-7 to it's account on the Hub to replenish the supply there. 
+Ideally the fees can easily be redeemed in native tokens on both sides, but relayers may select others. In this example, the relayer collects a fair bit of IRIS, covering its costs there and more. It also collects channel-7/ATOM vouchers from many packets. After relaying a few thousand packets, the account on the Cosmos Hub is running low, so the relayer will send those channel-7/ATOM vouchers back over channel-7 to it's account on the Hub to replenish the supply there.
 
 The sender chain will escrow 0.003 channel-7/ATOM and 0.002 IRIS from the fee payers' account. In the case that a forward relayer submits the `recvPacket` and a reverse relayer submits the `ackPacket`, the forward relayer is rewarded 0.003 channel-7/ATOM and the reverse relayer is rewarded 0.001 IRIS while 0.002 IRIS is refunded to the original fee payer. In the case where the packet times out, the timeout relayer receives 0.002 IRIS and 0.003 channel-7/ATOM is refunded to the original fee payer.
 
@@ -131,30 +130,30 @@ While the details may vary between fee modules, all fee modules **must** ensure 
 - It must refund any remainder fees in escrow to the original fee payer(s) if applicable
 
 ```typescript
-// RegisterCounterpartyPayee is called by the relayer on each channelEnd and 
+// RegisterCounterpartyPayee is called by the relayer on each channelEnd and
 // allows them to specify their counterparty payee address before relaying.
-// This ensures they will be properly compensated for forward relaying since 
-// destination chain must send back relayer's source address (counterparty 
+// This ensures they will be properly compensated for forward relaying since
+// destination chain must send back relayer's source address (counterparty
 // payee address) in acknowledgement.
-// This function may be called more than once by relayer, in which case, latest 
+// This function may be called more than once by relayer, in which case, latest
 // counterparty payee address is always used.
 function RegisterCounterpartyPayee(relayer: string, counterPartyAddress: string) {
     // set mapping between relayer address and counterparty payee address
 }
 
-// EscrowPacketFee is an open callback that may be called by any module/user 
-// that wishes to escrow funds in order to incentivize the relaying of the 
+// EscrowPacketFee is an open callback that may be called by any module/user
+// that wishes to escrow funds in order to incentivize the relaying of the
 // given packet.
-// NOTE: These fees are escrowed in addition to any previously escrowed amount 
-// for the packet. In the case where the previous amount is zero, the provided 
+// NOTE: These fees are escrowed in addition to any previously escrowed amount
+// for the packet. In the case where the previous amount is zero, the provided
 // fees are the initial escrow amount.
 // They may set a separate receiveFee, ackFee, and timeoutFee to be paid
 // for each step in the packet flow. The caller must send max(receiveFee+ackFee, timeoutFee)
-// to the fee module to be locked in escrow to provide payout for any potential 
+// to the fee module to be locked in escrow to provide payout for any potential
 // packet flow.
 // The caller may optionally specify an array of relayer addresses. This MAY be
 // used by the fee module to modify fee payment logic based on ultimate relayer
-// address. For example, fee module may choose to only pay out relayer if the 
+// address. For example, fee module may choose to only pay out relayer if the
 // relayer address was specified in the `EscrowPacketFee`.
 function EscrowPacketFee(packet: Packet, receiveFee: Fee, ackFee: Fee, timeoutFee: Fee, relayers: []string) {
     // escrow max(receiveFee+ackFee, timeoutFee) for this packet
@@ -213,13 +212,13 @@ In this way, custom fee-handling logic can be hooked up to the IBC packet flow l
 
 The fee middleware will negotiate its fee protocol version with the counterparty module by including its own version next to the application version. The channel version will be a string of a JSON struct containing the fee middleware version and the application version. The application version may as well be a JSON-encoded string, possibly including further middleware and app versions, if the application stack consists of multiple milddlewares wrapping a base application.
 
-Channel Version: 
+Channel Version:
 
 ```json
 {"fee_version":"<fee_protocol_version>","app_version":"<application_version>"}
 ```
 
-Ex: 
+Ex:
 
 ```json
 {"fee_version":"ics29-1","app_version":"ics20-1"}
@@ -239,7 +238,7 @@ function onChanOpenInit(
   counterpartyChannelIdentifier: Identifier,
   version: string): (version: string, err: Error) {
     if version != "" {
-        // try to unmarshal JSON-encoded version string and pass 
+        // try to unmarshal JSON-encoded version string and pass
         // the app-specific version to app callback.
         // otherwise, pass version directly to app callback.
         metadata, err = UnmarshalJSON(version)
@@ -284,8 +283,8 @@ function onChanOpenInit(
         return "", err
     }
 
-    // a new version string is constructed with the app version returned 
-    // by the underlying application, in case it is different than the 
+    // a new version string is constructed with the app version returned
+    // by the underlying application, in case it is different than the
     // one passed by the caller
     version = constructVersion(metadata.feeVersion, appVersion)
 
@@ -300,7 +299,7 @@ function onChanOpenTry(
   counterpartyPortIdentifier: Identifier,
   counterpartyChannelIdentifier: Identifier,
   counterpartyVersion: string): (version: string, err: Error) {
-    // try to unmarshal JSON-encoded version string and pass 
+    // try to unmarshal JSON-encoded version string and pass
     // the app-specific version to app callback.
     // otherwise, pass version directly to app callback.
     cpMetadata, err = UnmarshalJSON(counterpartyVersion)
@@ -336,7 +335,7 @@ function onChanOpenTry(
     if err != nil {
         return "", err
     }
-    
+
     // a new version string is constructed with the final fee version
     // that is selected and the app version returned by the underlying
     // application (which may be different than the one passed by the caller)
@@ -354,8 +353,8 @@ function onChanOpenAck(
     if err != nil {
         // call the underlying application's OnChanOpenAck callback
         return app.onChanOpenAck(
-            portIdentifier, 
-            channelIdentifier, 
+            portIdentifier,
+            channelIdentifier,
             counterpartyChannelIdentifier,
             counterpartyVersion,
         )
@@ -363,11 +362,11 @@ function onChanOpenAck(
 
     if !isSupported(cpMetadata.feeVersion) {
         return error
-    }  
+    }
     // call the underlying application's OnChanOpenAck callback
     return app.onChanOpenAck(
-        portIdentifier, 
-        channelIdentifier, 
+        portIdentifier,
+        channelIdentifier,
         counterpartyChannelIdentifier,
         cpMetadata.appVersion,
     )
@@ -389,13 +388,13 @@ function onRecvPacket(packet: Packet, relayer: string): bytes {
     app_acknowledgement = app.onRecvPacket(packet, relayer)
 
     // in case of asynchronous acknowledgement, we must store the relayer
-    // address. It will be retrieved later and used to get the source 
+    // address. It will be retrieved later and used to get the source
     // address that will be written in the acknowledgement.
     if app_acknowledgement == nil {
         privateStore.set(relayerAddressForAsyncAckPath(packet), relayer)
     }
 
-    // get source address by retrieving counterparty payee address of 
+    // get source address by retrieving counterparty payee address of
     // this relayer stored in fee middleware.
     // NOTE: source address may be empty or invalid, counterparty
     // must refund fee in these cases
@@ -406,7 +405,7 @@ function onRecvPacket(packet: Packet, relayer: string): bytes {
     // - the app-specific acknowledgement,
     // - the receive-packet relayer (forward relayer)
     // - and a boolean indicative of receive operation success,
-    // and constructs the incentivized acknowledgement struct with 
+    // and constructs the incentivized acknowledgement struct with
     // the forward relayer and app-specific acknowledgement embedded.
     ack = constructIncentivizedAck(app_acknowledgment, sourceAddress, app_acknowledgment.success)
     return marshal(ack)
@@ -450,8 +449,8 @@ function onTimeoutPacketClose(packet: Packet, relayer: string) {
 }
 
 function constructIncentivizedAck(
-  app_ack: bytes, 
-  forward_relayer: string, 
+  app_ack: bytes,
+  forward_relayer: string,
   success: boolean): Acknowledgement {
     return Acknowledgement{
 	appAcknowledgement:    app_ack,
@@ -480,7 +479,7 @@ function writeAcknowledgement(
   acknowledgement: bytes) {
     // retrieve the relayer that was stored in `onRecvPacket`
     relayer = privateStore.get(relayerAddressForAsyncAckPath(packet))
-    // get source address by retrieving counterparty payee address 
+    // get source address by retrieving counterparty payee address
     // of this relayer stored in fee middleware.
     sourceAddress = getCounterpartyPayeeAddress(relayer)
     ack = constructIncentivizedAck(acknowledgment, sourceAddress, acknowledgment.success)
@@ -510,7 +509,7 @@ function sendPacket(
 
 ### User Interaction with Fee Middleware
 
-**User sending Packets**
+#### User sending Packets
 
 A user may specify a fee to incentivize the relaying during packet submission, by submitting a fee payment message atomically with the application-specific "send packet" message (e.g. ICS-20 `MsgTransfer`). The fee middleware will escrow the fee for the packet that is created atomically with the escrow. The fee payment message itself is not specified in this document as it may vary greatly across implementations. In some middleware, there may be no fee payment message at all if the fees are being paid out from an altruistic pool.
 
@@ -518,7 +517,7 @@ Since the fee middleware does not need to modify the outgoing packet, the fee pa
 
 In case a user wants to pay fees on a packet after it has already been created, the fee middleware SHOULD provide a message that allows users to pay fees on a packet with the specified sequence, channel and port identifiers. This allows the user to uniquely identify a packet that has already been created, so that the fee middleware can escrow fees for that packet after the fact.
 
-**Relayers sending RecvPacket**
+#### Relayers sending RecvPacket
 
 Before a relayer starts relaying on a channel, they should register their counterparty message using the standardized message:
 
@@ -562,7 +561,6 @@ Instead, the fee module will only connect to a counterparty fee module. This sim
 
 In order for an incentivized chain to maintain backwards compatibility with an unincentivized chain for a given application (e.g. ICS-20), the incentivized chain should host both a top-level ICS-20 module and a top-level fee module that nests an ICS-20 application each of which should bind to unique ports.
 
-
 ## Test Cases
 
 The targets for testing will be:
@@ -582,7 +580,6 @@ All of the above have been tested in end-to-end tests on the ibc-go repository. 
 
 The implementation of this specification can be found in the [ibc-go respository](https://github.com/cosmos/ibc-go).
 
-
 ## Security Considerations
 
 All CIPs must contain a section that discusses the security implications/considerations relevant to the proposed change. Include information that might be important for security discussions, surfaces risks and can be used throughout the life cycle of the proposal. For example, include security-relevant design decisions, concerns, important discussions, implementation-specific guidance and pitfalls, an outline of threats and risks and how they are being addressed. CIP submissions missing the "Security Considerations" section will be rejected. An CIP cannot proceed to status "Final" without a Security Considerations discussion deemed sufficient by the reviewers.
@@ -601,7 +598,6 @@ We cannot return an error on an invalid source address as this would permanently
 Thus, the forward relayer reward is contingent on it providing the correct `payOnSender` address when it sends the `receive_packet` message. The packet flow will continue processing successfully even if the fee payment is unsuccessful.
 
 With the forward relayer correctly embedded in the acknowledgement, and the reverse and timeout relayers available directly in the message; the fee middleware will accurately escrow and distribute fee payments to the relevant relayers.
-
 
 ## Copyright
 

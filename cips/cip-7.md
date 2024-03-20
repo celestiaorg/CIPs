@@ -20,39 +20,47 @@ The successful implementation of the CIP process requires a structured approach 
 ## Specification
 
 ### 1. Formation of Working Groups
-   - Identify key areas needing attention.
-   - Announce formation and invite participation.
-   - Appoint chairs or leaders.
+
+- Identify key areas needing attention.
+- Announce formation and invite participation.
+- Appoint chairs or leaders.
 
 ### 2. Defining Scope and Goals
-   - Draft a charter for each group.
-   - Set realistic and measurable goals.
+
+- Draft a charter for each group.
+- Set realistic and measurable goals.
 
 ### 3. Establishing Procedures
-   - Decide on a consensus process (e.g. rough consensus)
-   - Schedule regular meetings.
-   - Implement documentation and reporting systems for each meeting.
+
+- Decide on a consensus process (e.g. rough consensus)
+- Schedule regular meetings.
+- Implement documentation and reporting systems for each meeting.
 
 ### 4. Collaboration and Communication
-   - Utilize tools like GitHub, Slack, Telegram and video conferencing.
-   - Foster an environment of open communication.
+
+- Utilize tools like GitHub, Slack, Telegram and video conferencing.
+- Foster an environment of open communication.
 
 ### 5. Conflict Resolution
-   - Establish a conflict resolution mechanism.
-   - Define the role of chairs in conflict management.
+
+- Establish a conflict resolution mechanism.
+- Define the role of chairs in conflict management.
 
 ### 6. Review and Adaptation
-   - Regularly review progress.
-   - Adapt scope or processes as needed.
+
+- Regularly review progress.
+- Adapt scope or processes as needed.
 
 ### 7. Integration with the Larger Process
-   - Ensure alignment with the overall CIP process.
-   - Create a feedback loop with the community.
+
+- Ensure alignment with the overall CIP process.
+- Create a feedback loop with the community.
 
 ### 8. Closure
-   - Define criteria for completion.
-   - Document and share outcomes.
-   - Conduct a retrospective.
+
+- Define criteria for completion.
+- Document and share outcomes.
+- Conduct a retrospective.
 
 ## Rationale
 

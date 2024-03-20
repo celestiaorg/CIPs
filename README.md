@@ -13,7 +13,6 @@ Read [CIP-1](https://github.com/celestiaorg/CIPs/blob/main/cips/cip-1.md) for in
 | 2 | December 13, 2023 | [Agenda](https://github.com/celestiaorg/CIPs/issues/22) | [Tweet Thread](https://x.com/JoshCStein/status/1734967567075168697) | [Recording](https://www.youtube.com/watch?v=yYt600kvf4g) |
 | 1 | November 29, 2023 | [Agenda](https://github.com/celestiaorg/CIPs/issues/8)  | [Tweet Thread](https://x.com/JoshCStein/status/1729893879191621702) | [Recording](https://www.youtube.com/watch?v=EhWHHmPo_5Q) |
 
-
 ## Celestia Improvement Proposals (CIPs)
 
 |  №  |      Title       | Author(s) |
@@ -29,7 +28,7 @@ Read [CIP-1](https://github.com/celestiaorg/CIPs/blob/main/cips/cip-1.md) for in
 | [9](/cips/cip-9.md) | Packet Forward Middleware | Alex Cheng (@akc2267) |
 | [10](/cips/cip-10.md) | Coordinated network upgrades | Callum Waters (@cmwaters) |
 | [11](/cips/cip-11.md) | Refund unspent gas | Rootul Patel (@rootulp) |
-| [12](/cips/cip-12.md) | ICS-29 Relayer Incentivisation Middleware | Susannah Evans susannah@interchain.io @womensrights, Aditya Sripal aditya@interchain.io @AdityaSripal |
+| [12](/cips/cip-12.md) | ICS-29 Relayer Incentivisation Middleware | Susannah Evans <susannah@interchain.io> @womensrights, Aditya Sripal <aditya@interchain.io> @AdityaSripal |
 | [13](/cips/cip-13.md) | On-chain Governance Parameters for Celestia Network | Yaz Khoury <yaz@celestia.org>,  Evan Forbes <evan@celestia.org> |
 | [14](/cips/cip-14.md) | ICS-27 Interchain Accounts | Susannah Evans <susannah@interchain.io> (@womensrights), Aidan Salzmann <aidan@stridelabs.co> (@asalzmann), Sam Pochyly <sam@stridelabs.co> (@sampocs) |
 | [15](/cips/cip-15.md) | Discourage memo usage | Rootul Patel (@rootulp), NashQueue (@nashqueue) |
@@ -37,3 +36,10 @@ Read [CIP-1](https://github.com/celestiaorg/CIPs/blob/main/cips/cip-1.md) for in
 | [17](/cips/cip-17.md) | Lemongrass Hardfork | Evan Forbes (@evan-forbes) |
 | [18](/cips/cip-18.md) | Standardised Gas and Pricing Estimation Interface | Callum Waters (@cmwaters) |
 
+## Contributing
+
+Files in this repo must conform to [markdownlint](https://github.com/DavidAnson/markdownlint). Install [markdownlint](https://github.com/DavidAnson/markdownlint) and then run:
+
+```shell
+markdownlint --config .markdownlint.yaml '**/*.md'
+```
