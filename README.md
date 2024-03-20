@@ -35,6 +35,7 @@ Read [CIP-1](https://github.com/celestiaorg/CIPs/blob/main/cips/cip-1.md) for in
 | [16](/cips/cip-16.md) | Make Security Related Governance Parameters Immutable | Mingpei CAO (@caomingpei) |
 | [17](/cips/cip-17.md) | Lemongrass Hardfork | Evan Forbes (@evan-forbes) |
 | [18](/cips/cip-18.md) | Standardised Gas and Pricing Estimation Interface | Callum Waters (@cmwaters) |
+| [19](/cips/cip-19.md) | Shwap Protocol  | Hlib Kanunnikov (@Wondertan) |
 
 ## Contributing
 
