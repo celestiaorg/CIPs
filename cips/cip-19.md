@@ -151,7 +151,7 @@ The fields with validity rules that form RowID are:
 **RowIndex**: An uint16 representing row index points to a particular row. The 16 bit limit fits data squares up to 2TB.
 It MUST not exceed the number of Row roots in [DAH][dah].
 
-[Serialized](#serialization) RowID MUST have a length of 10 bytes.
+[Serialized](#serialization-for-share-identifiers) RowID MUST have a length of 10 bytes.
 
 #### Row Container
 
@@ -195,7 +195,7 @@ The fields with validity rules that form SampleID are:
 **ColumnIndex**: A uint16 representing the column index of the sampled share; in other words, the share index in the row.
 The 16 bit limit fits data squares up to 2TB. It MUST stay within the number of Column roots in [DAH][dah].
 
-[Serialized](#serialization) SampleID MUST have a length of 12 bytes.
+[Serialized](#serialization-for-share-identifiers) SampleID MUST have a length of 12 bytes.
 
 #### Sample Container
 
@@ -253,7 +253,7 @@ The fields with validity rules that form DataID are:
 [**Namespace**][ns]: A fixed-size 29 bytes array representing the Namespace of interest. It MUST follow [Namespace][ns]
 formatting and its validity rules.
 
-[Serialized](#serialization) DataID MUST have a length of 39 bytes.
+[Serialized](#serialization-for-share-identifiers) DataID MUST have a length of 39 bytes.
 
 #### Data Container
 
