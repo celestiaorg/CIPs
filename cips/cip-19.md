@@ -31,8 +31,8 @@ samples, preserving the assumption of having 1/N honest peers connected possessi
 Initially, Bitswap and IPLD were adopted as the basis for the DA network protocols, including DAS,
 block synchronization (BS), and blob/namespace data retrieval (ND). They gave battle-tested protocols and tooling with
 pluggability to rapidly scaffold Celestia's DA network. However, it came with the price of scalability limits and
-roundtrips, resulting in slower BS than block production. Before the network launch, we transitioned to the optimized 
-[ShrEx protocol][shrex] for BS and integrated [CAR and DAGStore-based storage][storage] optimizing BS and ND. However, 
+roundtrips, resulting in slower BS than block production. Before the network launch, we transitioned to the optimized
+[ShrEx protocol][shrex] for BS and integrated [CAR and DAGStore-based storage][storage] optimizing BS and ND. However,
 DAS was left untouched, preserving its weak scalability and roundtrip inefficiency.
 
 Shwap messaging stacked together with Bitswap protocol directly addresses described inefficiency and provides a foundation
@@ -42,14 +42,14 @@ for efficient communication for BS, ND, and beyond.
 
 The atomic primitive of Celestia's DA network is the share. Shwap standardizes messaging and serialization for shares.
 Shares are grouped together, forming more complex data types (Rows, Blobs, etc.). These data types are encapsulated in
-containers. For example, a row container groups the shares of a particular row. Containers can be identified with the share 
-identifiers in order to request, advertise or index the containers. The combination of containers and identifiers 
-provides an extensible and expressive messaging framework for groups of shares and enables efficient single roundtrip 
+containers. For example, a row container groups the shares of a particular row. Containers can be identified with the share
+identifiers in order to request, advertise or index the containers. The combination of containers and identifiers
+provides an extensible and expressive messaging framework for groups of shares and enables efficient single roundtrip
 request-response communication.
 
 Many share groups or containers are known in the Celestia network, and systemizing this is the main reason behind setting
 up this simple messaging framework. A single place with all the possible Celestia DA messages must be defined, which node
-software and protocol researchers can rely on and coordinate. Besides, this framework is designed to be sustain changes 
+software and protocol researchers can rely on and coordinate. Besides, this framework is designed to be sustain changes
 in the core protocol's data structures and proving system as long shares stay the de facto atomic data type.
 
 Besides, there needs to be systematization and a joint knowledge base with all the edge cases for possible protocol
@@ -96,7 +96,6 @@ MUST define its [share identifier](#share-identifiers) and [share container](#sh
 described rules. Every identifier and container MUST define its serialization format, which MAY NOT be consistent with
 other identifiers and containers.
 
-
 #### Share Containers
 
 Share containers encapsulate a set of data shares with proof. Share containers are identified by [share identifiers](#share-identifiers).
@@ -104,22 +103,22 @@ Share containers encapsulate a set of data shares with proof. Share containers a
 Containers SHOULD contain shares within a single DataSquare and MAY NOT be adjacent. Containers MUST have a [DAH][dah]
 inclusion proof field defined.
 
-##### Serialization
+##### Serialization for Share Containers
 
-Share containers are RECOMMENDED to use protobuf (proto3) encoding, and other formats MAY be used for serialization. A 
+Share containers are RECOMMENDED to use protobuf (proto3) encoding, and other formats MAY be used for serialization. A
 container MAY define multiple serialization formats.
 
 #### Share Identifiers
 
-Share identifiers identify [share containers](#share-containers). Identifiers are not collision-resistant and there MAY 
+Share identifiers identify [share containers](#share-containers). Identifiers are not collision-resistant and there MAY
 be different identifiers referencing the same container.
 
 Identifiers MAY embed each other to narrow down the scope of needed shares. For example, [SampleID](#sampleid) embeds
 [RowID](#rowid) as every sample lay on a particular row.
 
-##### Serialization
+##### Serialization for Share Identifiers
 
-Share identifiers SHOULD be serialized by concatenating big-endian representations of fields in the order defined by 
+Share identifiers SHOULD be serialized by concatenating big-endian representations of fields in the order defined by
 their respective formatting section. Serialized identifiers SHOULD have constant and predetermined lengths in bytes.
 
 #### Versioning
@@ -171,9 +170,9 @@ The fields with validity rules that form Row containers are:
 
 [**RowID**](#rowid): A RowID of the Row Container. It MUST follow [RowID](#rowid) formatting and field validity rules.
 
-**RowHalf**: A two-dimensional variable size byte array representing left half of shares in the row. Its length MUST be 
-equal to the number of Column roots in [DAH][dah] divided by two. These shares MUST only be from the left half of the 
-row. The right half is computed using Leopard GF16 Reed-Solomon erasure-coding. Afterward, the [NMT][nmt] is built over 
+**RowHalf**: A two-dimensional variable size byte array representing left half of shares in the row. Its length MUST be
+equal to the number of Column roots in [DAH][dah] divided by two. These shares MUST only be from the left half of the
+row. The right half is computed using Leopard GF16 Reed-Solomon erasure-coding. Afterward, the [NMT][nmt] is built over
 both halves and the computed NMT root MUST be equal to the respective Row root in [DAH][dah].
 
 #### SampleID
@@ -285,7 +284,7 @@ and be verified against the respective root from the Row root axis in [DAH][dah]
 
 Namespace data may span over multiple rows, in which case all the data is encapsulated in multiple containers. This
 enables parallelization of namespace data retrieval and certain [compositions](#protocol-compositions) may get advantage
-of that by requesting containers of a single namespace from multiple servers simultaneously. 
+of that by requesting containers of a single namespace from multiple servers simultaneously.
 
 ## Protocol Compositions
 
@@ -319,14 +318,14 @@ message sizes and data request patterns. In some way, it hacks into multihash ab
 is not, in fact, a hash. Furthermore, the protocol does not include hash digests in the multihashes. The authentication
 of the messages happens using externally provided data commitment.
 
-However, breaking-free from hashes creates issues necessary to be solved on the implementation level, particularly in 
-[the reference Golang implementation][gimpl], if forking and substantially diverging from the upstream is not an option. 
-CIDs are required to have fixed and deterministic sizes. Making share identifiers compliant with CID 
+However, breaking-free from hashes creates issues necessary to be solved on the implementation level, particularly in
+[the reference Golang implementation][gimpl], if forking and substantially diverging from the upstream is not an option.
+CIDs are required to have fixed and deterministic sizes. Making share identifiers compliant with CID
 prevents protobuf usage due to its reliance on varints and dynamic byte arrays serialization in.
 
 The naive question would be: "Why not make content verification after Bitswap provided it back over its API?" Intuitively,
-this would simplify much and would not require "hacking" CID. However, this has an important downside - the Bitswap, in 
-such a case, would consider the request finalized and the content as fetched and valid, sending a DONT_WANT message to 
+this would simplify much and would not require "hacking" CID. However, this has an important downside - the Bitswap, in
+such a case, would consider the request finalized and the content as fetched and valid, sending a DONT_WANT message to
 its peers. In contrast, the message might still be invalid according to the verification rules.
 
 Bitswap still requires multihashes and CID codecs to be registered. Therefore, we provide a table for the
@@ -362,8 +361,8 @@ However, new bugs may be introduced, as with any new protocol.
 
 ### Protobuf Serialization
 
-Protobuf is recommended used to serialize [share containers](#share-containers). It is a widely adopted serialization format and is 
-used within Celestia's protocols. This was quite an obvious choice for consistency reasons, even though we could choose 
+Protobuf is recommended used to serialize [share containers](#share-containers). It is a widely adopted serialization format and is
+used within Celestia's protocols. This was quite an obvious choice for consistency reasons, even though we could choose
 other more efficient and advanced formats like Cap'n Proto.
 
 ### Constant-size Identifier Serialization
@@ -375,9 +374,9 @@ ever becomes problematic.
 
 ### Sampling and Reconstruction
 
-Shwap deliberately avoids specifying sampling and reconstruction logic. The sampling concerns on randomness selection and 
+Shwap deliberately avoids specifying sampling and reconstruction logic. The sampling concerns on randomness selection and
 sample picking are out of Shwap's scope and a matter of following CIPs. Shwap only provides messaging for sampling(via
-[SampleID](#sampleid) and [Sample container](#sample-container)). 
+[SampleID](#sampleid) and [Sample container](#sample-container)).
 
 ## Reference Implementation
 
