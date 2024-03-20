@@ -274,6 +274,7 @@ the following parts:
   and semantics of any new feature. The specification should be detailed
   enough to enable competing, interoperable implementations for any of the
   current Celestia platforms.
+* **Parameters**: Summary of any parameters introduced by or changed by the CIP.
 * **Rationale**: The rationale elaborates on the specification by explaining
   the reasoning behind the design and the choices made during the design process.
   It should discuss alternative designs that were considered and any related work.
@@ -344,7 +345,7 @@ authors/owners of the CIP. Those who prefer anonymity may use a username
 only, or a first name and a username. The format of the `author` header
 value must be:
 
-> Random J. User &lt;address@dom.ain&gt;
+> Random J. User &lt;<address@dom.ain>&gt;
 
 or
 
@@ -352,7 +353,7 @@ or
 
 or
 
-> Random J. User (@username) &lt;address@dom.ain&gt;
+> Random J. User (@username) &lt;<address@dom.ain>&gt;
 
 if the email address and/or GitHub username is included, and
 
@@ -581,6 +582,7 @@ The current CIP editors are
 * Yaz Khoury (@YazzyYaz)
 * Josh Stein (@jcstein)
 * Ethan Buchman (@ebuchman)
+* Rootul Patel (@rootulp)
 
 If you would like to become a CIP editor, please check [CIP-2](./cip-2.md).
 

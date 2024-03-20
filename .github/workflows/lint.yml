@@ -1,0 +1,23 @@
+name: lint
+on:
+    pull_request:
+
+jobs:
+  markdown-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install markdownlint-cli
+        run: npm install -g markdownlint-cli@0.39.0
+        shell: bash
+
+      - name: Run markdownlint
+        run: markdownlint --config .markdownlint.yaml **/*.md
+        shell: bash

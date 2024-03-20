@@ -78,16 +78,16 @@ Observe that the distribution of memo lengths is spikey at 80 and 59 characters.
 Tx count | Memo length | Memo                                                                                         | Base64 decoded
 ---------|-------------|----------------------------------------------------------------------------------------------|-------------------------------------------------------------
 4296795  | 80          | ZGF0YToseyJvcCI6Im1pbnQiLCJhbXQiOjEwMDAwLCJ0aWNrIjoiY2lhcyIsInAiOiJjaWEtMjAifQ==             | data:,{"op":"mint","amt":10000,"tick":"cias","p":"cia-20"}
-1874034  | 59          | data:,{"op":"mint","amt":100000,"tick":"TIMS","p":"tia-20"}                                  |
+1874034  | 59          | data:,{"op":"mint","amt":100000,"tick":"TIMS","p":"tia-20"}                                  | N/A
 210265   | 80          | ZGF0YToseyJvcCI6Im1pbnQiLCJhbXQiOjEwMDAwMCwidGljayI6IlRJTVMiLCJwIjoidGlhLTIwIn0=             | data:,{"op":"mint","amt":100000,"tick":"TIMS","p":"tia-20"}
-78409    | 77          | Yours truly, ValiDAO \| hermes 1.7.1+0658526 (https://hermes.informal.systems)               |
+78409    | 77          | Yours truly, ValiDAO \| hermes 1.7.1+0658526 (https://hermes.informal.systems)               | N/A
 66181    | 80          | ZGF0YToseyJwIjoiY2lhLTIwIiwib3AiOiJtaW50IiwidGljayI6ImNpYXMiLCJhbXQiOiIxMDAwMCJ9             | data:,{"p":"cia-20","op":"mint","tick":"cias","amt":"10000"}
 65931    | 80          | ZGF0YToseyJwIjoic2VpLTIwIiwib3AiOiJtaW50IiwidGljayI6InNlaXMiLCJhbXQiOiIxMDAwIn0=             | data:,{"p":"sei-20","op":"mint","tick":"seis","amt":"1000"}
 53313    | 80          | ZGF0YToseyJvcCI6Im1pbnQiLCJhbXQiOjEwMDAwLCJ0aWNrIjoiQ0lBUyIsInAiOiJjcmMtMjAifQ==             | data:,{"op":"mint","amt":10000,"tick":"CIAS","p":"crc-20"}
 51378    | 80          | ZGF0YToseyJvcCI6Im1pbnQiLCJhbXQiOjEwMDAwLCJ0aWNrIjoiY2lhcyIsInAiOiJjcmMtMjAifQ==             | data:,{"op":"mint","amt":10000,"tick":"cias","p":"crc-20"}
-40568    | 17          | Delegate(rewards)                                                                            |
-31932    | 91          | relayed by CryptoCrew Validators \| hermes 1.6.0+4b5b34ea2 (https://hermes.informal.systems) |
-31233    | 76          | Relayed by Stakin \| hermes 1.7.3+e529d2559 (https://hermes.informal.systems)                |
+40568    | 17          | Delegate(rewards)                                                                            | N/A
+31932    | 91          | relayed by CryptoCrew Validators \| hermes 1.6.0+4b5b34ea2 (https://hermes.informal.systems) | N/A
+31233    | 76          | Relayed by Stakin \| hermes 1.7.3+e529d2559 (https://hermes.informal.systems)                | N/A
 <!-- markdownlint-enable MD034 -->
 
 Observe that seven of the top ten are base64 encoded data. Three of the top ten are relayers. The last one: "Delegate(rewards)" appears to be the default memo applied via Keplr wallet for a delegate tx.

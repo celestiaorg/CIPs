@@ -20,6 +20,7 @@ Effective leadership within working groups is crucial for the success of the CIP
 ## Specification
 
 ### Roles of Working Group Chairs
+
 - **Facilitate Discussions**: Chairs should ensure productive, focused, and inclusive meetings.
 - **Drive Consensus**: Guide the group towards consensus and make decisions when necessary.
 - **Administrative Responsibilities**: Oversee meeting scheduling, agenda setting, and record-keeping.

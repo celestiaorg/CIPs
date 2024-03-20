@@ -85,7 +85,7 @@ A mechanism to enforce a minimum fee is already in place in the `DeductFeeDecora
 
 The `DeductFeeDecorator` antehandler will receive a new `ante.TxFeeChecker` function called `CheckTxFeeWithGlobalMinGasPrices` which will have access to the same `param.Subspace`. For `CheckTx`, it will use the max of either the global min gas price or the local min gas price. For `PrepareProposal`, `ProcessProposal` and `DeliverTx` it will only check using the global min gas price and ignore the locally set min gas price.
 
-The minimum gas price can already be queried through the gRPC client as can any other parameter. 
+The minimum gas price can already be queried through the gRPC client as can any other parameter.
 
 ## Security Considerations
 
