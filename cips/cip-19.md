@@ -131,6 +131,34 @@ suffixed with a new major version starting from v1. E.g., if the Row message nee
 This section defines all the supported Shwap messages, including share identifiers and containers. All the new
 future messages should be described in this section.
 
+#### EdsID
+
+EdsID identifies the [DataSquare][square].
+
+EdsID identifiers are formatted as shown below:
+
+```text
+EdsID {
+    Height: u64;
+}
+```
+
+The fields with validity rules that form EdsID are:
+
+**Height**: A uint64 representing the chain height with the data square. It MUST be bigger than zero.
+
+[Serialized](#serialization-for-share-identifiers) EdsID MUST have a length of 8 bytes.
+
+#### Eds Container
+
+Eds containers encapsulate the [DataSquare][square]. Internally, they only keep the original data(1st quadrant) of the 
+EDS with redundant data(2nd, 3rd and 4th quadrants) computable from the original data.
+
+Eds containers MUST be formatted by serializing ODS left-to-right share-by-share in the row-major order.
+
+Due to ever-growing nature of [DataSquare][square], the Eds containers SHOULD be streamed over reliable links in the 
+share-by-share formatting above. 
+
 #### RowID
 
 RowID identifies the [Row shares container](#row-container) in a [DataSquare][square].
@@ -155,6 +183,9 @@ It MUST not exceed the number of Row roots in [DAH][dah].
 
 #### Row Container
 
+Row containers encapsulate the rows of the [DataSquare][square]. Internally, they only keep the left(original) half of 
+the row with right(redundant) half recomputable from the left half.
+
 Row containers are protobuf formatted using the following proto3 schema:
 
 ```protobuf
@@ -170,7 +201,7 @@ The fields with validity rules that form Row containers are:
 
 [**RowID**](#rowid): A RowID of the Row Container. It MUST follow [RowID](#rowid) formatting and field validity rules.
 
-**RowHalf**: A two-dimensional variable size byte array representing left half of shares in the row. Its length MUST be
+**RowHalf**: A two-dimensional variable size byte array representing *left* half of shares in the row. Its length MUST be
 equal to the number of Column roots in [DAH][dah] divided by two. These shares MUST only be from the left half of the
 row. The right half is computed using Leopard GF16 Reed-Solomon erasure-coding. Afterward, the [NMT][nmt] is built over
 both halves and the computed NMT root MUST be equal to the respective Row root in [DAH][dah].
