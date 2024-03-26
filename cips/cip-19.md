@@ -167,14 +167,14 @@ RowID identifiers are formatted as shown below:
 
 ```text
 RowID {
-    Height: u64;
+    EdsID;
     RowIndex: u16;
 }
 ```
 
 The fields with validity rules that form RowID are:
 
-**Height**: A uint64 representing the chain height with the data square. It MUST be bigger than zero.
+[**EdsID**](#edsid): A EdsID of the Row Container. It MUST follow [EdsID](#edsid) formatting and field validity rules.
 
 **RowIndex**: An uint16 representing row index points to a particular row. The 16 bit limit fits data squares up to 2TB.
 It MUST not exceed the number of Row roots in [DAH][dah].
