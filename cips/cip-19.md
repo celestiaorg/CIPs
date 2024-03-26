@@ -151,13 +151,13 @@ The fields with validity rules that form EdsID are:
 
 #### Eds Container
 
-Eds containers encapsulate the [DataSquare][square]. Internally, they only keep the original data(1st quadrant) of the 
+Eds containers encapsulate the [DataSquare][square]. Internally, they only keep the original data(1st quadrant) of the
 EDS with redundant data(2nd, 3rd and 4th quadrants) computable from the original data.
 
 Eds containers MUST be formatted by serializing ODS left-to-right share-by-share in the row-major order.
 
-Due to ever-growing nature of [DataSquare][square], the Eds containers SHOULD be streamed over reliable links in the 
-share-by-share formatting above. 
+Due to ever-growing nature of [DataSquare][square], the Eds containers SHOULD be streamed over reliable links in the
+share-by-share formatting above.
 
 #### RowID
 
@@ -183,7 +183,7 @@ It MUST not exceed the number of Row roots in [DAH][dah].
 
 #### Row Container
 
-Row containers encapsulate the rows of the [DataSquare][square]. Internally, they only keep the left(original) half of 
+Row containers encapsulate the rows of the [DataSquare][square]. Internally, they only keep the left(original) half of
 the row with right(redundant) half recomputable from the left half.
 
 Row containers are protobuf formatted using the following proto3 schema:
@@ -201,7 +201,7 @@ The fields with validity rules that form Row containers are:
 
 [**RowID**](#rowid): A RowID of the Row Container. It MUST follow [RowID](#rowid) formatting and field validity rules.
 
-**RowHalf**: A two-dimensional variable size byte array representing *left* half of shares in the row. Its length MUST be
+**RowHalf**: A two-dimensional variable size byte array representing _left_ half of shares in the row. Its length MUST be
 equal to the number of Column roots in [DAH][dah] divided by two. These shares MUST only be from the left half of the
 row. The right half is computed using Leopard GF16 Reed-Solomon erasure-coding. Afterward, the [NMT][nmt] is built over
 both halves and the computed NMT root MUST be equal to the respective Row root in [DAH][dah].
