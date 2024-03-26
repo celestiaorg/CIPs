@@ -360,14 +360,18 @@ such a case, would consider the request finalized and the content as fetched and
 its peers. In contrast, the message might still be invalid according to the verification rules.
 
 Bitswap still requires multihashes and CID codecs to be registered. Therefore, we provide a table for the
-supported [share identifiers](#share-identifiers) with their respective multihash and CID codec codes. This table
+required [share identifiers](#share-identifiers) with their respective multihash and CID codec codes. This table
 should be extended whenever any new share identifier or new version of an existing identifier is added.
 
 | Name     | Multihash | Codec  |
 |----------|-----------|--------|
+| EdsID*   | N/A       | N/A    |
 | RowID    | 0x7801    | 0x7800 |
 | SampleID | 0x7811    | 0x7810 |
 | DataID   | 0x7821    | 0x7820 |
+
+*EdsID and container are excluded from Bitswap composition. Bitswap is limited to message of size 256kb, while EDSes are
+expected to be bigger.
 
 ## Backwards Compatibility
 
