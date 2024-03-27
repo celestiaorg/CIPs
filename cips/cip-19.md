@@ -237,7 +237,7 @@ Sample containers are protobuf formatted using the following proto3 schema:
 ```protobuf
 syntax = "proto3";
 
-message sample {
+message Sample {
     bytes sample_id = 1;
     bytes sample_share = 2;
     Proof sample_proof = 3;
@@ -370,8 +370,8 @@ should be extended whenever any new share identifier or new version of an existi
 | SampleID | 0x7811    | 0x7810 |
 | DataID   | 0x7821    | 0x7820 |
 
-*EdsID and container are excluded from Bitswap composition. Bitswap is limited to message of size 256kb, while EDSes are
-expected to be bigger.
+*EdsID and container are excluded from Bitswap composition. Bitswap is limited to messages of size 256kb, while EDSes are
+expected to be bigger. Also, its more efficient to parallelize EDS requesting by rows.
 
 ## Backwards Compatibility
 
