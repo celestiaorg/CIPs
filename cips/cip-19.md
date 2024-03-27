@@ -152,8 +152,8 @@ The fields with validity rules that form EdsID are:
 
 #### Eds Container
 
-Eds containers encapsulate the [DataSquare][square]. Internally, they only keep the original data(1st quadrant) of the
-EDS with redundant data(2nd, 3rd and 4th quadrants) computable from the original data.
+Eds containers encapsulate the [DataSquare][square]. Internally, they only keep the original data (1st quadrant) of the
+EDS with redundant data (2nd, 3rd and 4th quadrants) computable from the original data.
 
 Eds containers MUST be formatted by serializing ODS left-to-right share-by-share in the row-major order.
 
@@ -184,8 +184,8 @@ It MUST not exceed the number of [DAH][dah] Row roots reduced by one.
 
 #### Row Container
 
-Row containers encapsulate the rows of the [DataSquare][square]. Internally, they only keep the left(original) half of
-the row with right(redundant) half recomputable from the left half.
+Row containers encapsulate the rows of the [DataSquare][square]. Internally, they only keep the left (original) half of
+the row with right (redundant) half recomputable from the left half.
 
 Row containers are protobuf formatted using the following proto3 schema:
 
@@ -372,7 +372,7 @@ should be extended whenever any new share identifier or new version of an existi
 | DataID   | 0x7821    | 0x7820 |
 
 *EdsID and container are excluded from Bitswap composition. Bitswap is limited to messages of size 256kb, while EDSes are
-expected to be bigger. Also, its more efficient to parallelize EDS requesting by rows.
+expected to be bigger. Also, it is more efficient to parallelize EDS requesting by rows.
 
 ## Backwards Compatibility
 
