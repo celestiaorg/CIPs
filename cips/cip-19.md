@@ -131,6 +131,34 @@ suffixed with a new major version starting from v1. E.g., if the Row message nee
 This section defines all the supported Shwap messages, including share identifiers and containers. All the new
 future messages should be described in this section.
 
+#### EdsID
+
+EdsID identifies the [DataSquare][square].
+
+EdsID identifiers are formatted as shown below:
+
+```text
+EdsID {
+    Height: u64;
+}
+```
+
+The fields with validity rules that form EdsID are:
+
+**Height**: A uint64 representing the chain height with the data square. It MUST be bigger than zero.
+
+[Serialized](#serialization-for-share-identifiers) EdsID MUST have a length of 8 bytes.
+
+#### Eds Container
+
+Eds containers encapsulate the [DataSquare][square]. Internally, they only keep the original data(1st quadrant) of the
+EDS with redundant data(2nd, 3rd and 4th quadrants) computable from the original data.
+
+Eds containers MUST be formatted by serializing ODS left-to-right share-by-share in the row-major order.
+
+Due to ever-growing nature of [DataSquare][square], the Eds containers SHOULD be streamed over reliable links in the
+share-by-share formatting above.
+
 #### RowID
 
 RowID identifies the [Row shares container](#row-container) in a [DataSquare][square].
@@ -139,14 +167,14 @@ RowID identifiers are formatted as shown below:
 
 ```text
 RowID {
-    Height: u64;
+    EdsID;
     RowIndex: u16;
 }
 ```
 
 The fields with validity rules that form RowID are:
 
-**Height**: A uint64 representing the chain height with the data square. It MUST be bigger than zero.
+[**EdsID**](#edsid): A EdsID of the Row Container. It MUST follow [EdsID](#edsid) formatting and field validity rules.
 
 **RowIndex**: An uint16 representing row index points to a particular row. The 16 bit limit fits data squares up to 2TB.
 It MUST not exceed the number of Row roots in [DAH][dah].
@@ -154,6 +182,9 @@ It MUST not exceed the number of Row roots in [DAH][dah].
 [Serialized](#serialization-for-share-identifiers) RowID MUST have a length of 10 bytes.
 
 #### Row Container
+
+Row containers encapsulate the rows of the [DataSquare][square]. Internally, they only keep the left(original) half of
+the row with right(redundant) half recomputable from the left half.
 
 Row containers are protobuf formatted using the following proto3 schema:
 
@@ -170,7 +201,7 @@ The fields with validity rules that form Row containers are:
 
 [**RowID**](#rowid): A RowID of the Row Container. It MUST follow [RowID](#rowid) formatting and field validity rules.
 
-**RowHalf**: A two-dimensional variable size byte array representing left half of shares in the row. Its length MUST be
+**RowHalf**: A two-dimensional variable size byte array representing _left_ half of shares in the row. Its length MUST be
 equal to the number of Column roots in [DAH][dah] divided by two. These shares MUST only be from the left half of the
 row. The right half is computed using Leopard GF16 Reed-Solomon erasure-coding. Afterward, the [NMT][nmt] is built over
 both halves and the computed NMT root MUST be equal to the respective Row root in [DAH][dah].
@@ -206,7 +237,7 @@ Sample containers are protobuf formatted using the following proto3 schema:
 ```protobuf
 syntax = "proto3";
 
-message sample {
+message Sample {
     bytes sample_id = 1;
     bytes sample_share = 2;
     Proof sample_proof = 3;
@@ -329,14 +360,18 @@ such a case, would consider the request finalized and the content as fetched and
 its peers. In contrast, the message might still be invalid according to the verification rules.
 
 Bitswap still requires multihashes and CID codecs to be registered. Therefore, we provide a table for the
-supported [share identifiers](#share-identifiers) with their respective multihash and CID codec codes. This table
+required [share identifiers](#share-identifiers) with their respective multihash and CID codec codes. This table
 should be extended whenever any new share identifier or new version of an existing identifier is added.
 
 | Name     | Multihash | Codec  |
 |----------|-----------|--------|
+| EdsID*   | N/A       | N/A    |
 | RowID    | 0x7801    | 0x7800 |
 | SampleID | 0x7811    | 0x7810 |
 | DataID   | 0x7821    | 0x7820 |
+
+*EdsID and container are excluded from Bitswap composition. Bitswap is limited to messages of size 256kb, while EDSes are
+expected to be bigger. Also, its more efficient to parallelize EDS requesting by rows.
 
 ## Backwards Compatibility
 
