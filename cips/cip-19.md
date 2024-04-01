@@ -111,14 +111,15 @@ container MAY define multiple serialization formats.
 #### Share Identifiers
 
 Share identifiers identify [share containers](#share-containers). Identifiers are not collision-resistant and there MAY
-be different identifiers referencing the same container.
+be different identifiers referencing the same container. There SHOULD NOT be multiple containers identified by the same
+identifier.
 
 Identifiers MAY embed each other to narrow down the scope of needed shares. For example, [SampleID](#sampleid) embeds
 [RowID](#rowid) as every sample lay on a particular row.
 
 ##### Serialization for Share Identifiers
 
-Share identifiers SHOULD be serialized by concatenating big-endian representations of fields in the order defined by
+Share identifiers MUST be serialized by concatenating big-endian representations of fields in the order defined by
 their respective formatting section. Serialized identifiers SHOULD have constant and predetermined lengths in bytes.
 
 #### Versioning
@@ -145,14 +146,14 @@ EdsID {
 
 The fields with validity rules that form EdsID are:
 
-**Height**: A uint64 representing the chain height with the data square. It MUST be bigger than zero.
+**Height**: A uint64 representing the chain height with the data square. It MUST be greater than zero.
 
 [Serialized](#serialization-for-share-identifiers) EdsID MUST have a length of 8 bytes.
 
 #### Eds Container
 
-Eds containers encapsulate the [DataSquare][square]. Internally, they only keep the original data(1st quadrant) of the
-EDS with redundant data(2nd, 3rd and 4th quadrants) computable from the original data.
+Eds containers encapsulate the [DataSquare][square]. Internally, they only keep the original data (1st quadrant) of the
+EDS with redundant data (2nd, 3rd and 4th quadrants) computable from the original data.
 
 Eds containers MUST be formatted by serializing ODS left-to-right share-by-share in the row-major order.
 
@@ -177,14 +178,14 @@ The fields with validity rules that form RowID are:
 [**EdsID**](#edsid): A EdsID of the Row Container. It MUST follow [EdsID](#edsid) formatting and field validity rules.
 
 **RowIndex**: An uint16 representing row index points to a particular row. The 16 bit limit fits data squares up to 2TB.
-It MUST not exceed the number of Row roots in [DAH][dah].
+It MUST not exceed the number of [DAH][dah] Row roots reduced by one.
 
 [Serialized](#serialization-for-share-identifiers) RowID MUST have a length of 10 bytes.
 
 #### Row Container
 
-Row containers encapsulate the rows of the [DataSquare][square]. Internally, they only keep the left(original) half of
-the row with right(redundant) half recomputable from the left half.
+Row containers encapsulate the rows of the [DataSquare][square]. Internally, they only keep the left (original) half of
+the row with right (redundant) half recomputable from the left half.
 
 Row containers are protobuf formatted using the following proto3 schema:
 
@@ -224,7 +225,7 @@ The fields with validity rules that form SampleID are:
 [**RowID**](#rowid): A RowID of the sample. It MUST follow [RowID](#rowid) formatting and field validity rules.
 
 **ColumnIndex**: A uint16 representing the column index of the sampled share; in other words, the share index in the row.
-The 16 bit limit fits data squares up to 2TB. It MUST stay within the number of Column roots in [DAH][dah].
+The 16 bit limit fits data squares up to 2TB. It MUST stay within the number of [DAH][dah] Column roots reduced by one.
 
 [Serialized](#serialization-for-share-identifiers) SampleID MUST have a length of 12 bytes.
 
@@ -371,7 +372,7 @@ should be extended whenever any new share identifier or new version of an existi
 | DataID   | 0x7821    | 0x7820 |
 
 *EdsID and container are excluded from Bitswap composition. Bitswap is limited to messages of size 256kb, while EDSes are
-expected to be bigger. Also, its more efficient to parallelize EDS requesting by rows.
+expected to be bigger. Also, it is more efficient to parallelize EDS requesting by rows.
 
 ## Backwards Compatibility
 
