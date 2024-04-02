@@ -4,7 +4,7 @@ title: Standardised Gas and Pricing Estimation Interface
 description: A standardised interface for estimating gas usage and gas pricing for transactions
 author: Callum Waters (@cmwaters)
 discussions-to: https://forum.celestia.org/t/cip-standardised-gas-and-pricing-estimation-interface/1621
-status: Draft
+status: Review
 type: Standards Track
 category: Interface
 created: 2024-03-12
