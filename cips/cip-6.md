@@ -4,7 +4,7 @@ title: Mininum gas price enforcement
 description: Enforce payment of the gas for a transaction based on a governance modifiable global minimum gas price 
 author: Callum Waters (@cmwaters)
 discussions-to: https://forum.celestia.org/t/cip-006-price-enforcement/1351
-status: Last Call
+status: Final
 last-call-deadline: 2024-03-06
 type: Standards Track
 category: Core
