@@ -4,8 +4,7 @@ title: ICS-29 Relayer Incentivisation Middleware
 description: Adding ics-29 to Celestia to move towards sustainable relayer funding for IBC
 author: Susannah Evans susannah@interchain.io @womensrights, Aditya Sripal aditya@interchain.io @AdityaSripal
 discussions-to: https://forum.celestia.org/t/cip-relayer-incentivisation-middleware/1383
-status: Last Call
-last-call-deadline: 2024-03-06
+status: Review
 type: Standards Track
 category: Core
 created: 2023-12-12
