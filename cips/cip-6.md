@@ -81,9 +81,9 @@ if err != nil {
 
 This will now reject undecodable transactions. Decodable transactions will still have to pass the `AnteHandlers` before being accepted in a block so no further change is required.
 
-A mechanism to enforce a minimum fee is already in place in the `DeductFeeDecorator`. Currently, this is the validators locally set value sourced from their config. To switch to a network-wide value, we introduce a new `param.Subspace` which solely consisty of the min gas price. If this is unpopulated, it will be set to the default value of `0.002utia` (which matches the current local min gas price). As a `param.Subspace`, this value can be modified via governance as can any other parameter.
+A mechanism to enforce a minimum fee is already in place in the `DeductFeeDecorator`. Currently, this is the validators locally set value sourced from their config. To switch to a network-wide value, we introduce a new `param.Subspace`, `minfee`, which solely consists of the global min gas price. If this is unpopulated, it will be set to the default value of `0.002utia` (which matches the current local min gas price). As a `param.Subspace`, this value can be modified via governance as can any other parameter.
 
-The `DeductFeeDecorator` antehandler will receive a new `ante.TxFeeChecker` function called `CheckTxFeeWithGlobalMinGasPrices` which will have access to the same `param.Subspace`. For `CheckTx`, it will use the max of either the global min gas price or the local min gas price. For `PrepareProposal`, `ProcessProposal` and `DeliverTx` it will only check using the global min gas price and ignore the locally set min gas price.
+The `DeductFeeDecorator` antehandler will receive a new `ante.TxFeeChecker` function called `ValidateTxFee` which will have access to the same `param.Subspace`. For `CheckTx`, it will use the max of either the global min gas price or the local min gas price. For `PrepareProposal`, `ProcessProposal` and `DeliverTx` it will only check using the global min gas price and ignore the locally set min gas price.
 
 The minimum gas price can already be queried through the gRPC client as can any other parameter.
 
