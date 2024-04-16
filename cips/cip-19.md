@@ -194,14 +194,11 @@ Row containers are protobuf formatted using the following proto3 schema:
 syntax = "proto3";
 
 message Row {
-  bytes row_id = 1;
-  repeated bytes row_half = 2;
+  repeated bytes row_half = 1;
 }
 ```
 
 The fields with validity rules that form Row containers are:
-
-[**RowID**](#rowid): A RowID of the Row Container. It MUST follow [RowID](#rowid) formatting and field validity rules.
 
 **RowHalf**: A two-dimensional variable size byte array representing _left_ half of shares in the row. Its length MUST be
 equal to the number of Column roots in [DAH][dah] divided by two. These shares MUST only be from the left half of the
@@ -240,10 +237,9 @@ Sample containers are protobuf formatted using the following proto3 schema:
 syntax = "proto3";
 
 message Sample {
-    bytes sample_id = 1;
-    bytes sample_share = 2;
-    Proof sample_proof = 3;
-    ProofType proof_type = 4;
+    bytes sample_share = 1;
+    Proof sample_proof = 2;
+    ProofType proof_type = 3;
 }
 
 enum ProofType {
@@ -253,9 +249,6 @@ enum ProofType {
 ```
 
 The fields with validity rules that form Sample containers are:
-
-[**SampleID**](#sampleid): A SampleID of the Sample container. It MUST follow [SampleID](#sampleid) formatting and field
-validity rules.
 
 **SampleShare**: A variable size array representing the share contained in the sample. Each share MUST follow [share
 formatting and validity][shares-format] rules.
@@ -298,21 +291,17 @@ Data containers are protobuf formatted using the following proto3 schema:
 syntax = "proto3";
 
 message Data {
-    bytes data_id = 1;
-    repeated bytes data_shares = 2;
-    Proof data_proof = 3;
+    repeated bytes data_shares = 1;
+    Proof data_proof = 2;
 }
 ```
 
 The fields with validity rules that form Data containers are:
 
-[**DataID**](#dataid): A DataID of the Data container. It MUST follow [DataID](#dataid) formatting and field validity
-rules.
-
 **DataShares**: A two-dimensional variable size byte array representing left data shares of a namespace in the row.
 Each share MUST follow [share formatting and validity][shares-format] rules.
 
-**Proof**: A [protobuf formated][nmt-pb] [NMT][nmt] proof of share inclusion. It MUST follow [NMT proof verification][nmt-verify]
+**DataProof**: A [protobuf formated][nmt-pb] [NMT][nmt] proof of share inclusion. It MUST follow [NMT proof verification][nmt-verify]
 and be verified against the respective root from the Row root axis in [DAH][dah].
 
 Namespace data may span over multiple rows, in which case all the data is encapsulated in multiple containers. This
@@ -339,7 +328,7 @@ significantly contribute to Celestia's efficient DAS protocol.
 Bitswap runs over the libp2p stack, which provides QUIC transport integration. Subsequently, Shwap will benefit from features
 libp2p provides together with transport protocol advancements introduced in QUIC.
 
-#### Multihashes and CID
+#### Multihashes and CIDs
 
 Bitswap is tightly coupled with [Multihash][mh] and [CID][cid] notions, establishing the [content addressability property][content-address].
 Bitswap operates over Blocks of data that are addressed and verified by CIDs. Based on that, Shwap integrates into
@@ -374,6 +363,75 @@ should be extended whenever any new share identifier or new version of an existi
 
 *EdsID and container are excluded from Bitswap composition. Bitswap is limited to messages of size 256kb, while EDSes are
 expected to be bigger. Also, it is more efficient to parallelize EDS requesting by rows.
+
+#### Blocks
+
+Bitswap operates over IPFS blocks(not to mix with Celestia or other blockchain blocks). An IPFS block is a blob of
+arbitrary bytes addressed and identified with a [CID](#multihashes-and-cids). An IPFS block must have a CID encoded into
+it, s.t. the CID can either be computed by hashing the block or by extracting it out of the block data itself.
+
+In order for the composition to work, Shwap has to comply with the block format and for this we introduce _adapter_
+block types for each supported container. As Shwap container identifiers are not hash-based and aren't computable, we
+have to encode CIDs into the block adapters for the containers.
+
+The block adapters are protobuf encoded with the following schemas:
+
+##### RowBlock
+
+```protobuf
+syntax = "proto3";
+
+message RowBlock {
+    repeated bytes row_id = 1;
+    Row row = 2;
+}
+```
+
+The fields with validity rules that form RowBlock are:
+
+[**RowID**](#rowid): A RowID of the [Row Container](#row-container). It MUST follow [RowID](#rowid) formatting and field
+validity rules.
+
+[**Row**](#row-container): An imported Row container protobuf message. It MUST follow [Row](#row-container) formatting
+and field validity rules.
+
+##### SampleBlock
+
+```protobuf
+syntax = "proto3";
+
+message SampleBlock {
+    repeated bytes sample_id = 1;
+    Sample sample = 2;
+}
+```
+
+The fields with validity rules that form SampleBlock are:
+
+[**SampleID**](#sampleid): A SampleID of the [Sample Container](#sample-container). It MUST follow [SampleID](#sampleid)
+formatting and field validity rules.
+
+[**Sample**](#sample-container): An imported Sample container protobuf message. It MUST follow [Sample](#sample-container)
+formatting and field validity rules.
+
+##### DataBlock
+
+```protobuf
+syntax = "proto3";
+
+message DataBlock {
+    repeated bytes data_id = 1;
+    Data data = 2;
+}
+```
+
+The fields with validity rules that form DataBlock are:
+
+[**DataID**](#dataid): A DataID of the [Data Container](#data-container). It MUST follow [DataID](#dataid) formatting
+and field validity rules.
+
+[**Data**](#data-container): An imported Data container protobuf message. It MUST follow [Data](#data-container)
+formatting and field validity rules.
 
 ## Backwards Compatibility
 
