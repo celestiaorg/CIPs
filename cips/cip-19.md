@@ -4,8 +4,7 @@ title: Shwap Protocol
 description: Shwap - a new messaging framework for DA and sampling
 author: Hlib Kanunnikov (@Wondertan)
 discussions-to: https://forum.celestia.org/t/cip-shwap-protocol/1551
-status: Last Call
-last-call-deadline: 2024-04-17
+status: Review
 type: Standards Track
 category: Data Availability, Networking
 created: 2024-02-02
@@ -194,14 +193,11 @@ Row containers are protobuf formatted using the following proto3 schema:
 syntax = "proto3";
 
 message Row {
-  bytes row_id = 1;
-  repeated bytes row_half = 2;
+  repeated bytes row_half = 1;
 }
 ```
 
 The fields with validity rules that form Row containers are:
-
-[**RowID**](#rowid): A RowID of the Row Container. It MUST follow [RowID](#rowid) formatting and field validity rules.
 
 **RowHalf**: A two-dimensional variable size byte array representing _left_ half of shares in the row. Its length MUST be
 equal to the number of Column roots in [DAH][dah] divided by two. These shares MUST only be from the left half of the
@@ -240,10 +236,9 @@ Sample containers are protobuf formatted using the following proto3 schema:
 syntax = "proto3";
 
 message Sample {
-    bytes sample_id = 1;
-    bytes sample_share = 2;
-    Proof sample_proof = 3;
-    ProofType proof_type = 4;
+    bytes sample_share = 1;
+    Proof sample_proof = 2;
+    ProofType proof_type = 3;
 }
 
 enum ProofType {
@@ -254,9 +249,6 @@ enum ProofType {
 
 The fields with validity rules that form Sample containers are:
 
-[**SampleID**](#sampleid): A SampleID of the Sample container. It MUST follow [SampleID](#sampleid) formatting and field
-validity rules.
-
 **SampleShare**: A variable size array representing the share contained in the sample. Each share MUST follow [share
 formatting and validity][shares-format] rules.
 
@@ -265,59 +257,56 @@ and be verified against the respective root from the Row or Column axis in [DAH]
 
 **ProofType**: An enum defining which axis root the Proof is coming from. It MUST be either RowProofType or ColumnProofType.
 
-#### DataID
+#### RowNamespaceDataID
 
-DataID identifies [namespace][ns] Data container of shares within a _single_ Row. That is, namespace shares spanning
+RowNamespaceDataID identifies [namespace][ns] Data container of shares within a _single_ Row. That is, namespace shares spanning
 over multiple Rows are identified with multiple identifiers.
 
-DataID identifiers are formatted as shown below:
+RowNamespaceDataID identifiers are formatted as shown below:
 
 ```text
-DataID {
+RowNamespaceDataID {
     RowID;
     Namespace;
 }
 ```
 
-The fields with validity rules that form DataID are:
+The fields with validity rules that form RowNamespaceDataID are:
 
 [**RowID**](#rowid): A RowID of the namespace data. It MUST follow [RowID](#rowid) formatting and field validity rules.
 
 [**Namespace**][ns]: A fixed-size 29 bytes array representing the Namespace of interest. It MUST follow [Namespace][ns]
 formatting and its validity rules.
 
-[Serialized](#serialization-for-share-identifiers) DataID MUST have a length of 39 bytes.
+[Serialized](#serialization-for-share-identifiers) RowNamespaceDataID MUST have a length of 39 bytes.
 
-#### Data Container
+#### RowNamespaceData Container
 
-Data containers encapsulate user-submitted data under [namespaces][ns].
+RowNamespaceData containers encapsulate user-submitted data under [namespaces][ns] within a single [DataSquare][square]
+row.
 
-Data containers are protobuf formatted using the following proto3 schema:
+RowNamespaceData containers are protobuf formatted using the following proto3 schema:
 
 ```protobuf
 syntax = "proto3";
 
-message Data {
-    bytes data_id = 1;
-    repeated bytes data_shares = 2;
-    Proof data_proof = 3;
+message RowNamespaceData {
+    repeated bytes rnd_shares = 1;
+    Proof rnd_proof = 2;
 }
 ```
 
 The fields with validity rules that form Data containers are:
 
-[**DataID**](#dataid): A DataID of the Data container. It MUST follow [DataID](#dataid) formatting and field validity
-rules.
-
-**DataShares**: A two-dimensional variable size byte array representing left data shares of a namespace in the row.
+**RNDShares**: A two-dimensional variable size byte array representing left data shares of a namespace in the row.
 Each share MUST follow [share formatting and validity][shares-format] rules.
 
-**Proof**: A [protobuf formated][nmt-pb] [NMT][nmt] proof of share inclusion. It MUST follow [NMT proof verification][nmt-verify]
+**RNDProof**: A [protobuf formated][nmt-pb] [NMT][nmt] proof of share inclusion. It MUST follow [NMT proof verification][nmt-verify]
 and be verified against the respective root from the Row root axis in [DAH][dah].
 
-Namespace data may span over multiple rows, in which case all the data is encapsulated in multiple containers. This
-enables parallelization of namespace data retrieval and certain [compositions](#protocol-compositions) may get advantage
-of that by requesting containers of a single namespace from multiple servers simultaneously.
+Namespace data may span over multiple rows, in which case all the data is encapsulated in multiple RowNamespaceData
+containers. This enables parallelization of namespace data retrieval and certain [compositions](#protocol-compositions)
+may get advantage of that by requesting containers of a single namespace from multiple servers simultaneously.
 
 ## Protocol Compositions
 
@@ -339,7 +328,7 @@ significantly contribute to Celestia's efficient DAS protocol.
 Bitswap runs over the libp2p stack, which provides QUIC transport integration. Subsequently, Shwap will benefit from features
 libp2p provides together with transport protocol advancements introduced in QUIC.
 
-#### Multihashes and CID
+#### Multihashes and CIDs
 
 Bitswap is tightly coupled with [Multihash][mh] and [CID][cid] notions, establishing the [content addressability property][content-address].
 Bitswap operates over Blocks of data that are addressed and verified by CIDs. Based on that, Shwap integrates into
@@ -365,15 +354,84 @@ Bitswap still requires multihashes and CID codecs to be registered. Therefore, w
 required [share identifiers](#share-identifiers) with their respective multihash and CID codec codes. This table
 should be extended whenever any new share identifier or new version of an existing identifier is added.
 
-| Name     | Multihash | Codec  |
-|----------|-----------|--------|
-| EdsID*   | N/A       | N/A    |
-| RowID    | 0x7801    | 0x7800 |
-| SampleID | 0x7811    | 0x7810 |
-| DataID   | 0x7821    | 0x7820 |
+| Name               | Multihash | Codec  |
+|--------------------|-----------|--------|
+| EdsID*             | N/A       | N/A    |
+| RowID              | 0x7801    | 0x7800 |
+| SampleID           | 0x7811    | 0x7810 |
+| RowNamespaceDataID | 0x7821    | 0x7820 |
 
 *EdsID and container are excluded from Bitswap composition. Bitswap is limited to messages of size 256kb, while EDSes are
 expected to be bigger. Also, it is more efficient to parallelize EDS requesting by rows.
+
+#### Blocks
+
+Bitswap operates over IPFS blocks (not to mix with Celestia or other blockchain blocks). An IPFS block is a blob of
+arbitrary bytes addressed and identified with a [CID](#multihashes-and-cids). An IPFS block must have a CID encoded into
+it, s.t. the CID can either be computed by hashing the block or by extracting it out of the block data itself.
+
+In order for the composition to work, Shwap has to comply with the block format and for this we introduce _adapter_
+block types for each supported container. As Shwap container identifiers are not hash-based and aren't computable, we
+have to encode CIDs into the block adapters for the containers.
+
+The block adapters are protobuf encoded with the following schemas:
+
+##### RowBlock
+
+```protobuf
+syntax = "proto3";
+
+message RowBlock {
+    repeated bytes row_id = 1;
+    Row row = 2;
+}
+```
+
+The fields with validity rules that form RowBlock are:
+
+[**RowID**](#rowid): A RowID of the [Row Container](#row-container). It MUST follow [RowID](#rowid) formatting and field
+validity rules.
+
+[**Row**](#row-container): An imported Row container protobuf message. It MUST follow [Row](#row-container) formatting
+and field validity rules.
+
+##### SampleBlock
+
+```protobuf
+syntax = "proto3";
+
+message SampleBlock {
+    repeated bytes sample_id = 1;
+    Sample sample = 2;
+}
+```
+
+The fields with validity rules that form SampleBlock are:
+
+[**SampleID**](#sampleid): A SampleID of the [Sample Container](#sample-container). It MUST follow [SampleID](#sampleid)
+formatting and field validity rules.
+
+[**Sample**](#sample-container): An imported Sample container protobuf message. It MUST follow [Sample](#sample-container)
+formatting and field validity rules.
+
+##### RowNamespaceDataBlock
+
+```protobuf
+syntax = "proto3";
+
+message RowNamespaceDataBlock {
+    repeated bytes rnd_id = 1;
+    RowNamespaceData rnd = 2;
+}
+```
+
+The fields with validity rules that form RowNamespaceDataBlock are:
+
+[**RowNamespaceDataID**](#rownamespacedataid): A RowNamespaceDataID of the [RowNamespaceData Container](#rownamespacedata-container).
+It MUST follow [RowNamespaceDataID](#rownamespacedataid) formatting and field validity rules.
+
+[**RowNamespaceData**](#rownamespacedata-container): An imported RowNamespaceData container protobuf message. It MUST
+follow [RowNamespaceData](#rownamespacedata-container) formatting and field validity rules.
 
 ## Backwards Compatibility
 
