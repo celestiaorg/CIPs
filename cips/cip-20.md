@@ -24,7 +24,7 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 If this CIP is adopted:
 
-1. The state machine MUST NOT accept new transactions that include blobstream messages (e.g. `NewMsgRegisterEVMAddress`).
+1. The state machine MUST NOT accept new transactions that include Blobstream messages (e.g. `NewMsgRegisterEVMAddress`).
 1. The state machine MUST NOT respond to queries for the blobstream module (e.g. `AttestationRequestByNonce`, `LatestAttestationNonce`, `EarliestAttestationNonce`).
 
 ## Parameters
