@@ -6,6 +6,8 @@ Read [CIP-1](https://github.com/celestiaorg/CIPs/blob/main/cips/cip-1.md) for in
 
 |  №  |      Date       | Agenda | Notes | Recording |
 |:---:|:---------------:|:------:|:-----:|:---------:|
+| 9 | April 17, 2024 | [Agenda](https://github.com/celestiaorg/CIPs/issues/127) |[Tweet Thread](https://twitter.com/JoshCStein/status/1780612265667924032) | [Recording](https://www.youtube.com/watch?v=Qwir10r9o7k) |
+| 8 | April 3, 2024 | [Agenda](https://github.com/celestiaorg/CIPs/issues/107) |[Tweet Thread](https://twitter.com/JoshCStein/status/1775538935285862747) | [Recording](https://www.youtube.com/watch?v=vBrjSExfRO8) |
 | 7 | March 20, 2024 | [Agenda](https://github.com/celestiaorg/CIPs/issues/95) |[Tweet Thread](https://twitter.com/JoshCStein/status/1770480641290744157) | [Recording](https://www.youtube.com/watch?v=B2NyDWht7xU) |
 | 6 | March 6, 2024 | [Agenda](https://github.com/celestiaorg/CIPs/issues/87) |[Tweet Thread](https://twitter.com/JoshCStein/status/1765407703462031563) | [Recording](https://www.youtube.com/watch?v=DEAkzrhSwMA) |
 | 5 | February 20, 2024 | [Agenda](https://github.com/celestiaorg/CIPs/issues/71) |[Tweet Thread](https://twitter.com/JoshCStein/status/1759972091724526084) | [Recording](https://youtube.com/live/WFPEMAuGEM0?feature=share) |
