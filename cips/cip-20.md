@@ -16,7 +16,7 @@ The purpose of this proposal is to disable the blobstream module in celestia-app
 
 ## Motivation
 
-The blobstream module is a celestia-app specific state machine module. The blobstream module was designed to serve as a single component in the original blobstream architecture. The original blobstream architecture has been deprecated in favor of [blobstreamx](https://github.com/succinctlabs/blobstreamx) so the blobstream module is no longer needed and thus can be disabled.
+The blobstream module is a celestia-app specific state machine module. The blobstream module was designed to serve as a single component in the original blobstream architecture. The original blobstream architecture has been deprecated in favor of [Blobstream X](https://github.com/succinctlabs/blobstreamx) so the blobstream module is no longer needed and thus can be disabled.
 
 ## Specification
 
