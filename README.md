@@ -37,6 +37,7 @@ Read [CIP-1](https://github.com/celestiaorg/CIPs/blob/main/cips/cip-1.md) for in
 | [17](/cips/cip-17.md) | Lemongrass Hardfork | Evan Forbes (@evan-forbes) |
 | [18](/cips/cip-18.md) | Standardised Gas and Pricing Estimation Interface | Callum Waters (@cmwaters) |
 | [19](/cips/cip-19.md) | Shwap Protocol  | Hlib Kanunnikov (@Wondertan) |
+| [20](/cips/cip-20.md) | Disable blobstream module | Rootul Patel (@rootulp) |
 
 ## Contributing
 

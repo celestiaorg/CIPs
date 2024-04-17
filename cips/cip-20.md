@@ -1,4 +1,5 @@
 ---
+cip: 20
 title: Disable blobstream module
 description: Disable the blobstream state machine module
 author: Rootul Patel (@rootulp)
