@@ -4,7 +4,7 @@ title: Shwap Protocol
 description: Shwap - a new messaging framework for DA and sampling
 author: Hlib Kanunnikov (@Wondertan)
 discussions-to: https://forum.celestia.org/t/cip-shwap-protocol/1551
-status: Last Call
+status: Review
 last-call-deadline: 2024-04-17
 type: Standards Track
 category: Data Availability, Networking
