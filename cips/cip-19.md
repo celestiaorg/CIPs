@@ -367,7 +367,7 @@ expected to be bigger. Also, it is more efficient to parallelize EDS requesting 
 
 #### Blocks
 
-Bitswap operates over IPFS blocks(not to mix with Celestia or other blockchain blocks). An IPFS block is a blob of
+Bitswap operates over IPFS blocks (not to mix with Celestia or other blockchain blocks). An IPFS block is a blob of
 arbitrary bytes addressed and identified with a [CID](#multihashes-and-cids). An IPFS block must have a CID encoded into
 it, s.t. the CID can either be computed by hashing the block or by extracting it out of the block data itself.
 
