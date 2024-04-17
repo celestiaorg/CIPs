@@ -2,7 +2,7 @@
 title: Disable blobstream module
 description: Disable the blobstream state machine module
 author: Rootul Patel (@rootulp)
-discussions-to: URL
+discussions-to: https://forum.celestia.org/t/cip-disable-blobstream-module/1693
 status: Draft
 type: Standards Track
 category: Core
