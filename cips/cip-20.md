@@ -1,6 +1,6 @@
 ---
 cip: 20
-title: Disable blobstream module
+title: Disable Blobstream module
 description: Disable the Blobstream state machine module
 author: Rootul Patel (@rootulp)
 discussions-to: https://forum.celestia.org/t/cip-disable-blobstream-module/1693
