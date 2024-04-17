@@ -37,7 +37,7 @@ If this CIP is adopted, the following parameter can be removed:
 
 ## Rationale
 
-Disabling the blobstream module reduces the functionality of the celestia-app state machine. Disabling the blobstream module also reduces the amount of state that needs to be stored and maintained in the celestia-app state machine.
+Disabling the blobstream module reduces the functionality of the celestia-app state machine. Disabling the Blobstream module also reduces the amount of state that needs to be stored and maintained in the celestia-app state machine.
 
 ## Backwards Compatibility
 
