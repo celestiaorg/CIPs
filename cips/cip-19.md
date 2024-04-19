@@ -193,7 +193,7 @@ Row containers are protobuf formatted using the following proto3 schema:
 syntax = "proto3";
 
 message Row {
-  repeated bytes shares_half = 1;
+  repeated Share shares_half = 1;
   HalfSide half_side= 2;
   
   enum HalfSide {
@@ -205,11 +205,10 @@ message Row {
 
 The fields with validity rules that form Row containers are:
 
-**SharesHalf**: A two-dimensional variable size byte array representing either left or right half of a row with each
-element being a [share][shares]. Each share MUST follow [share formatting and validity][shares-format] rules. Which half
-side is defined by **HalfSide** field. Its length MUST be equal to the number of Column roots in [DAH][dah] divided by
-two. The opposite half is computed using Leopard GF16 Reed-Solomon erasure-coding. Afterward, the [NMT][nmt] is built
-over both halves and the computed NMT root MUST be equal to the respective Row root in [DAH][dah].
+**SharesHalf**: A variable size [Share](#share) array representing either left or right half of a row. Which half side
+is defined by **HalfSide** field. Its length MUST be equal to the number of Column roots in [DAH][dah] divided by two.
+The opposite half is computed using Leopard GF16 Reed-Solomon erasure-coding. Afterward, the [NMT][nmt] is built over
+both halves and the computed NMT root MUST be equal to the respective Row root in [DAH][dah].
 
 **HalfSide**: An enum defining which side of the row **SharesHalf** field contains. It MUST be either **LEFT** or
 **RIGHT**.
@@ -246,28 +245,22 @@ Sample containers are protobuf formatted using the following proto3 schema:
 syntax = "proto3";
 
 message Sample {
-    bytes share = 1;
+    Share share = 1;
     Proof proof = 2;
-    ProofType proof_type = 3;
-    
-    enum ProofType {
-        ROW = 0;
-        COL = 1;
-    }
+    AxisType proof_type = 3;
 }
 ```
 
 The fields with validity rules that form Sample containers are:
 
-**Share**: A variable size array representing a share contained in a sample. It MUST follow [share
-formatting and validity][shares-format] rules.
+**Share**: A [Share](#share) of a sample.
 
 **Proof**: A [protobuf formated][nmt-pb] [NMT][nmt] proof of share inclusion. It MUST follow [NMT proof verification][nmt-verify]
 and be verified against the respective root from the Row or Column axis in [DAH][dah]. The axis is defined by the
 ProofType field.
 
-**ProofType**: An enum defining which axis root the **Proof** field is coming from. It MUST be either **Row** or
-**Column**.
+[**AxisType**](#axistype): An enum defining which axis root the **Proof** field is coming from. It MUST be either **ROW** or
+**COL**.
 
 #### RowNamespaceDataID
 
@@ -303,15 +296,14 @@ RowNamespaceData containers are protobuf formatted using the following proto3 sc
 syntax = "proto3";
 
 message RowNamespaceData {
-    repeated bytes shares = 1;
+    repeated Share shares = 1;
     Proof proof = 2;
 }
 ```
 
 The fields with validity rules that form Data containers are:
 
-**Shares**: A two-dimensional variable size byte array representing data of a namespace in a row where each element is a
-share. Each share MUST follow [share formatting and validity][shares-format] rules.
+**Shares**: A variable size [Share](#share) array representing data of a namespace in a row.
 
 **Proof**: A [protobuf formated][nmt-pb] [NMT][nmt] proof of share inclusion. It MUST follow [NMT proof verification][nmt-verify]
 and be verified against the respective root from the Row root axis in [DAH][dah].
@@ -319,6 +311,43 @@ and be verified against the respective root from the Row root axis in [DAH][dah]
 Namespace data may span over multiple rows, in which case all the data is encapsulated in multiple RowNamespaceData
 containers. This enables parallelization of namespace data retrieval and certain [compositions](#protocol-compositions)
 may get advantage of that by requesting containers of a single namespace from multiple servers simultaneously.
+
+### Core Structures
+
+This section is purposed for messages that do not fit into [Identifier](#share-identifiers) or [Container](#share-containers)
+categories, but have to be strictly specified to be used across the categories and beyond.
+
+#### AxisType
+
+The [data square][square] consists of rows and columns of [shares][shares] that are committed in NMT merkle trees.
+Subsequently, we have two commitments over any share in the square. AxisType helps to point to either of those in
+different contexts.
+
+```protobuf
+syntax = "proto3";
+
+enum AxisType {
+    ROW = 0;
+    COL = 1;
+}
+```
+
+#### Share
+
+[Share][shares] defines the atomic primitive of the [data square][square].
+
+```protobuf
+syntax = "proto3";
+
+message Share {
+   bytes data = 1;
+}
+```
+
+The fields with validity rules that form Data containers are:
+
+**Data**: A variable size byte array representing a share. It MUST follow [share formatting and validity][shares-format]
+rules.
 
 ## Protocol Compositions
 
