@@ -193,16 +193,26 @@ Row containers are protobuf formatted using the following proto3 schema:
 syntax = "proto3";
 
 message Row {
-  repeated bytes row_half = 1;
+  repeated bytes shares_half = 1;
+  HalfSide half_side= 2;
+  
+  enum HalfSide {
+    LEFT = 0;
+    RIGHT = 1;
+  }
 }
 ```
 
 The fields with validity rules that form Row containers are:
 
-**RowHalf**: A two-dimensional variable size byte array representing _left_ half of shares in the row. Its length MUST be
-equal to the number of Column roots in [DAH][dah] divided by two. These shares MUST only be from the left half of the
-row. The right half is computed using Leopard GF16 Reed-Solomon erasure-coding. Afterward, the [NMT][nmt] is built over
-both halves and the computed NMT root MUST be equal to the respective Row root in [DAH][dah].
+**SharesHalf**: A two-dimensional variable size byte array representing either left or right half of a row with each
+element being a [share][shares]. Each share MUST follow [share formatting and validity][shares-format] rules. Which half
+side is defined by **HalfSide** field. Its length MUST be equal to the number of Column roots in [DAH][dah] divided by
+two. The opposite half is computed using Leopard GF16 Reed-Solomon erasure-coding. Afterward, the [NMT][nmt] is built
+over both halves and the computed NMT root MUST be equal to the respective Row root in [DAH][dah].
+
+**HalfSide**: An enum defining which side of the row **SharesHalf** field contains. It MUST be either **LEFT** or
+**RIGHT**.
 
 #### SampleID
 
@@ -236,26 +246,28 @@ Sample containers are protobuf formatted using the following proto3 schema:
 syntax = "proto3";
 
 message Sample {
-    bytes sample_share = 1;
-    Proof sample_proof = 2;
+    bytes share = 1;
+    Proof proof = 2;
     ProofType proof_type = 3;
-}
-
-enum ProofType {
-  RowProofType = 0;
-  ColProofType = 1;
+    
+    enum ProofType {
+        ROW = 0;
+        COL = 1;
+    }
 }
 ```
 
 The fields with validity rules that form Sample containers are:
 
-**SampleShare**: A variable size array representing the share contained in the sample. Each share MUST follow [share
+**Share**: A variable size array representing a share contained in a sample. It MUST follow [share
 formatting and validity][shares-format] rules.
 
 **Proof**: A [protobuf formated][nmt-pb] [NMT][nmt] proof of share inclusion. It MUST follow [NMT proof verification][nmt-verify]
-and be verified against the respective root from the Row or Column axis in [DAH][dah]. The axis is defined by the ProofType field.
+and be verified against the respective root from the Row or Column axis in [DAH][dah]. The axis is defined by the
+ProofType field.
 
-**ProofType**: An enum defining which axis root the Proof is coming from. It MUST be either RowProofType or ColumnProofType.
+**ProofType**: An enum defining which axis root the **Proof** field is coming from. It MUST be either **Row** or
+**Column**.
 
 #### RowNamespaceDataID
 
@@ -291,17 +303,17 @@ RowNamespaceData containers are protobuf formatted using the following proto3 sc
 syntax = "proto3";
 
 message RowNamespaceData {
-    repeated bytes rnd_shares = 1;
-    Proof rnd_proof = 2;
+    repeated bytes shares = 1;
+    Proof proof = 2;
 }
 ```
 
 The fields with validity rules that form Data containers are:
 
-**RNDShares**: A two-dimensional variable size byte array representing left data shares of a namespace in the row.
-Each share MUST follow [share formatting and validity][shares-format] rules.
+**Shares**: A two-dimensional variable size byte array representing data of a namespace in a row where each element is a
+share. Each share MUST follow [share formatting and validity][shares-format] rules.
 
-**RNDProof**: A [protobuf formated][nmt-pb] [NMT][nmt] proof of share inclusion. It MUST follow [NMT proof verification][nmt-verify]
+**Proof**: A [protobuf formated][nmt-pb] [NMT][nmt] proof of share inclusion. It MUST follow [NMT proof verification][nmt-verify]
 and be verified against the respective root from the Row root axis in [DAH][dah].
 
 Namespace data may span over multiple rows, in which case all the data is encapsulated in multiple RowNamespaceData
