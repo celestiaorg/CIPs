@@ -5,6 +5,7 @@ description: Protocol for coordinating major network upgrades
 author: Callum Waters (@cmwaters)
 discussions-to: https://forum.celestia.org/t/cip-coordinated-network-upgrades/1367
 status: Last Call
+last-call-deadline: 2024-05-07
 type: Standards Track
 category: Core
 created: 2023-12-7
