@@ -4,7 +4,8 @@ title: Coordinated network upgrades
 description: Protocol for coordinating major network upgrades
 author: Callum Waters (@cmwaters)
 discussions-to: https://forum.celestia.org/t/cip-coordinated-network-upgrades/1367
-status: Review
+status: Last Call
+last-call-deadline: 2024-05-07
 type: Standards Track
 category: Core
 created: 2023-12-7
@@ -49,9 +50,11 @@ message QueryVersionTallyResponse {
 }
 ```
 
-When `voting_power` is greater or equal to `theshold_power` , the network MAY upgrade. This is done through a “crank” transaction, `MsgTryUpgrade`, which can be submitted by any account. The account covers the gas required for the calculation. If the quorum is met, the chain will perform the necessary migrations at the end of processing that block. The proposer of the following height will include the new version in the block. As is currently, nodes will only vote for blocks that match the same network version as theirs.
+When `voting_power` is greater or equal to `theshold_power` , the network MAY upgrade. This is done through a “crank” transaction, `MsgTryUpgrade`, which can be submitted by any account. The account covers the gas required for the calculation. If the quorum is met, the chain will update the `AppVersion` in the `ConsensusParams` returned in `EndBlock`. Celestia will reset the tally and perform all necessary migrations at the end of processing that block in `Commit`. The proposer of the following height will include the new version in the block. As is currently, nodes will only vote for blocks that match the same network version as theirs.
 
 If the network agrees to move to a version that is not supported by the node, the node will gracefully shutdown.
+
+The `threshold_power` is calcualted as 5/6ths of the total voting power. Rationale is provided below.
 
 ## Rationale
 
@@ -67,9 +70,18 @@ This feature modifies the functionality of the state machine in a breaking way a
 
 As the API is additive, there is no need to consider backwards compatibility for clients.
 
+## Test Cases
+
+All implementations are advised to test the following scenarios:
+
+- A version x node can run on a version y network where x >= y.
+- A `MsgTryUpgrade` should not modify the app version if there has been less than 5/6th and set the new app version when that threshold has been reached.
+- A version x node should gracefully shutdown and not continue to validate blocks on a version y network when y > x.
+- `MsgSignal` should correctly tally the accounts voting power. Signalling multiple times by the same validator should not increase the tally. A validator should be able to resignal a different version at any time.
+
 ## Reference Implementation
 
-TBA
+The golang implementation of the `signal` module can be found [here](https://github.com/celestiaorg/celestia-app/tree/main/x/signal)
 
 ## Security Considerations
 
