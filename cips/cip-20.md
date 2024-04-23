@@ -4,7 +4,7 @@ title: Disable Blobstream module
 description: Disable the Blobstream state machine module
 author: Rootul Patel (@rootulp)
 discussions-to: https://forum.celestia.org/t/cip-disable-blobstream-module/1693
-status: Draft
+status: Review
 type: Standards Track
 category: Core
 created: 2024-04-16
@@ -68,7 +68,9 @@ Additionally, a store migration needs to be registered during the upgrade proces
 
 ## Security Considerations
 
-TBD
+This CIP generally reduces the surface area of celestia-app because it removes functionality that is no longer deemed necessary. Therefore, it could be argued that this CIP reduces the surface area for bugs or security vulnerabilities.
+
+However, there is a slim chance that this CIP uncoveres a bug because the Celestia state machine hasn't disabled a module before. Executing this CIP involves using new components (i.e. a versioned module manager and configurator) which may uncover bugs in software outside the scope of this CIP.
 
 ## Copyright
 
