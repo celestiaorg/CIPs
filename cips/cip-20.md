@@ -64,7 +64,41 @@ Celestia-app uses a versioned module manager and configurator that enables the r
 },
 ```
 
-Additionally, a store migration needs to be registered during the upgrade process to ensure that the Blobstream module's state is removed. Lastly, the Blobstream module's tx commands and query commands should be removed from the CLI.
+The blobstream store key MUST be removed from the versioned store keys map in `app/modules.go` for app version 2:
+
+```diff
+func versionedStoreKeys() map[uint64][]string {
+	return map[uint64][]string{
+		1: {
+            // ...
+        },
+        2: {
+            // ...
+-           blobstreamtypes.StoreKey,
+        }
+    }
+}
+```
+
+The Blobstream module's tx commands and query CLI commands MAY be removed from the CLI in `x/blobstream/module.go`:
+
+```diff
+// GetTxCmd returns no command because the blobstream module was disabled in app
+// version 2.
+func (a AppModuleBasic) GetTxCmd() *cobra.Command {
+-   return bscmd.GetTxCmd()
++   return nil
+}
+
+// GetQueryCmd returns no command because the blobstream module was disabled in
+// app version 2.
+func (AppModuleBasic) GetQueryCmd() *cobra.Command {
+-   return bscmd.GetQueryCmd()
++   return nil
+}
+```
+
+Lastly, the x/blobstream module registers hooks in the staking module. Since these hooks are not version-aware, they MUST be made no-ops for app versions >= 2.
 
 ## Security Considerations
 
