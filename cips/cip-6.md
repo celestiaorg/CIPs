@@ -1,7 +1,7 @@
 ---
 cip: 6
 title: Mininum gas price enforcement
-description: Enforce payment of the gas for a transaction based on a governance modifiable global minimum gas price 
+description: Enforce payment of the gas for a transaction based on a governance modifiable global minimum gas price
 author: Callum Waters (@cmwaters)
 discussions-to: https://forum.celestia.org/t/cip-006-price-enforcement/1351
 status: Review
@@ -14,9 +14,9 @@ created: 2023-11-30
 
 Implement a global, consensus-enforced minimum gas price on all transactions. Ensure that all transactions can be decoded and have a valid signer with sufficient balance to cover the cost of the gas allocated in the transaction. The minimum gas price can be modified via on-chain governance.
 
-| Parameter     | Default | Summary                                                                                                                | Changeable via Governance |
-|---------------|---------|------------------------------------------------------------------------------------------------------------------------|---------------------------|
-| minfee.MinimumGasPrice | 0.002utia  | Globally set minimum price per unit of gas                                                            | True                     |
+| Parameter              | Default       | Summary                                    | Changeable via Governance |
+|------------------------|---------------|--------------------------------------------|---------------------------|
+| minfee.MinimumGasPrice | 0.000001 utia | Globally set minimum price per unit of gas | True                      |
 
 ## Motivation
 
@@ -52,6 +52,16 @@ There are two other reasons:
 - Easier to coordinate: a governance proposal that is passed automatically updates the state machine whereas to manually change requires telling all nodes to halt, modify their config, and restart their node
 
 Lastly, this change removes the possible incongruity that would form when it comes to gossiping transactions when consensus nodes use different minimum gas prices.
+
+The minimum gas price defaults to a neglible value (`0.000001`) because this is the minimum gas price that would result in a tx priority >= 1 given the current tx prioritization implementation.
+
+$gasPrice = fee / gas$
+
+$priority = fee * priorityScalingFactor / gas$
+
+$priority = gasPrice * priorityScalingFactor$
+
+Note priorityScalingFactor is currently `1,000,000`.
 
 ## Backwards Compatibility
 
