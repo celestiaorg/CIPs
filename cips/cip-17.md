@@ -7,7 +7,7 @@ discussions-to: https://forum.celestia.org/t/lemongrass-hardfork/1589
 status: Draft
 type: Meta
 created: 2024-02-16
-requires: CIP-9, CIP-10, CIP-14, CIP-20
+requires: CIP-6, CIP-9, CIP-10, CIP-14, CIP-20
 ---
 
 ## Abstract
@@ -18,6 +18,7 @@ This Meta CIP lists the CIPs included in the Lemongrass network upgrade.
 
 ### Included CIPs
 
+- [CIP-6](https://github.com/celestiaorg/CIPs/blob/main/cips/cip-6.md): Price Enforcement
 - [CIP-9](https://github.com/celestiaorg/CIPs/blob/main/cips/cip-9.md): Packet Forward Middleware
 - [CIP-10](https://github.com/celestiaorg/CIPs/blob/main/cips/cip-10.md): Coordinated Upgrades
 - [CIP-14](https://github.com/celestiaorg/CIPs/blob/main/cips/cip-14.md): Interchain Accounts
