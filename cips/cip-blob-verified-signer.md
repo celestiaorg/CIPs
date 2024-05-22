@@ -67,7 +67,7 @@ Given the current specification change, the new loop is simplified:
 
 - Retrieve all blobs in the subscribed namespaces
 - Verify the namespaces inclusion
-- Verify that the `signer` in each blob matches that of the sequencer
+- Verify that the `signer` in each blob matches that of an allowed sequencer
 
 As a small digression, it may be feasible to additionally introduce a new namespace version with the enforcement that all blobs in that namespace use the v2 format i.e. have a signer. However, this does not mean that the signer matches that of the sequencer (which Celestia validators would not be aware of). This would mean that full nodes would need to get and verify all blobs in the namespace anyway.
 
