@@ -2,7 +2,7 @@
 title: Support ZK-SNARKS via GNARK in the Celestia Core cryptography
 description: Add the GNARK library to the Celestia Core codebase and make it available as an implementation tool for future CIPs.
 author: Sam Hart (@hxrts), Barry Plunkett (@bpiv400), Kristi Poldsam (@poldsam), Zaki Manian (@zmanian)
-discussions-to: 
+discussions-to:
 status: Draft
 type: Standards Track
 category: Core
@@ -11,53 +11,41 @@ created: 2024-02-20
 
 ## Abstract
 
-This CIP proposes to add the GNARK library which contains the implementation of multiple pairing based Elleptic curves, the GROTH16 and PLONK proof systems. Adding this function to Celestia Core enables future CIPS to develop protocols that rely on proofs generated with these tools.
-
-
+This CIP proposed to standardize the use of succinct zero knowledge proofs in the Celestia core codebase. The CIP defines a set of cryptographic components that should be available to future CIPs that leverage zero knowledge proofs. The CIP also defines a set of proof systems that should be used in future CIPs. The CIP also defines a set of elliptic curves that should be used in future CIPs. The CIP also defines a set of security considerations that should be used in future CIPs.
 
 ## Motivation
 
-A more expressive Celestia base layer will enable rollup developers to more tightly integrate their protocols with the TIA asset and interoperate with core protocol features like staking, slashing, governance. Celestia's core value is keep the the base layer as minimal as possible. This precludes integrating an expressive smart contract language for integrating with the base layer. SNARKs provide a useful compromise. The succinctness property of a SNARK means that a developer can extend the Celestia base layer with an extremely small state footprint.
+A more expressive Celestia baselayer will enable rollup developers to more tightly integrate their protocols with the TIA asset and interoperate with core protocol features like staking, slashing, governance. Celestia's core value is keep the the base layer as minimal as possible. This precludes integrating an expressive smart contract language for integrating with the base layer. SNARKs provide a useful compromise. The succinctness property of a SNARK means that a developer can extend the Celestia base layer with an extremely small state footprint.
+
+The selections made in this CIP were driven by availability and compatibility of tools and libraries. Another factor was stability and maturity of the proof systems and elliptic curves. The authors believe that the selections made in this CIP will provide a solid foundation for future CIPs that leverage zero knowledge proofs.
 
 ## Specification
 
-Future CIPs that leverage SNARKs MUST use the following proof systems [GROTH16](https://eprint.iacr.org/2016/260) or [PlonK](https://eprint.iacr.org/2019/953). Future CIPs SHOULD use either the BN254 or the BLS-12-377 pairing elliptic curves to instantiate the proof system.
+### Proof Systems
 
-To implement these future CIPs, the [GNARK library](https://github.com/Consensys/gnark) is recommended as a Go implementation. Celestia-core SHOULD add a release that conforms to the Security Considerations section.
+Future CIPs that leverage SNARKs MUST use the following proof systems [GROTH16](https://eprint.iacr.org/2016/260) or [PlonK](https://eprint.iacr.org/2019/953).
 
-Implement a new SNARK interface in the crypto package.
+Groth16 has two concrete implementations.
 
-```golang
-type SNARK interface{
-   Verify{[]bytes Proof} bool
-}
-```
+There is a hybrid implementation of Groth16 and LegoSNARK developed by the Gnark Consensys team. This implementation is appealing because of the fast prover that exists in the Go language. The authors believe that this implementation is the best choice for the Celestia core codebase.
 
-Implement implementations of this inteface for 
+We also reccomend adoption of a Circom/Arkworks compatible implementation of Groth16. This implementation is appealing because it is compatible with the Circom language and the Arkworks library. This form of Groth16 has seen wide use over many years in Ethereum and blockchain protocols. Circuits that verify other proofs systems like Risc0 and SP1 are available within this proof system.
 
-Groth16-BN254, Groth16-BLS12377
-PlonK-BN254, PlonK-BLS12377.
+PlonK is a newer proof system that has a universal trusted setup. This means that for a given circuit size the trusted setup only needs to be performed once. This is a differentiator from Groth16 that might be of substantial interest to future CIP authors.
 
-The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in RFC 2119 and RFC 8174.
+### Elliptic Curves
+
+Groth16 and Plonk are concretely implemented over pairing friendly elliptic curves. The authors reccomend the use of the BN254 curve and BLS12-377 curve. The BN254 curve is available as an Ethereum precompile. The BLS12-377 curve is appealing because it enables effecient depth 1 recursions. This makes it a compelling choice for protocols that benefit from either privacy or aggregation of proofs.
 
 ## Rationale
 
-The authors prefer these solutions.
+Two GROTH16 implementations allow picking between compatibility and state of the art prover performance. These choices are made to ensure that the Celestia core codebase can leverage existing circuits and trusted setups. Fortunately there are readilty available implementations of both Groth16 implementations suitable for integration with Celestia Core.
 
-1. GNARK is the most mature SNARK implementation in Go. Rust is by far the most popular language for ZK cryptography development. Other implementations would require embedding Rust code in the celestia-core build system and making foreign function interface (FFI) calls. This will have cascading implications for the entire build, test, deploy process for Celestia. The authors prefer to defer these burdens until a future CIP.
-
-2. BN254 is available as a Ethereum precompile; as a result there a wide range of tools, trusted setup artifacts and more that target this curve.
-
-3. BLS12-377 has the property of enabling effecient depth 1 recursions. This makes it a compelling choice for protocols that benefit from either privacy or aggregation of proofs. There is a also a wide range of tools available for this curve because of prior usage in protocols like Celo.
-
-4. GROTH16 has been in production since ZCash's sapling protocol. It represents the MVP of SNARK proof systems. It can also act as "universal adapter" for other proof systems because there circuits that verify other proof systems available. GROTH16 requires a two phase trusted setup. The first phase is universal for a given circuit size but the second phase 
-
-5. PlonK is a widely adapted SNARK that features a "universal" trusted setup. This means that for a target circuit size the trusted setup needs to only be performed once. This is a differentiator from Groth16 that might be of substantial interest to future CIP authors.
+The BN254 curve is a well known curve that is available as an Ethereum precompile. The BLS12-377 curve is a newer curve that is appealing because it enables effecient depth 1 recursions. This makes it a compelling choice for protocols that benefit from either privacy or aggregation of proofs.
 
 ## Backwards Compatibility
 
- *"No backward compatibility issues found."*
-
+_"No backward compatibility issues found."_
 
 ## Test Cases
 
@@ -77,15 +65,8 @@ If the reference implementation is too large to reasonably be included inline, t
 
 ## Security Considerations
 
-GNARK has only had a limited audit that covers only a portion of functionality.
+These are time tested cryptographic primitives and should be safe to use in the Celestia core codebase. There will be implementation specific security considerations that will need to be addressed in future CIPs.
 
-```
-The scope of this work is a code audit of the Product written in Go, with a particular attention to safe implementation of hashing, randomness generation, protocol verification, and potential for misuse and leakage of secrets. The client has noted that constant-time analysis of the Product is out of scope of this audit. The target of the audit was the cryptographic code related to the elliptic curves BLS12- 381 and BN254 at https://github.com/ConsenSys/gnark-crypto. The BN254 curve is also named alt_bn128 in different context [6]. We audited the commit number: 450e0206211eea38bbb5b5ffddf262efe65bd011 of the repository/
-```
-
-The Audit scope required to deploy GNARK on Celestia would require auditing the BLS-12-377 implementation, the GROTH16 verifier and PLONK verifier.
-
-Production deployment should be blocked until such an audit is completed.
 ## Copyright
 
 Copyright and related rights waived via [CC0](../LICENSE).
