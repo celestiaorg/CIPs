@@ -4,8 +4,7 @@ title: Disable Blobstream module
 description: Disable the Blobstream state machine module
 author: Rootul Patel (@rootulp)
 discussions-to: https://forum.celestia.org/t/cip-disable-blobstream-module/1693
-status: Last Call
-last-call-deadline: 2024-05-14
+status: Final
 type: Standards Track
 category: Core
 created: 2024-04-16
