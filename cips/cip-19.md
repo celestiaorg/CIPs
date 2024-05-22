@@ -23,19 +23,19 @@ The selections made in this CIP were driven by availability and compatibility of
 
 ### Proof Systems
 
-Future CIPs that leverage SNARKs MUST use the following proof systems [GROTH16](https://eprint.iacr.org/2016/260) or [PlonK](https://eprint.iacr.org/2019/953).
+Future CIPs that leverage SNARKs MUST use the following proof systems [GROTH16](https://eprint.iacr.org/2016/260) and [Groth16-LegoSNARK](https://eprint.iacr.org/2019/142)
 
 Groth16 has two concrete implementations.
 
-There is a hybrid implementation of Groth16 and LegoSNARK developed by the Gnark Consensys team. This implementation is appealing because of the fast prover that exists in the Go language. The authors believe that this implementation is the best choice for the Celestia core codebase.
+There is a hybrid implementation of Groth16 and LegoSNARK developed by the Gnark Consensys team. This implementation is appealing because of the fast prover that exists in the Go language. The authors believe that this implementation is the best choice for the Celestia core codebase. This implemenation adds a commit and prove gadget in the form on an additional Pedersen commitment that enables the construction of a prover that is faster than the original Groth16 prover. This system already has a substantial user base.
 
 We also reccomend adoption of a Circom/Arkworks compatible implementation of Groth16. This implementation is appealing because it is compatible with the Circom language and the Arkworks library. This form of Groth16 has seen wide use over many years in Ethereum and blockchain protocols. Circuits that verify other proofs systems like Risc0 and SP1 are available within this proof system.
 
-PlonK is a newer proof system that has a universal trusted setup. This means that for a given circuit size the trusted setup only needs to be performed once. This is a differentiator from Groth16 that might be of substantial interest to future CIP authors.
-
 ### Elliptic Curves
 
-Groth16 and Plonk are concretely implemented over pairing friendly elliptic curves. The authors reccomend the use of the BN254 curve and BLS12-377 curve. The BN254 curve is available as an Ethereum precompile. The BLS12-377 curve is appealing because it enables effecient depth 1 recursions. This makes it a compelling choice for protocols that benefit from either privacy or aggregation of proofs.
+Groth16 are concretely implemented over pairing friendly elliptic curves. The authors reccomend the use of the BN254 curve and BLS12-377 curve. The BN254 curve is available as an Ethereum precompile. The BLS12-377 curve is appealing because it enables effecient depth 1 recursions. This makes it a compelling choice for protocols that benefit from either privacy or aggregation of proofs.
+
+The Authors believe that neither curve will pose a massive challenge to eventually generating proofs for the Celestia state machine.
 
 ## Rationale
 
