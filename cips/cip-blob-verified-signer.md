@@ -2,24 +2,16 @@
 title: Support authored blobs
 description: Introduce a new blob type that can be submitted whereby the signer address is included and verified.
 author: Callum Waters (@cmwaters)
-discussions-to: URL
+discussions-to: https://forum.celestia.org/t/cip-blobs-with-verified-author
 status: Draft
 type: Standards Track
 category: Core
 created: 2024-05-22
 ---
 
-> Note:
-**READ CIP-1 BEFORE USING THIS TEMPLATE!**
-This is the suggested template for new CIPs. After you have filled in the requisite fields, please delete these comments. Note that an CIP number will be assigned by an editor. When opening a pull request to submit your CIP, please use an abbreviated title in the filename, `cip-draft_title_abbrev.md`. The title should be 44 characters or less. It should not repeat the CIP number in title, irrespective of the category.
-
-TODO: Remove the note before submitting
-
 ## Abstract
 
-The Abstract is a multi-sentence (short paragraph) technical summary. This should be a very terse and human-readable version of the specification section. Someone should be able to read only the abstract to get the gist of what this specification does.
-
-TODO: Remove the previous comments before submitting
+Introduce a new v2 blob type that can be submitted with the author of the blob. Validators verify that the author is correct, simplifying the loop for rollups that adopt a fork-choice rule that enshrines a specific sequencer.
 
 ## Motivation
 
