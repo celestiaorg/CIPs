@@ -1,5 +1,5 @@
 ---
-title: Support blobs with verified signer
+title: Support authored blobs
 description: Introduce a new blob type that can be submitted whereby the signer address is included and verified.
 author: Callum Waters (@cmwaters)
 discussions-to: URL
