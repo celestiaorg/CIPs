@@ -21,7 +21,7 @@ A common fork-choice rule for rollups is to enshrine the sequencer. In this situ
 - For the PFBs of the namespaces that the rollup is subscribed to, verify the `signer` matches the sequencer.
 - Use the share indexes of the `IndexWrapper` of the PFB to retrieve the blobs that match the PFB. Verify the blobs inclusion and finally process the blobs.
   
-For rollups, using ZK, such as the case with Soverign, the flow is as follows:
+For rollups, using ZK, such as the case with Sovereign, the flow is as follows:
 
 - Query all the blobs from the rollup namespace via RPC
 - For each blob, reconstruct the blob commitment.
