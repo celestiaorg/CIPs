@@ -1,5 +1,5 @@
 ---
-title: Support authored blobs
+title: Introduce blob type with verified signer
 description: Introduce a new blob type that can be submitted whereby the signer address is included and verified.
 author: Callum Waters (@cmwaters)
 discussions-to: https://forum.celestia.org/t/cip-blobs-with-verified-author
@@ -11,7 +11,7 @@ created: 2024-05-22
 
 ## Abstract
 
-Introduce a new v2 blob type that can be submitted with the author of the blob. Validators verify that the author is correct, simplifying the loop for rollups that adopt a fork-choice rule that enshrines a specific sequencer.
+Introduce a new v2 blob type that can be submitted with the author of the blob. Validators verify that the author is correct, simplifying the loop for rollups that adopt a fork-choice rule that whitelists one or more sequencers (blob publishers).
 
 ## Motivation
 
@@ -57,7 +57,9 @@ Although no version changes are required for protobuf encoded blobs, share encod
 
 ![Diagram of V2 Share Format](../assets/cip-blob-verified-signer/blob-v2-share-format.svg)
 
-Blobs with an empty `signer` string would remain encoded using the v1 format. Note that in this diagram it is the `Info Byte` that contains the share version. Not to be confused with the namespace version.
+Note that in this diagram it is the `Info Byte` that contains the share version. Not to be confused with the namespace version.
+
+Blobs with an empty `signer` string would remain encoded using the v1 format. A transaction specifying a share version of 2 and an empty signer field would be rejected. Equally so, specifying a share version of 1 and a non empty signer field would be rejected.
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in RFC 2119 and RFC 8174.
 
@@ -66,7 +68,7 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 Given the current specification change, the new loop is simplified:
 
 - Retrieve all blobs in the subscribed namespaces
-- Verify the namespaces inclusion
+- Verify the blobs inclusion by namespace
 - Verify that the `signer` in each blob matches that of an allowed sequencer
 
 As a small digression, it may be feasible to additionally introduce a new namespace version with the enforcement that all blobs in that namespace use the v2 format i.e. have a signer. However, this does not mean that the signer matches that of the sequencer (which Celestia validators would not be aware of). This would mean that full nodes would need to get and verify all blobs in the namespace anyway.
