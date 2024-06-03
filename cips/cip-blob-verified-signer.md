@@ -11,7 +11,7 @@ created: 2024-05-22
 
 ## Abstract
 
-Introduce a new v2 blob type that can be submitted with the author of the blob. Validators verify that the author is correct, simplifying the loop for rollups that adopt a fork-choice rule that whitelists one or more sequencers (blob publishers).
+Introduce a new blob type (v1 share format) that can be submitted with the author of the blob. Validators verify that the author is correct, simplifying the loop for rollups that adopt a fork-choice rule that whitelists one or more sequencers (blob publishers).
 
 ## Motivation
 
@@ -27,16 +27,16 @@ For rollups, using ZK, such as the case with Sovereign, the flow is as follows:
 - For each blob, reconstruct the blob commitment.
 - Fetch the PFB namespace
 - Parse the PFB namespace and create a mapping from blob commitment -> PFB
-- (In zero-knowledge) Accept the list of all rollup blobs and the list of relevant PFBs as inputs
-- (In zero-knowledge) Verify that the claimed list of blobs matches the block header using the namespaced merkle tree
-- (In zero-knowledge) For each blob, find the PFB with the matching commitment and check that the sender is correct.
-- (In zero-knowledge) For each relevant PFB, check that the bytes provided match the namespaced merkle tree
+- (In circuit) Accept the list of all rollup blobs and the list of relevant PFBs as inputs
+- (In circuit) Verify that the claimed list of blobs matches the block header using the namespaced merkle tree
+- (In circuit) For each blob, find the PFB with the matching commitment and check that the sender is correct.
+- (In circuit) For each relevant PFB, check that the bytes provided match the namespaced merkle tree
 
 This is currently a needlessly complicated flow and more computationally heavy at constructing proofs. This CIP proposes an easier path for rollups that opt for this fork-choice rule
 
 ## Specification
 
-This CIP introduces a new blob type (known henceforth as a v2 blob given the share format version change):
+This CIP introduces a new blob type (known henceforth as an authored blob):
 
 ```proto
 message Blob {
@@ -53,13 +53,13 @@ Given proto's backwards compatibility, users could still submit the old blob typ
 
 The new block validity rule (In `PrepareProposal` and `ProcessProposal`) would thus be that if the signer was not empty, then it must match that of the PFB that paid for it. When validating the `BlobTx`, validators would check the equivalency of the PFB's `signer` to the Blob's `signer` (as well as verification of the signature itself).
 
-Although no version changes are required for protobuf encoded blobs, share encoding would change. Blobs containing a non empty signer string would be encoded using the new v2 format:
+Although no version changes are required for protobuf encoded blobs, share encoding would change. Blobs containing a non empty signer string would be encoded using the new v1 share format (the first share format version is 0):
 
-![Diagram of V2 Share Format](../assets/cip-blob-verified-signer/blob-v2-share-format.svg)
+![Diagram of V1 Share Format](../assets/cip-blob-verified-signer/blob-v2-share-format.svg)
 
 Note that in this diagram it is the `Info Byte` that contains the share version. Not to be confused with the namespace version.
 
-Blobs with an empty `signer` string would remain encoded using the v1 format. A transaction specifying a share version of 2 and an empty signer field would be rejected. Equally so, specifying a share version of 1 and a non empty signer field would be rejected.
+Blobs with an empty `signer` string would remain encoded using the v0 format. A transaction specifying a share version of 1 and an empty signer field would be rejected. Equally so, specifying a share version of 0 and a non empty signer field would be rejected.
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in RFC 2119 and RFC 8174.
 
@@ -67,11 +67,11 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 Given the current specification change, the new loop is simplified:
 
-- Retrieve all blobs in the subscribed namespaces
-- Verify the blobs inclusion by namespace
+- Retrieve all blobs in the subscribed namespace
+- Verify that the blobs from the previous step belong to the subscribed namespace and the list is complete (i.e. there are no blobs present in the subscribed namespace that are absent from the list of retrieved blobs).
 - Verify that the `signer` in each blob matches that of an allowed sequencer
 
-As a small digression, it may be feasible to additionally introduce a new namespace version with the enforcement that all blobs in that namespace use the v2 format i.e. have a signer. However, this does not mean that the signer matches that of the sequencer (which Celestia validators would not be aware of). This would mean that full nodes would need to get and verify all blobs in the namespace anyway.
+As a small digression, it may be feasible to additionally introduce a new namespace version with the enforcement that all blobs in that namespace use the v1 format i.e. have a signer. However, this does not mean that the signer matches that of the sequencer (which Celestia validators would not be aware of). This would mean that full nodes would need to get and verify all blobs in the namespace anyway.
 
 ## Backwards Compatibility
 
