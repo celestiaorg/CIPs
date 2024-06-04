@@ -20,7 +20,7 @@ A common fork-choice rule for rollups is to enshrine the sequencer. In this situ
 - Retrieve all the PFBs in the `PFBNamespace`. Verify inclusion and then loop through them and find the PFBs that correspond to the namespaces that the rollup is subscribed to.
 - For the PFBs of the namespaces that the rollup is subscribed to, verify the `signer` matches the sequencer.
 - Use the share indexes of the `IndexWrapper` of the PFB to retrieve the blobs that match the PFB. Verify the blobs inclusion and finally process the blobs.
-  
+
 For rollups, using ZK, such as the case with Sovereign, the flow is as follows:
 
 - Query all the blobs from the rollup namespace via RPC
@@ -55,7 +55,7 @@ The new block validity rule (In `PrepareProposal` and `ProcessProposal`) would t
 
 Although no version changes are required for protobuf encoded blobs, share encoding would change. Blobs containing a non empty signer string would be encoded using the new v1 share format (the first share format version is 0):
 
-![Diagram of V1 Share Format](../assets/cip-blob-verified-signer/blob-v2-share-format.svg)
+![Diagram of V1 Share Format](../assets/cip-21/blob-v2-share-format.svg)
 
 Note that in this diagram it is the `Info Byte` that contains the share version. Not to be confused with the namespace version.
 
