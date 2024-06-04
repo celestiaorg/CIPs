@@ -1,4 +1,5 @@
 ---
+cip: 21
 title: Introduce blob type with verified signer
 description: Introduce a new blob type that can be submitted whereby the signer address is included and verified.
 author: Callum Waters (@cmwaters)
