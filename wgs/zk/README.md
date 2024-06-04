@@ -26,12 +26,11 @@
 
 ## Questions
 
-
 - Do we want to support forced withdrawals or forced state transitions?
 - How do we serialize deposits into rollups?
 - Do we need Acks when transferring tokens between Celestia and the rollup?
 - Are Acks isomorphic to Option 4 of the spec proposal?
-- Do we need an on-chain light client of Celestia on the snark account if we want to support snark account <-> snark account bridging?
-- Can snark accounts upgrade, and if yes what kind of changes do we have to make?
+- Do we need an on-chain light client of Celestia on the SNARK account if we want to support SNARK account <-> SNARK account bridging?
+- Can SNARK accounts upgrade, and if yes what kind of changes do we have to make?
 - Are there any other requirements of the rollup client on Celestia that we have to take into account?
 - Do we have to support transfers other than TIA?
