@@ -40,6 +40,7 @@ Read [CIP-1](https://github.com/celestiaorg/CIPs/blob/main/cips/cip-1.md) for in
 | [18](/cips/cip-18.md) | Standardised Gas and Pricing Estimation Interface | Callum Waters (@cmwaters) |
 | [19](/cips/cip-19.md) | Shwap Protocol  | Hlib Kanunnikov (@Wondertan) |
 | [20](/cips/cip-20.md) | Disable Blobstream module | Rootul Patel (@rootulp) |
+| [21](/cips/cip-21.md) | Introduce blob type with verified signer | Callum Waters (@cmwaters) |
 
 ## Contributing
 
