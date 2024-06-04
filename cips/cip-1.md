@@ -602,7 +602,7 @@ author for revision, with specific instructions.
 
 Once the CIP is ready for the repository, the CIP editor will:
 
-* Assign an CIP number (generally the PR number, but the decision
+* Assign an CIP number (generally the next unused CIP number, but the decision
   is with the editors)
 * Merge the corresponding [pull request](https://github.com/celestiaorg/CIPs/pulls)
 * Send a message back to the CIP author with the next step.
