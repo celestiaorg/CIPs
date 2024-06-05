@@ -4,8 +4,7 @@ title: Lemongrass Hardfork
 description: Reference specifications included in the Lemongrass Hardfork
 author: Evan Forbes (@evan-forbes)
 discussions-to: https://forum.celestia.org/t/lemongrass-hardfork/1589
-status: Last Call
-last-call-deadline: 2024-06-05
+status: Final
 type: Meta
 created: 2024-02-16
 requires: CIP-6, CIP-9, CIP-10, CIP-14, CIP-20
