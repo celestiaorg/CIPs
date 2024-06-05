@@ -6,6 +6,7 @@ Read [CIP-1](https://github.com/celestiaorg/CIPs/blob/main/cips/cip-1.md) for in
 
 |  №  |      Date       | Agenda | Notes | Recording |
 |:---:|:---------------:|:------:|:-----:|:---------:|
+| 12 | June 5, 2024 | [Agenda](https://github.com/celestiaorg/CIPs/issues/149) |[Tweet Thread](https://x.com/JoshCStein/status/1798381092493504830) | [Recording](https://www.youtube.com/watch?v=kV5_ANNhixI) |
 | 11 | May 22, 2024 | [Agenda](https://github.com/celestiaorg/CIPs/issues/142) |[Tweet Thread](https://x.com/JoshCStein/status/1793312125235999082) | [Recording](https://www.youtube.com/watch?v=g6PMMaMmpxg) |
 | 10 | April 30, 2024 | [Agenda](https://github.com/celestiaorg/CIPs/issues/134) |[Tweet Thread](https://x.com/JoshCStein/status/1785309248248828133) | [Recording](https://www.youtube.com/watch?v=zWQsvPqPkC8) |
 | 9 | April 17, 2024 | [Agenda](https://github.com/celestiaorg/CIPs/issues/127) |[Tweet Thread](https://twitter.com/JoshCStein/status/1780612265667924032) | [Recording](https://www.youtube.com/watch?v=Qwir10r9o7k) |
