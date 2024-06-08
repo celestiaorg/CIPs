@@ -2,6 +2,6 @@
 
 ## Meetings
 
-|  №  |      Date       | Agenda | Notes | Recording |
-|:---:|:---------------:|:------:|:-----:|:---------:|
+| № | Date |   Agenda    |   Notes    |   Recording    |
+|:-:|:----:|:-----------:|:----------:|:--------------:|
 | 1 | Date | Agenda Link | Notes Link | Recording Link |
