@@ -384,7 +384,7 @@ of the messages happens using externally provided data commitment.
 However, breaking-free from hashes creates issues necessary to be solved on the implementation level, particularly in
 [the reference Golang implementation][gimpl], if forking and substantially diverging from the upstream is not an option.
 CIDs are required to have fixed and deterministic sizes. Making share identifiers compliant with CID
-prevents protobuf usage due to its reliance on varints and dynamic byte arrays serialization in.
+prevents protobuf usage due to its reliance on varints and dynamic byte arrays serialization.
 
 The naive question would be: "Why not make content verification after Bitswap provided it back over its API?" Intuitively,
 this would simplify much and would not require "hacking" CID. However, this has an important downside - the Bitswap, in
@@ -411,68 +411,29 @@ Bitswap operates over IPFS blocks (not to mix with Celestia or other blockchain 
 arbitrary bytes addressed and identified with a [CID](#multihashes-and-cids). An IPFS block must have a CID encoded into
 it, s.t. the CID can either be computed by hashing the block or by extracting it out of the block data itself.
 
-In order for the composition to work, Shwap has to comply with the block format and for this we introduce _adapter_
-block types for each supported container. As Shwap container identifiers are not hash-based and aren't computable, we
-have to encode CIDs into the block adapters for the containers.
+In order for the composition to work, Shwap has to comply with the block format and for this we introduce general
+_adapter_ block type. As Shwap container identifiers are not hash-based and aren't computable, we
+have to encode CIDs into the block adapter for the containers.
 
-The block adapters are protobuf encoded with the following schemas:
-
-##### RowBlock
+The block adapter is protobuf encoded with the following schema:
 
 ```protobuf
 syntax = "proto3";
 
-message RowBlock {
-    repeated bytes row_id = 1;
-    Row row = 2;
+message Block {
+  bytes cid = 1;
+  bytes container = 2;
 }
 ```
 
-The fields with validity rules that form RowBlock are:
+The fields with validity rules that form the Block are:
 
-[**RowID**](#rowid): A RowID of the [Row Container](#row-container). It MUST follow [RowID](#rowid) formatting and field
-validity rules.
+**CID**: A variable size byte array representing a CID. It MUST follow [CIDv1][cidv1] specification. The encoded
+multihash and codec codes inside of the CID MUST be from one of the registered IDs defined in [the table](#multihashes-and-cids).
 
-[**Row**](#row-container): An imported Row container protobuf message. It MUST follow [Row](#row-container) formatting
-and field validity rules.
-
-##### SampleBlock
-
-```protobuf
-syntax = "proto3";
-
-message SampleBlock {
-    repeated bytes sample_id = 1;
-    Sample sample = 2;
-}
-```
-
-The fields with validity rules that form SampleBlock are:
-
-[**SampleID**](#sampleid): A SampleID of the [Sample Container](#sample-container). It MUST follow [SampleID](#sampleid)
-formatting and field validity rules.
-
-[**Sample**](#sample-container): An imported Sample container protobuf message. It MUST follow [Sample](#sample-container)
-formatting and field validity rules.
-
-##### RowNamespaceDataBlock
-
-```protobuf
-syntax = "proto3";
-
-message RowNamespaceDataBlock {
-    repeated bytes rnd_id = 1;
-    RowNamespaceData rnd = 2;
-}
-```
-
-The fields with validity rules that form RowNamespaceDataBlock are:
-
-[**RowNamespaceDataID**](#rownamespacedataid): A RowNamespaceDataID of the [RowNamespaceData Container](#rownamespacedata-container).
-It MUST follow [RowNamespaceDataID](#rownamespacedataid) formatting and field validity rules.
-
-[**RowNamespaceData**](#rownamespacedata-container): An imported RowNamespaceData container protobuf message. It MUST
-follow [RowNamespaceData](#rownamespacedata-container) formatting and field validity rules.
+**Container**: A variable size byte array representing a protobuf serialized Shwap Container. It MUST be of a type
+defined by multihash and codec in the CID field. It MUST be validated according to validity rules of the respective Shwap
+Container.
 
 ## Backwards Compatibility
 
@@ -527,6 +488,7 @@ Copyright and related rights waived via [CC0](../LICENSE).
 [storage]: https://github.com/celestiaorg/celestia-node/blob/a33c80e20da684d656c7213580be7878bcd27cf4/docs/adr/adr-011-blocksync-overhaul-part-1.md
 [bitswap]: https://docs.ipfs.tech/concepts/bitswap/
 [cid]: https://docs.ipfs.tech/concepts/content-addressing/
+[cidv1]: https://docs.ipfs.tech/concepts/content-addressing/#version-1-v1
 [mh]: https://multiformats.io/multihash/
 [content-address]: https://fission.codes/blog/content-addressing-what-it-is-and-how-it-works/
 [kaddht]: https://pdos.csail.mit.edu/~petar/papers/maymounkov-kademlia-lncs.pdf
