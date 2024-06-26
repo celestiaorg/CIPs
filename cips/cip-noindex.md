@@ -35,7 +35,6 @@ celestia-node does not consume this index. Although they have their own way of c
 
 None of the rollup teams are influenced by this change except Sovereign SDK. The circuit parsing the PFB reserved namespace would break and must be adapted. The circuit does not use the information from the blobStartIndex. If this change is accepted, the live rollup teams will have to upgrade their circuits when Celestia upgrades to the new version. Currently, no rollups are live on mainnet using Celestia, so a breaking change would not affect anyone directly.
 
-
 ## Security Considerations
 
 No Celestia light nodes rely on the blobStartIndex to verify the square's correctness. No fraud proofs rely on the blobStartIndex, so removing it does not affect the network's security. Without the blobStartIndex, we won't be able to create compact fraud proofs anymore. This means that accepting this proposal is also a commitment to ZK prove the validity of the square layout.
