@@ -1,4 +1,5 @@
 ---
+cip: 22
 title: Removing the blobStartIndex
 author: NashQueue @Nashqueue
 discussions-to: URL
