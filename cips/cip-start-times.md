@@ -1,8 +1,8 @@
 ---
 title: Coordinated Start Time Intervals
-description: Modify vote times t
+description: Modify vote times to use a nodes start time to achieve consistent starting times
 author: Callum Waters (@cmwaters)
-discussions-to: URL
+discussions-to: https://forum.celestia.org/t/coordinated-start-time-intervals/1768
 status: Draft
 type: Standards Track
 category: Core
@@ -21,7 +21,7 @@ Currently, the time it takes to commit to a block is propotional to the size of 
 
 The following modifications are proposed:
 
-- Validators select a vote time that is their `cs.StartTime` as opposed to their current time when they vote for a block.
+- Validators select a vote time that is their `cs.StartTime` as opposed to their current time when they vote for a block. `cs.StartTime` is the time that a validator would propose a block if they were the proposer and the time with which `TimeoutPropose` starts.
   - In the case, that `cs.StartTime` is after the locked or proposal block time, the validator will pick a time that is 1 millisecond later to satisfy the property of increasing block times.
   - In the case of the first block, the start time will be the current time.
 - Upon receiving 2f + 1 PRECOMMIT votes, each validator calculates the **local** stake-weighted median start time from those votes. It sets the new start time of the next height to be the aforementioned calculated time plus the `TargetInterval`.
@@ -30,16 +30,19 @@ The following modifications are proposed:
   - All validators MUST verify that the block time has been calculated as per the above rules. If not, the block will not be accepted.
 - `TargetInterval` is part of `BlockParams` within `ConsensusParams`. A `TargetInterval` of zero signifies that this mechanism is disabled. The `TargetInterval` CAN be set in a hard fork upgrade when all nodes are running the latest version, activating the new timing mechnanism.
 - The `TargetInterval` once activated will be set to 12 seconds. `TargetInterval` can not be modified via governance and SHOULD only change in major version upgrades.
+- `TimeoutCommit` will be ignored when this mechanism is active.
+
+To help develop an intuition on what this proposal changes, if we were to plot all the start times of each validator in the network in order, assuming equal weighting, the start times of all nodes for the **next height** will be within the "middle third of start times" of each other. This has a converging effect even in cases where consensus takes longer than the `TargetInterval` itself.
 
 ## Parameters
 
 | Parameter     | Proposed value | Description                                                                                                                | Changeable via Governance |
 |---------------|---------|------------------------------------------------------------------------------------------------------------------------|---------------------------|
-| BlockParams.TargetIntervalMS | 12 seconds  | The target interval between start times in milliseconds                                                            | false                     |
+| BlockParams.TargetIntervalMS | 12000 milliseconds (12 seconds)  | The target interval between start times in milliseconds                                                            | false                     |
 
 ## Rationale
 
-Given the asynchronous nature of networks, it's difficult to coordinate around the commit times as it's difficult to predict how long it will take to commit a block. What is more predictable is too coordinate around the start times i.e. the time that the proposer begins to propose a block. By including every validators start time in their votes, we have a relatively robust reference point for all nodes. The start time of the next height.
+Given the asynchronous nature of networks, it's difficult to coordinate around the commit times as it's difficult to predict how long it will take to commit a block. What is more predictable is to coordinate around the start times i.e. the time that the proposer begins to propose a block. By including every validators start time in their votes, we have a relatively robust reference point for all nodes. The start time of the next height.
 
 ## Backwards Compatibility
 
@@ -53,7 +56,7 @@ To be filled out.
 
 This modification changes the time located in the block to be the stake-weighted median of the start times of 2f + 1 validators from the previous block. `TargetInterval` is added to this as an approximation of when the current block was actually started. This is different from the how the current block time is calculated, however, this shift in the times is not expected to have any downstream impact.
 
-Similar with traditional bft time, a malicious cabal greater than 1/3 can manipulate the block time to be any time in the future.
+Similar with traditional BFT time, a malicious cabal greater than 1/3 can manipulate the block time to be any time in the future.
 
 ## Copyright
 
