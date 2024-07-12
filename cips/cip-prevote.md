@@ -2,7 +2,7 @@
 title: Coordinated prevote times
 description: Scheduled prevote times for consistent blocks
 author: Callum Waters (@cmwaters)
-discussions-to: URL
+discussions-to: https://forum.celestia.org/t/coordinated-start-time-intervals/1768
 status: Draft
 type: Standards Track
 category: Core
