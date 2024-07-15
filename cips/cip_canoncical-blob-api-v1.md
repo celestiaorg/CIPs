@@ -12,7 +12,7 @@ requires: CIP number(s). Only required when you reference an CIP in the `Specifi
 
 <!-- URL snippets for perma links -->
 <!--  -->
-<!-- commit hash for perma links:  -->
+<!-- commit hash for perma links: 511f955eae663d13eee2ffa0b323fd9562bf7d5e  -->
 <!-- example link:  -->
 
 
@@ -37,7 +37,7 @@ The v1 is motivated to address these issues by these specific points:
  
 ## Specification
 
-Find the full protobuf definitions in the [proto](./proto) directory.
+Find the full protobuf definitions in the [proto](../assets/cip-api-v1/proto) directory.
 
 TODO: define expected behaviour for each service
 
@@ -49,16 +49,20 @@ These are types used across multiple services and are defined in the `common` pa
 #### Error Messages
 [error.proto](../assets/cip-api-v1/proto/common/error.proto)
 
+https://github.com/celestiaorg/CIPs/blob/511f955eae663d13eee2ffa0b323fd9562bf7d5e/assets/cip-api-v1/proto/common/error.proto#L1-L18
+
 TODO: Maybe have errors per service instead of global errors?
 
 
 #### Data Retrieval Options
 [retrieval_options.proto](../assets/cip-api-v1/proto/common/retrieval_options.proto)
 
+https://github.com/celestiaorg/CIPs/blob/511f955eae663d13eee2ffa0b323fd9562bf7d5e/assets/cip-api-v1/proto/common/retrieval_options.proto#L1-L12
 
 #### Transaction Options
 [tx_config.proto](../assets/cip-api-v1/proto/common/tx_config.proto)
 
+https://github.com/celestiaorg/CIPs/blob/511f955eae663d13eee2ffa0b323fd9562bf7d5e/assets/cip-api-v1/proto/common/tx_config.proto#L1-L10
 
 
 ### Header
@@ -66,23 +70,27 @@ TODO: Maybe have errors per service instead of global errors?
 #### Types
 [header.proto](../assets/cip-api-v1/proto/header/header.proto)
 
+https://github.com/celestiaorg/CIPs/blob/511f955eae663d13eee2ffa0b323fd9562bf7d5e/assets/cip-api-v1/proto/header/header.proto#L1-L48
 
 
 #### Service
 
 [header_service.proto](../assets/cip-api-v1/proto/header/header_service.proto)
 
+https://github.com/celestiaorg/CIPs/blob/511f955eae663d13eee2ffa0b323fd9562bf7d5e/assets/cip-api-v1/proto/header/header_service.proto#L1-L17
 
 ### Blob Service
 
 #### Types
 [blob.proto](../assets/cip-api-v1/proto/blob/blob.proto)
 
+https://github.com/celestiaorg/CIPs/blob/511f955eae663d13eee2ffa0b323fd9562bf7d5e/assets/cip-api-v1/proto/blob/blob.proto#L1-L76
 
 #### Service
 
 [blob_service.proto](../assets/cip-api-v1/proto/blob/blob_service.proto)
 
+https://github.com/celestiaorg/CIPs/blob/511f955eae663d13eee2ffa0b323fd9562bf7d5e/assets/cip-api-v1/proto/blob/blob_service.proto#L1-L13
 
 
 ### Share Service
@@ -90,22 +98,26 @@ TODO: Maybe have errors per service instead of global errors?
 #### Types
 [share.proto](../assets/cip-api-v1/proto/share/share.proto)
 
-
+https://github.com/celestiaorg/CIPs/blob/511f955eae663d13eee2ffa0b323fd9562bf7d5e/assets/cip-api-v1/proto/share/share.proto#L3-L53
 
 #### Service
 [share_service.proto](../assets/cip-api-v1/proto/share/share_service.proto)
 
+https://github.com/celestiaorg/CIPs/blob/511f955eae663d13eee2ffa0b323fd9562bf7d5e/assets/cip-api-v1/proto/share/share_service.proto#L1-L11
 
 ### Bad Encoding Fraud Proofs Service
 
 #### Types
 
-[befp.proto](./proto/befp/befp.proto)
+[befp.proto](../assets/cip-api-v1/proto/befp/befp.proto)
+
+https://github.com/celestiaorg/CIPs/blob/511f955eae663d13eee2ffa0b323fd9562bf7d5e/assets/cip-api-v1/proto/befp/befp.proto#L1-L9
 
 #### Service
 
-[befp_service.proto](./proto/befp/befp_service.proto)
+[befp_service.proto](../assets/cip-api-v1/proto/befp/befp_service.proto)
 
+https://github.com/celestiaorg/CIPs/blob/511f955eae663d13eee2ffa0b323fd9562bf7d5e/assets/cip-api-v1/proto/befp/befp_service.proto#L1-L12
 
 ## Rationale
 
@@ -122,7 +134,7 @@ The canonical Blob API v1 is not backwards compatible with the current beta API.
 Hence, the current beta API will be deprecated and eventually removed from the Celestia node software.
 Parts of the current API may continue to be supported as form of an internal API, but will not be exposed publicly to developers. 
 
-TODO: add more specif timeline for deprecation and removal
+TODO: add more specific timeline for deprecation and removal
 
 ## Test Cases
 
