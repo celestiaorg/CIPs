@@ -1,5 +1,7 @@
 # Summary
 
+[README.md](../README.md)
+
 # CIPs
 
 - [CIP-1](./cips/cip-1.md)
