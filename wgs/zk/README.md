@@ -16,9 +16,10 @@
 
 ## Resources
 
-[Shumo/Nebra's notes on GNARK](https://hackmd.io/@nebra-one/Bk2E3JfJA)
-[Uma/Succinct's post on Snark accounts](https://forum.celestia.org/t/celestia-snark-accounts-design-spec/1639)
-[John Adler's research day talk](https://www.youtube.com/watch?v=SrZ9Ux2Ktt8)
+- [Overview](overview.md)
+- [Shumo/Nebra's notes on GNARK](https://hackmd.io/@nebra-one/Bk2E3JfJA)
+- [Uma/Succinct's post on Snark accounts](https://forum.celestia.org/t/celestia-snark-accounts-design-spec/1639)
+- [John Adler's research day talk](https://www.youtube.com/watch?v=SrZ9Ux2Ktt8)
 
 ## Questions
 
