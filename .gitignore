@@ -5,4 +5,4 @@ index.html
 cips/*.html
 
 # WGs
-wgs/*/*.html
+cips/wgs/*/*.html

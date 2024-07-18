@@ -5,7 +5,7 @@ multilingual = false
 title = "Celestia Improvement Proposals (CIPs)"
 description = "The Celestia Improvement Proposal (CIP) process and CIPs."
 theme = "theme"
-src = "src"
+src = "cips"
 
 [output.html]
 default-theme = "light"
