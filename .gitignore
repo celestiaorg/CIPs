@@ -1,0 +1,8 @@
+book
+index.html
+
+# CIPs
+cips/*.html
+
+# WGs
+wgs/*/*.html
