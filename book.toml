@@ -4,3 +4,19 @@ language = "en"
 multilingual = false
 src = "src"
 title = "Celestia Improvement Proposals (CIPs)"
+description = "The Celestia Improvement Proposal (CIP) process"
+theme = "theme"
+
+[output.html]
+default-theme = "light"
+preferred-dark-theme = "ayu"
+git-repository-url = "https://github.com/celestiaorg/cips"
+git-repository-icon = "fa-github"
+edit-url-template = "https://github.com/celestiaorg/cips/edit/main/{path}"
+cname = "cips.celestia.org"
+smart-punctuation = true
+theme = "theme"
+
+[output.html.fold]
+enable = true
+level = 0

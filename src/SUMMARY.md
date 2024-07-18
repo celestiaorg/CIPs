@@ -4,7 +4,6 @@
 [README.md](../README.md)
 
 # CIPs
-
 - [CIP-1](./cips/cip-1.md)
 - [CIP-2](./cips/cip-2.md)
 - [CIP-3](./cips/cip-3.md)
@@ -29,7 +28,7 @@
 - [CIP-22](./cips/cip-22.md)
 - [CIP-23](./cips/cip-23.md)
 
-# CIPs template
+# CIP template
 
 - [CIP Template](./cips/cip-template.md)
 
