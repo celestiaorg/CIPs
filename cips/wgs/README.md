@@ -5,6 +5,6 @@ and their meeting notes and recordings if available.
 
 ## Working Groups
 
-- [DA Working Group](../wgs/da/README.md)
-- [Interface Working Group](../wgs/interface/README.md)
-- [ZK Working Group](../wgs/zk/README.md)
+- [DA Working Group](./da/README.md)
+- [Interface Working Group](./interface/README.md)
+- [ZK Working Group](./zk/README.md)
