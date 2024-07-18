@@ -1,9 +1,9 @@
 # Summary
 
-
 [README.md](../README.md)
 
 # CIPs
+
 - [CIP-1](./cip-1.md)
 - [CIP-2](./cip-2.md)
 - [CIP-3](./cip-3.md)
