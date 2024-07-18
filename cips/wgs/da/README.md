@@ -1,4 +1,4 @@
-# DA Working Group
+# Data Availability (DA) Working Group
 
 ## Meetings
 
