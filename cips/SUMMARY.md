@@ -39,5 +39,5 @@
 - [WGs overview](./wgs/README.md)
   - [Data Availability](./wgs/da/README.md)
   - [Interface](./wgs/interface/README.md)
-  - [zk](./wgs/zk/README.md)
+  - [ZK](./wgs/zk/README.md)
     - [Overview of ZK Accounts](./wgs/zk/overview.md)
