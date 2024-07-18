@@ -54,3 +54,11 @@ Files in this repo must conform to [markdownlint](https://github.com/DavidAnson/
 ```shell
 markdownlint --config .markdownlint.yaml '**/*.md'
 ```
+
+### Running the site locally
+
+```bash
+mdbook serve -o
+```
+
+> Requires Rust and mdbook.

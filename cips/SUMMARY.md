@@ -32,6 +32,8 @@
 
 - [CIP Template](./cip-template.md)
 
+---
+
 # Working Groups
 
 - [WGs overview](./wgs/README.md)
