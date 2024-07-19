@@ -1,3 +1,4 @@
+```
 ---
 cip: 1
 title: Celestia Improvement Proposal Process and Guidelines
@@ -6,6 +7,7 @@ status: Living
 type: Meta
 created: 2023-04-13
 ---
+```
 
 ## Table of Contents
 
