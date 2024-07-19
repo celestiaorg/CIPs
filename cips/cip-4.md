@@ -1,6 +1,13 @@
-| cip | title                                              | description                                                                                     | author                                                                                              | discussions-to                                                                                                  | status | type           | category            | created    |
-|-----|----------------------------------------------------|-------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|--------|----------------|---------------------|------------|
-| 4   | Standardize data expiry time for pruned nodes      | Standardize default data expiry time for pruned nodes to 30 days + 1 hour worth of seconds (2595600 seconds). | Mustafa Al-Bassam (@musalbas), Rene Lubov (@renaynay), Ramin Keene (@ramin)                         | <https://forum.celestia.org/t/cip-standardize-data-expiry-time-for-pruned-nodes/1326> | Final  | Standards Track | Data Availability | 2023-11-23 |
+| cip | 4 |
+| - | - |
+| title | Standardize data expiry time for pruned nodes |
+| description | Standardize default data expiry time for pruned nodes to 30 days + 1 hour worth of seconds (2595600 seconds). |
+| author | Mustafa Al-Bassam (@musalbas), Rene Lubov (@renaynay), Ramin Keene (@ramin) |
+| discussions-to | <https://forum.celestia.org/t/cip-standardize-data-expiry-time-for-pruned-nodes/1326> |
+| status | Final |
+| type | Standards Track |
+| category | Data Availability |
+| created | 2023-11-23 |
 
 ## Abstract
 

@@ -1,6 +1,13 @@
-| cip | title                      | description                                | author                  | discussions-to                                                                                     | status | type           | category | created    |
-|-----|----------------------------|--------------------------------------------|-------------------------|----------------------------------------------------------------------------------------------------|--------|----------------|----------|------------|
-| 10  | Coordinated network upgrades | Protocol for coordinating major network upgrades | Callum Waters (@cmwaters) | <https://forum.celestia.org/t/cip-coordinated-network-upgrades/1367>             | Final  | Standards Track | Core     | 2023-12-07 |
+| cip | 10 |
+| - | - |
+| title | Coordinated network upgrades |
+| description | Protocol for coordinating major network upgrades |
+| author | Callum Waters (@cmwaters) |
+| discussions-to | <https://forum.celestia.org/t/cip-coordinated-network-upgrades/1367> |
+| status | Final |
+| type | Standards Track |
+| category | Core |
+| created | 2023-12-07 |
 
 ## Abstract
 

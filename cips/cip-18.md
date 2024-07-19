@@ -1,6 +1,13 @@
-| cip | title                                  | description                                                      | author                | discussions-to                                                                                         | status | type           | category | created    |
-|-----|----------------------------------------|------------------------------------------------------------------|-----------------------|--------------------------------------------------------------------------------------------------------|--------|----------------|----------|------------|
-| 18  | Standardised Gas and Pricing Estimation Interface | A standardised interface for estimating gas usage and gas pricing for transactions | Callum Waters (@cmwaters) | <https://forum.celestia.org/t/cip-standardised-gas-and-pricing-estimation-interface/1621> | Review | Standards Track | Interface | 2024-03-12 |
+| cip | 18 |
+| - | - |
+| title | Standardised Gas and Pricing Estimation Interface |
+| description | A standardised interface for estimating gas usage and gas pricing for transactions |
+| author | Callum Waters (@cmwaters) |
+| discussions-to | <https://forum.celestia.org/t/cip-standardised-gas-and-pricing-estimation-interface/1621> |
+| status | Review |
+| type | Standards Track |
+| category | Interface |
+| created | 2024-03-12 |
 
 ## Abstract
 

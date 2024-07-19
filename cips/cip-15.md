@@ -1,6 +1,13 @@
-| cip | title                 | description                            | author                          | discussions-to                                                                                              | status | type            | category | created    |
-|-----|-----------------------|----------------------------------------|---------------------------------|-------------------------------------------------------------------------------------------------------------|--------|-----------------|----------|------------|
-| 15  | Discourage memo usage | Discourage memo usage by modifying two auth params. | Rootul Patel (@rootulp), NashQueue (@nashqueue) | <https://forum.celestia.org/t/cip-discourage-memo-usage/1508>                         | Draft  | Standards Track | Core     | 2024-01-21 |
+| cip | 15 |
+| - | - |
+| title | Discourage memo usage |
+| description | Discourage memo usage by modifying two auth params. |
+| author | Rootul Patel (@rootulp), NashQueue (@nashqueue) |
+| discussions-to | <https://forum.celestia.org/t/cip-discourage-memo-usage/1508> |
+| status | Draft |
+| type | Standards Track |
+| category | Core |
+| created | 2024-01-21 |
 
 ## Abstract
 

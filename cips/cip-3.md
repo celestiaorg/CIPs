@@ -1,7 +1,13 @@
-| cip | title                                | description                                                     | author                    | discussions-to                           | status | type  | created    | requires |
-|-----|--------------------------------------|-----------------------------------------------------------------|---------------------------|------------------------------------------|--------|-------|------------|----------|
-| 3   | Process for Approving External Resources | Requirements and process for allowing new origins of external resources | Yaz Khoury (@YazzyYaz)    | <https://forum.celestia.org> | Draft  | Meta  | 2023-04-13 | CIP-1        |
-<!-- markdownlint-disable MD013 -->
+| cip | 3 |
+| - | - |
+| title | Process for Approving External Resources |
+| description | Requirements and process for allowing new origins of external resources |
+| author | Yaz Khoury (@YazzyYaz) |
+| discussions-to | <https://forum.celestia.org> |
+| status | Draft |
+| type | Meta |
+| created | 2023-04-13 |
+| requires | CIP-1 |
 
 ## Abstract
 
@@ -58,4 +64,3 @@ The Celestia ecosystem is built on openness and free access, and the CIP process
 ## Copyright
 
 Copyright and related rights waived via [CC0](../LICENSE).
-<!-- markdownlint-enable MD013 -->

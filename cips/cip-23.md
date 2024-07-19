@@ -1,6 +1,13 @@
-| cip | title                    | description                             | author                | discussions-to                                                                                        | status | type           | category | created    |
-|-----|--------------------------|-----------------------------------------|-----------------------|-------------------------------------------------------------------------------------------------------|--------|----------------|----------|------------|
-| 23  | Coordinated prevote times | Scheduled prevote times for consistent blocks | Callum Waters (@cmwaters) | <https://forum.celestia.org/t/coordinated-start-time-intervals/1768>              | Draft  | Standards Track | Core     | 2024-07-12 |
+| cip | 23 |
+| - | - |
+| title | Coordinated prevote times |
+| description | Scheduled prevote times for consistent blocks |
+| author | Callum Waters (@cmwaters) |
+| discussions-to | <https://forum.celestia.org/t/coordinated-start-time-intervals/1768> |
+| status | Draft |
+| type | Standards Track |
+| category | Core |
+| created | 2024-07-12 |
 
 ## Abstract
 

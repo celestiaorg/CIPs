@@ -1,6 +1,13 @@
-| cip | title                    | description                                      | author                    | discussions-to                                                                                        | status | type           | category                   | created    |
-|-----|--------------------------|--------------------------------------------------|---------------------------|-------------------------------------------------------------------------------------------------------|--------|----------------|----------------------------|------------|
-| 19  | Shwap Protocol           | Shwap - a new messaging framework for DA and sampling | Hlib Kanunnikov (@Wondertan) | <https://forum.celestia.org/t/cip-shwap-protocol/1551>                            | Review | Standards Track | Data Availability, Networking | 2024-02-02 |
+| cip | 19 |
+| - | - |
+| title | Shwap Protocol |
+| description | Shwap - a new messaging framework for DA and sampling |
+| author | Hlib Kanunnikov (@Wondertan) |
+| discussions-to | <https://forum.celestia.org/t/cip-shwap-protocol/1551> |
+| status | Review |
+| type | Standards Track |
+| category | Data Availability, Networking |
+| created | 2024-02-02 |
 
 ## Abstract
 
