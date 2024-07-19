@@ -1,6 +1,6 @@
 | cip | title            | description                                           | author                | discussions-to                                                                                        | status    | withdrawal-reason                                                                      | type           | category | created    |
 |-----|------------------|-------------------------------------------------------|-----------------------|-------------------------------------------------------------------------------------------------------|-----------|---------------------------------------------------------------------------------------|----------------|----------|------------|
-| 11  | Refund unspent gas | Refund allocated but unspent gas to the transaction fee payer. | Rootul Patel (@rootulp) | [forum.celestia.org](https://forum.celestia.org/t/cip-refund-unspent-gas/1374)                       | Withdrawn | The mitigation strategies for the security considerations were deemed too complex.   | Standards Track | Core     | 2023-12-07 |
+| 11  | Refund unspent gas | Refund allocated but unspent gas to the transaction fee payer. | Rootul Patel (@rootulp) | <https://forum.celestia.org/t/cip-refund-unspent-gas/1374>                       | Withdrawn | The mitigation strategies for the security considerations were deemed too complex.   | Standards Track | Core     | 2023-12-07 |
 
 ## Abstract
 

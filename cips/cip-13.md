@@ -1,6 +1,6 @@
 | cip | title                                           | description                                       | author                                                                 | discussions-to                                                                                          | status | type           | category | created    |
 |-----|-------------------------------------------------|---------------------------------------------------|-----------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|--------|----------------|----------|------------|
-| 13  | On-chain Governance Parameters for Celestia Network | Specification of Mainnet governance parameters in the Celestia network | Yaz Khoury <yaz@celestia.org>, Evan Forbes <evan@celestia.org>       | [forum.celestia.org](https://forum.celestia.org/t/cip-13-mainnet-on-chain-governance-parameters/1390) | Draft  | Standards Track | Core     | 2023-12-08 |
+| 13  | On-chain Governance Parameters for Celestia Network | Specification of Mainnet governance parameters in the Celestia network | Yaz Khoury <yaz@celestia.org>, Evan Forbes <evan@celestia.org>       | <https://forum.celestia.org/t/cip-13-mainnet-on-chain-governance-parameters/1390> | Draft  | Standards Track | Core     | 2023-12-08 |
 
 ## Abstract
 

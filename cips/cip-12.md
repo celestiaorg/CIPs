@@ -1,6 +1,6 @@
 | cip | title                               | description                                              | author                                                                                  | discussions-to                                                                                      | status | type           | category | created    |
 |-----|-------------------------------------|----------------------------------------------------------|-----------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|--------|----------------|----------|------------|
-| 12  | ICS-29 Relayer Incentivisation Middleware | Adding ics-29 to Celestia to move towards sustainable relayer funding for IBC | Susannah Evans <susannah@interchain.io> (@womensrights), Aditya Sripal <aditya@interchain.io> (@AdityaSripal) | [forum.celestia.org](https://forum.celestia.org/t/cip-relayer-incentivisation-middleware/1383)      | Review | Standards Track | Core     | 2023-12-12 |
+| 12  | ICS-29 Relayer Incentivisation Middleware | Adding ics-29 to Celestia to move towards sustainable relayer funding for IBC | Susannah Evans <susannah@interchain.io> (@womensrights), Aditya Sripal <aditya@interchain.io> (@AdityaSripal) | <https://forum.celestia.org/t/cip-relayer-incentivisation-middleware/1383>      | Review | Standards Track | Core     | 2023-12-12 |
 
 ## Abstract
 

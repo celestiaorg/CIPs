@@ -1,6 +1,6 @@
 | cip | title                              | description                                                                                          | author                 | discussions-to                                                                                  | status | type           | category | created    |
 |-----|------------------------------------|------------------------------------------------------------------------------------------------------|------------------------|-------------------------------------------------------------------------------------------------|--------|----------------|----------|------------|
-| 6   | Mininum gas price enforcement      | Enforce payment of the gas for a transaction based on a governance modifiable global minimum gas price | Callum Waters (@cmwaters) | [forum.celestia.org](https://forum.celestia.org/t/cip-006-price-enforcement/1351)              | Final  | Standards Track | Core     | 2023-11-30 |
+| 6   | Mininum gas price enforcement      | Enforce payment of the gas for a transaction based on a governance modifiable global minimum gas price | Callum Waters (@cmwaters) | <https://forum.celestia.org/t/cip-006-price-enforcement/1351>              | Final  | Standards Track | Core     | 2023-11-30 |
 
 ## Abstract
 

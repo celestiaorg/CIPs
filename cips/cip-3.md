@@ -1,6 +1,6 @@
 | cip | title                                | description                                                     | author                    | discussions-to                           | status | type  | created    | requires |
 |-----|--------------------------------------|-----------------------------------------------------------------|---------------------------|------------------------------------------|--------|-------|------------|----------|
-| 3   | Process for Approving External Resources | Requirements and process for allowing new origins of external resources | Yaz Khoury (@YazzyYaz)    | [forum.celestia.org](https://forum.celestia.org) | Draft  | Meta  | 2023-04-13 | CIP-1        |
+| 3   | Process for Approving External Resources | Requirements and process for allowing new origins of external resources | Yaz Khoury (@YazzyYaz)    | <https://forum.celestia.org> | Draft  | Meta  | 2023-04-13 | CIP-1        |
 <!-- markdownlint-disable MD013 -->
 
 ## Abstract

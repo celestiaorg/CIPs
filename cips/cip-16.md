@@ -1,6 +1,6 @@
 | cip | title                                | description                                                                 | author                  | discussions-to                                                                                                           | status | type           | category | created    | requires |
 |-----|--------------------------------------|-----------------------------------------------------------------------------|-------------------------|--------------------------------------------------------------------------------------------------------------------------|--------|----------------|----------|------------|----------|
-| 16  | Make Security Related Governance Parameters Immutable | Consensus-related parameters should not be modified via on-chain governance in the Celestia network. | Mingpei CAO (@caomingpei) | [forum.celestia.org](https://forum.celestia.org/t/cip-make-security-related-governance-parameters-immutable/1566) | Draft  | Standards Track | Core     | 2024-02-07 | CIP-13   |
+| 16  | Make Security Related Governance Parameters Immutable | Consensus-related parameters should not be modified via on-chain governance in the Celestia network. | Mingpei CAO (@caomingpei) | <https://forum.celestia.org/t/cip-make-security-related-governance-parameters-immutable/1566> | Draft  | Standards Track | Core     | 2024-02-07 | CIP-13   |
 
 ## Abstract
 

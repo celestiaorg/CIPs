@@ -1,6 +1,6 @@
 | cip | title                                                           | description                                                                     | author                    | discussions-to                                                                                              | status | type          | created    |
 |-----|-----------------------------------------------------------------|---------------------------------------------------------------------------------|---------------------------|-------------------------------------------------------------------------------------------------------------|--------|---------------|------------|
-| 7   | Managing Working Groups in the Celestia Improvement Proposal Process | A guide to effectively managing working groups within the Celestia Improvement Proposal process. | Yaz Khoury <yaz@celestia.org> | [forum.celestia.org](https://forum.celestia.org/t/cip-for-working-group-best-practices/1343) | Draft  | Informational | 2023-11-29 |
+| 7   | Managing Working Groups in the Celestia Improvement Proposal Process | A guide to effectively managing working groups within the Celestia Improvement Proposal process. | Yaz Khoury <yaz@celestia.org> | <https://forum.celestia.org/t/cip-for-working-group-best-practices/1343> | Draft  | Informational | 2023-11-29 |
 
 ## Abstract
 
