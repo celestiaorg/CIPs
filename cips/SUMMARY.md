@@ -1,7 +1,7 @@
 # Summary
 
 [README.md](../README.md)
-
+<!-- markdownlint-disable MD025 -->
 # CIPs
 
 - [CIP-1](./cip-1.md)
