@@ -1,6 +1,6 @@
 | cip | title                        | description                                              | author                    | discussions-to                           | status | type          | created    | requires |
 |-----|------------------------------|----------------------------------------------------------|---------------------------|------------------------------------------|--------|---------------|------------|----------|
-| 2   | CIP Editor Handbook          | Handy reference for CIP editors and those who want to become one | Yaz Khoury (@YazzyYaz)    | [forum.celestia.org](https://forum.celestia.org) | Draft  | Informational | 2023-04-13 | 1        |
+| 2   | CIP Editor Handbook          | Handy reference for CIP editors and those who want to become one | Yaz Khoury (@YazzyYaz)    | [forum.celestia.org](https://forum.celestia.org) | Draft  | Informational | 2023-04-13 | CIP-1        |
 
 <!-- markdownlint-disable MD013 -->
 ## Abstract
