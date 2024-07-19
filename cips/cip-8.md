@@ -1,15 +1,6 @@
-```
----
-cip: 8
-title: Roles and Responsibilities of Working Group Chairs in the CIP Process
-description: Outlining the key roles and responsibilities of working group chairs within the Celestia Improvement Proposal process.
-author: Yaz Khoury <yaz@celestia.org>
-discussions-to: https://forum.celestia.org/t/cip-for-wg-chair-responsibilities/1344
-status: Draft
-type: Informational
-created: 2023-11-29
----
-```
+| cip | title                                                          | description                                                                       | author                    | discussions-to                                                                                             | status | type          | created    |
+|-----|----------------------------------------------------------------|-----------------------------------------------------------------------------------|---------------------------|------------------------------------------------------------------------------------------------------------|--------|---------------|------------|
+| 8   | Roles and Responsibilities of Working Group Chairs in the CIP Process | Outlining the key roles and responsibilities of working group chairs within the Celestia Improvement Proposal process. | Yaz Khoury <yaz@celestia.org> | [forum.celestia.org](https://forum.celestia.org/t/cip-for-wg-chair-responsibilities/1344) | Draft  | Informational | 2023-11-29 |
 
 ## Abstract
 

@@ -1,16 +1,6 @@
-```
----
-cip: 2
-title: CIP Editor Handbook
-description: Handy reference for CIP editors and those who want to become one
-author: Yaz Khoury (@YazzyYaz)
-discussions-to: https://forum.celestia.org
-status: Draft
-type: Informational
-created: 2023-04-13
-requires: 1
----
-````
+| cip | title                        | description                                              | author                    | discussions-to                           | status | type          | created    | requires |
+|-----|------------------------------|----------------------------------------------------------|---------------------------|------------------------------------------|--------|---------------|------------|----------|
+| 2   | CIP Editor Handbook          | Handy reference for CIP editors and those who want to become one | Yaz Khoury (@YazzyYaz)    | [forum.celestia.org](https://forum.celestia.org) | Draft  | Informational | 2023-04-13 | 1        |
 
 <!-- markdownlint-disable MD013 -->
 ## Abstract

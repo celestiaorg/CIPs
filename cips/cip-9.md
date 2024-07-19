@@ -1,16 +1,6 @@
-```
----
-cip: 9
-title: Packet Forward Middleware
-description: Adopt Packet Forward Middleware for multi-hop IBC and path unwinding
-author: Alex Cheng (@akc2267)
-discussions-to: https://forum.celestia.org/t/cip-packet-forward-middleware/1359
-status: Final
-type: Standards Track
-category: Core
-created: 2023-12-01
----
-```
+| cip | title                      | description                                                      | author                    | discussions-to                                                                                     | status | type           | category | created    |
+|-----|----------------------------|------------------------------------------------------------------|---------------------------|----------------------------------------------------------------------------------------------------|--------|----------------|----------|------------|
+| 9   | Packet Forward Middleware  | Adopt Packet Forward Middleware for multi-hop IBC and path unwinding | Alex Cheng (@akc2267)     | [forum.celestia.org](https://forum.celestia.org/t/cip-packet-forward-middleware/1359)             | Final  | Standards Track | Core     | 2023-12-01 |
 
 ## Abstract
 
