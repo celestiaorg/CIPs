@@ -1,13 +1,12 @@
----
-cip: 5
-title: Rename data availability to data publication
-description: Renaming data avaiability to data publication to better reflect the message
-author: msfew (@fewwwww) <msfew@hyperoracle.io>, Kartin <kartin@hyperoracle.io>, Xiaohang Yu (@xhyumiracle)
-discussions-to: https://forum.celestia.org/t/informational-cip-rename-data-availability-to-data-publication/1287
-status: Review
-type: Informational
-created: 2023-11-06
----
+| cip | 5 |
+| - | - |
+| title | Rename data availability to data publication |
+| description | Renaming data availability to data publication to better reflect the message |
+| author | msfew (@fewwwww) <msfew@hyperoracle.io>, Kartin <kartin@hyperoracle.io>, Xiaohang Yu (@xhyumiracle) |
+| discussions-to | <https://forum.celestia.org/t/informational-cip-rename-data-availability-to-data-publication/1287> |
+| status | Review |
+| type | Informational |
+| created | 2023-11-06 |
 
 ## Abstract
 

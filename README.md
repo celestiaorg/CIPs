@@ -1,6 +1,6 @@
 # Celestia Improvement Proposal (CIP) process
 
-Read [CIP-1](https://github.com/celestiaorg/CIPs/blob/main/cips/cip-1.md) for information on the CIP process.
+Read [CIP-1](./cip-1.md) for information on the CIP process.
 
 ## Meetings
 
@@ -23,29 +23,29 @@ Read [CIP-1](https://github.com/celestiaorg/CIPs/blob/main/cips/cip-1.md) for in
 
 |           №           |                                    Title                                     |                                                                       Author(s)                                                                        |
 |:---------------------:|:----------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------:|
-|  [1](/cips/cip-1.md)  |             Celestia Improvement Proposal Process and Guidelines             |                                                             Yaz Khoury <yaz@celestia.org>                                                              |
-|  [2](/cips/cip-2.md)  |                             CIP Editor Handbook                              |                                                                 Yaz Khoury (@YazzyYaz)                                                                 |
-|  [3](/cips/cip-3.md)  |                   Process for Approving External Resources                   |                                                                 Yaz Khoury (@YazzyYaz)                                                                 |
-|  [4](/cips/cip-4.md)  |                Standardize data expiry time for pruned nodes                 |                                      Mustafa Al-Bassam (@musalbas), Rene Lubov (@renaynay), Ramin Keene (@ramin)                                       |
-|  [5](/cips/cip-5.md)  |                 Rename data availability to data publication                 |                                                  msfew (@fewwwww), Kartin, Xiaohang Yu (@xhyumiracle)                                                  |
-|  [6](/cips/cip-6.md)  | Enforce payment of the gas for a transaction based on a global minimum price |                                                               Callum Waters (@cmwaters)                                                                |
-|  [7](/cips/cip-7.md)  |     Managing Working Groups in the Celestia Improvement Proposal Process     |                                                             Yaz Khoury <yaz@celestia.org>                                                              |
-|  [8](/cips/cip-8.md)  |    Roles and Responsibilities of Working Group Chairs in the CIP Process     |                                                             Yaz Khoury <yaz@celestia.org>                                                              |
-|  [9](/cips/cip-9.md)  |                          Packet Forward Middleware                           |                                                                 Alex Cheng (@akc2267)                                                                  |
-| [10](/cips/cip-10.md) |                         Coordinated network upgrades                         |                                                               Callum Waters (@cmwaters)                                                                |
-| [11](/cips/cip-11.md) |                              Refund unspent gas                              |                                                                Rootul Patel (@rootulp)                                                                 |
-| [12](/cips/cip-12.md) |                  ICS-29 Relayer Incentivisation Middleware                   |                       Susannah Evans <susannah@interchain.io> @womensrights, Aditya Sripal <aditya@interchain.io> @AdityaSripal                        |
-| [13](/cips/cip-13.md) |             On-chain Governance Parameters for Celestia Network              |                                            Yaz Khoury <yaz@celestia.org>,  Evan Forbes <evan@celestia.org>                                             |
-| [14](/cips/cip-14.md) |                          ICS-27 Interchain Accounts                          | Susannah Evans <susannah@interchain.io> (@womensrights), Aidan Salzmann <aidan@stridelabs.co> (@asalzmann), Sam Pochyly <sam@stridelabs.co> (@sampocs) |
-| [15](/cips/cip-15.md) |                            Discourage memo usage                             |                                                    Rootul Patel (@rootulp), NashQueue (@nashqueue)                                                     |
-| [16](/cips/cip-16.md) |            Make Security Related Governance Parameters Immutable             |                                                               Mingpei CAO (@caomingpei)                                                                |
-| [17](/cips/cip-17.md) |                             Lemongrass Hardfork                              |                                                               Evan Forbes (@evan-forbes)                                                               |
-| [18](/cips/cip-18.md) |              Standardised Gas and Pricing Estimation Interface               |                                                               Callum Waters (@cmwaters)                                                                |
-| [19](/cips/cip-19.md) |                                Shwap Protocol                                |                                                              Hlib Kanunnikov (@Wondertan)                                                              |
-| [20](/cips/cip-20.md) |                          Disable Blobstream module                           |                                                                Rootul Patel (@rootulp)                                                                 |
-| [21](/cips/cip-21.md) |                   Introduce blob type with verified signer                   |                                                               Callum Waters (@cmwaters)                                                                |
-| [22](/cips/cip-22.md) |                         Removing the blobStartIndex                          |                                                                 NashQueue (@Nashqueue)                                                                 |
-| [23](/cips/cip-23.md) |                          Coordinated prevote times                           |                                                               Callum Waters (@cmwaters)                                                                |
+|  [1](./cip-1.md)  |             Celestia Improvement Proposal Process and Guidelines             |                                                             Yaz Khoury <yaz@celestia.org>                                                              |
+|  [2](./cip-2.md)  |                             CIP Editor Handbook                              |                                                                 Yaz Khoury (@YazzyYaz)                                                                 |
+|  [3](./cip-3.md)  |                   Process for Approving External Resources                   |                                                                 Yaz Khoury (@YazzyYaz)                                                                 |
+|  [4](./cip-4.md)  |                Standardize data expiry time for pruned nodes                 |                                      Mustafa Al-Bassam (@musalbas), Rene Lubov (@renaynay), Ramin Keene (@ramin)                                       |
+|  [5](./cip-5.md)  |                 Rename data availability to data publication                 |                                                  msfew (@fewwwww), Kartin, Xiaohang Yu (@xhyumiracle)                                                  |
+|  [6](./cip-6.md)  | Enforce payment of the gas for a transaction based on a global minimum price |                                                               Callum Waters (@cmwaters)                                                                |
+|  [7](./cip-7.md)  |     Managing Working Groups in the Celestia Improvement Proposal Process     |                                                             Yaz Khoury <yaz@celestia.org>                                                              |
+|  [8](./cip-8.md)  |    Roles and Responsibilities of Working Group Chairs in the CIP Process     |                                                             Yaz Khoury <yaz@celestia.org>                                                              |
+|  [9](./cip-9.md)  |                          Packet Forward Middleware                           |                                                                 Alex Cheng (@akc2267)                                                                  |
+| [10](./cip-10.md) |                         Coordinated network upgrades                         |                                                               Callum Waters (@cmwaters)                                                                |
+| [11](./cip-11.md) |                              Refund unspent gas                              |                                                                Rootul Patel (@rootulp)                                                                 |
+| [12](./cip-12.md) |                  ICS-29 Relayer Incentivisation Middleware                   |                       Susannah Evans <susannah@interchain.io> @womensrights, Aditya Sripal <aditya@interchain.io> @AdityaSripal                        |
+| [13](./cip-13.md) |             On-chain Governance Parameters for Celestia Network              |                                            Yaz Khoury <yaz@celestia.org>,  Evan Forbes <evan@celestia.org>                                             |
+| [14](./cip-14.md) |                          ICS-27 Interchain Accounts                          | Susannah Evans <susannah@interchain.io> (@womensrights), Aidan Salzmann <aidan@stridelabs.co> (@asalzmann), Sam Pochyly <sam@stridelabs.co> (@sampocs) |
+| [15](./cip-15.md) |                            Discourage memo usage                             |                                                    Rootul Patel (@rootulp), NashQueue (@nashqueue)                                                     |
+| [16](./cip-16.md) |            Make Security Related Governance Parameters Immutable             |                                                               Mingpei CAO (@caomingpei)                                                                |
+| [17](./cip-17.md) |                             Lemongrass Hardfork                              |                                                               Evan Forbes (@evan-forbes)                                                               |
+| [18](./cip-18.md) |              Standardised Gas and Pricing Estimation Interface               |                                                               Callum Waters (@cmwaters)                                                                |
+| [19](./cip-19.md) |                                Shwap Protocol                                |                                                              Hlib Kanunnikov (@Wondertan)                                                              |
+| [20](./cip-20.md) |                          Disable Blobstream module                           |                                                                Rootul Patel (@rootulp)                                                                 |
+| [21](./cip-21.md) |                   Introduce blob type with verified signer                   |                                                               Callum Waters (@cmwaters)                                                                |
+| [22](./cip-22.md) |                         Removing the blobStartIndex                          |                                                                 NashQueue (@Nashqueue)                                                                 |
+| [23](./cip-23.md) |                          Coordinated prevote times                           |                                                               Callum Waters (@cmwaters)                                                                |
 
 ## Contributing
 
@@ -53,4 +53,14 @@ Files in this repo must conform to [markdownlint](https://github.com/DavidAnson/
 
 ```shell
 markdownlint --config .markdownlint.yaml '**/*.md'
+```
+
+### Running the site locally
+
+Prerequisites: 
+1. Install [Rust](https://www.rust-lang.org/tools/install)
+1. Install [mdbook](https://rust-lang.github.io/mdBook/guide/installation.html)
+
+```sh
+mdbook serve -o
 ```

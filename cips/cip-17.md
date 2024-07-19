@@ -1,14 +1,13 @@
----
-cip: 17
-title: Lemongrass Hardfork
-description: Reference specifications included in the Lemongrass Hardfork
-author: Evan Forbes (@evan-forbes)
-discussions-to: https://forum.celestia.org/t/lemongrass-hardfork/1589
-status: Final
-type: Meta
-created: 2024-02-16
-requires: CIP-6, CIP-9, CIP-10, CIP-14, CIP-20
----
+| cip | 17 |
+| - | - |
+| title | Lemongrass Hardfork |
+| description | Reference specifications included in the Lemongrass Hardfork |
+| author | Evan Forbes (@evan-forbes) |
+| discussions-to | <https://forum.celestia.org/t/lemongrass-hardfork/1589> |
+| status | Final |
+| type | Meta |
+| created | 2024-02-16 |
+| requires | CIP-6, CIP-9, CIP-10, CIP-14, CIP-20 |
 
 ## Abstract
 

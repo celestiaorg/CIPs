@@ -1,15 +1,14 @@
----
-cip: 2
-title: CIP Editor Handbook
-description: Handy reference for CIP editors and those who want to become one
-author: Yaz Khoury (@YazzyYaz)
-discussions-to: https://forum.celestia.org
-status: Draft
-type: Informational
-created: 2023-04-13
-requires: 1
----
-<!-- markdownlint-disable MD013 -->
+| cip | 2 |
+| - | - |
+| title | CIP Editor Handbook |
+| description | Handy reference for CIP editors and those who want to become one |
+| author | Yaz Khoury (@YazzyYaz) |
+| discussions-to | <https://forum.celestia.org> |
+| status | Draft |
+| type | Informational |
+| created | 2023-04-13 |
+| requires | CIP-1 |
+
 ## Abstract
 
 CIP stands for Celestia Improvement Proposal. A CIP is a design document providing information to the Celestia community, or describing a new feature for Celestia or its processes or environment. The CIP should provide a concise technical specification of the feature and a rationale for the feature. The CIP author is responsible for building consensus within the community and documenting dissenting opinions.
@@ -34,4 +33,3 @@ Anyone meeting the above requirements may make a pull request adding themselves 
 ## Copyright
 
 Copyright and related rights waived via [CC0](../LICENSE).
-<!-- markdownlint-enable MD013 -->

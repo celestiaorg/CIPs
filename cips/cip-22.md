@@ -1,13 +1,12 @@
----
-cip: 22
-title: Removing the blobStartIndex
-author: NashQueue @Nashqueue
-discussions-to: https://forum.celestia.org/t/achieving-trust-minimized-light-clients-through-zk-proofs-instead-of-fraud-proofs/1759 
-status: Draft
-type: Standards Track
-category: Core
-created: 2024-06-26
----
+| cip | 22 |
+| - | - |
+| title | Removing the blobStartIndex |
+| author | NashQueue (@Nashqueue) |
+| discussions-to | <https://forum.celestia.org/t/achieving-trust-minimized-light-clients-through-zk-proofs-instead-of-fraud-proofs/1759> |
+| status | Draft |
+| type | Standards Track |
+| category | Core |
+| created | 2024-06-26 |
 
 ## Abstract
 

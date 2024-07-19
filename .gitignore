@@ -1,0 +1,8 @@
+book
+index.html
+
+# CIPs - not sure if this is necessary anymore. on a fresh clone and build, the cips folder is empty of .html
+cips/*.html
+
+# WGs - same note as above
+cips/wgs/**/*.html

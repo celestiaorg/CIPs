@@ -1,4 +1,4 @@
-# ZK Working Group
+# Zero Knowledge (ZK) Working Group
 
 ## Meetings
 

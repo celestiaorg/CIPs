@@ -1,14 +1,13 @@
----
-cip: 20
-title: Disable Blobstream module
-description: Disable the Blobstream state machine module
-author: Rootul Patel (@rootulp)
-discussions-to: https://forum.celestia.org/t/cip-disable-blobstream-module/1693
-status: Final
-type: Standards Track
-category: Core
-created: 2024-04-16
----
+| cip | 20 |
+| - | - |
+| title | Disable Blobstream module |
+| description | Disable the Blobstream state machine module |
+| author | Rootul Patel (@rootulp) |
+| discussions-to | <https://forum.celestia.org/t/cip-disable-blobstream-module/1693> |
+| status | Final |
+| type | Standards Track |
+| category | Core |
+| created | 2024-04-16 |
 
 ## Abstract
 
