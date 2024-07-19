@@ -2,7 +2,6 @@
 |-----|--------------------------|-------------------------------------------------------|-----------------------|-------------------------------------------------------------------------------------------------------------|--------|----------------|----------|------------|
 | 21  | Introduce blob type with verified signer | Introduce a new blob type that can be submitted whereby the signer address is included and verified. | Callum Waters (@cmwaters) | [forum.celestia.org](https://forum.celestia.org/t/cip-blobs-with-verified-author)                           | Review | Standards Track | Core     | 2024-05-22 |
 
-
 ## Abstract
 
 Introduce a new blob type (v1 share format) that can be submitted with the author of the blob. Validators verify that the author is correct, simplifying the loop for rollups that adopt a fork-choice rule that whitelists one or more sequencers (blob publishers).

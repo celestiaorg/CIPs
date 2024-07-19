@@ -2,7 +2,6 @@
 |-----|--------------------------|------------------------|----------------------------------------------------------------------------------------------------------------|--------|----------------|----------|------------|
 | 22  | Removing the blobStartIndex | NashQueue (@Nashqueue) | [forum.celestia.org](https://forum.celestia.org/t/achieving-trust-minimized-light-clients-through-zk-proofs-instead-of-fraud-proofs/1759) | Draft  | Standards Track | Core     | 2024-06-26 |
 
-
 ## Abstract
 
 A reserved namespace exists to store all PayForBlobs (PFB) transactions. These transactions are populated with metadata, including the start index of the blobs that the PFB transaction references. These indices can only be populated after the blobs are in the data square, making the creation of a deterministic square layout more complicated since protobuf uses variable-length encoding. The indices were needed to create compact fraud proofs for blob inclusion proofs in the future. By removing the indices from the metadata, we can simplify the square layout creation and make it more efficient, but we have to ZK prove the blob inclusion rules instead.
