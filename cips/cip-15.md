@@ -44,10 +44,10 @@ This proposal seeks to realign incentives so that protocol builders are encourag
 
 ## Specification
 
-Param                    | Current | Proposed
--------------------------|---------|---------
-`auth.MaxMemoCharacters` | 256     | 16
-`auth.TxSizeCostPerByte` | 10      | 16
+| Param                    | Current | Proposed |
+| -------------------------|---------|--------- |
+| `auth.MaxMemoCharacters` | 256     | 16 |
+| `auth.TxSizeCostPerByte` | 10      | 16 |
 
 ## Rationale
 
@@ -57,13 +57,13 @@ Param                    | Current | Proposed
 
 1. Crypto exchanges use memos to uniquely identify the user depositing into an exchange.
 
-    Exchange | Memo characters
-    ---------|----------------
-    Binance  | 13
-    Bithumb  | 10
-    Coinbase | 10
-    Gemini   | 13
-    KuCoin   | 10
+    | Exchange | Memo characters |
+    | ---------|----------------|
+    | Binance  | 13 |
+    | Bithumb  | 10 |
+    | Coinbase | 10 |
+    | Gemini   | 13 |
+    | KuCoin   | 10 |
 
 2. Some IBC relayers include the Hermes version in their memo. For [example](https://www.mintscan.io/celestia/tx/5FED84C1DA596EFC7F9005866573B31CC593770C6022B16B60834F1D22365E49?height=556792): `mzonder | hermes 1.7.4+ab73266 (https://hermes.informal.systems)` which is 64 characters.
 
@@ -74,19 +74,19 @@ Given this context, what is the distribution of memo lengths in practice? How of
 Observe that the distribution of memo lengths is spikey at 80 and 59 characters. The spike at 0 is expected (txs by default don't contain a memo). To learn why the other spikes exist, we have to inspect the most common memos:
 
 <!-- markdownlint-disable MD034 -->
-Tx count | Memo length | Memo                                                                                         | Base64 decoded
----------|-------------|----------------------------------------------------------------------------------------------|-------------------------------------------------------------
-4296795  | 80          | ZGF0YToseyJvcCI6Im1pbnQiLCJhbXQiOjEwMDAwLCJ0aWNrIjoiY2lhcyIsInAiOiJjaWEtMjAifQ==             | data:,{"op":"mint","amt":10000,"tick":"cias","p":"cia-20"}
-1874034  | 59          | data:,{"op":"mint","amt":100000,"tick":"TIMS","p":"tia-20"}                                  | N/A
-210265   | 80          | ZGF0YToseyJvcCI6Im1pbnQiLCJhbXQiOjEwMDAwMCwidGljayI6IlRJTVMiLCJwIjoidGlhLTIwIn0=             | data:,{"op":"mint","amt":100000,"tick":"TIMS","p":"tia-20"}
-78409    | 77          | Yours truly, ValiDAO \| hermes 1.7.1+0658526 (https://hermes.informal.systems)               | N/A
-66181    | 80          | ZGF0YToseyJwIjoiY2lhLTIwIiwib3AiOiJtaW50IiwidGljayI6ImNpYXMiLCJhbXQiOiIxMDAwMCJ9             | data:,{"p":"cia-20","op":"mint","tick":"cias","amt":"10000"}
-65931    | 80          | ZGF0YToseyJwIjoic2VpLTIwIiwib3AiOiJtaW50IiwidGljayI6InNlaXMiLCJhbXQiOiIxMDAwIn0=             | data:,{"p":"sei-20","op":"mint","tick":"seis","amt":"1000"}
-53313    | 80          | ZGF0YToseyJvcCI6Im1pbnQiLCJhbXQiOjEwMDAwLCJ0aWNrIjoiQ0lBUyIsInAiOiJjcmMtMjAifQ==             | data:,{"op":"mint","amt":10000,"tick":"CIAS","p":"crc-20"}
-51378    | 80          | ZGF0YToseyJvcCI6Im1pbnQiLCJhbXQiOjEwMDAwLCJ0aWNrIjoiY2lhcyIsInAiOiJjcmMtMjAifQ==             | data:,{"op":"mint","amt":10000,"tick":"cias","p":"crc-20"}
-40568    | 17          | Delegate(rewards)                                                                            | N/A
-31932    | 91          | relayed by CryptoCrew Validators \| hermes 1.6.0+4b5b34ea2 (https://hermes.informal.systems) | N/A
-31233    | 76          | Relayed by Stakin \| hermes 1.7.3+e529d2559 (https://hermes.informal.systems)                | N/A
+| Tx count | Memo length | Memo                                                                                         | Base64 decoded |
+---------|-------------|----------------------------------------------------------------------------------------------||-------------------------------------------------------------|
+| 4296795  | 80          | ZGF0YToseyJvcCI6Im1pbnQiLCJhbXQiOjEwMDAwLCJ0aWNrIjoiY2lhcyIsInAiOiJjaWEtMjAifQ==             | data:,{"op":"mint","amt":10000,"tick":"cias","p":"cia-20"} |
+| 1874034  | 59          | data:,{"op":"mint","amt":100000,"tick":"TIMS","p":"tia-20"}                                  | N/A |
+| 210265   | 80          | ZGF0YToseyJvcCI6Im1pbnQiLCJhbXQiOjEwMDAwMCwidGljayI6IlRJTVMiLCJwIjoidGlhLTIwIn0=             | data:,{"op":"mint","amt":100000,"tick":"TIMS","p":"tia-20"} |
+| 78409    | 77          | Yours truly, ValiDAO \| hermes 1.7.1+0658526 (https://hermes.informal.systems)               | N/A |
+| 66181    | 80          | ZGF0YToseyJwIjoiY2lhLTIwIiwib3AiOiJtaW50IiwidGljayI6ImNpYXMiLCJhbXQiOiIxMDAwMCJ9             | data:,{"p":"cia-20","op":"mint","tick":"cias","amt":"10000"} |
+| 65931    | 80          | ZGF0YToseyJwIjoic2VpLTIwIiwib3AiOiJtaW50IiwidGljayI6InNlaXMiLCJhbXQiOiIxMDAwIn0=             | data:,{"p":"sei-20","op":"mint","tick":"seis","amt":"1000"} |
+| 53313    | 80          | ZGF0YToseyJvcCI6Im1pbnQiLCJhbXQiOjEwMDAwLCJ0aWNrIjoiQ0lBUyIsInAiOiJjcmMtMjAifQ==             | data:,{"op":"mint","amt":10000,"tick":"CIAS","p":"crc-20"} |
+| 51378    | 80          | ZGF0YToseyJvcCI6Im1pbnQiLCJhbXQiOjEwMDAwLCJ0aWNrIjoiY2lhcyIsInAiOiJjcmMtMjAifQ==             | data:,{"op":"mint","amt":10000,"tick":"cias","p":"crc-20"} |
+| 40568    | 17          | Delegate(rewards)                                                                            | N/A |
+| 31932    | 91          | relayed by CryptoCrew Validators \| hermes 1.6.0+4b5b34ea2 (https://hermes.informal.systems) | N/A |
+| 31233    | 76          | Relayed by Stakin \| hermes 1.7.3+e529d2559 (https://hermes.informal.systems)                | N/A |
 <!-- markdownlint-enable MD034 -->
 
 Observe that seven of the top ten are base64 encoded data. Three of the top ten are relayers. The last one: "Delegate(rewards)" appears to be the default memo applied via Keplr wallet for a delegate tx.
@@ -97,21 +97,21 @@ Observe that seven of the top ten are base64 encoded data. Three of the top ten 
 
 How expensive are transactions after a `auth.TxSizeCostPerByte` increase?
 
-`auth.TxSizeCostPerByte` | MsgSend without memo | MsgSend with 256 character memo | MsgPFB with 256 byte blob
--------------------------|----------------------|---------------------------------|--------------------------
-10                       | 77004 gas            | 79594 gas                       | 67765 gas
-16                       | 78906 gas            | 83050 gas                       | 69763 gas
-100                      | 105534 gas           | 131434 gas                      | 97735 gas
-1000                     | 390834 gas           | 649834 gas                      | 397435 gas
+| `auth.TxSizeCostPerByte` | MsgSend without memo | MsgSend with 256 character memo | MsgPFB with 256 byte blob |
+|-------------------------|----------------------|---------------------------------|--------------------------|
+| 10                       | 77004 gas            | 79594 gas                       | 67765 gas |
+| 16                       | 78906 gas            | 83050 gas                       | 69763 gas |
+| 100                      | 105534 gas           | 131434 gas                      | 97735 gas |
+| 1000                     | 390834 gas           | 649834 gas                      | 397435 gas |
 
 Assuming `minimum-gas-prices = "0.002utia"`
 
-`auth.TxSizeCostPerByte` | MsgSend without memo | MsgSend with 256 character memo | MsgPFB with 256 byte blob
--------------------------|----------------------|---------------------------------|--------------------------
-10                       | 154 utia             | 159 utia                        | 135 utia
-16                       | 157 utia (+2%)       | 166 utia (+4%)                  | 139 utia (+3%)
-100                      | 211 utia (+37%)      | 262 utia (+65%)                 | 195 utia (+44%)
-1000                     | 781 utia (+407%)     | 1299 utia (+716%)               | 794 utia (+488%)
+| `auth.TxSizeCostPerByte` | MsgSend without memo | MsgSend with 256 character memo | MsgPFB with 256 byte blob |
+|-------------------------|----------------------|---------------------------------|--------------------------|
+| 10                       | 154 utia             | 159 utia                        | 135 utia |
+| 16                       | 157 utia (+2%)       | 166 utia (+4%)                  | 139 utia (+3%) |
+| 100                      | 211 utia (+37%)      | 262 utia (+65%)                 | 195 utia (+44%) |
+| 1000                     | 781 utia (+407%)     | 1299 utia (+716%)               | 794 utia (+488%) |
 
 Therefore, increasing from 10 to 16 is a conserative increase.
 
@@ -119,10 +119,10 @@ Therefore, increasing from 10 to 16 is a conserative increase.
 
 **What do other blockchains use for these params?**
 
-Param                    | Celestia | Cosmos Hub | Osmosis
--------------------------|----------|------------|--------
-`auth.MaxMemoCharacters` | 256      | 512        | 256
-`auth.TxSizeCostPerByte` | 10       | 10         | 10
+| Param                    | Celestia | Cosmos Hub | Osmosis |
+|-------------------------|----------|------------|--------|
+| `auth.MaxMemoCharacters` | 256      | 512        | 256 |
+| `auth.TxSizeCostPerByte` | 10       | 10         | 10 |
 
 **How does this proposal affect [ICS-020](https://github.com/cosmos/ibc/blob/0da326fbedfd2c96aad807ed25e6eafd1399db07/spec/app/ics-020-fungible-token-transfer/README.md?plain=1#L46) memos?**
 
