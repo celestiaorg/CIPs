@@ -1,6 +1,10 @@
-| cip | title                                       | author                        | status | type | created    |
-|-----|---------------------------------------------|-------------------------------|--------|------|------------|
-| 1   | Celestia Improvement Proposal Process and Guidelines | Yaz Khoury <yaz@celestia.org> | Living | Meta | 2023-04-13 |
+| cip | 1 |
+| - | - |
+| title | Celestia Improvement Proposal Process and Guidelines |
+| author | Yaz Khoury <yaz@celestia.org> |
+| status | Living |
+| type | Meta |
+| created | 2023-04-13 |
 
 ## Table of Contents
 
