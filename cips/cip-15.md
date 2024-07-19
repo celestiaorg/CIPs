@@ -1,3 +1,4 @@
+```
 ---
 cip: 15
 title: Discourage memo usage
@@ -9,6 +10,7 @@ type: Standards Track
 category: Core
 created: 2024-01-21
 ---
+```
 
 ## Abstract
 

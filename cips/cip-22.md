@@ -1,3 +1,4 @@
+```
 ---
 cip: 22
 title: Removing the blobStartIndex
@@ -8,6 +9,7 @@ type: Standards Track
 category: Core
 created: 2024-06-26
 ---
+```
 
 ## Abstract
 

@@ -1,3 +1,4 @@
+```
 ---
 cip: 7
 title: Managing Working Groups in the Celestia Improvement Proposal Process
@@ -8,6 +9,7 @@ status: Draft
 type: Informational
 created: 2023-11-29
 ---
+```
 
 ## Abstract
 

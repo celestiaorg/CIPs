@@ -318,6 +318,8 @@ format. There is a [CIP template](./cip-template.md) to follow.
 Each CIP must begin with an RFC 822 style header preamble, preceded
 and followed by three hyphens (---). This header is also termed
 “front matter” by Jekyll. The headers must appear in the following order.
+In order to display on the CIP site, the frontmatter must also
+be surrounded by three backticks (```).
 
 * `cip`: CIP number (this is determined by the CIP editor)
 * `title`: The CIP title is a few words, not a complete sentence

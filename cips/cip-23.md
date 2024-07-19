@@ -1,3 +1,4 @@
+```
 ---
 title: Coordinated prevote times
 description: Scheduled prevote times for consistent blocks
@@ -8,6 +9,7 @@ type: Standards Track
 category: Core
 created: 2024-07-12
 ---
+```
 
 ## Abstract
 

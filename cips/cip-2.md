@@ -1,3 +1,4 @@
+```
 ---
 cip: 2
 title: CIP Editor Handbook
@@ -9,6 +10,8 @@ type: Informational
 created: 2023-04-13
 requires: 1
 ---
+````
+
 <!-- markdownlint-disable MD013 -->
 ## Abstract
 

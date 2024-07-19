@@ -1,3 +1,4 @@
+```
 ---
 cip: 10
 title: Coordinated network upgrades
@@ -9,6 +10,7 @@ type: Standards Track
 category: Core
 created: 2023-12-7
 ---
+```
 
 ## Abstract
 

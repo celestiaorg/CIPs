@@ -1,3 +1,4 @@
+```
 ---
 cip: 8
 title: Roles and Responsibilities of Working Group Chairs in the CIP Process
@@ -8,6 +9,7 @@ status: Draft
 type: Informational
 created: 2023-11-29
 ---
+```
 
 ## Abstract
 

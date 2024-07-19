@@ -1,3 +1,4 @@
+```
 ---
 cip: 21
 title: Introduce blob type with verified signer
@@ -9,6 +10,7 @@ type: Standards Track
 category: Core
 created: 2024-05-22
 ---
+```
 
 ## Abstract
 

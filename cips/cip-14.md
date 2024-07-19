@@ -1,3 +1,4 @@
+```
 ---
 cip: 14
 title: ICS-27 Interchain Accounts
@@ -9,6 +10,7 @@ type: Standards Track
 category: Core
 created: 2023-01-04
 ---
+```
 
 ## Abstract
 

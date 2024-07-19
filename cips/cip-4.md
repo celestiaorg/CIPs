@@ -1,3 +1,4 @@
+```
 ---
 cip: 4
 title: Standardize data expiry time for pruned nodes
@@ -9,6 +10,7 @@ type: Standards Track
 category: Data Availability
 created: 2023-11-23
 ---
+```
 
 ## Abstract
 

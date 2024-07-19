@@ -1,3 +1,4 @@
+```
 ---
 cip: 20
 title: Disable Blobstream module
@@ -9,6 +10,7 @@ type: Standards Track
 category: Core
 created: 2024-04-16
 ---
+```
 
 ## Abstract
 

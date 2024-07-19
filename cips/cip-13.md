@@ -1,3 +1,4 @@
+```
 ---
 cip: 13
 title: On-chain Governance Parameters for Celestia Network
@@ -9,6 +10,7 @@ type: Standards Track
 category: Core
 created: 2023-12-08
 ---
+```
 
 ## Abstract
 

@@ -1,3 +1,4 @@
+```
 ---
 cip: 17
 title: Lemongrass Hardfork
@@ -9,6 +10,7 @@ type: Meta
 created: 2024-02-16
 requires: CIP-6, CIP-9, CIP-10, CIP-14, CIP-20
 ---
+```
 
 ## Abstract
 

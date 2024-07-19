@@ -1,3 +1,4 @@
+```
 ---
 cip: 5
 title: Rename data availability to data publication
@@ -8,6 +9,7 @@ status: Review
 type: Informational
 created: 2023-11-06
 ---
+```
 
 ## Abstract
 

@@ -1,3 +1,4 @@
+```
 ---
 cip: 3
 title: Process for Approving External Resources
@@ -9,6 +10,7 @@ type: Meta
 created: 2023-04-13
 requires: 1
 ---
+```
 <!-- markdownlint-disable MD013 -->
 
 ## Abstract

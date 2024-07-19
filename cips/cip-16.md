@@ -1,3 +1,4 @@
+```
 ---
 cip: 16
 title: Make Security Related Governance Parameters Immutable
@@ -10,6 +11,7 @@ category: Core
 created: 2024-02-07
 requires: CIP-13
 ---
+```
 
 ## Abstract
 

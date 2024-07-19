@@ -1,3 +1,4 @@
+```
 ---
 cip: 6
 title: Mininum gas price enforcement
@@ -9,6 +10,7 @@ type: Standards Track
 category: Core
 created: 2023-11-30
 ---
+```
 
 ## Abstract
 

@@ -1,3 +1,4 @@
+```
 ---
 title: The CIP title is a few words, not a complete sentence
 description: Description is one full (short) sentence
@@ -9,6 +10,7 @@ category: Core, Data Availability, Networking, Interface, or CRC. Only required 
 created: Date created on, in ISO 8601 (yyyy-mm-dd) format
 requires: CIP number(s). Only required when you reference an CIP in the `Specification` section. Otherwise, remove this field.
 ---
+```
 
 > Note:
 **READ CIP-1 BEFORE USING THIS TEMPLATE!**
