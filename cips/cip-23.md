@@ -1,5 +1,6 @@
 ```
 ---
+cip: 23
 title: Coordinated prevote times
 description: Scheduled prevote times for consistent blocks
 author: Callum Waters (@cmwaters)

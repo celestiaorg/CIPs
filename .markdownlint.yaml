@@ -4,3 +4,5 @@
 "MD013": false # Disable rule for line length
 "MD033": false # Disable rule banning inline HTML
 "MD025": false # Disable rule for multiple top-level headers
+"MD040": false # Disable rule for fenced code blocks
+"MD041": false # Disable rule for first line in file
