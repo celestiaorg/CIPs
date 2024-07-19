@@ -1,16 +1,6 @@
-```
----
-cip: 14
-title: ICS-27 Interchain Accounts
-description: Adding ICS-27 Interchain Accounts to Celestia to enable cross-chain account management
-author:  Susannah Evans <susannah@interchain.io> (@womensrights), Aidan Salzmann <aidan@stridelabs.co> (@asalzmann), Sam Pochyly <sam@stridelabs.co> (@sampocs)
-discussions-to: https://forum.celestia.org/t/moving-toward-safer-and-more-aligned-tia-liquid-staking/1422
-status: Final
-type: Standards Track
-category: Core
-created: 2023-01-04
----
-```
+| cip | title                              | description                                                         | author                                                                                                    | discussions-to                                                                                                            | status | type           | category | created    |
+|-----|------------------------------------|---------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|--------|----------------|----------|------------|
+| 14  | ICS-27 Interchain Accounts         | Adding ICS-27 Interchain Accounts to Celestia to enable cross-chain account management | Susannah Evans <susannah@interchain.io> (@womensrights), Aidan Salzmann <aidan@stridelabs.co> (@asalzmann), Sam Pochyly <sam@stridelabs.co> (@sampocs) | [forum.celestia.org](https://forum.celestia.org/t/moving-toward-safer-and-more-aligned-tia-liquid-staking/1422)            | Final  | Standards Track | Core     | 2023-01-04 |
 
 ## Abstract
 

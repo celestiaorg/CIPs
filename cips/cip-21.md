@@ -1,16 +1,7 @@
-```
----
-cip: 21
-title: Introduce blob type with verified signer
-description: Introduce a new blob type that can be submitted whereby the signer address is included and verified.
-author: Callum Waters (@cmwaters)
-discussions-to: https://forum.celestia.org/t/cip-blobs-with-verified-author
-status: Review
-type: Standards Track
-category: Core
-created: 2024-05-22
----
-```
+| cip | title                    | description                                           | author                | discussions-to                                                                                              | status | type           | category | created    |
+|-----|--------------------------|-------------------------------------------------------|-----------------------|-------------------------------------------------------------------------------------------------------------|--------|----------------|----------|------------|
+| 21  | Introduce blob type with verified signer | Introduce a new blob type that can be submitted whereby the signer address is included and verified. | Callum Waters (@cmwaters) | [forum.celestia.org](https://forum.celestia.org/t/cip-blobs-with-verified-author)                           | Review | Standards Track | Core     | 2024-05-22 |
+
 
 ## Abstract
 

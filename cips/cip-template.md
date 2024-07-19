@@ -1,16 +1,6 @@
-```
----
-title: The CIP title is a few words, not a complete sentence
-description: Description is one full (short) sentence
-author: a comma separated list of the author’s or authors’ name + GitHub username (in parenthesis), or name and email (in angle brackets). Example, FirstName LastName (@GitHubUsername), FirstName LastName foo@bar.com, FirstName (@GitHubUsername) and GitHubUsername (@GitHubUsername)
-discussions-to: URL
-status: Draft
-type: Standards Track, Meta, or Informational
-category: Core, Data Availability, Networking, Interface, or CRC. Only required for Standards Track. Otherwise, remove this field.
-created: Date created on, in ISO 8601 (yyyy-mm-dd) format
-requires: CIP number(s). Only required when you reference an CIP in the `Specification` section. Otherwise, remove this field.
----
-```
+| cip | title  | description | author  | discussions-to | status | type  | category  | created | requires  |
+|-----|--------|-------------|---------|----------------|--------|-------|-----------|---------|-----------|
+| XX (assigned by Editors) | The CIP title is a few words, not a complete sentence | Description is one full (short) sentence | a comma separated list of the author’s or authors’ name + GitHub username (in parenthesis), or name and email (in angle brackets). Example, FirstName LastName (@GitHubUsername), FirstName LastName foo@bar.com, FirstName (@GitHubUsername) and GitHubUsername (@GitHubUsername) | URL | Draft | Standards Track, Meta, or Informational | Core, Data Availability, Networking, Interface, or CRC. Only required for Standards Track. Otherwise, remove this field. | Date created on, in ISO 8601 (yyyy-mm-dd) format | CIP number(s). Only required when you reference a CIP in the Specification section. Otherwise, remove this field. |
 
 > Note:
 **READ CIP-1 BEFORE USING THIS TEMPLATE!**
