@@ -1,7 +1,8 @@
+<!-- markdownlint-disable MD034 -->
 | cip | title  | description | author  | discussions-to | status | type  | category  | created | requires  |
 |-----|--------|-------------|---------|----------------|--------|-------|-----------|---------|-----------|
 | XX (assigned by Editors) | The CIP title is a few words, not a complete sentence | Description is one full (short) sentence | a comma separated list of the author’s or authors’ name + GitHub username (in parenthesis), or name and email (in angle brackets). Example, FirstName LastName (@GitHubUsername), FirstName LastName foo@bar.com, FirstName (@GitHubUsername) and GitHubUsername (@GitHubUsername) | URL | Draft | Standards Track, Meta, or Informational | Core, Data Availability, Networking, Interface, or CRC. Only required for Standards Track. Otherwise, remove this field. | Date created on, in ISO 8601 (yyyy-mm-dd) format | CIP number(s). Only required when you reference a CIP in the Specification section. Otherwise, remove this field. |
-
+<!-- markdownlint-enable MD034 -->
 > Note:
 **READ CIP-1 BEFORE USING THIS TEMPLATE!**
 This is the suggested template for new CIPs. After you have filled in the requisite fields, please delete these comments. Note that an CIP number will be assigned by an editor. When opening a pull request to submit your CIP, please use an abbreviated title in the filename, `cip-draft_title_abbrev.md`. The title should be 44 characters or less. It should not repeat the CIP number in title, irrespective of the category.
