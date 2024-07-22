@@ -2,7 +2,7 @@
 
 Read [CIP-1](./cip-1.md) for information on the CIP process.
 
-See [WGs overview](./wgs/overview.md) for an overview of Working Groups within the CIP process.
+See [WGs overview](./wgs/README.md) for an overview of Working Groups within the CIP process.
 
 ## Meetings
 
