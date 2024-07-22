@@ -107,4 +107,4 @@ However, there is a slim chance that this CIP uncoveres a bug because the Celest
 
 ## Copyright
 
-Copyright and related rights waived via [CC0](../LICENSE).
+Copyright and related rights waived via [CC0](https://github.com/celestiaorg/CIPs/blob/main/LICENSE).

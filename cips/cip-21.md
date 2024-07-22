@@ -91,4 +91,4 @@ Rollups using this pattern for verifying the enshrined sequencer make an assumpt
 
 ## Copyright
 
-Copyright and related rights waived via [CC0](../LICENSE).
+Copyright and related rights waived via [CC0](https://github.com/celestiaorg/CIPs/blob/main/LICENSE).

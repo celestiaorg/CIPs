@@ -18,5 +18,5 @@ smart-punctuation = true
 theme = "theme"
 
 [output.html.fold]
-enable = false
+enable = true
 level = 0
