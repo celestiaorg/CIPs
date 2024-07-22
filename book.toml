@@ -10,10 +10,10 @@ src = "cips"
 [output.html]
 default-theme = "light"
 preferred-dark-theme = "ayu"
-git-repository-url = "https://github.com/celestiaorg/cips"
+git-repository-url = "https://github.com/jcstein/cips"
 git-repository-icon = "fa-github"
-edit-url-template = "https://github.com/celestiaorg/cips/edit/main/{path}"
-cname = "cips.celestia.org"
+edit-url-template = "https://github.com/jcstein/cips/edit/main/{path}"
+cname = "cips.jcstein.dev"
 smart-punctuation = true
 theme = "theme"
 
