@@ -2,7 +2,7 @@
 
 <!-- markdownlint-disable MD025 -->
 # CIPs
-- [Overview](./overview.md)
+- [Overview](./README.md)
   - [CIP-1](./cip-1.md)
   - [CIP-2](./cip-2.md)
   - [CIP-3](./cip-3.md)
