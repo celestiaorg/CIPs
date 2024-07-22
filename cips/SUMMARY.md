@@ -1,6 +1,6 @@
 # Summary
 
-[README.md](/)
+[README.md](./README.md)
 <!-- markdownlint-disable MD025 -->
 # CIPs
 
