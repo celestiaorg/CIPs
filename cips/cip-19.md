@@ -481,7 +481,7 @@ sample picking are out of Shwap's scope and a matter of following CIPs. Shwap on
 
 ## Copyright
 
-Copyright and related rights waived via [CC0](../LICENSE).
+Copyright and related rights waived via [CC0](https://github.com/celestiaorg/CIPs/blob/main/LICENSE).
 
 [shrex]: https://github.com/celestiaorg/celestia-node/blob/0abd16bbb05bf3016595498844a588ef55c63d2d/docs/adr/adr-013-blocksync-overhaul-part-2.md
 [storage]: https://github.com/celestiaorg/celestia-node/blob/a33c80e20da684d656c7213580be7878bcd27cf4/docs/adr/adr-011-blocksync-overhaul-part-1.md
