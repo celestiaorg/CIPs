@@ -168,4 +168,3 @@ Currently, the gas cost for a PayForBlob transaction accounts for the number of 
 ## Copyright
 
 Copyright and related rights waived via [CC0](https://github.com/celestiaorg/CIPs/blob/main/LICENSE).
-

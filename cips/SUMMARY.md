@@ -1,7 +1,7 @@
 # Summary
-
 <!-- markdownlint-disable MD025 -->
 # CIPs
+
 - [Overview](./README.md)
   - [CIP-1](./cip-1.md)
   - [CIP-2](./cip-2.md)

@@ -59,7 +59,8 @@ markdownlint --config .markdownlint.yaml '**/*.md'
 
 ### Running the site locally
 
-Prerequisites: 
+Prerequisites:
+
 1. Install [Rust](https://www.rust-lang.org/tools/install)
 1. Install [mdbook](https://rust-lang.github.io/mdBook/guide/installation.html)
 
