@@ -11,9 +11,7 @@
 
 ## Abstract
 
-Currently, `GasPerBlobByte` and `TxSizeCostPerByte` are defined as module parameters within their respective modules, `blob` and `auth`, allowing for their modification via a `ParameterChangeProposal` in the Cosmos SDK.
-
-The proposed solution is to transition these parameters to hardcoded values within the application that can be accessed with a gatter throughout the application.
+Introduce versioning for on-chain governance modifiable gas scheduler parameters, such as `blob.GasPerBlobByte` and `auth.TxSizeCostPerByte`, to only allow changes during hard fork upgrades.
 
 ## Motivation
 
