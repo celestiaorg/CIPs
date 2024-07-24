@@ -19,7 +19,7 @@ Versioning on-chain governance modifiable parameters, such as `blob.GasPerBlobBy
 
 ## Specification
 
-Currently, `GasPerBlobByte` and `TxSizeCostPerByte` are module parameters within the `blob` and `auth` modules, allowing for their modification via ParameterChangeProposal. The proposed modification changes these parameters to hardcoded constants within the application, accessible via version-specific getters.
+Currently, `GasPerBlobByte` and `TxSizeCostPerByte` are module parameters within the `blob` and `auth` modules, allowing for their modification via `ParameterChangeProposal`. The proposed modification changes these parameters to hardcoded constants within the application, accessible via version-specific getters.
 
 ### Parameters
 
@@ -37,7 +37,7 @@ Now:
 
 ### Rationale
 
-Versioned Gas Scheduler Variables allow for hardcoding these values into estimators, simplifying the gas estimation process and making transaction costs more predictable without the need for pre-transaction queries.
+Versioned gas scheduler variables allow for hardcoding these values into estimators, simplifying the gas estimation process and making transaction costs more predictable without the need for pre-transaction queries.
 
 ## Backwards Compatibility
 
@@ -45,7 +45,7 @@ Enabling this feature requires a hard fork network upgrade.
 
 ## Test Cases
 
-Test cases should verify that gas scheduler variables are exclusively updated via hard fork, effectively preventing updates through governance mechanisms.
+Test cases should verify that gas scheduler variables are exclusively updated via hard forks, effectively preventing updates through governance mechanisms.
 
 ## Reference Implementation
 
