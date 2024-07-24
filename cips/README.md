@@ -21,8 +21,8 @@ Read [CIP-1](./cip-1.md) for information on the CIP process.
 
 ## Celestia Improvement Proposals (CIPs)
 
-|           №           |                                    Title                                     |                                                                       Author(s)                                                                        |
-|:---------------------:|:----------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------:|
+|         №         |                                    Title                                     |                                                                       Author(s)                                                                        |
+|:-----------------:|:----------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------:|
 |  [1](./cip-1.md)  |             Celestia Improvement Proposal Process and Guidelines             |                                                             Yaz Khoury <yaz@celestia.org>                                                              |
 |  [2](./cip-2.md)  |                             CIP Editor Handbook                              |                                                                 Yaz Khoury (@YazzyYaz)                                                                 |
 |  [3](./cip-3.md)  |                   Process for Approving External Resources                   |                                                                 Yaz Khoury (@YazzyYaz)                                                                 |
@@ -44,7 +44,7 @@ Read [CIP-1](./cip-1.md) for information on the CIP process.
 | [19](./cip-19.md) |                                Shwap Protocol                                |                                                              Hlib Kanunnikov (@Wondertan)                                                              |
 | [20](./cip-20.md) |                          Disable Blobstream module                           |                                                                Rootul Patel (@rootulp)                                                                 |
 | [21](./cip-21.md) |                   Introduce blob type with verified signer                   |                                                               Callum Waters (@cmwaters)                                                                |
-| [22](./cip-22.md) |                         Removing the blobStartIndex                          |                                                                 NashQueue (@Nashqueue)                                                                 |
+| [22](./cip-22.md) |                          Removing the IndexWrapper                           |                                                                 NashQueue (@Nashqueue)                                                                 |
 | [23](./cip-23.md) |                          Coordinated prevote times                           |                                                               Callum Waters (@cmwaters)                                                                |
 
 ## Contributing
