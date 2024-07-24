@@ -15,7 +15,7 @@
 | 9 |  May 29, 2024  |                                                      Agenda Link                                                       | Notes Link | [Recording Link](https://drive.google.com/file/d/1bYW8yyL3rcneDDXqwcXMKJxxr7vAHdV0/view?usp=drive_link) |
 | 10 |  June 19, 2024  |                                                      Agenda Link                                                       | Notes Link | [Recording Link](https://drive.google.com/file/d/1qE4Cs94PHN2d2XgocTS3eZvK0DiCtPfh/view?usp=sharing) |
 | 11 |  July 3, 2024  |                                                      Agenda Link                                                       | Notes Link | [Recording Link](https://drive.google.com/file/d/1G3-neciXRTAUPj9whRVw9sCwokdzx8rk/view?usp=drive_link) |
-| 11 |  July 17, 2024  |                                                      Agenda Link                                                       | Notes Link | [Recording Link](https://drive.google.com/file/d/1NUXTr8K_21Kthtf4uGDdjDf6Wlv6uJC9/view?usp=drive_link) |
+| 12 |  July 17, 2024  |                                                      Agenda Link                                                       | Notes Link | [Recording Link](https://drive.google.com/file/d/1NUXTr8K_21Kthtf4uGDdjDf6Wlv6uJC9/view?usp=drive_link) |
 
 ## Resources
 
