@@ -27,6 +27,9 @@
   - [CIP-22](./cip-22.md)
   - [CIP-23](./cip-23.md)
 
+- [Core Devs Call notes](./notes/README.md)
+  - [CDC 14](./notes/cdc-14.md)
+
 # CIP template
 
 - [CIP Template](./cip-template.md)

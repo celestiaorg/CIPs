@@ -18,6 +18,8 @@ Read [CIP-1](./cip-1.md) for information on the CIP process.
 | 10 |  April 30, 2024   | [Agenda](https://github.com/celestiaorg/CIPs/issues/134) |    [Tweet Thread](https://x.com/JoshCStein/status/1785309248248828133)    |    [Recording](https://www.youtube.com/watch?v=zWQsvPqPkC8)     |
 | 11 |   May 22, 2024    | [Agenda](https://github.com/celestiaorg/CIPs/issues/142) |    [Tweet Thread](https://x.com/JoshCStein/status/1793312125235999082)    |    [Recording](https://www.youtube.com/watch?v=g6PMMaMmpxg)     |
 | 12 |   June 5, 2024    | [Agenda](https://github.com/celestiaorg/CIPs/issues/149) |    [Tweet Thread](https://x.com/JoshCStein/status/1798381092493504830)    |    [Recording](https://www.youtube.com/watch?v=kV5_ANNhixI)     |
+| 13 |   July 3, 2024    | [Agenda](https://github.com/celestiaorg/CIPs/issues/155) |    [Tweet Thread](https://x.com/JoshCStein/status/1808531780506403102)    |    [Recording](https://youtu.be/WzPi49Ge2rA)     |
+| 14 |   July 24, 2024    | [Agenda](https://github.com/celestiaorg/CIPs/issues/163) |    [Tweet Thread](https://x.com/JoshCStein/status/1816142425011662993), [Notes](./notes/cdc-14.md)    |    [Recording](https://www.youtube.com/watch?v=bwlpAy_KE9U)     |
 
 ## Celestia Improvement Proposals (CIPs)
 
