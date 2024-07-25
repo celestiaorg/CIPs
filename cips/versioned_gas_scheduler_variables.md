@@ -1,7 +1,7 @@
 | cip | 24 |
 | - | - |
 | title | Versioned Gas Scheduler Variables |
-| description | Gas scheduler variables hard fork modifiable  |
+| description | Transition to hard fork-only updates for gas scheduler variables |
 | author | Nina Barbakadze (@ninabarbakadze) |
 | discussions-to |  |
 | status | Draft |
