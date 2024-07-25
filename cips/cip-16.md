@@ -2,7 +2,7 @@
 | - | - |
 | title | Make Security Related Governance Parameters Immutable |
 | description | Consensus-related parameters should not be modified via on-chain governance in the Celestia network. |
-| author | Mingpei CAO (@caomingpei) |
+| author | [@caomingpei](https://github.com/caomingpei) |
 | discussions-to | <https://forum.celestia.org/t/cip-make-security-related-governance-parameters-immutable/1566> |
 | status | Draft |
 | type | Standards Track |

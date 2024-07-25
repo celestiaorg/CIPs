@@ -2,7 +2,7 @@
 | - | - |
 | title | Coordinated network upgrades |
 | description | Protocol for coordinating major network upgrades |
-| author | Callum Waters (@cmwaters) |
+| author | Callum Waters ([@cmwaters](https://github.com/cmwaters)) |
 | discussions-to | <https://forum.celestia.org/t/cip-coordinated-network-upgrades/1367> |
 | status | Final |
 | type | Standards Track |

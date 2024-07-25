@@ -2,7 +2,7 @@
 | - | - |
 | title | CIP Editor Handbook |
 | description | Handy reference for CIP editors and those who want to become one |
-| author | Yaz Khoury (@YazzyYaz) |
+| author | Yaz Khoury ([@YazzyYaz](https://github.com/YazzyYaz)) |
 | discussions-to | <https://forum.celestia.org> |
 | status | Draft |
 | type | Informational |
