@@ -1,4 +1,4 @@
-# Celestia Improvement Proposal (CIP)
+# Celestia Improvement Proposals (CIPs)
 
 See [/cips/README.md](./cips/README.md) for an overview of the CIP process.
 
