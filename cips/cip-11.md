@@ -2,7 +2,7 @@
 | - | - |
 | title | Refund unspent gas |
 | description | Refund allocated but unspent gas to the transaction fee payer. |
-| author | Rootul Patel (@rootulp) |
+| author | Rootul Patel ([@rootulp](https://github.com/rootulp)) |
 | discussions-to | <https://forum.celestia.org/t/cip-refund-unspent-gas/1374> |
 | status | Withdrawn |
 | withdrawal-reason | The mitigation strategies for the security considerations were deemed too complex. |

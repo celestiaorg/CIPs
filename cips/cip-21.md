@@ -2,7 +2,7 @@
 | - | - |
 | title | Introduce blob type with verified signer |
 | description | Introduce a new blob type that can be submitted whereby the signer address is included and verified. |
-| author | Callum Waters (@cmwaters) |
+| author | Callum Waters ([@cmwaters](https://github.com/cmwaters)) |
 | discussions-to | <https://forum.celestia.org/t/cip-blobs-with-verified-author> |
 | status | Review |
 | type | Standards Track |

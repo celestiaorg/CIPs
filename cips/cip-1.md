@@ -350,11 +350,11 @@ value must be:
 
 or
 
-> Random J. User (@username)
+> Random J. User ([@username](https://github.com/username))
 
 or
 
-> Random J. User (@username) &lt;<address@dom.ain>&gt;
+> Random J. User ([@username](https://github.com/username) &lt;<address@dom.ain>&gt;
 
 if the email address and/or GitHub username is included, and
 
@@ -580,10 +580,10 @@ decision (it's not like such decisions can't be reversed :)).
 
 The current CIP editors are
 
-* Yaz Khoury (@YazzyYaz)
-* Josh Stein (@jcstein)
-* Ethan Buchman (@ebuchman)
-* Rootul Patel (@rootulp)
+* Yaz Khoury ([@YazzyYaz](https://github.com/YazzyYaz))
+* Josh Stein ([@jcstein](https://github.com/jcstein))
+* Ethan Buchman ([@ebuchman](https://github.com/ebuchman))
+* Rootul Patel ([@rootulp](https://github.com/rootulp))
 
 If you would like to become a CIP editor, please check [CIP-2](./cip-2.md).
 

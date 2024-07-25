@@ -2,7 +2,7 @@
 | - | - |
 | title | Disable Blobstream module |
 | description | Disable the Blobstream state machine module |
-| author | Rootul Patel (@rootulp) |
+| author | Rootul Patel ([@rootulp](https://github.com/rootulp)) |
 | discussions-to | <https://forum.celestia.org/t/cip-disable-blobstream-module/1693> |
 | status | Final |
 | type | Standards Track |

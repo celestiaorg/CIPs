@@ -2,7 +2,7 @@
 | - | - |
 | title | Lemongrass Hardfork |
 | description | Reference specifications included in the Lemongrass Hardfork |
-| author | Evan Forbes (@evan-forbes) |
+| author | [@evan-forbes](https://github.com/evan-forbes) |
 | discussions-to | <https://forum.celestia.org/t/lemongrass-hardfork/1589> |
 | status | Final |
 | type | Meta |

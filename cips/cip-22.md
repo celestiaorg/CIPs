@@ -1,7 +1,7 @@
 | cip | 22 |
 | - | - |
 | title | Removing the IndexWrapper |
-| author | NashQueue (@Nashqueue) |
+| author | NashQueue ([@Nashqueue](https://github.com/Nashqueue)) |
 | discussions-to | <https://forum.celestia.org/t/achieving-trust-minimized-light-clients-through-zk-proofs-instead-of-fraud-proofs/1759> |
 | status | Review |
 | type | Standards Track |
