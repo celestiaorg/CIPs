@@ -11,11 +11,11 @@
 
 ## Abstract
 
-Introduce versioning for on-chain governance modifiable gas scheduler parameters, such as `blob.GasPerBlobByte` and `auth.TxSizeCostPerByte`, to only allow changes during hard fork upgrades.
+Gas scheduler parameters `blob.GasPerBlobByte` and `auth.TxSizeCostPerByte` will no longer be modifiable by governance but may only change via a hard fork upgrade.
 
 ## Motivation
 
-Versioning on-chain governance modifiable parameters, such as `blob.GasPerBlobByte` and `auth.TxSizeCostPerByte`, aims to stabilize gas estimation by removing block-to-block variability.
+Versioning on-chain governance modifiable parameters `blob.GasPerBlobByte` and `auth.TxSizeCostPerByte`, aims to stabilize gas estimation by removing block-to-block variability. This allows for hardcoding these values into estimators, simplifying the gas estimation process and making transaction costs more predictable without the need for pre-transaction queries.
 
 ## Specification
 
@@ -35,17 +35,13 @@ Now:
 1. `appconsts.GasPerBlobByte`
 1. `appconsts.TxSizeCostPerByte`
 
-### Rationale
-
-Versioned gas scheduler variables allow for hardcoding these values into estimators, simplifying the gas estimation process and making transaction costs more predictable without the need for pre-transaction queries.
-
 ## Backwards Compatibility
 
 Enabling this feature requires a hard fork network upgrade.
 
 ## Test Cases
 
-Test cases should verify that gas scheduler variables are exclusively updated via hard forks, effectively preventing updates through governance mechanisms.
+Test cases should verify that gas scheduler variables are exclusively updated via hard forks, effectively preventing updates through governance mechanisms and that the gas meter uses those constants.
 
 ## Reference Implementation
 
