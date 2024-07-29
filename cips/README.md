@@ -49,6 +49,7 @@ Read [CIP-1](./cip-1.md) for information on the CIP process.
 | [21](./cip-21.md) |                   Introduce blob type with verified signer                   |                                                               Callum Waters ([@cmwaters](https://github.com/cmwaters))                                                                |
 | [22](./cip-22.md) |                          Removing the IndexWrapper                           |                                                                 NashQueue ([@Nashqueue](https://github.com/Nashqueue))                                                                 |
 | [23](./cip-23.md) |                          Coordinated prevote times                           |                                                               Callum Waters ([@cmwaters](https://github.com/cmwaters))                                                                |
+| [24](./cip-24.md) |                          Versioned Gas Scheduler Variable                           |                                                               Nina Barbakadze ([@ninabarbakadze](https://github.com/ninabarbakadze))                                                                |
 
 ## Contributing
 

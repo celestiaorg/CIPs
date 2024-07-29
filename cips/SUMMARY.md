@@ -26,6 +26,7 @@
   - [CIP-21](./cip-21.md)
   - [CIP-22](./cip-22.md)
   - [CIP-23](./cip-23.md)
+  - [CIP-24](./cip-24.md)
 
 - [Core Devs Call notes](./notes/README.md)
   - [CDC 14](./notes/cdc-14.md)
