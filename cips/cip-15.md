@@ -2,7 +2,7 @@
 | - | - |
 | title | Discourage memo usage |
 | description | Discourage memo usage by modifying two auth params. |
-| author | Rootul Patel (@rootulp), NashQueue (@nashqueue) |
+| author | Rootul Patel ([@rootulp](https://github.com/rootulp)), NashQueue ([@nashqueue](https://github.com/nashqueue)) |
 | discussions-to | <https://forum.celestia.org/t/cip-discourage-memo-usage/1508> |
 | status | Draft |
 | type | Standards Track |

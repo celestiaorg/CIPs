@@ -2,7 +2,7 @@
 | - | - |
 | title | Standardised Gas and Pricing Estimation Interface |
 | description | A standardised interface for estimating gas usage and gas pricing for transactions |
-| author | Callum Waters (@cmwaters) |
+| author | Callum Waters ([@cmwaters](https://github.com/cmwaters)) |
 | discussions-to | <https://forum.celestia.org/t/cip-standardised-gas-and-pricing-estimation-interface/1621> |
 | status | Review |
 | type | Standards Track |

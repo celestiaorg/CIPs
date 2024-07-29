@@ -2,7 +2,7 @@
 | - | - |
 | title | Process for Approving External Resources |
 | description | Requirements and process for allowing new origins of external resources |
-| author | Yaz Khoury (@YazzyYaz) |
+| author | Yaz Khoury ([@YazzyYaz](https://github.com/YazzyYaz)) |
 | discussions-to | <https://forum.celestia.org> |
 | status | Draft |
 | type | Meta |
