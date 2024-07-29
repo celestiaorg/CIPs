@@ -26,6 +26,7 @@
   - [CIP-21](./cip-21.md)
   - [CIP-22](./cip-22.md)
   - [CIP-23](./cip-23.md)
+  - [CIP-24](./cip-24.md)
 
 # CIP template
 
