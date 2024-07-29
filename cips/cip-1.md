@@ -312,7 +312,7 @@ format. There is a [CIP template](./cip-template.md) to follow.
 
 ## CIP Header Preamble
 
-Each CIP must begin with an RFC 822 style header preamble, in a
+Each CIP must begin with an RFC 822 style header preamble in a
 markdown table. This header is also termed “front matter” by Jekyll.
 In order to display on the CIP site, the frontmatter must be formatted
 in a markdown table. The headers must appear in the following order:
