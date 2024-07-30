@@ -2,7 +2,7 @@
 | - | - |
 | title | Versioned Gas Scheduler Variables |
 | description | Transition to hard fork-only updates for gas scheduler variables |
-| author | Nina Barbakadze ([@ninabarbakadze](https://github.com/ninabarbakadze) |
+| author | Nina Barbakadze ([@ninabarbakadze](https://github.com/ninabarbakadze)) |
 | discussions-to | <https://forum.celestia.org/t/cip-versioned-gas-scheduler-variables/1785> |
 | status | Draft |
 | type | Standards Track |
