@@ -579,10 +579,13 @@ decision (it's not like such decisions can't be reversed :)).
 
 The current CIP editors are
 
-* Yaz Khoury ([@YazzyYaz](https://github.com/YazzyYaz))
 * Josh Stein ([@jcstein](https://github.com/jcstein))
 * Ethan Buchman ([@ebuchman](https://github.com/ebuchman))
 * Rootul Patel ([@rootulp](https://github.com/rootulp))
+
+Emeritus EIP editors are
+
+* Yaz Khoury ([@YazzyYaz](https://github.com/YazzyYaz))
 
 If you would like to become a CIP editor, please check [CIP-2](./cip-2.md).
 
