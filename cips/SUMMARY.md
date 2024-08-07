@@ -29,7 +29,8 @@
   - [CIP-24](./cip-24.md)
 
 - [Core Devs Call notes](./notes/README.md)
-  - [CDC 14](./notes/cdc-14.md)
+  - [CDC #14](./notes/cdc-14.md)
+  - [CDC #15](./notes/cdc-15.md)
 
 # CIP template
 
