@@ -17,13 +17,13 @@ This Meta CIP lists the CIPs included in the Lemongrass network upgrade.
 
 ### Included CIPs
 
-- [CIP-6](../cip-6.md): Price Enforcement
-- [CIP-9](../cip-9.md): Packet Forward Middleware
-- [CIP-10](../cip-10.md): Coordinated Upgrades
-- [CIP-14](../cip-14.md): Interchain Accounts
-- [CIP-20](../cip-20.md): Disable Blobstream module
+- [CIP-6](./cip-6.md): Price Enforcement
+- [CIP-9](./cip-9.md): Packet Forward Middleware
+- [CIP-10](./cip-10.md): Coordinated Upgrades
+- [CIP-14](./cip-14.md): Interchain Accounts
+- [CIP-20](./cip-20.md): Disable Blobstream module
 
-All of the above CIPs are state breaking, and thus require a hardfork. The activation of this hardfork will be different from future hardforks, as described in [CIP-10](../cip-10.md).
+All of the above CIPs are state breaking, and thus require a hardfork. The activation of this hardfork will be different from future hardforks, as described in [CIP-10](./cip-10.md).
 
 ## Rationale
 
