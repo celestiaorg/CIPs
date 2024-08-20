@@ -311,6 +311,49 @@ Namespace data may span over multiple rows, in which case all the data is encaps
 containers. This enables parallelization of namespace data retrieval and certain [compositions](#protocol-compositions)
 may get advantage of that by requesting containers of a single namespace from multiple servers simultaneously.
 
+#### NamespaceRangeID
+
+NamespaceRangeID: encapsulates SampleID, Namespace and identifies the continuous range of shares in the DataSquare. Formated as below:
+
+```text
+NamespaceRangeID {
+  SampleID;
+  Namespace;
+  Length: u16;
+  OmitData: bool;	
+}
+```
+
+The fields with validity rules that form NamespaceRangeID are:
+
+[SampleID](#sampleid): it MUST follow formatting and validity rules.
+
+[**Namespace**][ns]: A fixed-size 29 bytes array representing the Namespace of interest. It MUST follow [Namespace][ns]
+formatting and its validity rules.
+
+Length: uint16 representation of the length of the range. This number MUST NOT exceed the last original share of the DataSquare.
+
+OmitData:  bool flag that specifies whether the user expects the original data along with the proof or not.
+
+[Serialized](#serialization-for-share-identifiers) NamespaceRangeID MUST have a length of 44 bytes.
+
+#### NamespaceRangeContainer
+
+NamespaceRangeContainer containers encapsulate user-submitted data under [namespaces][ns] within a single or multiple
+of [DataSquare][square] rows. It MAY contain [shares][shares] and [NMT][nmt] proof of share inclusion or proof only.
+
+NamespaceRangeContainer container are protobuf formatted using the following proto3 schema:
+
+```protobuf
+syntax = "proto3";
+
+message NamespaceRangeContainer {
+  repeated RowNamespaceData namespacedData = 1;
+}
+```
+
+The fields with validity rules that form [RowNamespaceData](#rownamespacedata-container) container.
+
 ### Core Structures
 
 This section is purposed for messages that do not fit into [Identifier](#share-identifiers) or [Container](#share-containers)
