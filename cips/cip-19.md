@@ -206,8 +206,9 @@ The fields with validity rules that form Row containers are:
 
 **SharesHalf**: A variable size [Share](#share) array representing either left or right half of a row. Which half side
 is defined by **HalfSide** field. Its length MUST be equal to the number of Column roots in [DAH][dah] divided by two.
-The opposite half is computed using Leopard GF16 Reed-Solomon erasure-coding. Afterward, the [NMT][nmt] is built over
-both halves and the computed NMT root MUST be equal to the respective Row root in [DAH][dah].
+The opposite half is computed using Leopard Reed-Solomon erasure-coding. The Leopard algorithm must operate over 8 bit
+Galois Fields for rows of total size less than or equal 256 shares or 16 bit GF otherwise. Afterward, the [NMT][nmt] is
+built over both halves and the computed NMT root MUST be equal to the respective Row root in [DAH][dah].
 
 **HalfSide**: An enum defining which side of the row **SharesHalf** field contains. It MUST be either **LEFT** or
 **RIGHT**.
