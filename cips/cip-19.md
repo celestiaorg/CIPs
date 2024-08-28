@@ -311,12 +311,13 @@ Namespace data may span over multiple rows, in which case all the data is encaps
 containers. This enables parallelization of namespace data retrieval and certain [compositions](#protocol-compositions)
 may get advantage of that by requesting containers of a single namespace from multiple servers simultaneously.
 
-#### NamespaceRangeID
+#### RangeNamespaceDataID
 
-NamespaceRangeID: encapsulates SampleID, Namespace and identifies the continuous range of shares in the DataSquare. Formated as below:
+RangeNamespaceDataID: encapsulates SampleID, Namespace and identifies the continuous range of shares in the DataSquare,
+starting from the given [SampleID](#sampleid) and contains `Length` number of shares. Formated as below:
 
 ```text
-NamespaceRangeID {
+RangeNamespaceDataID {
   SampleID;
   Namespace;
   Length: u16;
@@ -324,7 +325,7 @@ NamespaceRangeID {
 }
 ```
 
-The fields with validity rules that form NamespaceRangeID are:
+The fields with validity rules that form RangeNamespaceDataID are:
 
 [SampleID](#sampleid): it MUST follow formatting and validity rules.
 
@@ -335,20 +336,20 @@ Length: uint16 representation of the length of the range. This number MUST NOT e
 
 OmitData:  bool flag that specifies whether the user expects the original data along with the proof or not.
 
-[Serialized](#serialization-for-share-identifiers) NamespaceRangeID MUST have a length of 44 bytes.
+[Serialized](#serialization-for-share-identifiers) RangeNamespaceDataID MUST have a length of 44 bytes.
 
-#### NamespaceRangeContainer
+#### RangeNamespaceData
 
-NamespaceRangeContainer containers encapsulate user-submitted data under [namespaces][ns] within a single or multiple
+RangeNamespaceData containers encapsulate user-submitted data under [namespaces][ns] within a single or multiple
 of [DataSquare][square] rows. It MAY contain [shares][shares] and [NMT][nmt] proof of share inclusion or proof only.
 
-NamespaceRangeContainer container are protobuf formatted using the following proto3 schema:
+RangeNamespaceDatacontainer are protobuf formatted using the following proto3 schema:
 
 ```protobuf
 syntax = "proto3";
 
-message NamespaceRangeContainer {
-  repeated RowNamespaceData namespacedData = 1;
+message RangeNamespaceData{
+  repeated RowNamespaceData namespaceData = 1;
 }
 ```
 
