@@ -343,7 +343,7 @@ OmitData:  bool flag that specifies whether the user expects the original data a
 RangeNamespaceData containers encapsulate user-submitted data under [namespaces][ns] within a single or multiple
 of [DataSquare][square] rows. It MAY contain [shares][shares] and [NMT][nmt] proof of share inclusion or proof only.
 
-RangeNamespaceDatacontainer are protobuf formatted using the following proto3 schema:
+RangeNamespaceData are protobuf formatted using the following proto3 schema:
 
 ```protobuf
 syntax = "proto3";
