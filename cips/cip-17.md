@@ -1,7 +1,7 @@
 | cip | 17 |
 | - | - |
-| title | Lemongrass Network Upgrade |
-| description | Reference specifications included in the Lemongrass Network Upgrade |
+| title | Lemongrass Breaking Network Upgrade |
+| description | Reference specifications included in the Lemongrass Breaking Network Upgrade |
 | author | [@evan-forbes](https://github.com/evan-forbes) |
 | discussions-to | <https://forum.celestia.org/t/lemongrass-hardfork/1589> |
 | status | Final |
@@ -11,7 +11,7 @@
 
 ## Abstract
 
-This Meta CIP lists the CIPs included in the Lemongrass network upgrade.
+This Meta CIP lists the CIPs included in the Lemongrass breaking network upgrade.
 
 ## Specification
 
@@ -27,7 +27,7 @@ All of the above CIPs are state breaking, and thus require a breaking network up
 
 ## Rationale
 
-This CIP provides a complete list of breaking changes for the Lemongrass upgrade, along with links to those specs.
+This CIP provides a complete list of breaking changes for the Lemongrass breaking network upgrade, along with links to those specs.
 
 ## Security Considerations
 

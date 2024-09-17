@@ -1,7 +1,7 @@
 | cip | 24 |
 | - | - |
 | title | Versioned Gas Scheduler Variables |
-| description | Transition to hard fork-only updates for gas scheduler variables |
+| description | Transition to breaking-network-upgrade-only updates for gas scheduler variables |
 | author | Nina Barbakadze ([@ninabarbakadze](https://github.com/ninabarbakadze)) |
 | discussions-to | <https://forum.celestia.org/t/cip-versioned-gas-scheduler-variables/1785> |
 | status | Draft |
@@ -11,7 +11,7 @@
 
 ## Abstract
 
-Gas scheduler parameters `blob.GasPerBlobByte` and `auth.TxSizeCostPerByte` will no longer be modifiable by governance but may only change via a hard fork upgrade.
+Gas scheduler parameters `blob.GasPerBlobByte` and `auth.TxSizeCostPerByte` will no longer be modifiable by governance but may only change via a breaking network upgrade.
 
 ## Motivation
 
@@ -23,7 +23,7 @@ Currently, `GasPerBlobByte` and `TxSizeCostPerByte` are module parameters within
 
 ### Parameters
 
-The proposal makes these two variables modifiable through hard fork upgrades:
+The proposal makes these two variables modifiable through breaking network upgrades:
 
 Previously:
 
@@ -37,11 +37,11 @@ Now:
 
 ## Backwards Compatibility
 
-Enabling this feature requires a hard fork network upgrade.
+Enabling this feature requires a breaking network upgrade.
 
 ## Test Cases
 
-Test cases should verify that gas scheduler variables are exclusively updated via hard forks, effectively preventing updates through governance mechanisms and that the gas meter uses those constants.
+Test cases should verify that gas scheduler variables are exclusively updated via breaking network upgrade, effectively preventing updates through governance mechanisms and that the gas meter uses those constants.
 
 ## Reference Implementation
 

@@ -2,13 +2,13 @@
 
 ## Overview
 
-- Lemongrass hard fork ([CIP-17](../cip-17.md)) final release expected by end of week, to be deployed on Arabica testnet in early August
+- Lemongrass breaking network upgrade ([CIP-17](../cip-17.md)) final release expected by end of week, to be deployed on Arabica testnet in early August
 - [CIP-21](../cip-21.md) (blob with verified signers) in Last Call stage, integration with celestia-app in progress
 - [CIP-22](../cip-22.md) (remove `IndexWrapper`) moved to review status, discussion on potential impacts
 - [CIP-23](../cip-23.md) (coordinated prevote time) introduced to solve inconsistent block times, prototype expected in 1-2 weeks
 - Celestia state machine v3 to include author blobs and delayed voting features, with potential upgrade system refactor
 
-## Lemongrass hard fork update
+## Lemongrass breaking network upgrade
 
 - Final release of celestia-app v2.0.0 expected by end of week
 - To be incorporated into celestia-node v0.16.0 (tentative)
@@ -51,4 +51,4 @@
 - Potential inclusion:
   - Refactor of upgrade system for Cosmos SDK compatibility
 - Meta CIP for v3 features to be written and discussed in next call
-- v3 upgrade planned to follow shortly after Lemongrass hard fork
+- v3 upgrade planned to follow shortly after Lemongrass breaking network upgrade

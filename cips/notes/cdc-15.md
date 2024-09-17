@@ -8,7 +8,7 @@
 #### Overview
 
 *   Celestia Core Dev's Call 15 focused on working group updates and upcoming upgrades
-*   Lemongrass hard fork ([CIP-17](../cip-17.md)) and Celestia App v2 upgrades timelines slightly pushed back:
+*   Lemongrass breaking network upgrade ([CIP-17](../cip-17.md)) and Celestia App v2 upgrades timelines slightly pushed back:
   * Arabica (mid-August)
   * Mocha (end of August)
   * Mainnet (early September)
@@ -20,12 +20,12 @@
 *   ZK working group: Started work on exploring paths leading to ZK accounts, discussion planned for next week
 *   ZK working group sync meetings now biweekly, alternating with core dev calls
     
-#### Lemongrass hard fork and Celestia App v2 upgrades
+#### Lemongrass breaking network upgrade and Celestia App v2 upgrades
 
 *   Celestia Node to release update supporting Celestia App v2 soon
 *   Arabica devnet upgrade planned for **August 14th**
 *   Node operators must upgrade within **1 week** timeframe
-*   Consensus node operators need to use a specific CLI flag ([see documentation](https://docs.celestia.org/nodes/network-upgrade-process#lemongrass-network-upgrade))
+*   Consensus node operators need to use a specific CLI flag ([see documentation](https://docs.celestia.org/nodes/network-upgrade-process#lemongrass-breaking-network-upgrade))
 *   **Application owners on Arabica advised to monitor before and after upgrade**
 *   Upgrade process: Arabica first, then Mocha, finally Mainnet
     

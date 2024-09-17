@@ -62,7 +62,7 @@ Additionally, suppose that an on-chain governance proposal sets the `evidence.Ma
 
 ### Summary
 
-In summary, configuring these two parameters as immutable values that can NOT be changed via on-chain governance can mitigate the risks of inconsistency and security issues introduced by unintentional (or malicious) governance activities. Moreover, in the face of a security incident that concerns these parameters, reliance on on-chain governance may be inadequate. Implementing modifications through a hard fork represents a more resilient approach.
+In summary, configuring these two parameters as immutable values that can NOT be changed via on-chain governance can mitigate the risks of inconsistency and security issues introduced by unintentional (or malicious) governance activities. Moreover, in the face of a security incident that concerns these parameters, reliance on on-chain governance may be inadequate. Implementing modifications through a breaking network upgrade represents a more resilient approach.
 
 ## Backwards Compatibility
 

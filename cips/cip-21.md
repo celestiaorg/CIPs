@@ -75,7 +75,7 @@ As a small digression, it may be feasible to additionally introduce a new namesp
 
 ## Backwards Compatibility
 
-This change requires a hard fork network upgrade as older nodes will not be able to verify the new blob format. The old blob format will still be supported allowing rollups to opt into the change as they please.
+This change requires a breaking network upgrade as older nodes will not be able to verify the new blob format. The old blob format will still be supported allowing rollups to opt into the change as they please.
 
 ## Test Cases
 
