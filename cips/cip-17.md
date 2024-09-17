@@ -1,7 +1,7 @@
 | cip | 17 |
 | - | - |
-| title | Lemongrass Hardfork |
-| description | Reference specifications included in the Lemongrass Hardfork |
+| title | Lemongrass Network Upgrade |
+| description | Reference specifications included in the Lemongrass Network Upgrade |
 | author | [@evan-forbes](https://github.com/evan-forbes) |
 | discussions-to | <https://forum.celestia.org/t/lemongrass-hardfork/1589> |
 | status | Final |
@@ -23,7 +23,7 @@ This Meta CIP lists the CIPs included in the Lemongrass network upgrade.
 - [CIP-14](./cip-14.md): Interchain Accounts
 - [CIP-20](./cip-20.md): Disable Blobstream module
 
-All of the above CIPs are state breaking, and thus require a hardfork. The activation of this hardfork will be different from future hardforks, as described in [CIP-10](./cip-10.md).
+All of the above CIPs are state breaking, and thus require a breaking network upgrade. The activation of this network upgrade will be different from future network upgrades, as described in [CIP-10](./cip-10.md).
 
 ## Rationale
 

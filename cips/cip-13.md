@@ -23,7 +23,7 @@ Furthermore, the motivation for adding on-chain governance parameters as a refer
 
 ## Specification
 
-These are the parameters that are active on Celestia Mainnet. Note that not all of these parameters are changeable via on-chain governance. This list also includes parameter that require a hardfork to change due to being manually hardcoded in the application or they are blocked by the `x/paramfilter` module. The Celestia Mainnet on-chain governance parameters are as follows:
+These are the parameters that are active on Celestia Mainnet. Note that not all of these parameters are changeable via on-chain governance. This list also includes parameter that require a breaking network upgrade to change due to being manually hardcoded in the application or they are blocked by the `x/paramfilter` module. The Celestia Mainnet on-chain governance parameters are as follows:
 
 ### Global parameters
 
@@ -91,7 +91,7 @@ This is the primary reason for recommending this document become a Living docume
 
 ## Backwards Compatibility
 
-The proposed parameters are intended for the Mainnet and some of the parameters do require a hardfork, which introduces backward incompatibility after a network upgrade if one of those values needs to be changed.
+The proposed parameters are intended for the Mainnet and some of the parameters do require a breaking network upgrade, which introduces backward incompatibility after a network upgrade if one of those values needs to be changed.
 
 ## Security Considerations
 

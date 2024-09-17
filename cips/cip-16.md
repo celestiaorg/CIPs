@@ -66,7 +66,7 @@ In summary, configuring these two parameters as immutable values that can NOT be
 
 ## Backwards Compatibility
 
-This CIP recommends freezing on-chain governance for two security related parameters, which introduces backward incompatibility. This incompatibility is due to any future modifications to these parameters requiring at least a hardfork.
+This CIP recommends freezing on-chain governance for two security related parameters, which introduces backward incompatibility. This incompatibility is due to any future modifications to these parameters requiring at least a breaking network upgrade.
 
 ## Reference Implementation
 
@@ -88,7 +88,7 @@ Besides, relevant documents should be updated accordingly, such as [Celestia App
 
 ## Security Considerations
 
-This CIP recommends setting those two parameters as immutable constants which are NOT allowed to change via on-chain governance proposals. Adopting this CIP means future changes for those two parameters require community coordination and hardforks. Although hardforks carry the community-divided risk, it is worth noting that many blockchain communities have successfully navigated multiple hardforks. The risks of division and disagreement can be minimized by thoroughly discussing and working towards widespread agreement before moving forward with a hardfork. Consequently, the risk is manageable and should not be a significant concern.
+This CIP recommends setting those two parameters as immutable constants which are NOT allowed to change via on-chain governance proposals. Adopting this CIP means future changes for those two parameters require community coordination and breaking network upgrades. Although these upgrades carry the community-divided risk, it is worth noting that many blockchain communities have successfully navigated multiple breaking network upgrades. The risks of division and disagreement can be minimized by thoroughly discussing and working towards widespread agreement before moving forward with a breaking network upgrade. Consequently, the risk is manageable and should not be a significant concern.
 
 If the proposed two parameters have not been changed since genesis, the security impact of making them NOT changeable via on-chain governance is not significant. Besides, if modifications to those two parameters via on-chain governance are still allowed, this could not only result in the inconsistency between the protocol and implementation but also introduce the following potential security risks:
 
