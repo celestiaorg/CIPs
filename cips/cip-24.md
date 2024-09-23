@@ -45,7 +45,34 @@ Test cases should verify that gas scheduler variables are exclusively updated vi
 
 ## Reference Implementation
 
-TBC
+In order for gas prices variables to become verisoned from v3 and onwards we updated `PayForBlobs` function which  consumes gas based on the blob sizes in the MsgPayForBlobs in x/blob/keeper.go
+
+```
+// GasPerBlobByte is a versioned param from version 3 onwards.
+var gasToConsume uint64
+if ctx.BlockHeader().Version.App <= v2.Version {
+	gasToConsume = types.GasToConsume(msg.BlobSizes, k.GasPerBlobByte(ctx))
+} else {
+	gasToConsume = types.GasToConsume(msg.BlobSizes, appconsts.GasPerBlobByte(ctx.BlockHeader().Version.App))
+}
+```
+
+we also have to change tx size gas consumption logic in ante handler. We'll udpate the `AnteHandle` function in `NewConsumeGasForTxSizeDecorator` to retrieve TxSizeCostPerByte value from app's consts for versions v3 and above while the logic for previous verisons remains unchained.
+
+```
+// consumeGasForTxSize consumes gas based on the size of the transaction.
+// It uses different parameters depending on the app version.
+func consumeGasForTxSize(ctx sdk.Context, txBytes uint64, params auth.Params) {
+	// For app v2 and below we should get txSizeCostPerByte from auth module
+	if ctx.BlockHeader().Version.App <= v2.Version {
+		ctx.GasMeter().ConsumeGas(params.TxSizeCostPerByte*txBytes, "txSize")
+	} else {
+		// From v3 onwards, we should get txSizeCostPerByte from appconsts
+		txSizeCostPerByte := appconsts.TxSizeCostPerByte(ctx.BlockHeader().Version.App)
+		ctx.GasMeter().ConsumeGas(txSizeCostPerByte*txBytes, "txSize")
+	}
+}
+```
 
 ## Security Considerations
 
