@@ -45,7 +45,7 @@ Test cases should verify that gas scheduler variables are exclusively updated vi
 
 ## Reference Implementation
 
-In order for gas prices variables to become verisoned from v3 and onwards we updated `PayForBlobs` function which  consumes gas based on the blob sizes in the MsgPayForBlobs in x/blob/keeper.go
+Starting from v3, we updated the `PayForBlobs()` function in `x/blob/keeper.go` to use versioned `GasPerBlobByte` parameter when calculating gas based on the size of the blobs while maintaining compatibility with previous versions.
 
 ```
 // GasPerBlobByte is a versioned param from version 3 onwards.
@@ -57,7 +57,15 @@ if ctx.BlockHeader().Version.App <= v2.Version {
 }
 ```
 
-we also have to change tx size gas consumption logic in ante handler. We'll udpate the `AnteHandle` function in `NewConsumeGasForTxSizeDecorator` to retrieve TxSizeCostPerByte value from app's consts for versions v3 and above while the logic for previous verisons remains unchained.
+Additionally, we modified the PFB gas estimation logic to use `appconsts.DefaultTxSizeCostPerByte`.
+
+```
+func DefaultEstimateGas(blobSizes []uint32) uint64 {
+	return EstimateGas(blobSizes, appconsts.DefaultGasPerBlobByte, appconsts.DefaultTxSizeCostPerByte)
+}
+```
+
+We also needed to update the gas consumption logic related to transaction size in the ante handler. The `AnteHandle` function within `NewConsumeGasForTxSizeDecorator` has been modified to retrieve the `TxSizeCostPerByte` value from app constants for versions v3 and later. The logic for earlier versions remains unchanged.
 
 ```
 // consumeGasForTxSize consumes gas based on the size of the transaction.
