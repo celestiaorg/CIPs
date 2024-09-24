@@ -47,39 +47,45 @@ Test cases should verify that gas scheduler variables are exclusively updated vi
 
 Starting from v3, we updated the `PayForBlobs()` function in `x/blob/keeper.go` to use versioned `GasPerBlobByte` parameter when calculating gas based on the size of the blobs while maintaining compatibility with previous versions.
 
-```
-// GasPerBlobByte is a versioned param from version 3 onwards.
-var gasToConsume uint64
-if ctx.BlockHeader().Version.App <= v2.Version {
-	gasToConsume = types.GasToConsume(msg.BlobSizes, k.GasPerBlobByte(ctx))
-} else {
-	gasToConsume = types.GasToConsume(msg.BlobSizes, appconsts.GasPerBlobByte(ctx.BlockHeader().Version.App))
-}
+```diff
+-       gasToConsume := types.GasToConsume(msg.BlobSizes, k.GasPerBlobByte(ctx))
++       // GasPerBlobByte is a versioned param from version 3 onwards.
++       var gasToConsume uint64
++       if ctx.BlockHeader().Version.App <= v2.Version {
++               gasToConsume = types.GasToConsume(msg.BlobSizes, k.GasPerBlobByte(ctx))
++       } else {
++               gasToConsume = types.GasToConsume(msg.BlobSizes, appconsts.GasPerBlobByte(ctx.BlockHeader().Version.App))
++       }
++
 ```
 
 Additionally, we modified the PFB gas estimation logic to use `appconsts.DefaultTxSizeCostPerByte`.
 
-```
-func DefaultEstimateGas(blobSizes []uint32) uint64 {
-	return EstimateGas(blobSizes, appconsts.DefaultGasPerBlobByte, appconsts.DefaultTxSizeCostPerByte)
-}
-```
+```diff
+-// DefaultEstimateGas runs EstimateGas with the system defaults. The network may change these values
+-// through governance, thus this function should predominantly be used in testing.
++// DefaultEstimateGas runs EstimateGas with the system defaults.
+ func DefaultEstimateGas(blobSizes []uint32) uint64 {
+-       return EstimateGas(blobSizes, appconsts.DefaultGasPerBlobByte, auth.DefaultTxSizeCostPerByte)
++       return EstimateGas(blobSizes, appconsts.DefaultGasPerBlobByte, appconsts.DefaultTxSizeCostPerByte)
+ }
+ ```
 
 We also needed to update the gas consumption logic related to transaction size in the ante handler. The `AnteHandle` function within `NewConsumeGasForTxSizeDecorator` has been modified to retrieve the `TxSizeCostPerByte` value from app constants for versions v3 and later. The logic for earlier versions remains unchanged.
 
-```
-// consumeGasForTxSize consumes gas based on the size of the transaction.
-// It uses different parameters depending on the app version.
-func consumeGasForTxSize(ctx sdk.Context, txBytes uint64, params auth.Params) {
-	// For app v2 and below we should get txSizeCostPerByte from auth module
-	if ctx.BlockHeader().Version.App <= v2.Version {
-		ctx.GasMeter().ConsumeGas(params.TxSizeCostPerByte*txBytes, "txSize")
-	} else {
-		// From v3 onwards, we should get txSizeCostPerByte from appconsts
-		txSizeCostPerByte := appconsts.TxSizeCostPerByte(ctx.BlockHeader().Version.App)
-		ctx.GasMeter().ConsumeGas(txSizeCostPerByte*txBytes, "txSize")
-	}
-}
+```diff
++// consumeGasForTxSize consumes gas based on the size of the transaction.
++// It uses different parameters depending on the app version.
++func consumeGasForTxSize(ctx sdk.Context, txBytes uint64, params auth.Params) {
++       // For app v2 and below we should get txSizeCostPerByte from auth module
++       if ctx.BlockHeader().Version.App <= v2.Version {
++               ctx.GasMeter().ConsumeGas(params.TxSizeCostPerByte*txBytes, "txSize")
++       } else {
++               // From v3 onwards, we should get txSizeCostPerByte from appconsts
++               txSizeCostPerByte := appconsts.TxSizeCostPerByte(ctx.BlockHeader().Version.App)
++               ctx.GasMeter().ConsumeGas(txSizeCostPerByte*txBytes, "txSize")
++       }
++}
 ```
 
 ## Security Considerations
