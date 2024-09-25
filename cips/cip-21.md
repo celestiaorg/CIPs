@@ -84,7 +84,42 @@ Test cases will need to ensure that a user may not forge a incorrect signer, nor
 
 ## Reference Implementation
 
-TBC
+The go implementation makes the following modifications to the `Blob` proto:
+
+```diff
+message BlobProto {
+  bytes namespace_id = 1;
+  bytes data = 2;
+  uint32 share_version = 3;
+  uint32 namespace_version = 4;
++ // Signer is sdk.AccAddress that paid for this blob. This field is optional
++ // and can only be used when share_version is set to 1. 
++ bytes signer = 5;
+}
+```
+
+The signer is validated in `CheckTx` and `ProcessProposal` as follows:
+
+```go
+signer, err := sdk.AccAddressFromBech32(msgPFB.Signer)
+if err != nil {
+  return err
+}
+
+for _, blob := range bTx.Blobs {
+  // If share version is 1, assert that the signer in the blob
+  // matches the signer in the msgPFB.
+  if blob.ShareVersion() == share.ShareVersionOne {
+    if appVersion < v3.Version {
+      return ErrUnsupportedShareVersion.Wrapf("share version %d is not supported in %d. Supported from v3 onwards", blob.ShareVersion(), appVersion)
+    }
+    if !bytes.Equal(blob.Signer(), signer) {
+      return ErrInvalidBlobSigner.Wrapf("blob signer %s does not match msgPFB signer %s", sdk.AccAddress(blob.Signer()).String(), msgPFB.Signer)
+    }
+  }
+}
+```
+
 
 ## Security Considerations
 
