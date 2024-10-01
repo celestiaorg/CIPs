@@ -120,7 +120,6 @@ for _, blob := range bTx.Blobs {
 }
 ```
 
-
 ## Security Considerations
 
 Rollups using this pattern for verifying the enshrined sequencer make an assumption that there is at least 1/3 in voting power of the network is "correct". Note this is a more secure assumption than forking which may require up to 2/3+ of the voting power to be "correct". Rollups may decide to still retrieve the PFB's and validate the signatures themselves if they wish to avoid this assumption.
