@@ -1,4 +1,4 @@
-| cip | TBD |
+| cip | 25 |
 | - | - |
 | title | Peppermint Network Upgrade |
 | description | Reference CIPs included in the Peppermint Network Upgrade |
