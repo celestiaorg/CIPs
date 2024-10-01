@@ -1,7 +1,7 @@
 | cip | TBD |
 | - | - |
 | title | Peppermint Network Upgrade |
-| description | Reference specifications included in the Peppermint Network Upgrade |
+| description | Reference CIPs included in the Peppermint Network Upgrade |
 | author | [@jcstein](https://github.com/jcstein) |
 | discussions-to | <https://forum.celestia.org/t/cip-v3-peppermint-network-upgrade/1826> |
 | status | Draft |
@@ -21,15 +21,15 @@ This Meta CIP lists the CIPs included in the Peppermint network upgrade.
 - [CIP-24](./cip-24.md): Versioned Gas Scheduler Variables
 - CIP-XX: limiting compute per block
 
-All of the above CIPs are state breaking, and thus require a breaking network upgrade. The activation of this network upgrade will be different from future network upgrades, as described in [CIP-10](./cip-10.md).
+All of the above CIPs are state breaking, and thus require a breaking network upgrade. The activation of this network upgrade will be different from previous network upgrades, as described in [CIP-10](./cip-10.md).
 
 ## Rationale
 
-This CIP provides a complete list of breaking changes for the Peppermint upgrade, along with links to those specs.
+This CIP provides a complete list of breaking changes for the Peppermint upgrade, along with links to those CIPs.
 
 ## Security Considerations
 
-This CIP does not have additional security concerns beyond what is already discussed in each of the listed specs.
+This CIP does not have additional security concerns beyond what is already discussed in each of the listed CIPs.
 
 ## Copyright
 
