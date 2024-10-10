@@ -11,7 +11,7 @@
 
 ## Abstract
 
-This CIP proposes to reduce the block time on celestia-app to 6 seconds, from 12. This will increase the throughput by double and and reduce the time it takes for transactions to be finalized by half.
+This CIP proposes to reduce the block time on celestia-app to 6 seconds, from 12. This will double the throughput and reduce the time it takes for transactions to be finalized in half.
 
 ## Motivation
 
@@ -27,9 +27,7 @@ The motivation for this CIP stems from a discussion in Core Devs Call 17, where 
 
 4. Celestia consensus nodes SHOULD update their software to accommodate this change prior to the agreed-upon block height.
 
-5. The reduction in block time SHALL NOT affect the overall security or integrity of the Celestia network.
 
-6. Validators MUST ensure that their systems are capable of producing and validating blocks at this increased rate.
 
 7. Client applications interacting with the Celestia network SHOULD be updated to account for the faster block time, particularly in areas related to transaction confirmation and block finality.
 
