@@ -54,6 +54,7 @@ Read [CIP-1](./cip-1.md) for information on the CIP process.
 | [23](./cip-23.md) |                          Coordinated prevote times                           |                                                               Callum Waters ([@cmwaters](https://github.com/cmwaters))                                                                |
 | [24](./cip-24.md) |                          Versioned Gas Scheduler Variable                           |                                                               Nina Barbakadze ([@ninabarbakadze](https://github.com/ninabarbakadze))                                                                |
 | [25](./cip-25.md) |                          Ginger Network Upgrade                           |                                                               Josh Stein ([@jcstein](https://github.com/jcstein)), Nina Barbakadze ([@ninabarbakadze](https://github.com/ninabarbakadze)) |
+| [6 second blocks](./cip-6-second-blocks.md) | Reduce block time to six seconds |                                                               Josh Stein ([@jcstein](https://github.com/jcstein)) |
 
 ## Contributing
 
