@@ -23,13 +23,13 @@ The motivation for this CIP stems from a discussion in Core Devs Call 17, where 
 
 2. All implementations of celestia-app SHALL adjust their block production mechanisms to conform to this new 6-second block time.
 
-3. The change in block time MUST be implemented at a specific block height, which SHALL be determined and agreed upon by the Celestia network participants.
+3. The change in block time MUST be implemented at a specific block height, which SHALL be determined and agreed upon by the Celestia community.
 
-4. Celestia nodes SHOULD update their software to accommodate this change prior to the agreed-upon block height.
+4. Celestia consensus nodes SHOULD update their software to accommodate this change prior to the agreed-upon block height.
 
 5. The reduction in block time SHALL NOT affect the overall security or integrity of the Celestia network.
 
-6. Block validators MUST ensure that their systems are capable of producing and validating blocks at this increased rate.
+6. Validators MUST ensure that their systems are capable of producing and validating blocks at this increased rate.
 
 7. Client applications interacting with the Celestia network SHOULD be updated to account for the faster block time, particularly in areas related to transaction confirmation and block finality.
 
