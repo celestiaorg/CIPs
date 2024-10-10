@@ -7,7 +7,7 @@
 | status | Draft |
 | type | Meta |
 | created | 2024-10-01 |
-| requires | CIP-21, CIP-24, CIP-TBD |
+| requires | CIP-10, CIP-21, CIP-24, CIP-TBD |
 
 ## Abstract
 
@@ -17,9 +17,10 @@ This Meta CIP lists the CIPs included in the Ginger network upgrade.
 
 ### Included CIPs
 
+- [CIP-10](./cip-10.md): Coordinated network upgrades
 - [CIP-21](./cip-21.md): Introduce blob type with verified signer
 - [CIP-24](./cip-24.md): Versioned Gas Scheduler Variables
-- CIP-TBD: limiting compute per block
+- CIP-TBD: Reduce block time to six seconds
 
 All of the above CIPs are state breaking, and thus require a breaking network upgrade. The activation of this network upgrade will be different from previous network upgrades, as described in [CIP-10](./cip-10.md).
 
