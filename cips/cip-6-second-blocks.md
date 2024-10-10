@@ -2,7 +2,7 @@
 | - | - |
 | title | Reduce block time to six seconds |
 | description | Proposal to reduce block time on celestia-app to 6 seconds, from 12. |
-| author | Josh Stein ([@jcstein](https://github.com/jcstein)) |
+| author | Josh Stein ([@jcstein](https://github.com/jcstein)), Rootul Patel ([@rootulp](https://github.com/rootulp))|
 | discussions-to | <https://forum.celestia.org/t/cip-decrease-block-time-to-6-seconds/1836> |
 | status | Draft |
 | type | Standards Track |
@@ -19,23 +19,21 @@ The motivation for this CIP stems from a discussion in Core Devs Call 17, where 
 
 ## Specification
 
-1. The block time in celestia-app MUST be reduced from 12 seconds to 6 seconds.
+1. The block time in celestia-app SHOULD be reduced from 12 seconds to 6 seconds. Concretely, this implies decreasing `TimeoutCommit` to 1 seconds and `TimeoutPropose` to 3 seconds.
 
 2. All implementations of celestia-app SHALL adjust their block production mechanisms to conform to this new 6-second block time.
 
-3. The change in block time MUST be implemented at a specific block height, which SHALL be determined and agreed upon by the Celestia community.
+3. The change in block time MUST be implemented at a specific block height, which SHALL be determined and agreed upon by the Celestia community via on-chain signaling by validators.
 
 4. Celestia consensus nodes SHOULD update their software to accommodate this change prior to the agreed-upon block height.
 
+5. Client applications interacting with the Celestia network SHOULD be updated to account for the faster block time, particularly in areas related to transaction confirmation and block finality.
 
+7. The implementation of this change SHOULD include appropriate testing and monitoring to ensure network stability during and after the transition.
 
-7. Client applications interacting with the Celestia network SHOULD be updated to account for the faster block time, particularly in areas related to transaction confirmation and block finality.
+8. Documentation and APIs related to block time and block production MUST be updated to reflect this change.
 
-8. The implementation of this change SHOULD include appropriate testing and monitoring to ensure network stability during and after the transition.
-
-9. Documentation and APIs related to block time and block production MUST be updated to reflect this change.
-
-10. The network SHOULD provide a grace period for node operators and other participants to adapt to the new block time, but all participants MUST be compliant by the agreed-upon implementation block height.
+9. The network SHOULD provide a grace period for node operators and other participants to adapt to the new block time, but all participants MUST be compliant by the agreed-upon implementation block height.
 
 ## Rationale
 
