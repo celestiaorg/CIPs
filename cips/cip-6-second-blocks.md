@@ -33,8 +33,6 @@ The motivation for this CIP stems from a discussion in Core Devs Call 17, where 
 
 8. Documentation and APIs related to block time and block production MUST be updated to reflect this change.
 
-9. The network SHOULD provide a grace period for node operators and other participants to adapt to the new block time, but all participants MUST be compliant by the agreed-upon implementation block height.
-
 ## Rationale
 
 The rationale for this change is to increase the throughput of the Celestia network by doubling the number of blocks produced per unit of time. This will reduce the time it takes for transactions to be finalized and improve the overall user experience on the network.
