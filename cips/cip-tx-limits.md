@@ -29,9 +29,7 @@ The rationale for this proposal is twofold:
 
 1. To prevent long block times on the network by limiting the number of PFBs and non-PFB transactions per block. This was initially not considered consensus-breaking, but it has a meaningful effect on users and should be formalized in a CIP.
 
-1. To set the transaction size limit to 2MiB, even with 8MB blocks, to prevent issues with gossiping large transactions. Gossiping an 8MiB transaction without chunking could be detrimental to the network.
-
-These changes affect users significantly and are consensus-breaking, necessitating their inclusion in a CIP.
+1. To set the transaction size limit to 2MiB, even with 8MiB blocks, to prevent issues with gossiping large transactions. Gossiping an 8MiB transaction without chunking could be detrimental to the network. This is a consensus-breaking change.
 
 ## Backwards Compatibility
 
