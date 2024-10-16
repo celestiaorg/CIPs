@@ -11,7 +11,7 @@
 
 ## Abstract
 
-This CIP proposes to reduce the block time on celestia-app to 6 seconds, from 12. This will double the throughput and reduce the time it takes for transactions to be finalized in half.
+This CIP proposes to reduce the block time on celestia-app to 6 seconds, from 12. This CIP also proposes to increase the `ttl-num-blocks` parameter in the mempool configuration from 5 to 12 to maintain consistency with the new block time. This will double the throughput and reduce the time it takes for transactions to be finalized in half.
 
 ## Motivation
 
@@ -33,13 +33,23 @@ The motivation for this CIP stems from a discussion in Core Devs Call 17, where 
 
 1. Documentation and APIs related to block time and block production MUST be updated to reflect this change.
 
+1. The `ttl-num-blocks` parameter in the mempool configuration SHALL be increased from 5 to 12. This change is necessary to maintain consistency with the new block time and ensure that transactions remain in the mempool for a similar duration as before.
+    1. Current default: `ttl-num-blocks = 5`
+    1. New default: `ttl-num-blocks = 12`
+
+1. This change SHALL be implemented alongside the block time reduction to ensure consistent behavior of the mempool across the network upgrade.
+
+1. All validator nodes MUST update their configuration files to reflect this new `ttl-num-blocks` value before the agreed-upon implementation block height.
+
 ## Rationale
 
 The rationale for this change is to increase the throughput of the Celestia network by doubling the number of blocks produced per unit of time. This will reduce the time it takes for transactions to be finalized and improve the overall user experience on the network.
 
+The increase in `ttl-num-blocks` from 5 to 12 is necessary to maintain consistent mempool behavior with the new block time. This change ensures that transactions remain in the mempool for approximately 72 seconds (12 blocks * 6 seconds), which closely matches the previous behavior of about 60 seconds (5 blocks * 12 seconds).
+
 ## Backwards Compatibility
 
-This is a breaking network upgrade and will require all participants to update their software to accommodate the new block time. The change in block time will not be backward compatible with the existing network, and all participants MUST be compliant by the agreed-upon implementation block height.
+This is a breaking network upgrade and will require all participants to update their software to accommodate the new block time and `ttl-num-blocks`. The change in block time will not be backward compatible with the existing network, and all participants MUST be compliant by the agreed-upon implementation block height.
 
 ## Test Cases
 
@@ -47,7 +57,15 @@ This will be tested on Arabica devnet and Mocha testnet before going live on Cel
 
 ## Security Considerations
 
-The security considerations for this change are minimal, as the reduction in block time does not introduce any new security risks to the network. However, participants should be aware of the faster block time and ensure that their systems are capable of handling the increased throughput.
+While the reduction in block time itself does not introduce significant new security risks to the network, there are important considerations:
+
+1. Participants should ensure that their systems are capable of handling the increased throughput from faster block times.
+1. The increase of `ttl-num-blocks` from 5 to 12 is crucial for maintaining the security and efficiency of the mempool:
+    1. It prevents premature removal of valid transactions, reducing the risk of unintended exclusion from blocks.
+    1. Without this adjustment, transactions would be pruned from the mempool after only 30 seconds, potentially leading to increased transaction failures and a poor user experience.
+1. Validators and node operators must update their configurations to reflect the new `ttl-num-blocks` value to maintain network consistency and security.
+
+These changes require careful implementation and testing to ensure network stability during and after the transition.
 
 ## Copyright
 
