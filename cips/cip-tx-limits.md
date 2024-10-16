@@ -11,7 +11,7 @@
 
 ## Abstract
 
-This CIP proposes to set limits for the number of PFBs and non-PFBs per block and set the limit for transaction size. Concretely, the proposal is to set the limits to 600 PFBs and 200 non-PFB transactions per block and set the transaction size limit to 2MiB.
+This CIP proposes to set limits for the number of PFB and non-PFB messages per block and set the limit for transaction size. Concretely, the proposal is to set the limits to 600 PFBs and 200 non-PFB transactions per block and set the transaction size limit to 2MiB. Setting PFB and non-PFB limits is not consensus-breaking, but setting the transaction size limit is.
 
 ## Specification
 
