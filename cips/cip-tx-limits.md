@@ -11,15 +11,15 @@
 
 ## Abstract
 
-This CIP proposes to set limits for the number of PFB and non-PFB messages per block and set the limit for transaction size. Concretely, the proposal is to set the limits to 600 PFBs and 200 non-PFB transactions per block and set the transaction size limit to 2MiB. Setting PFB and non-PFB limits is not consensus-breaking, but setting the transaction size limit is.
+This CIP proposes to set limits for the number of PayForBlobs (PFBs) messages and non-PFBs messages per block and set the limit for transaction size. The proposal is to set the limits to 600 PFBs messages and 200 non-PFBs messages per block and set the transaction size limit to 2MiB. Setting PFB and non-PFBs limits is not consensus-breaking. Setting the transaction size limit is consensus-breaking.
 
 ## Specification
 
-1. The number of PFBs per block is limited to 600 by setting `PFBTransactionCap` to 600. `PFBTransactionCap` is the maximum number of PFB messages a block can contain.
+1. The number of PFBs per block is limited to 600 by setting `MaxPFBMessages` to 600. `MaxPFBMessages` is the maximum number of PFB messages a block can contain.
 
-1. The number of non-PFB transactions per block is limited to 200 by setting `NonPFBTransactionCap` to 200. `NonPFBTransactionCap` is the maximum number of SDK messages, aside from PFBs, that a block can contain.
+1. The number of non-PFBs messages per block is limited to 200 by setting `MaxNonPFBMessages` to 200. `MaxNonPFBMessages` is the maximum number of SDK messages, aside from PFBs, that a block can contain.
 
-1. It's important to note that these limits are not strictly enforced. While they are defined by the `celestia-app` implementation, a validator could potentially modify the `PrepareProposal` logic, run a custom binary, and produce blocks that exceed the specified limits for PFB or non-PFB transactions.
+1. It's important to note that these limits are not strictly enforced. While they are defined by the `celestia-app` implementation, a validator could potentially modify the `PrepareProposal` logic, run a custom binary, and produce blocks that exceed the specified limits for PFB or non-PFBs transactions.
 
 1. The size of a transaction is limited to 2MiB by setting `MaxTxSize` to 2097152, which is 2MiB in bytes. From version v3 and above, in `CheckTx`, `PrepareProposal`, and `ProcessProposal`, each transaction's size is checked against the `appconsts.MaxTxSize` threshold. This ensures that transactions over the limit are rejected or excluded at all stages, from initial submission to execution.
 
@@ -27,7 +27,7 @@ This CIP proposes to set limits for the number of PFB and non-PFB messages per b
 
 The rationale for this proposal is twofold:
 
-1. To prevent long block times on the network by limiting the number of PFBs and non-PFB transactions per block. This was initially not considered consensus-breaking, but it has a meaningful effect on users and should be formalized in a CIP.
+1. To prevent long block times on the network by limiting the number of PFBs and non-PFBs messages per block. This was initially not considered consensus-breaking, but it has a meaningful effect on users and should be formalized in a CIP.
 
 1. To set the transaction size limit to 2MiB, even with 8MiB blocks, to prevent issues with gossiping large transactions. Gossiping an 8MiB transaction without chunking could be detrimental to the network. This is a consensus-breaking change.
 
