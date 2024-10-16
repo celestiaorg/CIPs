@@ -11,7 +11,7 @@
 
 ## Abstract
 
-This CIP proposes to reduce the block time on celestia-app to 6 seconds, from 12. This CIP also proposes to increase the `ttl-num-blocks` parameter in the mempool configuration from 5 to 12 to maintain consistency with the new block time. This will double the throughput and reduce the time it takes for transactions to be finalized in half.
+This CIP proposes to reduce the block time on celestia-app to 6 seconds, from 12. This will double the throughput and reduce the time it takes for transactions to be finalized in half. This CIP also proposes to increase the `ttl-num-blocks` parameter in the mempool configuration from 5 to 12 to maintain consistency with the new block time.
 
 ## Motivation
 
