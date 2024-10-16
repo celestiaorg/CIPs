@@ -1,4 +1,4 @@
-| cip | TBD |
+| cip | 26 |
 | - | - |
 | title | Reduce block time to six seconds |
 | description | Proposal to reduce block time on celestia-app to 6 seconds, from 12. |
@@ -20,8 +20,6 @@ The motivation for this CIP stems from a discussion in Core Devs Call 17, where 
 ## Specification
 
 1. The block time in celestia-app SHOULD be reduced from 12 seconds to 6 seconds. Concretely, this implies decreasing `TimeoutCommit` to 1 seconds and `TimeoutPropose` to 3 seconds.
-
-1. All implementations of celestia-app SHALL adjust their block production mechanisms to conform to this new 6-second block time.
 
 1. The change in block time MUST be implemented at a specific block height, which SHALL be determined and agreed upon by the Celestia community via on-chain signaling by validators.
 
