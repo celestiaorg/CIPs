@@ -45,7 +45,7 @@ The motivation for this CIP stems from a discussion in Core Devs Call 17, where 
 
 The rationale for this change is to increase the throughput of the Celestia network by doubling the number of blocks produced per unit of time. This will reduce the time it takes for transactions to be finalized and improve the overall user experience on the network.
 
-The increase in `ttl-num-blocks` from 5 to 12 is necessary to maintain consistent mempool behavior with the new block time. This change ensures that transactions remain in the mempool for approximately 72 seconds (12 blocks * 6 seconds), which closely matches the previous behavior of about 60 seconds (5 blocks * 12 seconds).
+The increase in `ttl-num-blocks` from 5 to 12 is necessary to maintain consistent mempool behavior with the new block time. This change ensures that transactions remain in the mempool for approximately 72 seconds (12 blocks times 6 seconds), which closely matches the previous behavior of about 60 seconds (5 blocks times 12 seconds).
 
 ## Backwards Compatibility
 
