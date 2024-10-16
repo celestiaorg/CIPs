@@ -25,13 +25,13 @@ The motivation for this CIP stems from a discussion in Core Devs Call 17, where 
     1. Celestia consensus nodes SHOULD update their software to accommodate this change prior to the agreed-upon block height.
     1. Client applications interacting with the Celestia network SHOULD be updated to account for the faster block time, particularly in areas related to transaction confirmation and block finality.
 
-1. Documentation and APIs related to block time and block production MUST be updated to reflect this change.
-
 1. The default `ttl-num-blocks` parameter in the mempool configuration SHALL be increased from 5 to 12. This change is necessary to maintain consistency with the new block time and ensure that transactions remain in the mempool for a similar duration as before.
     1. Current default: `ttl-num-blocks = 5`
     1. New default: `ttl-num-blocks = 12`
     1. This change SHALL NOT be implemented alongside the block time reduction. The default increase from 5 to 12 will occur when users upgrade to v3.0.0 and regenerate their config files. The block time reduction will happen one week later when the v2 to v3 activation height occurs. This approach ensures consistent behavior of the mempool across the network upgrade.
     1. All validator nodes MUST update their configuration files to reflect this new `ttl-num-blocks` value before the agreed-upon implementation block height.
+
+1. Documentation and APIs related to block time and block production MUST be updated to reflect these changes.
 
 ## Rationale
 
