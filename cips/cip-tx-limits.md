@@ -19,6 +19,8 @@ This CIP proposes to set limits for the number of PFBs and non-PFBs per block an
 
 1. The number of non-PFB transactions per block is limited to 200 by setting `NonPFBTransactionCap` to 200. `NonPFBTransactionCap` is the maximum number of SDK messages, aside from PFBs, that a block can contain.
 
+It's important to note that these limits are not strictly enforced. While they are defined by the `celestia-app` implementation, a validator could potentially modify the `PrepareProposal` logic, run a custom binary, and produce blocks that exceed the specified limits for PFB or non-PFB transactions.
+
 1. The size of a transaction is limited to 2MiB by setting `MaxTxSize` to 2097152, which is 2MiB in bytes.
 
 ## Rationale
