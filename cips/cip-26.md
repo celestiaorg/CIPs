@@ -2,7 +2,7 @@
 | - | - |
 | title | Reduce block time to six seconds |
 | description | Proposal to reduce block time on celestia-app to 6 seconds, from 12. |
-| author | Josh Stein ([@jcstein](https://github.com/jcstein)), Rootul Patel ([@rootulp](https://github.com/rootulp))|
+| author | Josh Stein ([@jcstein](https://github.com/jcstein)), Rootul Patel ([@rootulp](https://github.com/rootulp))| Sanaz Taheri ([@staheri14](https://github.com/staheri14) )
 | discussions-to | <https://forum.celestia.org/t/cip-decrease-block-time-to-6-seconds/1836> |
 | status | Draft |
 | type | Standards Track |
