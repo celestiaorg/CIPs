@@ -21,17 +21,17 @@ The motivation for this CIP stems from a discussion in Core Devs Call 17, where 
 
 1. The block time in celestia-app SHOULD be reduced from 12 seconds to 6 seconds. Concretely, this implies decreasing `TimeoutCommit` to 1 seconds and `TimeoutPropose` to 3 seconds.
 
-2. All implementations of celestia-app SHALL adjust their block production mechanisms to conform to this new 6-second block time.
+1. All implementations of celestia-app SHALL adjust their block production mechanisms to conform to this new 6-second block time.
 
-3. The change in block time MUST be implemented at a specific block height, which SHALL be determined and agreed upon by the Celestia community via on-chain signaling by validators.
+1. The change in block time MUST be implemented at a specific block height, which SHALL be determined and agreed upon by the Celestia community via on-chain signaling by validators.
 
-4. Celestia consensus nodes SHOULD update their software to accommodate this change prior to the agreed-upon block height.
+1. Celestia consensus nodes SHOULD update their software to accommodate this change prior to the agreed-upon block height.
 
-5. Client applications interacting with the Celestia network SHOULD be updated to account for the faster block time, particularly in areas related to transaction confirmation and block finality.
+1. Client applications interacting with the Celestia network SHOULD be updated to account for the faster block time, particularly in areas related to transaction confirmation and block finality.
 
-7. The implementation of this change SHOULD include appropriate testing and monitoring to ensure network stability during and after the transition.
+1. The implementation of this change SHOULD include appropriate testing and monitoring to ensure network stability during and after the transition.
 
-8. Documentation and APIs related to block time and block production MUST be updated to reflect this change.
+1. Documentation and APIs related to block time and block production MUST be updated to reflect this change.
 
 ## Rationale
 
