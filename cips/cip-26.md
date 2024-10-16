@@ -27,8 +27,6 @@ The motivation for this CIP stems from a discussion in Core Devs Call 17, where 
 
 1. Client applications interacting with the Celestia network SHOULD be updated to account for the faster block time, particularly in areas related to transaction confirmation and block finality.
 
-1. The implementation of this change SHOULD include appropriate testing and monitoring to ensure network stability during and after the transition.
-
 1. Documentation and APIs related to block time and block production MUST be updated to reflect this change.
 
 1. The `ttl-num-blocks` parameter in the mempool configuration SHALL be increased from 5 to 12. This change is necessary to maintain consistency with the new block time and ensure that transactions remain in the mempool for a similar duration as before.
