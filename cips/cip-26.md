@@ -19,7 +19,7 @@ The motivation for this CIP stems from a discussion in Core Devs Call 17, where 
 
 ## Specification
 
-1. The block time in celestia-app SHOULD be reduced from 12 seconds to 6 seconds. Concretely, this implies decreasing `TimeoutCommit` to 1 seconds and `TimeoutPropose` to 3 seconds.
+1. The block time in celestia-app SHOULD be reduced from 12 seconds to 6 seconds. Concretely, this implies decreasing `TimeoutCommit` to 4.2 seconds and `TimeoutPropose` to 3.5 seconds.
 
 1. The change in block time MUST be implemented at a specific block height, which SHALL be determined and agreed upon by the Celestia community via on-chain signaling by validators.
 
@@ -29,7 +29,7 @@ The motivation for this CIP stems from a discussion in Core Devs Call 17, where 
 
 1. Documentation and APIs related to block time and block production MUST be updated to reflect this change.
 
-1. The `ttl-num-blocks` parameter in the mempool configuration SHALL be increased from 5 to 12. This change is necessary to maintain consistency with the new block time and ensure that transactions remain in the mempool for a similar duration as before.
+1. The default `ttl-num-blocks` parameter in the mempool configuration SHALL be increased from 5 to 12. This change is necessary to maintain consistency with the new block time and ensure that transactions remain in the mempool for a similar duration as before.
     1. Current default: `ttl-num-blocks = 5`
     1. New default: `ttl-num-blocks = 12`
 
