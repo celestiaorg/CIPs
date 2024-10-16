@@ -19,13 +19,13 @@ This CIP proposes to set limits for the number of PFBs and non-PFBs per block an
 
 1. The number of non-PFB transactions per block is limited to 200 by setting `NonPFBTransactionCap` to 200. `NonPFBTransactionCap` is the maximum number of SDK messages, aside from PFBs, that a block can contain.
 
-1. The size of a transaction is limited to 2MB by setting `MaxTxBytes` to 2091752, which is 2MiB in bytes.
+1. The size of a transaction is limited to 2MiB by setting `MaxTxSize` to 2097152, which is 2MiB in bytes.
 
 ## Rationale
 
 The rationale for this proposal is twofold:
 
-1. To prevent congestion on the network by limiting the number of PFBs and non-PFB transactions per block. This was initially not considered consensus-breaking, but it has a meaningful effect on users and should be formalized in a CIP.
+1. To prevent long block times on the network by limiting the number of PFBs and non-PFB transactions per block. This was initially not considered consensus-breaking, but it has a meaningful effect on users and should be formalized in a CIP.
 
 1. To set the transaction size limit to 2MiB, even with 8MB blocks, to prevent issues with gossiping large transactions. Gossiping an 8MiB transaction without chunking could be detrimental to the network.
 
