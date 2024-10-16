@@ -23,7 +23,13 @@ This CIP proposes to set limits for the number of PFBs and non-PFBs per block an
 
 ## Rationale
 
-The rationale  for this proposal is to prevent congestion on the network by limiting the number of PFBs and non-PFB transactions per block. It is also to set the transaction size limit to 2MiB to prevent issues with gossiping 8MiB transactions when the block size increases. Gossiping an 8MiB transaction without chunking could be detrimental to the network.
+The rationale for this proposal is twofold:
+
+1. To prevent congestion on the network by limiting the number of PFBs and non-PFB transactions per block. This was initially not considered consensus-breaking, but it has a meaningful effect on users and should be formalized in a CIP.
+
+1. To set the transaction size limit to 2MiB, even with 8MB blocks, to prevent issues with gossiping large transactions. Gossiping an 8MiB transaction without chunking could be detrimental to the network.
+
+These changes affect users significantly and are consensus-breaking, necessitating their inclusion in a CIP.
 
 ## Backwards Compatibility
 
@@ -31,7 +37,7 @@ This proposal is meant to be included with v3 and the [Ginger Network Upgrade](.
 
 ## Security Considerations
 
-This proposal does not introduce any new security risks.
+This proposal does not introduce any new security risks. However, it does impact network behavior and user experience, which should be carefully considered during implementation.
 
 ## Copyright
 
