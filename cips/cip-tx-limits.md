@@ -15,20 +15,23 @@ This CIP proposes to set the limit for transaction size to 2MiB. This is a conse
 
 ## Specification
 
-1. Transaction size is limited to 2MiB by setting the versioned parameter `MaxTxSize` to 2097152 (2MiB in bytes).
-2. From version v3 and above, in `CheckTx`, `PrepareProposal`, and `ProcessProposal`, each transaction's size is checked against the `appconsts.MaxTxSize` threshold.
+1. Set the versioned parameter `MaxTxSize` to 2097152 (2MiB in bytes).
+2. From version v3 and above, enforce this limit in `CheckTx`, `PrepareProposal`, and `ProcessProposal`.
+3. Transactions exceeding this limit will be rejected or excluded at all stages, from initial submission to execution.
 
 ## Rationale
 
-To set the transaction size limit to 2MiB, even with 8MiB blocks, to prevent issues with gossiping large transactions. Gossiping an 8MiB transaction without chunking could be detrimental to the network.
+1. To prevent issues with gossiping large transactions, even with 8MiB blocks.
+2. Gossiping an 8MiB transaction without chunking could be detrimental to the network.
+3. This change ensures network stability and efficient transaction processing.
 
 ## Backwards Compatibility
 
-This proposal is meant to be included with v3 and the Ginger Network Upgrade. It is a consensus-breaking change.
+This proposal is meant to be included with v3 and the [Ginger Network Upgrade](./cip-25.md). It is a consensus-breaking change.
 
 ## Security Considerations
 
-This proposal does not introduce new security risks but impacts network behavior and user experience.
+While this proposal doesn't introduce new security risks, it significantly impacts network behavior and transaction processing, which must be carefully considered during implementation.
 
 ## Copyright
 
