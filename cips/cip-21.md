@@ -4,8 +4,7 @@
 | description | Introduce a new blob type that can be submitted whereby the signer address is included and verified. |
 | author | Callum Waters ([@cmwaters](https://github.com/cmwaters)) |
 | discussions-to | <https://forum.celestia.org/t/cip-blobs-with-verified-author> |
-| status | Last Call |
-| last-call-deadline | 2024-10-07 |
+| status | Final |
 | type | Standards Track |
 | category | Core |
 | created | 2024-05-22 |
