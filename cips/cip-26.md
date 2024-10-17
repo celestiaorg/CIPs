@@ -46,7 +46,7 @@ The increase in `ttl-num-blocks` from 5 to 12 is necessary to maintain consisten
 
 ## Backwards Compatibility
 
-This is a breaking network upgrade and will require all participants to update their software to accommodate the new block time and `ttl-num-blocks`. The change in block time will not be backward compatible with the existing network, and all participants MUST be compliant by the agreed-upon implementation block height.
+This upgrade requires all participants to update their software to v3 to accommodate the new block time and `ttl-num-blocks`. Nodes running older versions may not function correctly with the new network parameters. All validators and node operators should update to v3 before the agreed-upon implementation block height to ensure network consistency and optimal performance.
 
 ## Test Cases
 
