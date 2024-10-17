@@ -21,13 +21,20 @@ This CIP proposes to set limits for the number of PayForBlobs (PFBs) messages an
 
 1. It's important to note that these limits are not strictly enforced. While they are defined by the `celestia-app` implementation, a validator could potentially modify the `PrepareProposal` logic, run a custom binary, and produce blocks that exceed the specified limits for PFB or non-PFBs transactions.
 
-1. Transaction size is limited to 2MiB by setting `MaxTxSize` to 2097152, which is 2MiB in bytes. From version v3 and above, in `CheckTx`, `PrepareProposal`, and `ProcessProposal`, each transaction's size is checked against the `appconsts.MaxTxSize` threshold. This ensures that transactions over the limit are rejected or excluded at all stages, from initial submission to execution.
+1. Transaction size is limited to 2MiB by setting the versioned parameter `MaxTxSize` to 2097152, which is 2MiB in bytes. From version v3 and above, in `CheckTx`, `PrepareProposal`, and `ProcessProposal`, each transaction's size is checked against the `appconsts.MaxTxSize` threshold. This ensures that transactions over the limit are rejected or excluded at all stages, from initial submission to execution.
 
 ## Rationale
 
 The rationale for this proposal is twofold:
 
-1. To prevent long block times on the network by limiting the number of PFBs and non-PFBs messages per block. This was initially not considered consensus-breaking, but it has a meaningful effect on users and should be formalized in a CIP.
+1. To prevent long block times on the network by limiting the number of PFBs and non-PFBs messages per block. This was initially not considered consensus-breaking, but it has a meaningful effect on users and should be formalized in a CIP. 
+    1. The limits for PFBs (Pay for Blob transactions) and non-PFBs per block were established using the following process:
+        1. Benchmarks were conducted in [PR 3904 on celestia-app](https://github.com/celestiaorg/celestia-app/pull/3904) to measure ABCI method processing times for different transaction types.
+        1. A target processing time of ~0.25 seconds was set to prevent long block times.
+        1. Based on these benchmarks, run on the recommended validator configuration (4 CPU, 16GB RAM), a soft limiter was implemented in the prepare proposal stage.
+        1. This limiter sets specific caps on the number of PFB and non-PFB messages allowed in a default block to meet the processing time target.
+        1. While default blocks adhere to these limits, blocks exceeding them can still be included if they reach consensus, ensuring flexibility.
+    1. This approach balances network efficiency with block processing speed, directly informing the PFB and non-PFB limits now in place.
 
 1. To set the transaction size limit to 2MiB, even with 8MiB blocks, to prevent issues with gossiping large transactions. Gossiping an 8MiB transaction without chunking could be detrimental to the network. This is a consensus-breaking change.
 
