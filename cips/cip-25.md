@@ -20,7 +20,8 @@ This Meta CIP lists the CIPs included in the Ginger network upgrade.
 - [CIP-21](./cip-21.md): Introduce blob type with verified signer
 - [CIP-24](./cip-24.md): Versioned Gas Scheduler Variables
 - [CIP-26](./cip-26.md): Versioned timeouts
-- CIP-TBD-2: limiting compute per block
+- CIP-TBD-1: Block limits for number of PFBs and non-PFBs
+- CIP-TBD-2: Transaction size limit
 
 All of the above CIPs are state breaking, and thus require a breaking network upgrade. The activation of this network upgrade will be different from previous network upgrades, as described in [CIP-10](./cip-10.md).
 
