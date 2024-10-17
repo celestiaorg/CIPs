@@ -1,4 +1,4 @@
-| cip | TBD(27) |
+| cip | 27 |
 | - | - |
 | title | Block limits for number of PFBs and non-PFBs |
 | description | Set limits for number of PFBs and non-PFBs per block |
