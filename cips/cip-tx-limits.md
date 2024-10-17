@@ -21,7 +21,7 @@ This CIP proposes to set limits for the number of PayForBlobs (PFBs) messages an
 
 1. It's important to note that these limits are not strictly enforced. While they are defined by the `celestia-app` implementation, a validator could potentially modify the `PrepareProposal` logic, run a custom binary, and produce blocks that exceed the specified limits for PFB or non-PFBs transactions.
 
-1. The size of a transaction is limited to 2MiB by setting `MaxTxSize` to 2097152, which is 2MiB in bytes. From version v3 and above, in `CheckTx`, `PrepareProposal`, and `ProcessProposal`, each transaction's size is checked against the `appconsts.MaxTxSize` threshold. This ensures that transactions over the limit are rejected or excluded at all stages, from initial submission to execution.
+1. Transaction size is limited to 2MiB by setting `MaxTxSize` to 2097152, which is 2MiB in bytes. From version v3 and above, in `CheckTx`, `PrepareProposal`, and `ProcessProposal`, each transaction's size is checked against the `appconsts.MaxTxSize` threshold. This ensures that transactions over the limit are rejected or excluded at all stages, from initial submission to execution.
 
 ## Rationale
 
@@ -33,7 +33,7 @@ The rationale for this proposal is twofold:
 
 ## Backwards Compatibility
 
-This proposal is meant to be included with v3 and the [Ginger Network Upgrade](./cip-25.md). It is not backwards compatible with v2.
+This proposal is meant to be included with v3 and the [Ginger Network Upgrade](./cip-25.md). It is backwards compatible with v2.
 
 ## Security Considerations
 
