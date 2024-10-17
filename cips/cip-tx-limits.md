@@ -15,9 +15,9 @@ This CIP proposes to set limits for the number of PayForBlobs (PFBs) messages an
 
 ## Specification
 
-1. The number of PFBs per block is limited to 600 by setting `MaxPFBMessages` to 600. `MaxPFBMessages` is the maximum number of PFB messages a block can contain.
+1. The number of PFBs per block is limited to 600 by setting `MaxPFBMessages` to 600.
 
-1. The number of non-PFBs messages per block is limited to 200 by setting `MaxNonPFBMessages` to 200. `MaxNonPFBMessages` is the maximum number of SDK messages, aside from PFBs, that a block can contain.
+1. The number of non-PFBs messages per block is limited to 200 by setting `MaxNonPFBMessages` to 200.
 
 1. It's important to note that these limits are not strictly enforced. While they are defined by the `celestia-app` implementation, a validator could potentially modify the `PrepareProposal` logic, run a custom binary, and produce blocks that exceed the specified limits for PFB or non-PFBs transactions.
 
