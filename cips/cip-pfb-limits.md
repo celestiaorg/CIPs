@@ -15,20 +15,21 @@ This CIP proposes to set limits for the number of PayForBlobs (PFBs) messages an
 
 ## Specification
 
-1. Set `MaxPFBMessages` to 600, limiting the number of PFBs per block to 600.
-2. Set `MaxNonPFBMessages` to 200, limiting the number of non-PFBs messages per block to 200.
-3. These limits are implemented as soft limits in the `PrepareProposal` stage of the `celestia-app`.
-4. Validators can potentially modify the `PrepareProposal` logic and produce blocks exceeding these limits.
+1. The number of PFBs per block is limited to 600 by setting `MaxPFBMessages` to 600.
+1. The number of non-PFBs messages per block is limited to 200 by setting `MaxNonPFBMessages` to 200.
+1. It's important to note that these limits are not strictly enforced. While they are defined by the `celestia-app` implementation, a validator could potentially modify the `PrepareProposal` logic, run a custom binary, and produce blocks that exceed the specified limits for PFB or non-PFBs transactions.
 
 ## Rationale
 
-1. To prevent long block times by limiting PFBs and non-PFBs messages per block.
-2. Limits were established based on benchmarks in [PR 3904](https://github.com/celestiaorg/celestia-app/pull/3904):
-   - Target processing time: ~0.25 seconds
-   - Benchmarks run on recommended validator configuration (4 CPU, 16GB RAM)
-   - Soft limiter implemented in prepare proposal stage
-3. This approach balances network efficiency with block processing speed.
-4. While initially not considered consensus-breaking, it has a meaningful effect on users and should be formalized.
+The rationale for this proposal is to prevent long block times on the network by limiting the number of PFBs and non-PFBs messages per block. This was initially not considered consensus-breaking, but it has a meaningful effect on users and should be formalized in a CIP.
+
+1. The limits for PFBs (Pay for Blob transactions) and non-PFBs per block were established using the following process:
+    1. Benchmarks were conducted in [PR 3904 on celestia-app](https://github.com/celestiaorg/celestia-app/pull/3904) to measure ABCI method processing times for different transaction types.
+    1. A target processing time of ~0.25 seconds was set to prevent long block times.
+    1. Based on these benchmarks, run on the recommended validator configuration (4 CPU, 16GB RAM), a soft limiter was implemented in the prepare proposal stage.
+    1. This limiter sets specific caps on the number of PFB and non-PFB messages allowed in a default block to meet the processing time target.
+    1. While default blocks adhere to these limits, blocks exceeding them can still be included if they reach consensus, ensuring flexibility.
+1. This approach balances network efficiency with block processing speed, directly informing the PFB and non-PFB limits now in place.
 
 ## Backwards Compatibility
 
@@ -36,7 +37,7 @@ This proposal is meant to be included with v3 and the [Ginger Network Upgrade](.
 
 ## Security Considerations
 
-This proposal does not introduce new security risks but impacts network behavior and user experience.
+This proposal does not introduce any new security risks. However, it does impact network behavior and user experience, which should be carefully considered during implementation.
 
 ## Copyright
 
