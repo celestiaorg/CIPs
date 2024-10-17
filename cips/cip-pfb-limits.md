@@ -11,7 +11,7 @@
 
 ## Abstract
 
-This CIP proposes to set limits for the number of PayForBlobs (PFBs) messages and non-PFBs messages per block. The proposal is to set the limits to 600 PFBs messages and 200 non-PFBs messages per block. Setting PFB and non-PFBs limits is not consensus-breaking.
+This CIP proposes to set limits for the number of PayForBlobs (PFBs) messages and non-PFBs messages per block. The proposal is to set the limits to 600 PFBs messages and 200 non-PFB messages per block. Setting PFB and non-PFBs limits is not consensus-breaking.
 
 ## Specification
 
@@ -21,12 +21,12 @@ This CIP proposes to set limits for the number of PayForBlobs (PFBs) messages an
 
 ## Rationale
 
-The rationale for this proposal is to prevent long block times on the network by limiting the number of PFBs and non-PFBs messages per block. This was initially not considered consensus-breaking, but it has a meaningful effect on users and should be formalized in a CIP.
+The rationale for this proposal is to prevent long block times on the network by limiting the number of PFBs and non-PFB messages per block. This is not consensus-breaking but it has a meaningful effect on users and should be formalized in a CIP.
 
 1. The limits for PFBs (Pay for Blob transactions) and non-PFBs per block were established using the following process:
     1. Benchmarks were conducted in [PR 3904 on celestia-app](https://github.com/celestiaorg/celestia-app/pull/3904) to measure ABCI method processing times for different transaction types.
     1. A target processing time of ~0.25 seconds was set to prevent long block times.
-    1. Based on these benchmarks, run on the recommended validator configuration (4 CPU, 16GB RAM), a soft limiter was implemented in the prepare proposal stage.
+    1. Based on these benchmarks run on the recommended validator configuration (4 CPU, 16GB RAM), a soft limiter was implemented in the prepare proposal stage.
     1. This limiter sets specific caps on the number of PFB and non-PFB messages allowed in a default block to meet the processing time target.
     1. While default blocks adhere to these limits, blocks exceeding them can still be included if they reach consensus, ensuring flexibility.
 1. This approach balances network efficiency with block processing speed, directly informing the PFB and non-PFB limits now in place.
