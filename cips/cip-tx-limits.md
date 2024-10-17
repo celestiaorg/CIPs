@@ -2,7 +2,7 @@
 | - | - |
 | title | Transaction size limit |
 | description | Set limit for transaction size |
-| author | Josh Stein ([@jcstein](https://github.com/jcstein)), Nina Barbakadze ([@ninabarbakadze](https://github.com/ninabarbakadze)) |
+| author | Josh Stein ([@jcstein](https://github.com/jcstein)), Nina Barbakadze ([@ninabarbakadze](https://github.com/ninabarbakadze)), Rootul Patel ([@rootulp](https://github.com/rootulp)) |
 | discussions-to | <https://forum.celestia.org/t/cip-limit-number-of-pfbs-and-non-pfbs-per-block-increase-transaction-size-limit/1843> |
 | status | Draft |
 | type | Standards Track |
@@ -11,19 +11,15 @@
 
 ## Abstract
 
-This CIP proposes to set the limit for transaction size to 2MiB. This is a consensus-breaking change.
+This CIP proposes to set the limit for transaction size. The proposal is to set the transaction size limit to 2MiB. Setting the transaction size limit is consensus-breaking.
 
 ## Specification
 
-1. Set the versioned parameter `MaxTxSize` to 2097152 (2MiB in bytes).
-2. From version v3 and above, enforce this limit in `CheckTx`, `PrepareProposal`, and `ProcessProposal`.
-3. Transactions exceeding this limit will be rejected or excluded at all stages, from initial submission to execution.
+1. Transaction size is limited to 2MiB by setting the versioned parameter `MaxTxSize` to 2097152, which is 2MiB in bytes. From version v3 and above, in `CheckTx`, `PrepareProposal`, and `ProcessProposal`, each transaction's size is checked against the `appconsts.MaxTxSize` threshold. This ensures that transactions over the limit are rejected or excluded at all stages, from initial submission to execution.
 
 ## Rationale
 
-1. To prevent issues with gossiping large transactions, even with 8MiB blocks.
-2. Gossiping an 8MiB transaction without chunking could be detrimental to the network.
-3. This change ensures network stability and efficient transaction processing.
+The rationale for this proposal is to set the transaction size limit to 2MiB, even with 8MiB blocks, to prevent issues with gossiping large transactions. Gossiping an 8MiB transaction without chunking could be detrimental to the network. This is a consensus-breaking change.
 
 ## Backwards Compatibility
 
@@ -31,7 +27,7 @@ This proposal is meant to be included with v3 and the [Ginger Network Upgrade](.
 
 ## Security Considerations
 
-While this proposal doesn't introduce new security risks, it significantly impacts network behavior and transaction processing, which must be carefully considered during implementation.
+This proposal does not introduce any new security risks. However, it does impact network behavior and user experience, which should be carefully considered during implementation.
 
 ## Copyright
 
