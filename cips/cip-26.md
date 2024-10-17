@@ -1,7 +1,7 @@
 | cip | 26 |
 | - | - |
-| title | Reduce block time to six seconds |
-| description | Proposal to reduce block time on celestia-app to 6 seconds, from 12. |
+| title | Versioned timeouts |
+| description | Timeouts are now controlled by the application version. |
 | author | Josh Stein ([@jcstein](https://github.com/jcstein)), Rootul Patel ([@rootulp](https://github.com/rootulp))| Sanaz Taheri ([@staheri14](https://github.com/staheri14) )
 | discussions-to | <https://forum.celestia.org/t/cip-decrease-block-time-to-6-seconds/1836> |
 | status | Draft |
