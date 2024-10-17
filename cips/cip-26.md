@@ -26,7 +26,7 @@ The motivation for this CIP stems from a discussion in Core Devs Call 17, where 
 ## Specification
 
 1. The block time in celestia-app SHOULD be reduced from 12 seconds to 6 seconds. Concretely, this implies decreasing `TimeoutCommit` to 4.2 seconds and `TimeoutPropose` to 3.5 seconds.
-    1. The `TimeoutCommit` and `TimeoutPropose` parameters were moved from local config parameters into versioned parameters controlled by the state machine to ensure consistency and correctness across different protocol versions.
+    1. The `TimeoutCommit` and `TimeoutPropose` parameters were moved from local config parameters into versioned parameters controlled by the state machine. The timeouts will be managed by the application and communicated with Celestia-core through the following ABCI interfaces: `InitChain`, `EndBlock`, and `Info`, now extended with `TimeoutsInfo`, which encapsulates `TimeoutPropose` and `TimeoutCommit`. The timeouts obtained through these interfaces are utilized by the Celestia-core side as needed.
     1. Celestia consensus nodes SHOULD update their software to accommodate this change prior to the agreed-upon block height.
     1. Client applications interacting with the Celestia network SHOULD be updated to account for the faster block time, particularly in areas related to transaction confirmation and block finality.
 
