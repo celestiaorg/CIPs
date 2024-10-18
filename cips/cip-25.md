@@ -7,7 +7,7 @@
 | status | Draft |
 | type | Meta |
 | created | 2024-10-01 |
-| requires | CIP-21, CIP-24, CIP-26, CIP-27, CIP-TBD-2 |
+| requires | CIP-21, CIP-24, CIP-26, CIP-27, CIP-28 |
 
 ## Abstract
 
@@ -21,7 +21,7 @@ This Meta CIP lists the CIPs included in the Ginger network upgrade.
 - [CIP-24](./cip-24.md): Versioned Gas Scheduler Variables
 - [CIP-26](./cip-26.md): Versioned timeouts
 - [CIP-27](./cip-27.md): Block limits for number of PFBs and non-PFBs
-- CIP-TBD-2: Transaction size limit
+- [CIP-28](./cip-27.md): Transaction size limit
 
 All of the above CIPs are state breaking, and thus require a breaking network upgrade. The activation of this network upgrade will be different from previous network upgrades, as described in [CIP-10](./cip-10.md).
 
