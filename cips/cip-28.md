@@ -1,4 +1,4 @@
-| cip | TBD(28) |
+| cip | 28 |
 | - | - |
 | title | Transaction size limit |
 | description | Set limit for transaction size |
