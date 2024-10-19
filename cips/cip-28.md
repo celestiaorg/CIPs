@@ -19,7 +19,15 @@ This CIP proposes to set the limit for transaction size. The proposal is to set 
 
 ## Rationale
 
-The rationale for this proposal is to set the transaction size limit to 2MiB, even with 8MiB blocks, to prevent issues with gossiping large transactions. Gossiping an 8MiB transaction without chunking could be detrimental to the network. This is a consensus-breaking change.
+This proposal aims to set a transaction size limit of 2 MiB, even with blocks of 8 MiB or larger, primarily as a preventative measure. Gossiping transactions approaching 8 MiB without chunking could potentially be detrimental to network performance and stability.
+
+The 2 MiB limit serves to:
+
+1. Maintain network stability
+2. Provide clear expectations for users and developers
+3. Safeguard against potential issues as network usage grows
+
+This approach prioritizes network-wide consistency and stability while allowing for future scalability considerations.
 
 ## Backwards Compatibility
 
@@ -27,7 +35,7 @@ This proposal is meant to be included with v3 and the [Ginger Network Upgrade](.
 
 ## Security Considerations
 
-This proposal does not introduce any new security risks. However, it does impact network behavior and user experience, which should be carefully considered during implementation.
+Any changes to the block validity rules (via `PrepareProposal` and `ProcessProposal`) introduce implementation risks that could potentially lead to a chain halt.
 
 ## Copyright
 
