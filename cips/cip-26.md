@@ -4,7 +4,8 @@
 | description | Timeouts are now controlled by the application version. |
 | author | Josh Stein ([@jcstein](https://github.com/jcstein)), Rootul Patel ([@rootulp](https://github.com/rootulp)), Sanaz Taheri ([@staheri14](https://github.com/staheri14)) |
 | discussions-to | <https://forum.celestia.org/t/cip-decrease-block-time-to-6-seconds/1836> |
-| status | Review |
+| status | Last Call |
+| last-call-deadline | 2024-10-22 |
 | type | Standards Track |
 | category | Core |
 | created | 2024-10-09 |
