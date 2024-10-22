@@ -4,8 +4,7 @@
 | description | Set limits for number of PFBs and non-PFBs per block |
 | author | Josh Stein ([@jcstein](https://github.com/jcstein)), Nina Barbakadze ([@ninabarbakadze](https://github.com/ninabarbakadze)), rach-id ([@rach-id](https://github.com/rach-id)), Rootul Patel ([@rootulp](https://github.com/rootulp)) |
 | discussions-to | <https://forum.celestia.org/t/cip-limit-number-of-pfbs-and-non-pfbs-per-block-increase-transaction-size-limit/1843> |
-| status | Last Call |
-| last-call-deadline | 2024-10-22 |
+| status | Final |
 | type | Standards Track |
 | category | Core |
 | created | 2024-10-16 |
