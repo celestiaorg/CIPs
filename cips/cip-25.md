@@ -4,7 +4,8 @@
 | description | Reference CIPs included in the Ginger Network Upgrade |
 | author | Josh Stein [@jcstein](https://github.com/jcstein), Nina Barbakadze ([@ninabarbakadze](https://github.com/ninabarbakadze)) |
 | discussions-to | <https://forum.celestia.org/t/cip-v3-peppermint-network-upgrade/1826> |
-| status | Review |
+| status | Last Call |
+| last-call-deadline | 2024-10-22 |
 | type | Meta |
 | created | 2024-10-01 |
 | requires | CIP-21, CIP-24, CIP-26, CIP-27, CIP-28 |
