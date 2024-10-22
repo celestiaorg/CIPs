@@ -12,7 +12,7 @@
 
 ## Abstract
 
-This CIP proposes making timeouts application-version dependent. Starting from v3, timeouts will be controlled by the application version, rendering manual timeout configurations ineffective unless the implementation changes in the future.
+This CIP proposes making timeouts application-version dependent. Starting from v3, timeouts will be controlled by the application version.
 
 This change enables automated block time adjustments, eliminating the need for validators to modify configurations manually, as the adjustments (if any) will occur automatically with each celestia-app version upgrade.
 
