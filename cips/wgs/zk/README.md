@@ -16,7 +16,12 @@
 | 10 |  June 19, 2024  |                                                      Agenda Link                                                       | Notes Link | [Recording Link](https://drive.google.com/file/d/1qE4Cs94PHN2d2XgocTS3eZvK0DiCtPfh/view?usp=sharing) |
 | 11 |  July 3, 2024  |                                                      Agenda Link                                                       | Notes Link | [Recording Link](https://drive.google.com/file/d/1G3-neciXRTAUPj9whRVw9sCwokdzx8rk/view?usp=drive_link) |
 | 12 |  July 17, 2024  |                                                      Agenda Link                                                       | Notes Link | [Recording Link](https://drive.google.com/file/d/1NUXTr8K_21Kthtf4uGDdjDf6Wlv6uJC9/view?usp=drive_link) |
-
+| 13 |  July 31, 2024  |                                                      Agenda Link                                                       | Notes Link | [Recording Link](https://drive.google.com/open?id=1Y3QXsvfl9O0tEY_tzixL959rvjVYm0Vx&usp=drive_link) |  
+| 14 |  August 21, 2024  |                                                      Agenda Link                                                       | Notes Link | [Recording Link](https://drive.google.com/open?id=1cIMiLfq4Zojn32Vee4nxE7KjaftbuYvo&usp=drive_link) |
+| 15 |  September 4, 2024  |                                                      Agenda Link                                                       | Notes Link | [Recording Link](https://drive.google.com/open?id=1opVbhek8LeycybMhmcbuxSSJ_lbSw8Dv&usp=drive_link) |
+| 16 |  October  2, 2024  |                                                      Agenda Link                                                       | Notes Link | [Recording Link](https://drive.google.com/open?id=1CjRJET3v7fQw1m5MHpiMB3eDC8A2R8d7&usp=drive_link) | 
+| 17 |  October  16, 2024  |                                                      Agenda Link                                                       | Notes Link | [Recording Link](https://drive.google.com/open?id=1UYrzAPNijaZHFI8E1K_gVbDEQxis3Lj5&usp=drive_link) | 
+| 18 |  October  30, 2024  |                                                      Agenda Link                                                       | Notes Link | [Recording Link](https://drive.google.com/open?id=1hWErvk9hvUhS_bEJoJwfH1mwlCfJAM_l&usp=drive_link) | 
 ## Resources
 
 - [Overview](overview.md)
