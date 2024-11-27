@@ -21,11 +21,12 @@ Read [CIP-1](./cip-1.md) for information on the CIP process.
 | 13 |   July 3, 2024    | [Agenda](https://github.com/celestiaorg/CIPs/issues/155) |    [Tweet Thread](https://x.com/JoshCStein/status/1808531780506403102)    |    [Recording](https://youtu.be/WzPi49Ge2rA)     |
 | 14 |   July 24, 2024    | [Agenda](https://github.com/celestiaorg/CIPs/issues/163) |    [Tweet Thread](https://x.com/JoshCStein/status/1816142425011662993), [Notes](./notes/cdc-14.md)    |    [Recording](https://www.youtube.com/watch?v=bwlpAy_KE9U)     |
 | 15 |   August 7, 2024    | [Agenda](https://github.com/celestiaorg/CIPs/issues/185) |    [Notes](./notes/cdc-15.md)    |    [Recording](https://www.youtube.com/watch?v=7f1Jtggld34)    |
-| 16 |   September 4, 2024    | [Agenda](https://github.com/celestiaorg/CIPs/issues/194) |    TBD    |    [Recording](https://www.youtube.com/watch?v=zuJ6xoRvz-U)    |
+| 16 |   September 4, 2024    | [Agenda](https://github.com/celestiaorg/CIPs/issues/194) |    N/A    |    [Recording](https://www.youtube.com/watch?v=zuJ6xoRvz-U)    |
 | 17 |   October 2, 2024    | [Agenda](https://github.com/celestiaorg/CIPs/issues/201) |    [Tweet Thread](https://x.com/JoshCStein/status/1842229129199935757)    |    [Recording](https://youtu.be/J2Cep6gBN-o)    |
-| 18 |   October 16, 2024    | [Agenda](https://github.com/celestiaorg/CIPs/issues/214) |    TBD    |    [Recording](https://youtu.be/1aaPYxRVAtk)    |
-| 19 |   November 6, 2024    | [Agenda](https://github.com/celestiaorg/CIPs/issues/221) |    TBD    |    [Recording](https://youtu.be/txmttm6t4YI)    |
-| 20 |   November 28, 2024    | [Agenda](https://github.com/celestiaorg/CIPs/issues/235) |    TBD    |    [Set reminder](https://youtu.be/vSYjnwSfE-U)    |
+| 18 |   October 16, 2024    | [Agenda](https://github.com/celestiaorg/CIPs/issues/214) |    N/A    |    [Recording](https://youtu.be/1aaPYxRVAtk)    |
+| 19 |   November 6, 2024    | [Agenda](https://github.com/celestiaorg/CIPs/issues/221) |    N/A    |    [Recording](https://youtu.be/txmttm6t4YI)    |
+| 20 |   November 28, 2024    | [Agenda](https://github.com/celestiaorg/CIPs/issues/235) |    [Tweet Thread](https://x.com/JoshCStein/status/1861837277896331454)    |    [Recording](https://youtu.be/vSYjnwSfE-U)    |
+| 21 |   December 11, 2024    | [Agenda](https://github.com/celestiaorg/CIPs/issues/239) |   TBD    |    [Set reminder](https://youtu.be/B-z01YJeDfw)    |
 
 ## Celestia Improvement Proposals (CIPs)
 
