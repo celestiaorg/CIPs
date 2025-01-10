@@ -26,7 +26,8 @@ Read [CIP-1](./cip-1.md) for information on the CIP process.
 | 18 |   October 16, 2024    | [Agenda](https://github.com/celestiaorg/CIPs/issues/214) |    N/A    |    [Recording](https://youtu.be/1aaPYxRVAtk)    |
 | 19 |   November 6, 2024    | [Agenda](https://github.com/celestiaorg/CIPs/issues/221) |    N/A    |    [Recording](https://youtu.be/txmttm6t4YI)    |
 | 20 |   November 28, 2024    | [Agenda](https://github.com/celestiaorg/CIPs/issues/235) |    [Tweet Thread](https://x.com/JoshCStein/status/1861837277896331454)    |    [Recording](https://youtu.be/vSYjnwSfE-U)    |
-| 21 |   December 11, 2024    | [Agenda](https://github.com/celestiaorg/CIPs/issues/239) |   TBD    |    [Set reminder](https://youtu.be/B-z01YJeDfw)    |
+| 21 |   December 11, 2024    | [Agenda](https://github.com/celestiaorg/CIPs/issues/239) |   TBD    |    [Recording](https://youtu.be/B-z01YJeDfw)    |
+| 22 | January 15, 2024 | [Agenda](https://github.com/celestiaorg/CIPs/issues/242) | TBD | [Set reminder](https://youtu.be/Ywos3C_W5jY) |
 
 ## Celestia Improvement Proposals (CIPs)
 
