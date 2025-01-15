@@ -38,28 +38,50 @@ The following API is proposed for the standardised gas estimation service.
 
 ```proto
 service GasEstimator {
-    rpc EstimateGasUsage(EstimateGasUsageRequest) returns (EstimateGasUsageResponse) {}
-    rpc EstimateGasPrice(EstimateGasPriceRequest) returns (EstimateGasPriceResponse) {}
+    rpc EstimateFee(EstimateFeeRequest) returns (EstimateFeeResponse) {}
+    rpc EstimateFeeAndGas(EstimateFeeAndGasRequest) returns (EstimateFeeAndGasResponse) {}
 }
 
-message EstimateGasUsageRequest {
-    cosmos.tx.Tx tx = 1;
+enum TxPriority {
+  // Default value must always be 0 in proto3
+  UNKNOWN = 0;
+  LOW = 1;
+  MEDIUM = 2;
+  HIGH = 3;
 }
 
-message EstimateGasUsageResponse {
-    uint64 estimated_gas_used = 1;
+message EstimateFeeRequest {
+    TxPriority tx_priority = 1;
 }
 
-message EstimateGasPriceRequest {}
-
-message EstimateGasPriceResponse {
+message EstimateFeeResponse {
     double estimated_gas_price = 1;
 }
+
+message EstimateFeeAndGasRequest {
+    TxPriority tx_priority = 1;
+    cosmos.tx.Tx tx = 2;
+}
+
+message EstimateFeeAndGasResponse {
+    double estimated_gas_price = 1;
+    uint64 estimated_gas_used = 2;
+}
+
+
 ```
 
 Given it's wide usage both in the Cosmos SDK and more broadly, the service would be implemented using gRPC. RESTful endpoints may optionally be supported in the future using something like `grpc-gateway`.
 
 Given the expected reliance on clients, all future changes must be done in a strictly non-breaking way.
+
+The notion of urgency, represented by the `TxPriority` field is both simple and subjective. Loosely it means:
+
+- High: whithin 1 block
+- Medium: within a few blocks
+- Low: withing the next hour
+
+In the future, if desired, this may become more expressive. For now it seems that these three tiers is sufficient and most users will not deviate from the default.
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in RFC 2119 and RFC 8174.
 
@@ -67,19 +89,11 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 Most of the rationale behind the necessity of a standard interface and it's definition is captured in the motivation section.
 
-The notion of urgency, or within how many blocks does the user want their transaction to be submitted may be a useful parameter in the future but is currently left out of the original interface.
+The effectiveness of a "standardised" interface depends on the willingness of current and future clients to adopt it as well as the willingness of teams to provide those services. To set a sufficient precendent, both the Node API within `celestia-node` and the consensus node within `celestia-app` will implement client and server implementations respectively, creating an interface between the existing line of communication. That way by default, light nodes will use that API with the trusted provider they are already using for transaction submission.
 
 ## Backwards Compatibility
 
 As this is a new interface, no consideration for backwards compatibility is necessary
-
-## Reference Implementation
-
-The effectiveness of a "standardised" interface depends on the willingness of current and future clients to adopt it as well as the willingness of teams to provide those services. To set a sufficient precendent, both the Node API within `celestia-node` and the consensus node within `celestia-app` will implement client and server implementations respectively, creating an interface between the existing line of communication. That way by default, light nodes will use that API with the trusted provider they are already using for transaction submission.
-
-The consensus node will use the SimulateTx method to estimate the gas used and use the `min_gas_price` parameter within state as the `estimated_gas_price`
-
-The Node API will optionally allow a user to pass a url in the constructor. If this is not provided, the default will be to use the gRPC server of the consensus node. Users will still be able to manually set the gas used and gas price which will override any automated estimation.
 
 ## Security Considerations
 
