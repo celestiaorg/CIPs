@@ -43,8 +43,7 @@ service GasEstimator {
 }
 
 enum TxPriority {
-  // Default value must always be 0 in proto3
-  UNKNOWN = 0;
+  NONE = 0;
   LOW = 1;
   MEDIUM = 2;
   HIGH = 3;
