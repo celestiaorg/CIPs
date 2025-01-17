@@ -38,8 +38,8 @@ The following API is proposed for the standardised gas estimation service.
 
 ```proto
 service GasEstimator {
-    rpc EstimateFee(EstimateFeeRequest) returns (EstimateFeeResponse) {}
-    rpc EstimateFeeAndGas(EstimateFeeAndGasRequest) returns (EstimateFeeAndGasResponse) {}
+    rpc EstimateGasPrice(EstimateGasPriceRequest) returns (EstimateGasPriceResponse) {}
+    rpc EstimateGasPriceAndUsage(EstimateGasPriceAndUsageRequest) returns (EstimateGasPriceAndUsageResponse) {}
 }
 
 enum TxPriority {
@@ -49,20 +49,20 @@ enum TxPriority {
   HIGH = 3;
 }
 
-message EstimateFeeRequest {
+message EstimateGasPriceRequest {
     TxPriority tx_priority = 1;
 }
 
-message EstimateFeeResponse {
+message EstimateGasPriceResponse {
     double estimated_gas_price = 1;
 }
 
-message EstimateFeeAndGasRequest {
+message EstimateGasPriceAndUsageRequest {
     TxPriority tx_priority = 1;
     cosmos.tx.Tx tx = 2;
 }
 
-message EstimateFeeAndGasResponse {
+message EstimateGasPriceAndUsageResponse {
     double estimated_gas_price = 1;
     uint64 estimated_gas_used = 2;
 }
