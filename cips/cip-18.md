@@ -59,7 +59,7 @@ message EstimateGasPriceResponse {
 
 message EstimateGasPriceAndUsageRequest {
     TxPriority tx_priority = 1;
-    cosmos.tx.Tx tx = 2;
+    bytes tx_bytes = 2;
 }
 
 message EstimateGasPriceAndUsageResponse {
