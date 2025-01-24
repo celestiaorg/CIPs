@@ -8,4 +8,3 @@
 | 2 | 22 January 2024 | Agenda is in Meeting Notes |    [Meeting Notes](https://github.com/celestiaorg/data-availability-wg/blob/main/meeting-notes/2024-01-22-meeting-2.md)    |    N/A    |
 | 3 | 20 January 2025 | Agenda is in Meeting Notes |    [Meeting Notes](https://github.com/celestiaorg/data-availability-wg/blob/main/meeting-notes/2025-01-20.md)    |    N/A    |
 
-
