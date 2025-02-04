@@ -3,7 +3,7 @@
 | title          | Decrease Inflation and Adjust Disinflation                                                                                                                  |
 | description    | This proposal lowers the Celestia inflation and disinflation by 33% immediately to moderate issuance while maintaining competitive yield.                   |
 | author         | Dean Eigenmann ([@decanus](https://github.com/decanus)), Marko Baricevic ([@tac0turtle](https://github.com/tac0turtle))                                     |
-| discussions-to | (TBD) |
+| discussions-to | [Inflation Reduction Discussion Forum](https://forum.celestia.org/t/cip-reduce-inflation/1896) |
 | status         | Draft                                                                                                                                                       |
 | type           | Standards Track                                                                                                                                             |
 | category       | Core                                                                                                                                                        |
