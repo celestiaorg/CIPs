@@ -49,7 +49,7 @@ Implementers MUST ensure:
 
 ## **Parameters**
 
-Below is the illustrative table showing the original versus the accelerated schedule. The “New Adjust Inflation” column is an example of how inflation might look if we reduce it by 33% starting in the next upgrade. Note that for simplicity, the table assumes the inflation drop is applied at year 1.5 but if this proposal gets accepted, it would be immediately applied with the next upgrade.
+Below is the illustrative table showing the original versus the accelerated schedule. The “New Adjusted Inflation” column is an example of how inflation might look if we reduce it by 33% starting in the next upgrade. Note that for simplicity, the table assumes the inflation drop is applied at year 1.5 but if this proposal gets accepted, it would be immediately applied with the next upgrade.
 
 | Year    | Original Inflation | New Adjusted Inflation | Notes                                                                                                                        |
 |:--------|:-------------------|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------|
