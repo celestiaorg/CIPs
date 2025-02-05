@@ -25,7 +25,7 @@ Reasons for this CIP are:
 
 1. Current issuance is too high, especially in dollar-terms. We want to avoid accelerated dilution of non-stakers.
 2. To empower applications to compete effectively with staking yields. While it is important to maintain a high bond ratio to secure the network, we also envision a vibrant ecosystem of diverse applications emerging on Celestia-secured rollups. Using TIA as collateral onchain competes with staking yield and reducing inflation makes onchain use more attractive.
-3. By reducing inflation we reduce the amount of forced selling  due to taxes and other offchain liabilities. High Inflation can contribute to centralization of a network by diluting non-stakers. If a set of users are staking with high inflation their stake and inadvertently their network power increases while a non-staker would see their network power decrease. While this is a property of PoS systems, higher inflation accelerates it.
+3. By reducing inflation we reduce the amount of forced selling  due to taxes and other offchain liabilities. High inflation can contribute to centralization of a network by diluting non-stakers. If a set of users are staking with high inflation their stake and inadvertently their network power increases while a non-staker would see their network power decrease. While this is a property of PoS systems, higher inflation accelerates it.
 
 At a 33% reduction the inflation rate is 4.82% in the first year of the reduction, and the APR is roughly 7.39% if the bonding ratio stays the same. This is currently around 2.2 times the APR of Ethereum staking, but Celestia is a smaller and younger network so a higher security budget is justified.
 
