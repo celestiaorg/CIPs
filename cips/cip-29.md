@@ -188,7 +188,7 @@ Inflation \= CurrentInflation \+ (1 \- BondedRatio / GoalBonded) \* (InflationRa
 
 Similarly, the Solana community is currently considering a similar approach but with vastly faster corrections than the Cosmos hub (see [SIMD-0228](https://github.com/solana-foundation/solana-improvement-documents/pull/228) for details).
 
-Generally, the dynamic approach is more complex and less predictable. Celestia's community has a strong commitment to base layer simplicity and minimalism. A fixed inflation schedule is simple and less complex, probably less controversial,  and the right answer to this point in time
+Generally, the dynamic approach is more complex and less predictable. Celestia's community has a strong commitment to base layer simplicity and minimalism. A fixed inflation schedule is simple and less complex, probably less controversial, and the right answer at this point in time
 
 ### **Alternative 2: Accelerate the Inflation faster (or slower)**
 
