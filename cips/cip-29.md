@@ -15,7 +15,7 @@ This CIP proposes to reduce both the Celestia inflation and disinflation by 33%.
 
 ## **Motivation**
 
-Celestia launched in October of 2023, and since its launch there has been a high demand for posting blobs to the network, while other solutions have not been able to scale in a decentralized manner. However, TIA’s bonding has been continuously high (peaking at around 72% and currently at about 65%) meaning that stakers are overly incentivized and the system is overpaying for security.
+Celestia launched in October of 2023, and since its launch there has been a high demand for posting blobs to the network, while other solutions have not been able to scale in a decentralized manner. However, TIA’s bonding has been continuously high (peaking at around 72% and currently at about 65%) meaning that stakers are overly incentivized.
 
 While we have observed a large shift towards a dynamic inflation schedule: Solana, Near, and Cosmos, we believe that simplicity is key. Staying with a fixed inflation schedule provides a simple solution onchain and we believe that when Celestia's fee market matures and a diverse ecosystem of yield opportunities on TIA emerge, a more complex solution could be better justified. Instead, keeping it simple is better aligned with Celestia's ethos (and still allows for future changes).
 
@@ -45,7 +45,7 @@ Implementers MUST ensure:
 
 * The chain upgrade process includes the new inflation parameters without disrupting block production.
 
-* The new schedule is included in the next voting proposal to reflect the updated inflation rates on-chain.
+* The new schedule is included in the next major version release to reflect the updated inflation rates on-chain in the next app version (v4).
 
 ## **Parameters**
 
@@ -155,11 +155,11 @@ func (m Minter) CalculateInflationRate(ctx sdk.Context, genesis time.Time) sdk.D
 	// For AppVersion > 3, adjust the inflation rate:
 	if ctx.ConsensusParams().Version.AppVersion > 3 {
 		// First, reduce the current inflation rate by 33%
-		inflationRate \= inflationRate.Mul(sdk.NewDecWithPrec(67, 2)) // 0.67 \= 67%
+		inflationRate = inflationRate.Mul(sdk.NewDecWithPrec(67, 2)) // 0.67 \= 67%
 
 		// Then, if we are in year two or later, apply a one-time disinflation of 6.7%
-		if years \>= 2 {
-			inflationRate \= inflationRate.Mul(sdk.OneDec().Sub(sdk.NewDecWithPrec(67, 3))) // 1 \- 0.067 \= 0.933
+		if years >= 2 {
+			inflationRate = inflationRate.Mul(sdk.OneDec().Sub(sdk.NewDecWithPrec(67, 3))) // 1 \- 0.067 \= 0.933
 		}
 	}
 
@@ -178,7 +178,7 @@ Alternatives that were considered.
 
 ### **Alternative 0: Do nothing**
 
-If we continue to do nothing, Celestia’s inflation schedule may not be competitive with other networks’ and TIA’s onchain usage may be limited.
+If we continue to do nothing, Celestia’s inflation schedule will end up competing with applications trying to offer alternative yield to stakers, therefore limiting TIA’s onchain usage.
 
 ### **Alternative 1: Dynamic Inflation based on bonded ratio**
 
@@ -196,4 +196,4 @@ Why not apply a disinflation rate of 10% only, or why not even a disinflation ra
 
 ![inflation change](./assets/cip-29/inflation_change.png)
 
-If we accelerate the schedule *slower*, the system continues overpaying for security and the change would not really move the needle as it would be too close to the current schedule. If we accelerate even faster, we risk hitting the target inflation of 1.5% too fast or generally risk lowering the inflation too much too early. Celestia mainnet is just about a year old and while there is already a thriving ecosystem, we want to err on the side of caution. About \~5% inflation seems ideal for a proof-of-stake system which is still early and whose tokenomics will play out in the future.
+If we accelerate the schedule *slower*, the system continues over incentivising stakers and the change would not really move the needle as it would be too close to the current schedule. If we accelerate even faster, we risk hitting the target inflation of 1.5% too fast or generally risk lowering the inflation too much too early. Celestia mainnet is just about a year old and while there is already a thriving ecosystem, we want to err on the side of caution. A target inflation of <~5% seems ideal for a proof-of-stake system which is still early and whose tokenomics will play out in the future.
