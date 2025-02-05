@@ -152,8 +152,8 @@ func (m Minter) CalculateInflationRate(ctx sdk.Context, genesis time.Time) sdk.D
 		sdk.OneDec().Sub(DisinflationRateAsDec()).Power(uint64(years)),
 	)
 
-	// For AppVersion \> 3, adjust the inflation rate:
-	if ctx.ConsensusParams().Version.AppVersion \> 3 {
+	// For AppVersion > 3, adjust the inflation rate:
+	if ctx.ConsensusParams().Version.AppVersion > 3 {
 		// First, reduce the current inflation rate by 33%
 		inflationRate \= inflationRate.Mul(sdk.NewDecWithPrec(67, 2)) // 0.67 \= 67%
 
