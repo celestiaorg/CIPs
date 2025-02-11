@@ -100,8 +100,8 @@ A high-level pseudo-diff (illustrative) of the distribution module:
 
 ## Security Considerations
 
- • Users holding large amounts of unclaimed rewards could become more attractive targets for potential exploits if a vulnerability existed in the distribution module. However, this scenario already exists between automatic claim intervals or across multiple validators.
- • Removing auto-claim does not introduce new vectors for abuse; it merely defers the claim to a user-initiated transaction.
+- Users holding large amounts of unclaimed rewards could become more attractive targets for potential exploits if a vulnerability existed in the distribution module. However, this scenario already exists between automatic claim intervals or across multiple validators.
+- Removing auto-claim does not introduce new vectors for abuse; it merely defers the claim to a user-initiated transaction.
 
 ## Copyright
 
