@@ -26,7 +26,7 @@ Many delegators face tax or regulatory requirements forcing them to sell or othe
   
 - **Proposed Behavior**:
   - Remove or modify the distribution module’s “auto-claim” hook so that **no** rewards are automatically claimed on delegation changes.
-  - Delegators **only** claim their rewards by sending a `MsgWithdrawDelegatorReward` transaction (or the equivalent in the Celestia ecosystem).
+  - Delegators **only** claim their rewards by sending a `MsgWithdrawDelegatorReward` transaction.
   - Pending rewards accumulate in the distribution module until explicitly claimed.
 
 ### Detailed Design
