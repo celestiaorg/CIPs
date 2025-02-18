@@ -1,4 +1,4 @@
-| cip           | 29                                                                                         |
+| cip           | 30                                                                                         |
 |---------------|--------------------------------------------------------------------------------------------|
 | title         | Prevent Auto-Claiming of Staking Rewards                                                   |
 | description   | This CIP proposes removing the automatic claiming of staking rewards when modifying delegations. Instead, rewards are to be stored until manually claimed. |
