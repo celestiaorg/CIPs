@@ -1,13 +1,13 @@
-| cip            | 29                                                                                                                                                          |
-|----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| title          | Decrease Inflation and Adjust Disinflation                                                                                                                  |
-| description    | This proposal lowers the Celestia inflation and disinflation by 33% immediately to moderate issuance while maintaining competitive yield.                   |
-| author         | Dean Eigenmann ([@decanus](https://github.com/decanus)), Marko Baricevic ([@tac0turtle](https://github.com/tac0turtle))                                     |
-| discussions-to | [Inflation Reduction Discussion Forum](https://forum.celestia.org/t/cip-reduce-inflation/1896) |
-| status         | Draft                                                                                                                                                       |
-| type           | Standards Track                                                                                                                                             |
-| category       | Core                                                                                                                                                        |
-| created        | 2025-02-04                                                                                                                                                  |
+| cip            | 29                                                                                                                                        |
+|----------------|-------------------------------------------------------------------------------------------------------------------------------------------|
+| title          | Decrease Inflation and Adjust Disinflation                                                                                                |
+| description    | This proposal lowers the Celestia inflation and disinflation by 33% immediately to moderate issuance while maintaining competitive yield. |
+| author         | Dean Eigenmann ([@decanus](https://github.com/decanus)), Marko Baricevic ([@tac0turtle](https://github.com/tac0turtle))                   |
+| discussions-to | [Inflation Reduction Discussion Forum](https://forum.celestia.org/t/cip-reduce-inflation/1896)                                            |
+| status         | Draft                                                                                                                                     |
+| type           | Standards Track                                                                                                                           |
+| category       | Core                                                                                                                                      |
+| created        | 2025-02-04                                                                                                                                |
 
 ## **Abstract**
 
@@ -15,7 +15,7 @@ This CIP proposes to reduce both the Celestia inflation and disinflation by 33%.
 
 ## **Motivation**
 
-Celestia launched in October of 2023, and since its launch there has been a high demand for posting blobs to the network, while other solutions have not been able to scale in a decentralized manner. However, TIA’s bonding has been continuously high (peaking at around 72% and currently at about 65%) meaning that stakers are overly incentivized.
+Celestia launched in October of 2023, and since its launch there has been a high demand for posting blobs to the network, while other solutions have not been able to scale in a decentralized manner. However, TIA's bonding has been continuously high (peaking at around 72% and currently at about 65%) meaning that stakers are overly incentivized.
 
 While we have observed a large shift towards a dynamic inflation schedule: Solana, Near, and Cosmos, we believe that simplicity is key. Staying with a fixed inflation schedule provides a simple solution onchain and we believe that when Celestia's fee market matures and a diverse ecosystem of yield opportunities on TIA emerge, a more complex solution could be better justified. Instead, keeping it simple is better aligned with Celestia's ethos (and still allows for future changes).
 
@@ -24,7 +24,7 @@ The goal of this CIP is to reduce the inflation of Celestia immediately; both in
 Reasons for this CIP are:
 
 1. Current issuance is too high, especially in dollar-terms. We want to avoid accelerated dilution of non-stakers.
-2. To empower applications to compete effectively with staking yields. While it is important to maintain a high bond ratio to secure the network, we also envision a vibrant ecosystem of diverse applications emerging on Celestia-secured rollups. Using TIA as collateral onchain competes with staking yield and reducing inflation makes onchain use more attractive.
+2. To empower applications to compete effectively with staking yields. While it is important to maintain a high bond ratio (60%+) to secure the network, we also envision a vibrant ecosystem of diverse applications emerging on Celestia-secured rollups. Using TIA as collateral onchain competes with staking yield and reducing inflation makes onchain use more attractive.
 3. By reducing inflation we reduce the amount of forced selling  due to taxes and other offchain liabilities. High inflation can contribute to centralization of a network by diluting non-stakers. If a set of users are staking with high inflation their stake and inadvertently their network power increases while a non-staker would see their network power decrease. While this is a property of PoS systems, higher inflation accelerates it.
 
 At a 33% reduction the inflation rate is 4.82% in the first year of the reduction, and the APR is roughly 7.39% if the bonding ratio stays the same. This is currently around 2.2 times the APR of Ethereum staking, but Celestia is a smaller and younger network so a higher security budget is justified.
@@ -49,30 +49,30 @@ Implementers MUST ensure:
 
 ## **Parameters**
 
-Below is the illustrative table showing the original versus the accelerated schedule. The “New Adjusted Inflation” column is an example of how inflation might look if we reduce it by 33% starting in the next upgrade. Note that for simplicity, the table assumes the inflation drop is applied at year 1.5 but if this proposal gets accepted, it would be immediately applied with the next upgrade.
+Below is the illustrative table showing the original versus the accelerated schedule. The "New Adjusted Inflation" column is an example of how inflation might look if we reduce it by 33% starting in the next upgrade. Note that for simplicity, the table assumes the inflation drop is applied at year 1.5 but if this proposal gets accepted, it would be immediately applied with the next upgrade.
 
-| Year    | Original Inflation | New Adjusted Inflation | Notes                                                                                                                        |
-|:--------|:-------------------|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------|
-| **0**   | 8.00               | 8.00                   | Genesis year, no change.                                                                                                     |
-| **1**   | 7.20               | 7.20                   | First disinflation applied (10%).                                                                                            |
-| **1.5** | 7.20               | 4.82                   | 33% drop in inflation applied, disinflation rate reduced to 6.7%. (This will be implemented in the next upgrade of Celestia) |
-| **2**   | 6.48               | 4.50                   | Regular annual disinflation applied (6.7%).                                                                                  |
-| **3**   | 5.83               | 4.20                   | Regular annual disinflation applied (6.7%).                                                                                  |
-| **4**   | 5.25               | 3.92                   | Regular annual disinflation applied (6.7%).                                                                                  |
-| **5**   | 4.72               | 3.66                   | Regular annual disinflation applied (6.7%).                                                                                  |
-| **6**   | 4.25               | 3.41                   | Regular annual disinflation applied (6.7%).                                                                                  |
-| **7**   | 3.83               | 3.18                   | Regular annual disinflation applied (6.7%).                                                                                  |
-| **8**   | 3.44               | 2.97                   | Regular annual disinflation applied (6.7%).                                                                                  |
-| **9**   | 3.10               | 2.77                   | Regular annual disinflation applied (6.7%).                                                                                  |
-| **10**  | 2.79               | 2.58                   | Regular annual disinflation applied (6.7%).                                                                                  |
-| **11**  | 2.51               | 2.41                   | Regular annual disinflation applied (6.7%).                                                                                  |
-| **12**  | 2.26               | 2.25                   | Regular annual disinflation applied (6.7%).                                                                                  |
-| **13**  | 2.03               | 2.10                   | Regular annual disinflation applied (6.7%).                                                                                  |
-| **14**  | 1.83               | 1.96                   | Regular annual disinflation applied (6.7%).                                                                                  |
-| **15**  | 1.65               | 1.83                   | Regular annual disinflation applied (6.7%).                                                                                  |
-| **16**  | 1.50               | 1.70                   | Regular annual disinflation applied (6.7%).                                                                                  |
-| **17**  | 1.50               | 1.59                   | Regular annual disinflation applied (6.7%).                                                                                  |
-| **18**  | 1.50               | 1.50                   | Regular annual disinflation applied (6.7%).                                                                                  |
+|    Year | Original Inflation | New Adjusted Inflation | Notes                                                                   |
+|--------:|-------------------:|-----------------------:|:------------------------------------------------------------------------|
+|   **0** |               8.00 |                   8.00 | Genesis year, no change.                                                |
+|   **1** |               7.20 |                   7.20 |                                                                         |
+| **1.5** |               7.20 |                5.00088 | Reduce year 0 inflation by 33%, lowering the inflation rate to 5.00088% |
+|   **2** |               6.48 |                4.66582 | Regular annual disinflation applied (6.7%).                             |
+|   **3** |               5.83 |                4.35321 | Regular annual disinflation applied (6.7%).                             |
+|   **4** |               5.25 |                4.06155 | Regular annual disinflation applied (6.7%).                             |
+|   **5** |               4.72 |                3.78942 | Regular annual disinflation applied (6.7%).                             |
+|   **6** |               4.25 |                3.53553 | Regular annual disinflation applied (6.7%).                             |
+|   **7** |               3.83 |                3.29865 | Regular annual disinflation applied (6.7%).                             |
+|   **8** |               3.44 |                3.07764 | Regular annual disinflation applied (6.7%).                             |
+|   **9** |               3.10 |                2.87144 | Regular annual disinflation applied (6.7%).                             |
+|  **10** |               2.79 |                2.67905 | Regular annual disinflation applied (6.7%).                             |
+|  **11** |               2.51 |                2.49956 | Regular annual disinflation applied (6.7%).                             |
+|  **12** |               2.26 |                2.33209 | Regular annual disinflation applied (6.7%).                             |
+|  **13** |               2.03 |                2.17584 | Regular annual disinflation applied (6.7%).                             |
+|  **14** |               1.83 |                2.03005 | Regular annual disinflation applied (6.7%).                             |
+|  **15** |               1.65 |                1.89404 | Regular annual disinflation applied (6.7%).                             |
+|  **16** |               1.50 |                1.76714 | Regular annual disinflation applied (6.7%).                             |
+|  **17** |               1.50 |                1.64874 | Regular annual disinflation applied (6.7%).                             |
+|  **18** |               1.50 |                1.53828 | Regular annual disinflation applied (6.7%).                             |
 
 To understand the numbers on how this would affect stakers please refer to the tables below:
 
@@ -104,24 +104,45 @@ Updated schedule:
 |:--------|:---------------|:-----------------|:-----------------|:-----------------|
 | **0**   | 8.0            | 22.86            | 16.0             | 12.31            |
 | **1**   | 7.2            | 20.57            | 14.4             | 11.08            |
-| **1.5** | 4.82           | 13.77            | 9.64             | 7.42             |
-| **2**   | 4.5            | 12.86            | 9.0              | 6.92             |
-| **3**   | 4.2            | 12.0             | 8.4              | 6.46             |
-| **4**   | 3.92           | 11.2             | 7.84             | 6.03             |
-| **5**   | 3.66           | 10.46            | 7.32             | 5.63             |
-| **6**   | 3.41           | 9.74             | 6.82             | 5.25             |
-| **7**   | 3.18           | 9.09             | 6.36             | 4.89             |
-| **8**   | 2.97           | 8.49             | 5.94             | 4.57             |
-| **9**   | 2.77           | 7.91             | 5.54             | 4.26             |
-| **10**  | 2.58           | 7.37             | 5.16             | 3.97             |
-| **11**  | 2.41           | 6.89             | 4.82             | 3.71             |
-| **12**  | 2.25           | 6.43             | 4.5              | 3.46             |
-| **13**  | 2.1            | 6.0              | 4.2              | 3.23             |
-| **14**  | 1.96           | 5.6              | 3.92             | 3.02             |
-| **15**  | 1.83           | 5.23             | 3.66             | 2.82             |
-| **16**  | 1.7            | 4.86             | 3.4              | 2.62             |
-| **17**  | 1.59           | 4.54             | 3.18             | 2.45             |
-| **18**  | 1.5            | 4.29             | 3.0              | 2.31             |
+| **1.5** | 5.00           | 14.29            | 10.00            | 7.69             |
+| **2**   | 4.67           | 13.33            | 9.33             | 7.18             |
+| **3**   | 4.35           | 12.44            | 8.71             | 6.70             |
+| **4**   | 4.06           | 11.60            | 8.12             | 6.25             |
+| **5**   | 3.79           | 10.83            | 7.58             | 5.83             |
+| **6**   | 3.54           | 10.10            | 7.07             | 5.44             |
+| **7**   | 3.30           | 9.42             | 6.60             | 5.07             |
+| **8**   | 3.08           | 8.79             | 6.16             | 4.73             |
+| **9**   | 2.87           | 8.20             | 5.74             | 4.42             |
+| **10**  | 2.68           | 7.65             | 5.36             | 4.12             |
+| **11**  | 2.50           | 7.14             | 5.00             | 3.85             |
+| **12**  | 2.33           | 6.66             | 4.66             | 3.59             |
+| **13**  | 2.18           | 6.22             | 4.35             | 3.35             |
+| **14**  | 2.03           | 5.80             | 4.06             | 3.12             |
+| **15**  | 1.89           | 5.41             | 3.79             | 2.91             |
+| **16**  | 1.77           | 5.05             | 3.53             | 2.72             |
+
+|    Year | Inflation Rate | APR (35% Staked) | APR (50% Staked) | APR (65% Staked) |
+|--------:|---------------:|-----------------:|-----------------:|-----------------:|
+|   **0** |            8.0 |            22.86 |             16.0 |            12.31 |
+|   **1** |            7.2 |            20.57 |             14.4 |            11.08 |
+| **1.5** |        5.00088 |          14.2882 |          10.0018 |          7.69366 |
+|   **2** |        4.66582 |          13.3309 |          9.33164 |          7.17819 |
+|   **3** |        4.35321 |          12.4377 |          8.70642 |          6.69725 |
+|   **4** |        4.06155 |          11.6044 |          8.12309 |          6.24853 |
+|   **5** |        3.78942 |          10.8269 |          7.57884 |          5.82988 |
+|   **6** |        3.53553 |          10.1015 |          7.07106 |          5.43928 |
+|   **7** |        3.29865 |          9.42472 |           6.5973 |          5.07485 |
+|   **8** |        3.07764 |          8.79326 |          6.15528 |          4.73483 |
+|   **9** |        2.87144 |          8.20411 |          5.74288 |           4.4176 |
+|  **10** |        2.67905 |          7.65444 |          5.35811 |          4.12162 |
+|  **11** |        2.49956 |          7.14159 |          4.99911 |          3.84547 |
+|  **12** |        2.33209 |           6.6631 |          4.66417 |          3.58782 |
+|  **13** |        2.17584 |          6.21667 |          4.35167 |          3.34744 |
+|  **14** |        2.03005 |          5.80016 |          4.06011 |          3.12316 |
+|  **15** |        1.89404 |          5.41155 |          3.78808 |          2.91391 |
+|  **16** |        1.76714 |          5.04897 |          3.53428 |          2.71868 |
+|  **17** |        1.64874 |          4.71069 |          3.29748 |          2.53653 |
+|  **18** |        1.53828 |          4.39508 |          3.07655 |          2.36658 |
 
 ## **Backwards Compatibility**
 
@@ -144,31 +165,56 @@ Below is a pseudo-code snippet for updating the inflation parameters. Actual imp
 Proposed implementation:
 
 ```go
+const (
+	// InitialInflationRateCip29 is the inflation rate specified in CIP-29.
+	InitialInflationRateCip29 = 0.0536
+	// DisinflationRateCip29 is the rate at which the inflation rate decreases each year (after CIP-29 was introduced).
+	DisinflationRateCip29 = 0.067
+)
+
+func InitialInflationRateCip29AsDec() sdk.Dec {
+	return initialInflationRateCip29AsDec
+}
+
+func DisinflationRateCip29AsDec() sdk.Dec {
+	return disinflationRateCip29AsDec
+}
+
+// CalculateInflationRate returns the inflation rate for the current year depending on
+// the current block height in context. The inflation rate is expected to
+// decrease every year according to the schedule specified in the README.
 func (m Minter) CalculateInflationRate(ctx sdk.Context, genesis time.Time) sdk.Dec {
-	years := yearsSinceGenesis(genesis, ctx.BlockTime())
-
-	// Default inflation calculation
-	inflationRate := InitialInflationRateAsDec().Mul(
-		sdk.OneDec().Sub(DisinflationRateAsDec()).Power(uint64(years)),
-	)
-
-	// For AppVersion > 3, adjust the inflation rate:
-	if ctx.ConsensusParams().Version.AppVersion > 3 {
-		// First, reduce the current inflation rate by 33%
-		inflationRate = inflationRate.Mul(sdk.NewDecWithPrec(67, 2)) // 0.67 \= 67%
-
-		// Then, if we are in year two or later, apply a one-time disinflation of 6.7%
-		if years >= 2 {
-			inflationRate = inflationRate.Mul(sdk.OneDec().Sub(sdk.NewDecWithPrec(67, 3))) // 1 \- 0.067 \= 0.933
-		}
+	if ctx.ConsensusParams().Version.AppVersion <= 3 {
+		return calculateInflationRatePreCip29(ctx, genesis)
+	} else {
+		return calculateInflationRatePostCip29(ctx, genesis)
 	}
+}
 
-	// Ensure the inflation rate does not fall below the target inflation rate.
+func calculateInflationRatePreCip29(ctx sdk.Context, genesis time.Time) sdk.Dec {
+	years := yearsSinceGenesis(genesis, ctx.BlockTime())
+	inflationRate := InitialInflationRateAsDec().Mul(sdk.OneDec().Sub(DisinflationRateAsDec()).Power(uint64(years)))
+
 	if inflationRate.LT(TargetInflationRateAsDec()) {
 		return TargetInflationRateAsDec()
 	}
-
 	return inflationRate
+}
+
+func calculateInflationRatePostCip29(ctx sdk.Context, genesis time.Time) sdk.Dec {
+	if ctx.ConsensusParams().Version.AppVersion <= 3 {
+		panic("calculateInflationRatePostCip29 should not be called with AppVersion <= 3")
+	}
+
+	years := yearsSinceGenesis(genesis, ctx.BlockTime())
+	initialInflationRate := InitialInflationRateCip29AsDec().Mul(sdk.OneDec().Sub(DisinflationRateCip29AsDec()).Power(uint64(years)))
+
+	// Ensure the inflation rate does not fall below the target inflation rate.
+	if initialInflationRate.LT(TargetInflationRateAsDec()) {
+		return TargetInflationRateAsDec()
+	}
+
+	return initialInflationRate
 }
 ```
 
@@ -178,7 +224,7 @@ Alternatives that were considered.
 
 ### **Alternative 0: Do nothing**
 
-If we continue to do nothing, Celestia’s inflation schedule will end up competing with applications trying to offer alternative yield to stakers, therefore limiting TIA’s onchain usage.
+If we continue to do nothing, Celestia's inflation schedule will end up competing with applications trying to offer alternative yield to stakers, therefore limiting TIA's onchain usage.
 
 ### **Alternative 1: Dynamic Inflation based on bonded ratio**
 
