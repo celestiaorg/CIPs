@@ -55,7 +55,7 @@ Below is the illustrative table showing the original versus the accelerated sche
 |--------:|-------------------:|-----------------------:|:------------------------------------------------------------------------|
 |   **0** |               8.00 |                   8.00 | Genesis year, no change.                                                |
 |   **1** |               7.20 |                   7.20 |                                                                         |
-| **1.5** |               7.20 |                5.00088 | Reduce year 0 inflation by 33%, lowering the inflation rate to 5.00088% |
+| **1.5** |               7.20 |                5.00088 | Reduce year 0 inflation by 33% and additionally apply 6.7% disinfaltion, lowering the inflation rate to 5.00088% |
 |   **2** |               6.48 |                4.66582 | Regular annual disinflation applied (6.7%).                             |
 |   **3** |               5.83 |                4.35321 | Regular annual disinflation applied (6.7%).                             |
 |   **4** |               5.25 |                4.06155 | Regular annual disinflation applied (6.7%).                             |
