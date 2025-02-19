@@ -187,14 +187,11 @@ func calculateInflationRatePostCip29(ctx sdk.Context, genesis time.Time) sdk.Dec
 	}
 
 	years := yearsSinceGenesis(genesis, ctx.BlockTime())
-	initialInflationRate := InitialInflationRateCip29AsDec().Mul(sdk.OneDec().Sub(DisinflationRateCip29AsDec()).Power(uint64(years)))
-
-	// Ensure the inflation rate does not fall below the target inflation rate.
-	if initialInflationRate.LT(TargetInflationRateAsDec()) {
+	inflationRate := InitialInflationRateCip29AsDec().Mul(sdk.OneDec().Sub(DisinflationRateCip29AsDec()).Power(uint64(years)))
+	if inflationRate.LT(TargetInflationRateAsDec()) {
 		return TargetInflationRateAsDec()
 	}
-
-	return initialInflationRate
+	return inflationRate
 }
 ```
 
