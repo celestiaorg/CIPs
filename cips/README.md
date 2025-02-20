@@ -63,6 +63,8 @@ Read [CIP-1](./cip-1.md) for information on the CIP process.
 | [26](./cip-26.md) | Versioned timeouts | Josh Stein ([@jcstein](https://github.com/jcstein)), Rootul Patel ([@rootulp](https://github.com/rootulp)), Sanaz Taheri ([@staheri14](https://github.com/staheri14) |
 | [27](./cip-27.md) | Block limits for number of PFBs and non-PFBs | Josh Stein ([@jcstein](https://github.com/jcstein)), Nina Barbakadze ([@ninabarbakadze](https://github.com/ninabarbakadze)), rach-id ([@rach-id](https://github.com/rach-id)), Rootul Patel ([@rootulp](https://github.com/rootulp)) |
 | [28](./cip-28.md) | Transaction size limit | Josh Stein ([@jcstein](https://github.com/jcstein)), Nina Barbakadze ([@ninabarbakadze](https://github.com/ninabarbakadze)), Rootul Patel ([@rootulp](https://github.com/rootulp)) |
+| [29](./cip-29.md) | Decrease Inflation and Adjust Disinflation | Dean Eigenmann ([@decanus](https://github.com/decanus)), Marko Baricevic ([@tac0turtle](https://github.com/tac0turtle)) |
+| [30](./cip-30.md) | Prevent Auto-Claiming of Staking Rewards | Dean Eigenmann ([@decanus](https://github.com/decanus)), Marko Baricevic ([@tac0turtle](https://github.com/tac0turtle)) |
 
 ## Contributing
 
