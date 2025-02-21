@@ -1,4 +1,4 @@
-| cip           | 31                                                                                         |
+| cip           | xx                                                                                         |
 |---------------|--------------------------------------------------------------------------------------------|
 | title         | Add Hyperlane to celestia-app                                                              |
 | description   | This CIP proposes adding Hyperlane to celestia-app.                                        |
