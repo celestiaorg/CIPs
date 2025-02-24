@@ -4,7 +4,7 @@
 | description | Adding ics-29 to Celestia to move towards sustainable relayer funding for IBC |
 | author | Susannah Evans <susannah@interchain.io> ([@womensrights](https://github.com/womensrights)), Aditya Sripal <aditya@interchain.io> ([@AdityaSripal](https://github.com/AdityaSripal)) |
 | discussions-to | <https://forum.celestia.org/t/cip-relayer-incentivisation-middleware/1383> |
-| status | Review |
+| status | Withdrawn |
 | type | Standards Track |
 | category | Core |
 | created | 2023-12-12 |
