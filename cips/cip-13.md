@@ -4,10 +4,13 @@
 | description | Specification of Mainnet governance parameters in the Celestia network |
 | author | Yaz Khoury <yaz@celestia.org>, Evan Forbes <evan@celestia.org> |
 | discussions-to | <https://forum.celestia.org/t/cip-13-mainnet-on-chain-governance-parameters/1390> |
-| status | Draft |
+| status | Withdrawn |
 | type | Standards Track |
 | category | Core |
 | created | 2023-12-08 |
+
+> [!TIP]
+> This CIP has been withdrawn. See [celestia-app specs](https://celestiaorg.github.io/celestia-app/parameters.html) for versioned parameters and query on-chain for governance modifiable parameters.
 
 ## Abstract
 
