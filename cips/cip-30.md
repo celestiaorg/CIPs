@@ -1,12 +1,12 @@
-| cip           | 30                                                                                         |
-|---------------|--------------------------------------------------------------------------------------------|
-| title         | Prevent Auto-Claiming of Staking Rewards                                                   |
-| description   | This CIP proposes removing the automatic claiming of staking rewards when modifying delegations. Instead, rewards are to be stored until manually claimed. |
-| author        | Dean Eigenmann ([@decanus](https://github.com/decanus)), Marko Baricevic ([@tac0turtle](https://github.com/tac0turtle)) |
-| discussions-to | [Forum Discussion](https://forum.celestia.org/t/cip-prevent-auto-claiming-of-staking-rewards/1905) |
-| status        | Draft                                                                                      |
-| type          | Standards Track                                                                            |
-| category      | Core                                                                                       |
+| cip            | 30                                                                                                                                                         |
+|----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| title          | Prevent Auto-Claiming of Staking Rewards                                                                                                                   |
+| description    | This CIP proposes removing the automatic claiming of staking rewards when modifying delegations. Instead, rewards are to be stored until manually claimed. |
+| author         | Dean Eigenmann ([@decanus](https://github.com/decanus)), Marko Baricevic ([@tac0turtle](https://github.com/tac0turtle))                                    |
+| discussions-to | [Forum Discussion](https://forum.celestia.org/t/cip-prevent-auto-claiming-of-staking-rewards/1905)                                                         |
+| status         | Review                                                                                                                                                    |
+| type           | Standards Track                                                                                                                                            |
+| category       | Core                                                                                                                                                       |
 | created       | 2025-02-07                                                                                 `|
 
 ## Abstract

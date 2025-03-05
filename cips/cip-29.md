@@ -4,7 +4,7 @@
 | description    | This proposal lowers the Celestia inflation and disinflation by 33% to moderate issuance while maintaining competitive yield. |
 | author         | Dean Eigenmann ([@decanus](https://github.com/decanus)), Marko Baricevic ([@tac0turtle](https://github.com/tac0turtle))                   |
 | discussions-to | [Inflation Reduction Discussion Forum](https://forum.celestia.org/t/cip-reduce-inflation/1896)                                            |
-| status         | Draft                                                                                                                                     |
+| status         | Review                                                                                                                                     |
 | type           | Standards Track                                                                                                                           |
 | category       | Core                                                                                                                                      |
 | created        | 2025-02-04                                                                                                                                |
@@ -15,7 +15,7 @@ This CIP proposes to reduce both the Celestia inflation and disinflation by 33%.
 
 ## **Motivation**
 
-Celestia launched in October of 2023, and since its launch there has been a high demand for posting blobs to the network, while other solutions have not been able to scale in a decentralized manner. However, TIA's bonding has been continuously high (peaking at around 72% and currently at about 65%) meaning that stakers are overly incentivized.
+Celestia launched in October of 2023, and since its launch there has been a high demand for posting blobs to the network. However, TIA's bonding has been continuously high (peaking at around 72% and currently at about 65%) meaning that stakers are overly incentivized.
 
 While we have observed a large shift towards a dynamic inflation schedule: Solana, Near, and Cosmos, we believe that simplicity is key. Staying with a fixed inflation schedule provides a simple solution onchain and we believe that when Celestia's fee market matures and a diverse ecosystem of yield opportunities on TIA emerge, a more complex solution could be better justified. Instead, keeping it simple is better aligned with Celestia's ethos (and still allows for future changes).
 
@@ -33,23 +33,15 @@ At a 33% reduction the inflation rate is 4.82% in the first year of the reductio
 
 ### **Overview**
 
-1. Reduce Inflation: We reduce the current inflation by 33% in the next upgrade (v4)  
-2. Reduce Disinflation Rate: We reduce the disinflation rate by 33%  
+1. Reduce Inflation: Reduce the current inflation by 33% in the next upgrade (v4)  
+2. Reduce Disinflation Rate: Reduce the disinflation rate by 33%  
 3. Reward Calculation:
 
    * The reward distribution mechanism remains unchanged—rewards are still allocated pro rata to stakers and validators.
 
-   * The only modification is to the base inflation parameter and the disinflation parameter; both drop by 33% on the next upgrade leading to lower yet sustainable inflation immediately
-
-Implementers MUST ensure:
-
-* The chain upgrade process includes the new inflation parameters without disrupting block production.
-
-* The new schedule is included in the next major version release to reflect the updated inflation rates on-chain in the next app version (v4).
-
 ## **Parameters**
 
-Below is the illustrative table showing the original versus the accelerated schedule. The "New Adjusted Inflation" column is an example of how inflation might look if we reduce it by 33% starting in the next upgrade. Note that for simplicity, the table assumes the inflation drop is applied at year 1.5 but if this proposal gets accepted, it would be immediately applied with the next upgrade.
+Below is the illustrative table showing the original versus the accelerated schedule. The "New Adjusted Inflation" column is an example of how inflation might look if the reduction of 33% is accepted and goes into effect in the next upgrade. Note that for simplicity, the table assumes the inflation drop is applied at year 1.5 but if this proposal gets accepted, it would be immediately applied with the next upgrade.
 
 |    Year | Original Inflation | New Adjusted Inflation | Notes                                                                   |
 |--------:|-------------------:|-----------------------:|:------------------------------------------------------------------------|
@@ -100,7 +92,6 @@ Current schedule:
 
 Updated schedule:
 
-
 |    Year | Inflation Rate | APR (35% Staked) | APR (50% Staked) | APR (65% Staked) |
 |--------:|---------------:|-----------------:|-----------------:|-----------------:|
 |   **0** |            8.0 |            22.86 |             16.0 |            12.31 |
@@ -126,17 +117,23 @@ Updated schedule:
 
 ## **Backwards Compatibility**
 
-No backward compatibility issues are anticipated. This parameter change follows the standard CIP process, and current node operators should not require any additional changes besides upgrading to the new binary which automatically implements the changes discussed in this CIP.
+This is a breaking change, when the upgrade is executed the new model will take effect. Prior to the upgrade the old system will work. 
 
 ## **Test Cases**
 
 1. Parameter Verification Test:
 
-   * Ensure that when the updated inflation parameters are applied at Year 3, the on-chain inflation rate reflects the new values instead of the old schedule.
+   * Ensure that when the updated inflation parameters are the expected numbers at Year 3, the on-chain inflation rate reflects the new values instead of the old schedule.
 
 2. Reward Distribution Test:
 
    * Validate that block rewards are distributed correctly under the new inflation rates.
+
+Implementers MUST ensure:
+
+* The chain upgrade process includes the new inflation parameters without disrupting block production.
+
+* The new schedule is included in the next major version release to reflect the updated inflation rates on-chain in the next app version (v4).
 
 ## **Reference Implementation**
 
