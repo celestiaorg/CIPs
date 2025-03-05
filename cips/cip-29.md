@@ -117,13 +117,13 @@ Updated schedule:
 
 ## **Backwards Compatibility**
 
-No backward compatibility issues are anticipated. This parameter change follows the standard CIP process, and current node operators should not require any additional changes besides upgrading to the new binary which automatically implements the changes discussed in this CIP.
+This is a breaking change, when the upgrade is executed the new model will take effect. Prior to the upgrade the old system will work. 
 
 ## **Test Cases**
 
 1. Parameter Verification Test:
 
-   * Ensure that when the updated inflation parameters are applied at Year 3, the on-chain inflation rate reflects the new values instead of the old schedule.
+   * Ensure that when the updated inflation parameters are the expected numbers at Year 3, the on-chain inflation rate reflects the new values instead of the old schedule.
 
 2. Reward Distribution Test:
 
