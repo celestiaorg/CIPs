@@ -122,7 +122,7 @@ When upgrading to v4 we propose introducing a migration that will set the Parame
 
 # Backwards Compatibility
 
-No backwards incompatibilities are introduced for non-lockup accounts. Existing lockup accounts not subject to the new reward integration will continue to operate as before. For accounts that do use the new functionality, the changes are additive and maintain the original lockup semantics.
+All existing lockup accounts will be subject to the locking system. This change will take effect in v4, since this is a larger upgrade there is not a need for backwards compatible systems.  
 
 # Test Cases
 
