@@ -67,6 +67,7 @@ Read [CIP-1](./cip-1.md) for information on the CIP process.
 | [28](./cip-28.md) |                            Transaction size limit                            |                                   Josh Stein ([@jcstein](https://github.com/jcstein)), Nina Barbakadze ([@ninabarbakadze](https://github.com/ninabarbakadze)), Rootul Patel ([@rootulp](https://github.com/rootulp))                                    |
 | [29](./cip-29.md) |                  Decrease Inflation and Adjust Disinflation                  |                                                                 Dean Eigenmann ([@decanus](https://github.com/decanus)), Marko Baricevic ([@tac0turtle](https://github.com/tac0turtle))                                                                 |
 | [30](./cip-30.md) |                   Prevent Auto-Claiming of Staking Rewards                   |                                                                 Dean Eigenmann ([@decanus](https://github.com/decanus)), Marko Baricevic ([@tac0turtle](https://github.com/tac0turtle))                                                                 |
+| [31](./cip-31.md) |                   Treat Rewards as part of the Lockup Account                   |                                                                 Dean Eigenmann ([@decanus](https://github.com/decanus)), Marko Baricevic ([@tac0turtle](https://github.com/tac0turtle))                                                                 |
 
 ## Contributing
 
