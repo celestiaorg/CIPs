@@ -33,6 +33,7 @@
   - [CIP-28](./cip-28.md)
   - [CIP-29](./cip-29.md)
   - [CIP-30](./cip-30.md)
+  - [CIP-31](./cip-31.md)
 
 - [Core Devs Call notes](./notes/README.md)
   - [CDC #14](./notes/cdc-14.md)
