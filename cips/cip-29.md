@@ -33,8 +33,8 @@ At a 33% reduction the inflation rate is 4.82% in the first year of the reductio
 
 ### **Overview**
 
-1. Reduce Inflation: Reduce the current inflation by 33% in the next upgrade (v4)  
-2. Reduce Disinflation Rate: Reduce the disinflation rate by 33%  
+1. Reduce Inflation: Reduce the current inflation by 33% in the next upgrade (v4)
+2. Reduce Disinflation Rate: Reduce the disinflation rate by 33%
 3. Reward Calculation:
 
    * The reward distribution mechanism remains unchanged—rewards are still allocated pro rata to stakers and validators.
@@ -117,7 +117,7 @@ Updated schedule:
 
 ## **Backwards Compatibility**
 
-This is a breaking change, when the upgrade is executed the new model will take effect. Prior to the upgrade the old system will work. 
+This is a breaking change, when the upgrade is executed the new model will take effect. Prior to the upgrade the old system will work.
 
 ## **Test Cases**
 
