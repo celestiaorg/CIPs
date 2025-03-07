@@ -11,7 +11,7 @@
 
 ## Abstract
 
-Add Hyperlane interoperability protocol to the Celestia Network to improve accessibility and usage of TIA
+Add the Hyperlane interoperability protocol to Celestia to improve the accessibility and usage of TIA.
 
 ## Motivation
 
