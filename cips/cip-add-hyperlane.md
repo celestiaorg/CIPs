@@ -27,7 +27,7 @@ Hyperlane on Celestia, more concretely, requires the addition of two SDK modules
 
 Similar to IBC, non-native tokens will initially not be allowed on Celestia's state machine. This is enforced by disabling the creation of [synthetic tokens](https://github.com/bcp-innovations/hyperlane-cosmos/blob/2617881125228632edb091f0663d133b76de11ee/x/warp/keeper/msg_server.go#L20).
 
-The only ISM (Interchain Security Module) that will be initially supported is the MultiSig ISM, which relies on attestations from n of m "validators" (Note that this can be different to the PoS Validators)
+The only ISM (Interchain Security Module) that will be initially supported is the MultiSig ISM, which relies on attestations from N of M "validators". Note that the MultiSig ISM validator set can be different from the the PoS validator set.
 
 ## Backwards Compatibility
 
