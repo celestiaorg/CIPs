@@ -46,7 +46,7 @@ TBD
 
 The Cosmos SDK Hyperlane implementation is audited by Zellic. 
 
-Token transferring through Hyperlane is dependent on the ISM being used and inherits there security assumptions (i.e. that n of m agents are honest).
+Token transferring through Hyperlane is dependent on the ISM being used and inherits their security assumptions (i.e. that N of M MultiSig validators are honest).
 
 ## Copyright
 
