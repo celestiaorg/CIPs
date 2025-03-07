@@ -36,7 +36,7 @@ This is an additive change. It does not break existing user flows in any way. It
 ## Test Cases
 
 - An E2E test that connects an EVM Rollup and Celestia with Hyperlane and successfully transfers TIA from Celestia to that Rollup and back.
-- A test confirming that tokens from a counterparty chain can not be transferred to Celestia.
+- A test confirming that non-TIA tokens from a counterparty chain can not be transferred to Celestia.
 
 ## Reference Implementation
 
