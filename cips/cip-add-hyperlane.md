@@ -3,7 +3,7 @@
 | title         | Add Hyperlane to Celestia                                                                  |
 | description   | This CIP proposes adding Hyperlane to celestia-app.                                        |
 | author        | c-node [@c-node](https://github.com/S1nus), Callum Waters (@cmwaters)                      |
-| discussions-to | [forum](https://forum.celestia.org/t/cip-add-hyperlane-bridging/1909)                     |                                                                     |
+| discussions-to | [forum](https://forum.celestia.org/t/cip-add-hyperlane-bridging/1909)                     |
 | status        | Draft                                                                                      |
 | type          | Standards Track                                                                            |
 | category      | Core                                                                                       |
