@@ -15,7 +15,7 @@ Add the Hyperlane interoperability protocol to Celestia to improve the accessibi
 
 ## Motivation
 
-Hyperlane is a popular bridging protocol that has support for EVM, currently the most popular VM for Celestia Rollups, as well as several others, creating connections between some 130 networks. Hyperlane is already employed indirectly to transfer TIA around but is dependent on third party networks, expanding the trust assumptions. Adding Hyperlane natively allows for direct transferring of TIA and possibly other tokens in the future without expanding the trust assumptions beyond the DA network.
+Hyperlane is a popular bridging protocol that has support for EVM, currently the most popular VM for Celestia Rollups, as well as several others, creating connections between some 100+ networks. Hyperlane is already employed indirectly to transfer TIA around but is dependent on third party networks, expanding the trust assumptions. Adding Hyperlane natively allows for direct transferring of TIA and possibly other tokens in the future without expanding the trust assumptions beyond the DA network.
 
 ## Specification
 
