@@ -1,13 +1,13 @@
-| cip            | 29                                                                                                                                        |
-|----------------|-------------------------------------------------------------------------------------------------------------------------------------------|
-| title          | Decrease Inflation and Adjust Disinflation                                                                                                |
-| description    | This proposal lowers the Celestia inflation and disinflation by 33% to moderate issuance while maintaining competitive yield. |
-| author         | Dean Eigenmann ([@decanus](https://github.com/decanus)), Marko Baricevic ([@tac0turtle](https://github.com/tac0turtle))                   |
-| discussions-to | [Inflation Reduction Discussion Forum](https://forum.celestia.org/t/cip-reduce-inflation/1896)                                            |
-| status         | Review                                                                                                                                     |
-| type           | Standards Track                                                                                                                           |
-| category       | Core                                                                                                                                      |
-| created        | 2025-02-04                                                                                                                                |
+| cip            | 29                                                                                                                      |
+|----------------|-------------------------------------------------------------------------------------------------------------------------|
+| title          | Decrease inflation and disinflation                                                                                     |
+| description    | Decrease inflation and disinflation by 33%                                                                          |
+| author         | Dean Eigenmann ([@decanus](https://github.com/decanus)), Marko Baricevic ([@tac0turtle](https://github.com/tac0turtle)) |
+| discussions-to | <https://forum.celestia.org/t/cip-reduce-inflation/1896>                                                                |
+| status         | Review                                                                                                                  |
+| type           | Standards Track                                                                                                         |
+| category       | Core                                                                                                                    |
+| created        | 2025-02-04                                                                                                              |
 
 ## **Abstract**
 
@@ -43,28 +43,28 @@ At a 33% reduction the inflation rate is 4.82% in the first year of the reductio
 
 Below is the illustrative table showing the original versus the accelerated schedule. The "New Adjusted Inflation" column is an example of how inflation might look if the reduction of 33% is accepted and goes into effect in the next upgrade. Note that for simplicity, the table assumes the inflation drop is applied at year 1.5 but if this proposal gets accepted, it would be immediately applied with the next upgrade.
 
-|    Year | Original Inflation | New Adjusted Inflation | Notes                                                                   |
-|--------:|-------------------:|-----------------------:|:------------------------------------------------------------------------|
-|   **0** |               8.00 |                   8.00 | Genesis year, no change.                                                |
-|   **1** |               7.20 |                   7.20 |                                                                         |
+|    Year | Original Inflation | New Adjusted Inflation | Notes                                                                                                            |
+|--------:|-------------------:|-----------------------:|:-----------------------------------------------------------------------------------------------------------------|
+|   **0** |               8.00 |                   8.00 | Genesis year, no change.                                                                                         |
+|   **1** |               7.20 |                   7.20 |                                                                                                                  |
 | **1.5** |               7.20 |                5.00088 | Reduce year 0 inflation by 33% and additionally apply 6.7% disinfaltion, lowering the inflation rate to 5.00088% |
-|   **2** |               6.48 |                4.66582 | Regular annual disinflation applied (6.7%).                             |
-|   **3** |               5.83 |                4.35321 | Regular annual disinflation applied (6.7%).                             |
-|   **4** |               5.25 |                4.06155 | Regular annual disinflation applied (6.7%).                             |
-|   **5** |               4.72 |                3.78942 | Regular annual disinflation applied (6.7%).                             |
-|   **6** |               4.25 |                3.53553 | Regular annual disinflation applied (6.7%).                             |
-|   **7** |               3.83 |                3.29865 | Regular annual disinflation applied (6.7%).                             |
-|   **8** |               3.44 |                3.07764 | Regular annual disinflation applied (6.7%).                             |
-|   **9** |               3.10 |                2.87144 | Regular annual disinflation applied (6.7%).                             |
-|  **10** |               2.79 |                2.67905 | Regular annual disinflation applied (6.7%).                             |
-|  **11** |               2.51 |                2.49956 | Regular annual disinflation applied (6.7%).                             |
-|  **12** |               2.26 |                2.33209 | Regular annual disinflation applied (6.7%).                             |
-|  **13** |               2.03 |                2.17584 | Regular annual disinflation applied (6.7%).                             |
-|  **14** |               1.83 |                2.03005 | Regular annual disinflation applied (6.7%).                             |
-|  **15** |               1.65 |                1.89404 | Regular annual disinflation applied (6.7%).                             |
-|  **16** |               1.50 |                1.76714 | Regular annual disinflation applied (6.7%).                             |
-|  **17** |               1.50 |                1.64874 | Regular annual disinflation applied (6.7%).                             |
-|  **18** |               1.50 |                1.53828 | Regular annual disinflation applied (6.7%).                             |
+|   **2** |               6.48 |                4.66582 | Regular annual disinflation applied (6.7%).                                                                      |
+|   **3** |               5.83 |                4.35321 | Regular annual disinflation applied (6.7%).                                                                      |
+|   **4** |               5.25 |                4.06155 | Regular annual disinflation applied (6.7%).                                                                      |
+|   **5** |               4.72 |                3.78942 | Regular annual disinflation applied (6.7%).                                                                      |
+|   **6** |               4.25 |                3.53553 | Regular annual disinflation applied (6.7%).                                                                      |
+|   **7** |               3.83 |                3.29865 | Regular annual disinflation applied (6.7%).                                                                      |
+|   **8** |               3.44 |                3.07764 | Regular annual disinflation applied (6.7%).                                                                      |
+|   **9** |               3.10 |                2.87144 | Regular annual disinflation applied (6.7%).                                                                      |
+|  **10** |               2.79 |                2.67905 | Regular annual disinflation applied (6.7%).                                                                      |
+|  **11** |               2.51 |                2.49956 | Regular annual disinflation applied (6.7%).                                                                      |
+|  **12** |               2.26 |                2.33209 | Regular annual disinflation applied (6.7%).                                                                      |
+|  **13** |               2.03 |                2.17584 | Regular annual disinflation applied (6.7%).                                                                      |
+|  **14** |               1.83 |                2.03005 | Regular annual disinflation applied (6.7%).                                                                      |
+|  **15** |               1.65 |                1.89404 | Regular annual disinflation applied (6.7%).                                                                      |
+|  **16** |               1.50 |                1.76714 | Regular annual disinflation applied (6.7%).                                                                      |
+|  **17** |               1.50 |                1.64874 | Regular annual disinflation applied (6.7%).                                                                      |
+|  **18** |               1.50 |                1.53828 | Regular annual disinflation applied (6.7%).                                                                      |
 
 To understand the numbers on how this would affect stakers please refer to the tables below:
 
