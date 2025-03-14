@@ -1,13 +1,13 @@
-| cip            | 30                                                                                                                                                         |
-|----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| title          | Prevent Auto-Claiming of Staking Rewards                                                                                                                   |
-| description    | This CIP proposes removing the automatic claiming of staking rewards when modifying delegations. Instead, rewards are to be stored until manually claimed. |
-| author         | Dean Eigenmann ([@decanus](https://github.com/decanus)), Marko Baricevic ([@tac0turtle](https://github.com/tac0turtle))                                    |
-| discussions-to | [Forum Discussion](https://forum.celestia.org/t/cip-prevent-auto-claiming-of-staking-rewards/1905)                                                         |
-| status         | Review                                                                                                                                                    |
-| type           | Standards Track                                                                                                                                            |
-| category       | Core                                                                                                                                                       |
-| created       | 2025-02-07                                                                                 `|
+| cip            | 30                                                                                                                      |
+|----------------|-------------------------------------------------------------------------------------------------------------------------|
+| title          | Disable the auto claim of staking rewards                                                                                   |
+| description    | Disable the auto claim of staking rewards when modifying delegations                                            |
+| author         | Dean Eigenmann ([@decanus](https://github.com/decanus)), Marko Baricevic ([@tac0turtle](https://github.com/tac0turtle)) |
+| discussions-to | <https://forum.celestia.org/t/cip-prevent-auto-claiming-of-staking-rewards/1905>                                        |
+| status         | Review                                                                                                                  |
+| type           | Standards Track                                                                                                         |
+| category       | Core                                                                                                                    |
+| created        | 2025-02-07                                                                                                              |
 
 ## Abstract
 
@@ -23,7 +23,7 @@ Many delegators face tax or regulatory requirements forcing them to sell or othe
 
 - **Existing Behavior**:
   - When a delegator changes their delegation (e.g., via `MsgDelegate`, `MsgBeginRedelegate`, `MsgUndelegate`), the distribution module automatically triggers a reward claim for the delegator.
-  
+
 - **Proposed Behavior**:
   - Remove or modify the distribution module’s “auto-claim” hook so that **no** rewards are automatically claimed on delegation changes.
   - Delegators **only** claim their rewards by sending a `MsgWithdrawDelegatorReward` transaction.

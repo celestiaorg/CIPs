@@ -1,8 +1,8 @@
 
 | cip            | 31                                                                                                                      |
-|:---------------|:------------------------------------------------------------------------------------------------------------------------|
-| title          | Treat Rewards as part of the Lockup Account Schedule                                                                    |
-| description    | Incorporates staking rewards into lockup accounts by dynamically updating lockup schedules.                             |
+|----------------|-------------------------------------------------------------------------------------------------------------------------|
+| title          | Incorporate staking rewards into vesting account schedules                                                              |
+| description    | Dynamically update vesting schedules to include newly earned staking rewards                                            |
 | author         | Dean Eigenmann ([@decanus](https://github.com/decanus)), Marko Baricevic ([@tac0turtle](https://github.com/tac0turtle)) |
 | discussions-to | [Forum Discussion](https://forum.celestia.org/t/cip-lockup-accounts-staking-rewards/1908)                               |
 | status         | Draft                                                                                                                   |
