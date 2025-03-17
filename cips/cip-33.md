@@ -1,0 +1,37 @@
+| cip | 3 |
+| - | - |
+| title | Lotus Network Upgrade |
+| description | Reference specifications included in the Lotus Network Upgrade |
+| author | [@evan-forbes](https://github.com/evan-forbes) |
+| discussions-to | <https://forum.celestia.org/t/lotus-application-v4-network-upgrade/1947> |
+| status | Draft |
+| type | Meta |
+| created | 2025-03-16 |
+| requires |  |
+
+## Abstract
+
+This Meta CIP lists the CIPs included in the Lotus network upgrade.
+
+## Specification
+
+### Included CIPs
+
+- [CIP-29](./cip-29.md): Decrease inflation and disinflation
+- [CIP-30](./cip-30.md): Disable auto-claim of staking rewards
+- [CIP-31](./cip-31.md): Incorporate staking rewards into vesting account schedules
+- [CIP-32](./cip-32.md): Add Hyperlane to Celestia 
+
+All of the above CIPs are state breaking, and thus require a breaking network upgrade.
+
+## Rationale
+
+This CIP provides a complete list of breaking changes for the Lotus upgrade, along with links to those specs.
+
+## Security Considerations
+
+This CIP does not have additional security concerns beyond what is already discussed in each of the listed specs.
+
+## Copyright
+
+Copyright and related rights waived via [CC0](https://github.com/celestiaorg/CIPs/blob/main/LICENSE).
