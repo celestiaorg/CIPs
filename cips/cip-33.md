@@ -1,4 +1,4 @@
-| cip | 3 |
+| cip | 33 |
 | - | - |
 | title | Lotus Network Upgrade |
 | description | Reference specifications included in the Lotus Network Upgrade |
