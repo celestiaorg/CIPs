@@ -69,6 +69,7 @@ Read [CIP-1](./cip-001.md) for information on the CIP process.
 | [30](./cip-030.md) |                  Disable the auto claim of staking rewards                   |                                                                 Dean Eigenmann ([@decanus](https://github.com/decanus)), Marko Baricevic ([@tac0turtle](https://github.com/tac0turtle))                                                                 |
 | [31](./cip-031.md) |          Incorporate staking rewards into vesting account schedules          |                                                                 Dean Eigenmann ([@decanus](https://github.com/decanus)), Marko Baricevic ([@tac0turtle](https://github.com/tac0turtle))                                                                 |
 | [32](./cip-032.md) |                          Add Hyperlane to Celestia                           |                                                                         c-node ([@c-node](https://github.com/S1nus)), Callum Waters ([@cmwaters](https://github.com/cmwaters))                                                                          |
+| [33](./cip-033.md) |                            Lotus Network Upgrade                             |                                                                                                     [@evan-forbes](https://github.com/evan-forbes)                                                                                                      |
 
 ## Contributing
 
