@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package common;
+
+enum RetrievalMode {
+  // Retrieve both proofs and data. Default mode.
+  PROOFS_AND_DATA = 0;
+  // Retrieve only data.
+  DATA_ONLY = 1;
+  // Retrieve only proofs.
+  PROOFS_ONLY = 2;
+}
