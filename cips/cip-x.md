@@ -11,8 +11,8 @@
 
 ## Abstract
 
-Currently, every DA node type synchronizes all historical headers starting from genesis (or other statically configured 
-historical header) until the subjectively initialized head of the chain. We change that by adding a way to sync a 
+Currently, every DA node type synchronizes all historical headers starting from genesis (or other statically configured
+historical header) until the subjectively initialized head of the chain. We change that by adding a way to sync a
 constant size range of headers instead of the whole history.
 
 ## Motivation
@@ -22,19 +22,20 @@ is to decrease LN storage requirements by retaining only a configurable window o
 
 ## Specification
 
-In order to reference the last stored header, we introduce a notion of **Tail** header of the chain, complementing 
+In order to reference the last stored header, we introduce a notion of **Tail** header of the chain, complementing
 **Head** header. Tail header height is estimated with [HeaderPruningWindow](#parameters), block time and Head height.
 
-- On the first start of a node, the Tail is retrieved from trusted peers alongside with the Head, performing subjective 
+- On the first start of a node, the Tail is retrieved from trusted peers alongside with the Head, performing subjective
 initialization.
-    - Once retrieved, Tail becomes the point of trust for the initializing node where everything beforehand assumed valid
+  - Once retrieved, Tail becomes the point of trust for the initializing node where everything beforehand assumed valid
  (unless syncing from genesis)
-    - Head, on the other hand, is not trusted and becomes a synchronization target for the node.
-    - All the headers from Tail to Head are then retrieved and verified using signature-based forward verification.
+  - Head, on the other hand, is not trusted and becomes a synchronization target for the node.
+  - All the headers from Tail to Head are then retrieved and verified using signature-based forward verification.
 - As the chain progresses, nodes continuously re-estimate Tail and cut off stored headers beyond the new Tail, retaining
 roughly [HeaderPruningWindow](#parameters) amount of headers.
 
 The estimation of Tail height is done as follows:
+
 ```go
 func estimateTail(head, tail Header, blockTime, pruningWindow time.Duration) (height uint64) {
 	estimatedRange = (now + pruningWindow - tail.Time()) / blockTime
@@ -54,15 +55,15 @@ By default, HeaderPruningWindow equals to Availability/SamplingWindow and can be
 
 ## Rationale
 
-Initially, we add pruning support only to LNs to ensure reliable header retrieval for historical headers. Otherwise, 
-nodes configured with larger [HeaderPruningWindow](#parameters) than in connected FN/BNs won’t be able to retrieve 
+Initially, we add pruning support only to LNs to ensure reliable header retrieval for historical headers. Otherwise,
+nodes configured with larger [HeaderPruningWindow](#parameters) than in connected FN/BNs won’t be able to retrieve
 needed headers. We can revisit this consideration if header storage overhead ever becomes pressing for FN/BNs.
 
 ## Backwards Compatibility
 
-The proposed change is backwards compatible with the current implementation on the protocol. However, LN operators 
-enabling pruning will loose the ability to retrieve historical headers beyond the [HeaderPruningWindow](#parameters). 
-Therefore, we will keep pruning opt-in and keep the ability to initialize from genesis or any arbitrary header in the 
+The proposed change is backwards compatible with the current implementation on the protocol. However, LN operators
+enabling pruning will loose the ability to retrieve historical headers beyond the [HeaderPruningWindow](#parameters).
+Therefore, we will keep pruning opt-in and keep the ability to initialize from genesis or any arbitrary header in the
 past. This way node operators can benefit from the storage savings if they know from which point they can safely prune.
 Future protocol upgrade will solve this limitation by introducing an efficient way to retrieve historical headers.
 
