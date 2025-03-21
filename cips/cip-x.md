@@ -3,7 +3,7 @@
 | title | Header Pruning for LNs |
 | description | Mechanism to retain a fixed range of headers instead of whole history |
 | author | Hlib Kanunnikov ([@Wondertan](https://github.com/Wondertan)) |
-| discussions-to | URL |
+| discussions-to | <https://forum.celestia.org/t/cip-header-pruning-for-lns/1958> |
 | status | Draft |
 | type | Standards Track |
 | category | Data Availability |
