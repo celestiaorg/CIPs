@@ -46,12 +46,11 @@ func estimateTail(head, tail Header, blockTime, pruningWindow time.Duration) (he
 
 ## Parameters
 
-| Parameter           | Proposed value | Description                                                            | Changeable via Governance |
-|---------------------|----------------|------------------------------------------------------------------------|---------------------------|
-| HeaderPruningWindow | 14 days        | Defines the length of time to retain headers. Configurable per LN | No                        |
+| Parameter           | Proposed value | Description                                   | Changeable via Governance |
+|---------------------|----------------|-----------------------------------------------|---------------------------|
+| HeaderPruningWindow | 30 days        | Defines the length of time to retain headers  | No                        |
 
-By default, HeaderPruningWindow equals to Availability/SamplingWindow and can be modified by LN operators.
-// TODO: Point to the right parameter with CIP?
+By default, HeaderPruningWindow equals to SamplingWindow from [CIP-004](./cip-004.md), but its configurable per LN.
 
 ## Rationale
 
