@@ -50,8 +50,9 @@ func estimateTail(head, tail Header, blockTime, pruningWindow time.Duration) (he
 |---------------------|----------------|-----------------------------------------------|---------------------------|
 | HeaderPruningWindow | 30 days        | Defines the length of time to retain headers  | No                        |
 
-By default, HeaderPruningWindow equals to SamplingWindow from [CIP-004](./cip-004.md). It can be modified per LN, but
-it must be more or equal to the SamplingWindow.
+By default, HeaderPruningWindow (HPW) equals to SamplingWindow (SW) from [CIP-004](./cip-004.md). It can be modified per LN, but
+it must be more or equal to the SamplingWindow. As there is currently way to sync history beyond HPW, the HPW less than 
+SW will fail sampling.
 
 ## Rationale
 
