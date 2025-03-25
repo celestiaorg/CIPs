@@ -1,5 +1,5 @@
 | cip | XX (assigned by Editors) |
-| - |  |
+| - | - |
 | title | Header Pruning for Light Nodes |
 | description | Mechanism to retain a fixed range of headers instead of whole history |
 | author | Hlib Kanunnikov ([@Wondertan](https://github.com/Wondertan)) |
