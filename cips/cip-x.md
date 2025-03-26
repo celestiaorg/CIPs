@@ -70,7 +70,7 @@ Future protocol upgrade will solve this limitation by introducing an efficient w
 
 ## Security Considerations
 
-This changes does not affect security of the protocol and its participants and is strictly an optimization for LN storage.
+This changes does not affect security of the protocol and its participants and is strictly an optimization for LN storage, assuming LN's respect the constraint `HeaderPruningWindow >= SamplingWindow`.
 
 ## Copyright
 
