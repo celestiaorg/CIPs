@@ -17,8 +17,10 @@ constant size range of headers instead of the whole history.
 
 ## Motivation
 
-Light nodes (LNs) store the whole history of ExtendedHeaders in their entirety, including ValidatorSet, Commit and data availability header (DAH). The motivation
-is to decrease LN storage requirements by retaining only a configurable window of recent headers.
+Light nodes (LNs) currently store the entire history of ExtendedHeaders, including the ValidatorSet, Commit, and 
+Data Availability Header (DAH). This started as technical debt but has now become a product issue. The goal is to 
+reduce LN storage requirements by retaining only the most recent headers—specifically, at least the number defined by 
+SampleWindow in [CIP-004](./cip-004.md).
 
 ## Specification
 
@@ -29,7 +31,7 @@ In order to reference the last stored header, we introduce a notion of **Tail** 
 initialization.
   - Once retrieved, Tail becomes the point of trust for the initializing node where everything beforehand assumed valid
  (unless syncing from genesis)
-  - Head, on the other hand, is not trusted and becomes a synchronization target for the node.
+  - Head is cross-checked with the Tail and becomes a synchronization target for the node.
   - All the headers from Tail to Head are then retrieved and verified using signature-based forward verification.
 - As the chain progresses, nodes continuously re-estimate Tail and cut off stored headers beyond the new Tail, retaining
 roughly [HeaderPruningWindow](#parameters) amount of headers.
@@ -37,10 +39,10 @@ roughly [HeaderPruningWindow](#parameters) amount of headers.
 The estimation of Tail height is done as follows:
 
 ```go
-func estimateTail(head, tail Header, blockTime, pruningWindow time.Duration) (height uint64) {
-	estimatedRange = (now + pruningWindow - tail.Time()) / blockTime
-	estimatedCutoffHeight = min(tail.Height() + estimatedRange, head.Height())
-	return estimatedCutoffHeight
+func estimateTail(head Header, blockTime, headerPruningWindow time.Duration) (height uint64) {
+    headersToRetain := headerPruningWindow / blockTime
+    tail := head.Height() - numBlocksToKeep
+    return tail
 }
 ```
 
