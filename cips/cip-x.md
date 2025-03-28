@@ -41,7 +41,7 @@ The estimation of Tail height is done as follows:
 ```go
 func estimateTail(head Header, blockTime, headerPruningWindow time.Duration) (height uint64) {
     headersToRetain := headerPruningWindow / blockTime
-    tail := head.Height() - numBlocksToKeep
+    tail := head.Height() - headersToRetain
     return tail
 }
 ```
