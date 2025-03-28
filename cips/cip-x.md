@@ -17,9 +17,9 @@ constant size range of headers instead of the whole history.
 
 ## Motivation
 
-Light nodes (LNs) currently store the entire history of ExtendedHeaders, including the ValidatorSet, Commit, and 
-Data Availability Header (DAH). This started as technical debt but has now become a product issue. The goal is to 
-reduce LN storage requirements by retaining only the most recent headers—specifically, at least the number defined by 
+Light nodes (LNs) currently store the entire history of ExtendedHeaders, including the ValidatorSet, Commit, and
+Data Availability Header (DAH). This started as technical debt but has now become a product issue. The goal is to
+reduce LN storage requirements by retaining only the most recent headers—specifically, at least the number defined by
 SampleWindow in [CIP-004](./cip-004.md).
 
 ## Specification
@@ -53,7 +53,7 @@ func estimateTail(head Header, blockTime, headerPruningWindow time.Duration) (he
 | HeaderPruningWindow | 30 days        | Defines the length of time to retain headers  | No                        |
 
 By default, HeaderPruningWindow (HPW) equals to SamplingWindow (SW) from [CIP-004](./cip-004.md). It can be modified per LN, but
-it must be more or equal to the SamplingWindow. As there is currently way to sync history beyond HPW, the HPW less than 
+it must be more or equal to the SamplingWindow. As there is currently way to sync history beyond HPW, the HPW less than
 SW will fail sampling.
 
 ## Rationale
