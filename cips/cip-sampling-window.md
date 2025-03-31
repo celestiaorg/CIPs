@@ -3,7 +3,7 @@
 | title | Lower Sampling and Pruning Window to 14 days |
 | description | Lower Sampling and Pruning Window to 14 days |
 | author | Callum Waters ([@cmwaters](https://github.com/cmwaters)), Nashqueue ([@Nashqueue](https://github.com/Nashqueue)) |
-| discussions-to | URL |
+| discussions-to | https://forum.celestia.org/t/cip-lower-sampling-and-pruning-window-to-14-days/1965 |
 | status | Draft |
 | type | Standards Track |
 | category | Data Availability |
