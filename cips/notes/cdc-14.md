@@ -2,10 +2,10 @@
 
 ## Overview
 
-- Lemongrass hard fork ([CIP-17](../cip-17.md)) final release expected by end of week, to be deployed on Arabica testnet in early August
-- [CIP-21](../cip-21.md) (blob with verified signers) in Last Call stage, integration with celestia-app in progress
-- [CIP-22](../cip-22.md) (remove `IndexWrapper`) moved to review status, discussion on potential impacts
-- [CIP-23](../cip-23.md) (coordinated prevote time) introduced to solve inconsistent block times, prototype expected in 1-2 weeks
+- Lemongrass hard fork ([CIP-17](../cip-017.md)) final release expected by end of week, to be deployed on Arabica testnet in early August
+- [CIP-21](../cip-021.md) (blob with verified signers) in Last Call stage, integration with celestia-app in progress
+- [CIP-22](../cip-022.md) (remove `IndexWrapper`) moved to review status, discussion on potential impacts
+- [CIP-23](../cip-023.md) (coordinated prevote time) introduced to solve inconsistent block times, prototype expected in 1-2 weeks
 - Celestia state machine v3 to include author blobs and delayed voting features, with potential upgrade system refactor
 
 ## Lemongrass hard fork update
@@ -23,11 +23,11 @@
 - First release candidate of go-square cut
 - Integration with celestia-app started, expected to complete in 1-2 weeks
 - QA testing to follow, likely to undergo audits
-- [CIP-21](../cip-21.md) to be moved to Last Call stage, pending preliminary QA before moving to Final
+- [CIP-21](../cip-021.md) to be moved to Last Call stage, pending preliminary QA before moving to Final
 
 ## Removing index wrapper proposal
 
-- [CIP-22](../cip-22.md) moved to review status with updated specification
+- [CIP-22](../cip-022.md) moved to review status with updated specification
 - Benefits:
   - Makes PFB transaction deterministic
   - Simplifies square construction
@@ -37,7 +37,7 @@
 
 ## Coordinated prevote time introduction
 
-- [CIP-23](../cip-23.md) introduced to address inconsistent block times
+- [CIP-23](../cip-023.md) introduced to address inconsistent block times
 - Proposes delaying pre-vote until end of timeout propose
 - Aims to provide finality on a regular cadence
 - Prototype expected in 1-2 weeks
@@ -46,8 +46,8 @@
 ## Celestia state machine v3 features
 
 - Confirmed features:
-  - Authored blobs ([CIP-21](../cip-21.md))
-  - Delayed voting ([CIP-23](../cip-23.md))
+  - Authored blobs ([CIP-21](../cip-021.md))
+  - Delayed voting ([CIP-23](../cip-023.md))
 - Potential inclusion:
   - Refactor of upgrade system for Cosmos SDK compatibility
 - Meta CIP for v3 features to be written and discussed in next call

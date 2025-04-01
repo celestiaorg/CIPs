@@ -40,8 +40,7 @@ The verification key associated with a ZK account does not need to be fixed at a
 
 ### Lazybridging
 
-> [!TIP]
-> "Lazybridging is a lifestyle."
+> 💡 **Tip:** "Lazybridging is a lifestyle."
 
 Lazybriding is an extension to base ZK account functionality that allows for trust-minimized two-way bridges between the Celestia state machine and rollups (for both TIA and arbitrary tokens potentially), and incoming bridging of assets from non-IBC external chains. The extension is another execution path of the verifier that can trigger the unlocking of specific account funds to be spent from the ZK account, rather than the entirety of the account funds as with the protocol sketch.
 

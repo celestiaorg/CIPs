@@ -8,11 +8,11 @@
 #### Overview
 
 *   Celestia Core Dev's Call 15 focused on working group updates and upcoming upgrades
-*   Lemongrass hard fork ([CIP-17](../cip-17.md)) and Celestia App v2 upgrades timelines slightly pushed back:
+*   Lemongrass hard fork ([CIP-17](../cip-017.md)) and Celestia App v2 upgrades timelines slightly pushed back:
   * Arabica (mid-August)
   * Mocha (end of August)
   * Mainnet (early September)
-*   [CIP-24](../cip-24.md) introduced to simplify gas estimation for clients by making cost variables version-based instead of governance-modifiable
+*   [CIP-24](../cip-024.md) introduced to simplify gas estimation for clients by making cost variables version-based instead of governance-modifiable
     
 #### Working group updates
 
@@ -32,7 +32,7 @@
 
 #### CIP 24: Constant gas costs for blob transactions
 
-*   [CIP-24](../cip-24.md) aims to simplify gas estimation for clients submitting transactions and blobs
+*   [CIP-24](../cip-024.md) aims to simplify gas estimation for clients submitting transactions and blobs
 *   Changes two governance-modifiable variables to version-based constants:
     *   `blob.GasPerBlobByte`
     *   `auth.TxSizeCostPerByte`

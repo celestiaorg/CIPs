@@ -44,7 +44,7 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 ## Parameters
 
-The parameters section should summarize any changes to global or module parameters, including any new parameters, introduced by the CIP. All mainnet parameters are tracked in [CIP-13](./cip-13.md). Once a CIP is accepted and deployed to mainnet, CIP-13 MUST be updated with these parameter changes. If there are no parameter changes in the CIP, this section can be omitted.
+The parameters section should summarize any changes to global or module parameters, including any new parameters, introduced by the CIP. All mainnet parameters are tracked in [CIP-13](./cip-013.md). Once a CIP is accepted and deployed to mainnet, CIP-13 MUST be updated with these parameter changes. If there are no parameter changes in the CIP, this section can be omitted.
 
 TODO: Remove the previous comments and update the following table before submitting
 
