@@ -36,15 +36,20 @@ initialization.
 - As the chain progresses, nodes continuously re-estimate Tail and cut off stored headers beyond the new Tail, retaining
 roughly [HeaderPruningWindow](#parameters) amount of headers.
 
-The estimation of Tail height is done as follows:
-
+The estimation of Tail is done as follows:
 ```go
-func estimateTail(head Header, blockTime, headerPruningWindow time.Duration) (height uint64) {
-    headersToRetain := headerPruningWindow / blockTime
+func estimateTail(head Header, blockTime, window time.Duration) (height uint64) {
+    headersToRetain := window / blockTime
     tail := head.Height() - headersToRetain
     return tail
 }
 ```
+
+The `window` argument is used to define the length of time to retain headers
+and it can have two values: TrustingPeriod and [HeaderPruningWindow](#parameters).
+TrustingPeriod is used only during subjective initialization to prevent from
+long-range attacks. The [HeaderPruningWindow](#parameters) on the other hand is
+used during normal operation to define how many verified headers to retain.
 
 ## Parameters
 
