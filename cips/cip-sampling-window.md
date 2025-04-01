@@ -1,4 +1,4 @@
-| cip | XX (assigned by Editors) |
+| cip | 33 |
 | - | - |
 | title | Lower Sampling and Pruning Window to 14 days |
 | description | Lower Sampling and Pruning Window to 14 days |
