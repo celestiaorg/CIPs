@@ -1,4 +1,4 @@
-| cip | 33 |
+| cip | 34 |
 | - | - |
 | title | Lower Sampling and Pruning Window to 14 days |
 | description | Lower Sampling and Pruning Window to 14 days |
