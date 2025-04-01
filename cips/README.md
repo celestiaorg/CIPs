@@ -4,8 +4,8 @@ Read [CIP-1](./cip-001.md) for information on the CIP process.
 
 ## Meetings
 
-| №  | Date              | Agenda                                                   | Notes                                                                                           | Recording                                                |
-|----|-------------------|----------------------------------------------------------|-------------------------------------------------------------------------------------------------|----------------------------------------------------------|
+| Number | Date              | Agenda                                                   | Notes                                                                                           | Recording                                                |
+|--------|------------------|----------------------------------------------------------|-------------------------------------------------------------------------------------------------|----------------------------------------------------------|
 | 1  | November 29, 2023 | [Agenda](https://github.com/celestiaorg/CIPs/issues/8)   | [Tweet Thread](https://x.com/JoshCStein/status/1729893879191621702)                             | [Recording](https://www.youtube.com/watch?v=EhWHHmPo_5Q) |
 | 2  | December 13, 2023 | [Agenda](https://github.com/celestiaorg/CIPs/issues/22)  | [Tweet Thread](https://x.com/JoshCStein/status/1734967567075168697)                             | [Recording](https://www.youtube.com/watch?v=yYt600kvf4g) |
 | 3  | January 24, 2024  | [Agenda](https://github.com/celestiaorg/CIPs/issues/40)  | [Tweet Thread](https://x.com/JoshCStein/status/1750187535911837848?s=20)                        | [Recording](https://www.youtube.com/watch?v=g_8e3h6iixM) |

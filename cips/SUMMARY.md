@@ -35,7 +35,7 @@
   - [CIP-30](./cip-030.md)
   - [CIP-31](./cip-031.md)
   - [CIP-32](./cip-032.md)
-  - [CIP-33](./cip-033.md)\
+  - [CIP-33](./cip-033.md)
   - [CIP-34](./cip-034.md)
 
 
