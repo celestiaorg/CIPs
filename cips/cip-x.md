@@ -37,6 +37,7 @@ initialization.
 roughly [HeaderPruningWindow](#parameters) amount of headers.
 
 The estimation of Tail is done as follows:
+
 ```go
 func estimateTail(head Header, blockTime, window time.Duration) (height uint64) {
     headersToRetain := window / blockTime
