@@ -13,14 +13,14 @@
 
 Currently, every data availability (DA) node type synchronizes all historical headers starting from genesis (or other statically configured
 historical header) until the subjectively initialized head of the chain. We change that by adding a way to sync a
-constant size range of headers instead of the whole history.
+fixed-duration window of headers instead of the whole history.
 
 ## Motivation
 
 Light nodes (LNs) currently store the entire history of ExtendedHeaders, including the ValidatorSet, Commit, and
 Data Availability Header (DAH). This started as technical debt but has now become a product issue. The goal is to
-reduce LN storage requirements by retaining only the most recent headers—specifically, at least the number defined by
-SampleWindow in [CIP-004](./cip-004.md).
+reduce LN storage requirements by retaining only the most recent headers at least the number defined by
+PruningWindow in [CIP-034](./cip-034.md).
 
 ## Specification
 
@@ -56,9 +56,9 @@ used during normal operation to define how many verified headers to retain.
 
 | Parameter           | Proposed value | Description                                   | Changeable via Governance |
 |---------------------|----------------|-----------------------------------------------|---------------------------|
-| HeaderPruningWindow | 30 days        | Defines the length of time to retain headers  | No                        |
+| HeaderPruningWindow | 337 hours      | Defines the length of time to retain headers  | No                        |
 
-By default, HeaderPruningWindow (HPW) is equal to SamplingWindow (SW) from [CIP-004](./cip-004.md). It can be modified per LN, but
+By default, HeaderPruningWindow (HPW) is equal to SamplingWindow (SW) from [CIP-034](./cip-034.md). It can be modified per LN, but
 it must be more or equal to the SamplingWindow. As there is currently way to sync history beyond HPW, the HPW less than
 SW will fail sampling.
 
