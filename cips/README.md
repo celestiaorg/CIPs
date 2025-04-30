@@ -74,6 +74,7 @@ Read [CIP-1](./cip-001.md) for information on the CIP process.
 | [32](./cip-032.md) | Add Hyperlane to Celestia                                                    | [@c-node](https://github.com/S1nus), [@cmwaters](https://github.com/cmwaters)                                                                                                |
 | [33](./cip-033.md) | Lotus Network Upgrade                                                        | [@evan-forbes](https://github.com/evan-forbes)                                                                                                                               |
 | [34](./cip-034.md) | Lower Sampling and Pruning Window to 14 days                                | [@cmwaters](https://github.com/cmwaters), [@Nashqueue](https://github.com/Nashqueue)                                                                                         |
+| [35](./cip-035.md) | Header Pruning for Light Nodes                                             | [@Wondertan](https://github.com/Wondertan)                                                                                                                                   |
 
 ## Contributing
 

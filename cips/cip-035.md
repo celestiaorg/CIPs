@@ -1,4 +1,4 @@
-| cip | XX (assigned by Editors) |
+| cip | 35 |
 | - | - |
 | title | Header Pruning for Light Nodes |
 | description | Mechanism to retain a fixed range of headers instead of whole history |
