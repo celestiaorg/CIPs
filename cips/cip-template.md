@@ -6,7 +6,7 @@
 | discussions-to | URL |
 | status | Draft |
 | type | Standards Track, Meta, or Informational |
-| category | Core, Data Availability, Networking, Interface, or CRC. Only required for Standards Track. Otherwise, remove this field. |
+| category | Core, Data Availability, Networking, Interface, or Celestia Request for Comment(CRC). Only required for Standards Track. Otherwise, remove this field. |
 | created | Date created on, in ISO 8601 (yyyy-mm-dd) format |
 | requires | CIP number(s). Only required when you reference a CIP in the Specification section. Otherwise, remove this field. |
 
