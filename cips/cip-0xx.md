@@ -8,6 +8,7 @@
 | type | Standards Track |
 | category | Core |
 | created | 2025-06-05 |
+| supercedes | [CIP-4](./cip-004.md) |
 
 ## Abstract
 
@@ -18,9 +19,10 @@ This proposal explicitly decouples the `trusting period` and `sampling window` f
 
 Reducing the `trusting period` to 7 days addresses longer sync times for rejoining nodes and aims to:
 
-1. **Optimize Resource Usage for Light Clients:** Light clients will only need to sample data over a 7-day window cutting total bandwidth requirements by 75%.
+1. **Optimize Resource Usage for Light Clients:** Light clients will only need to sample data over a 7-day window cutting total bandwidth requirements by 76,66%. The total bandwidth saving is only during initial sync and not when syncing at the tip of the chain.
 2. **Optimize Resource Usage for Full Nodes:** Full nodes will only need to store and distribute samples in blocks that were created in the last 7 days.
-3. **Potentially reduce the unbonding period for validators:** The `unbonding period` for validators could be reduced to be closer to the new `trusting period` of 7 days.
+3. **Reduce rollup finality time:** A shorter trusting period allows optimistic rollups to have shorter fraud proof windows, leading to faster finality for rollup transactions.
+4. **Potentially reduce the unbonding period for validators:** The `unbonding period` for validators could be reduced to be closer to the new `trusting period` of 7 days.
 
 ## Specification
 
@@ -39,9 +41,9 @@ The following parameter change is proposed for the Celestia network:
 | Parameter                 | Current value (Implicit) | Proposed value | Description                                                                                                                               | Changeable via Governance |
 |---------------------------|--------------------------|----------------|-------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
 | `TrustingPeriod`          | 14 days                  | 7 days         | The maximum duration a node may safely remain offline and later rejoin the network without external trust; also defines the sampling window. | No                       |
-| `MinSamplingWindow`       | 30 days (from `CIP-004`)  | 7 days         | The minimum period light clients must sample for data availability.                                                                      | No                       |
+| `SamplingWindow`          | 30 days (from `CIP-004`)  | 7 days         | The minimum period light clients must sample for data availability.                                                                      | No                       |
 
-*(Note: Exact parameter names may vary across implementations. The `MinSamplingWindow` from `CIP-004` is superseded by the new `TrustingPeriod` which dictates the exact sampling duration.)*
+*(Note: Exact parameter names may vary across implementations. The `SamplingWindow` from `CIP-004` is superseded by the new `TrustingPeriod` which dictates the exact sampling duration.)*
 
 ## Rationale
 
