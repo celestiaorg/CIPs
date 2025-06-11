@@ -13,7 +13,7 @@
 ## Abstract
 
 This CIP proposes reducing Celestia's `trusting period` (or `weak subjectivity period`) to 7 days, consequently setting the light node `sampling window` to 7 days. The goals include optimizing light client resource usage, reducing rollup finality times, and potentially enabling a shorter validator `unbonding period`.
-This proposal explicitly decouples the `trusting period` and `sampling window` from the `data pruning window`. It supersedes aspects of `CIP-004` regarding `sampling window` duration by clarifying the `pruning window`'s independence.
+This proposal explicitly decouples the `trusting period` and `sampling window` from the `minimum pruning window`. It supersedes aspects of `CIP-004` regarding `sampling window` duration by clarifying the `minimum pruning window`'s independence.
 
 ## Motivation
 
@@ -32,7 +32,7 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 1. **Trusting Period Reduction:** The `trusting period` for the Celestia network `SHALL` be set to 7 days.
 2. **Sampling Window Adjustment:** Consequently, the data availability `sampling window` for light nodes `SHALL` be 7 days. Light nodes `MUST` sample data for this exact duration to verify the chain's integrity after being offline. This adjusts the `sampling window` parameter discussed in `CIP-004`.
 3. **Unbonding Period Constraint:** The `unbonding period` for validators `MUST` be greater than or equal to the new `trusting period` of 7 days. It is `RECOMMENDED` that the `unbonding period` be reviewed and potentially adjusted to align with this new, shorter `trusting period`, but it `MUST NOT` be less than 7 days.
-4. **Pruning Window Decoupling:** The data `pruning window` (how long full nodes retain block data) `SHALL` be decoupled from the `trusting period`. It `MAY` be set to a value different from 7 days (e.g., 14 days or longer), based on network data retention policies and storage considerations. This CIP does not mandate a specific `pruning window` but clarifies its independence from the `trusting period`.
+4. **Minimum Pruning Window Decoupling:** The data `minimum pruning window` (how long full nodes retain block data) `SHALL` be decoupled from the `trusting period`. It `MAY` be set to a value different from 7 days (e.g., 14 days or longer), based on network data retention policies and storage considerations. This CIP does not mandate a specific `minimum pruning window` but clarifies its independence from the `trusting period`.
 
 ## Parameters
 
@@ -51,7 +51,7 @@ Reducing the `trusting period` to 7 days balances accommodating typical node off
 
 - **7-Day Window:** A 7-day period is considered sufficient for most routine node downtimes (e.g., maintenance, temporary outages) while being significantly shorter than a 14-day period.
 - **Equivalence of Sampling and Trusting Period:** The `sampling window` must be equivalent to the `trusting period`. Sampling less would expose nodes to risks from attacks during their offline period. Sampling more is unnecessary and could lead to false positives if data has been (correctly) pruned by full nodes.
-- **Decoupling from Pruning Period:** The `pruning window` serves a different purpose: managing data retrieval service guarantees of full nodes. Decoupling it from the `trusting period` allows the network to set data retention policies (e.g., 14 days, 30 days, or more) based on economic incentives and data retrievability needs, without constraining security parameters related to the `weak subjectivity period`. This CIP clarifies this decoupling, ensuring changes to the `trusting period` do not inadvertently force changes to data retention strategies, and vice-versa.
+- **Decoupling from Minimum Pruning Period:** The `minimum pruning window` serves a different purpose: managing data retrieval service guarantees of full nodes. Decoupling it from the `trusting period` allows the network to set data retention policies (e.g., 14 days, 30 days, or more) based on economic incentives and data retrievability needs, without constraining security parameters related to the `weak subjectivity period`. This CIP clarifies this decoupling, ensuring changes to the `trusting period` do not inadvertently force changes to data retention strategies, and vice-versa.
 - **Impact on Unbonding Period:** The `unbonding period` must be at least as long as the `trusting period` to prevent validators from unbonding and escaping slashing for misbehavior that is discovered within the `trusting period`. Lowering the `trusting period` to 7 days allows for a potential reduction in the `unbonding period`, which can improve capital efficiency for validators. However, this CIP only mandates the minimum constraint (>= 7 days).
 
 ## Backwards Compatibility
@@ -60,7 +60,7 @@ This CIP introduces changes that require coordinated updates across the network:
 
 1. **Node Updates:** All node types (light nodes, full nodes, validators) `MUST` be updated to recognize and operate with the new 7-day trusting period.
 
-    - Light nodes configured with the old 14-day sampling window might attempt to sample data beyond the new 7-day window. If full nodes adopt a `pruning window` shorter than 14 days (though still longer than 7 days, e.g., 10 days), these older light nodes could encounter issues or raise false alarms about data unavailability. However, the primary concern is ensuring all nodes operate on the *same* understanding of the `trusting period`.
+    - Light nodes configured with the old 14-day sampling window might attempt to sample data beyond the new 7-day window. If full nodes adopt a `minimum pruningwindow` shorter than 14 days (though still longer than 7 days, e.g., 10 days), these older light nodes could encounter issues or raise false alarms about data unavailability. However, the primary concern is ensuring all nodes operate on the *same* understanding of the `trusting period`.
     - Nodes that do not update will operate with outdated security assumptions, potentially leading to them following a minority fork if a long-range attack scenario were to occur that is preventable by nodes aware of the correct (shorter) `trusting period`.
 
 2. **IBC Light Clients and Bridges:** IBC light clients and bridges connected to Celestia `MUST` update their `trusting period` configurations to align with Celestia's new 7-day period. This is critical for maintaining their security, as detailed in the Security Considerations section.
