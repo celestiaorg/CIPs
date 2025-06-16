@@ -23,7 +23,7 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 3. **Grace Period**: The additional 1 hour beyond 14 days provides a grace period to ensure the unbonding period strictly exceeds any 14-day trusting periods, accounting for potential timing variations and ensuring robust security guarantees.
 
-4. **Evidence Parameter Updates**: The `MaxAgeDuration` and `MaxAgeNumBlocks` must be updated to mirror the changes in the unbonding period. Noticeably, the `MaxAgeNumBlocks` value MUST increase as it was not adjusted to account for the halving in block time and is currently at 7 days (at 5 seconds per block). As it's important that the evidence parameters mirror the `UnbondingTime` and this parameter is not changeable by governance, so to MUST these parameters not be changeable by governance. Note when either of the evidence parameters are exceeeded the evidence is deemed invalid.
+4. **Evidence Parameter Updates**: The `MaxAgeDuration` and `MaxAgeNumBlocks` must be updated to mirror the changes in the unbonding period. Noticeably, the `MaxAgeNumBlocks` value MUST increase as it was not adjusted to account for the halving in block time and is currently at 7 days (at 5 seconds per block). As it's important that the evidence parameters mirror the `UnbondingTime` and this parameter is not changeable by governance, so too MUST these parameters not be changeable by governance. Note when either of the evidence parameters are exceeded the evidence is deemed invalid.
 
 ## Parameters
 
@@ -59,7 +59,7 @@ This change introduces modifications that require careful coordination:
 
 2. **Existing Unbonding Delegations**: Delegations already in the unbonding process at the time of upgrade will continue under the previous 21-day period to avoid disrupting existing commitments.
 
-3. **Existing Governance Proposals to Modify Evidence Parameters**: Any existing proposal, unlikely as they are must not be allowed to change the evidence params following the coordinated upgrade.
+3. **Existing Governance Proposals to Modify Evidence Parameters**: Any existing proposals, though unlikely, must not be allowed to change the evidence params following the coordinated upgrade.
 
 No backward compatibility issues are expected for normal network operations, as the change only affects the timing of validator unbonding without modifying core consensus mechanisms or data structures.
 
