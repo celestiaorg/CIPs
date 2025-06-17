@@ -76,6 +76,7 @@ Read [CIP-1](./cip-001.md) for information on the CIP process.
 | [34](./cip-034.md) | Set Pruning Window to 7 Days + 1 Hour                                        | [@cmwaters](https://github.com/cmwaters), [@Nashqueue](https://github.com/Nashqueue)                                                                                         |
 | [35](./cip-035.md) | Header Pruning for Light Nodes                                               | [@Wondertan](https://github.com/Wondertan)                                                                                                                                   |
 | [36](./cip-036.md) | Lowering Trusting Period to 7 Days                                           | [@nashqueue](https://github.com/nashqueue)                                                                                                                                   |
+| [37](./cip-037.md) | Lower unbonding period to ~14 days                                           | [@cmwaters](https://github.com/cmwaters)                                                                                                                                     |
 
 ## Contributing
 
