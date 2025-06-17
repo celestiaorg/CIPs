@@ -3,8 +3,8 @@
 | title | Lower unbonding period to ~14 days |
 | description | Reduce the validator unbonding period from 21 days to 14 days and 1 hour to improve capital efficiency while maintaining network security |
 | author | Callum (@cmwaters) |
-| discussions-to | URL |
-| status | Draft |
+| discussions-to | https://forum.celestia.org/t/cip-lower-unbonding-period-to-14-days/2030 |
+| status | Review |
 | type | Standards Track |
 | category | Core |
 | created | 2025-06-16 |
