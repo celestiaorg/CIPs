@@ -77,6 +77,7 @@ Read [CIP-1](./cip-001.md) for information on the CIP process.
 | [35](./cip-035.md) | Header Pruning for Light Nodes                                               | [@Wondertan](https://github.com/Wondertan)                                                                                                                                   |
 | [36](./cip-036.md) | Lowering Trusting Period to 7 Days                                           | [@nashqueue](https://github.com/nashqueue)                                                                                                                                   |
 | [37](./cip-037.md) | Lower unbonding period to ~14 days                                           | [@cmwaters](https://github.com/cmwaters)                                                                                                                                     |
+| [38](./cip-038.md) | High-Throughput Block Recovery                                                | [@evan-forbes](https://github.com/evan-forbes)                                                                                                                               |
 
 ## Contributing
 
