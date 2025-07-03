@@ -14,4 +14,4 @@ options:
   ignore_draft: true
   ignored_keywords:
     - WIP
-  number_of_reviewers: 3
+  number_of_reviewers: 4
