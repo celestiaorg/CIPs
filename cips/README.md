@@ -34,7 +34,12 @@ Read [CIP-1](./cip-001.md) for information on the CIP process.
 | 26     | March 19, 2025    | [Agenda](https://github.com/celestiaorg/CIPs/issues/261) | TBD                                                                                             | [Recording](https://youtu.be/02D-BuoCOxc)                |
 | 27     | April 2, 2025     | [Agenda](https://github.com/celestiaorg/CIPs/issues/278) | [Tweet thread](https://x.com/JoshCStein/status/1907548769140486589)                             | [Recording](https://youtu.be/PDFTdu-SXxs)                |
 | 28     | April 16, 2025    | [Agenda](https://github.com/celestiaorg/CIPs/issues/285) | TBD                                                                                             | [Recording](https://youtu.be/3tVRjbCBJIk)                |
-| 29     | April 30, 2025    | [Agenda](https://github.com/celestiaorg/CIPs/issues/295) | TBD                                                                                             | [Set reminder](https://youtu.be/NsoLj3kpijE)             |
+| 29     | April 30, 2025    | [Agenda](https://github.com/celestiaorg/CIPs/issues/295) | TBD                                                                                             | [Recording](https://youtu.be/NsoLj3kpijE)                |
+| 30     | May 13, 2025      | [Agenda](https://github.com/celestiaorg/CIPs/issues/297) | TBD                                                                                             | [Recording](https://youtu.be/_Szfi7D39gE)                |
+| 31     | May 27, 2025      | [Agenda](https://github.com/celestiaorg/CIPs/issues/300) | TBD                                                                                             | [Recording](https://youtu.be/Te8l9M2_OPM)                |
+| 32     | June 11, 2025     | [Agenda](https://github.com/celestiaorg/CIPs/issues/306) | TBD                                                                                             | [Recording](https://youtu.be/3ySaOJAV6zo)                |
+| 33     | June 25, 2025     | [Agenda](https://github.com/celestiaorg/CIPs/issues/311) | TBD                                                                                             | [Recording](https://youtu.be/E8zOVidQD-g)                |
+| 34     | July 8, 2025      | [Agenda](https://github.com/celestiaorg/CIPs/issues/317) | TBD                                                                                             | [Set reminder](https://youtu.be/PRaCzVk5v5M)                |
 
 ## Celestia Improvement Proposals (CIPs)
 
