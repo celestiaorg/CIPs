@@ -1,16 +1,17 @@
 reviewers:
-    defaults:
-      - editors
-    groups:
-      editors:
-        - jcstein
-        - ebuchman
-        - rootulp
-files:
-'**':
+  defaults:
     - editors
+  groups:
+    editors:
+      - jcstein
+      - ebuchman
+      - rootulp
+      - cmwaters
+files:
+"**":
+  - editors
 options:
-    ignore_draft: true
-    ignored_keywords:
-        - WIP
-    number_of_reviewers: 3
+  ignore_draft: true
+  ignored_keywords:
+    - WIP
+  number_of_reviewers: 3
