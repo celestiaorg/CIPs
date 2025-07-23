@@ -5,7 +5,7 @@ Read [CIP-1](./cip-001.md) for information on the CIP process.
 ## Meetings
 
 | Number | Date              | Agenda                                                   | Notes                                                                                           | Recording                                                |
-|--------|-------------------|----------------------------------------------------------|-------------------------------------------------------------------------------------------------|----------------------------------------------------------|
+| ------ | ----------------- | -------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
 | 1      | November 29, 2023 | [Agenda](https://github.com/celestiaorg/CIPs/issues/8)   | [Tweet Thread](https://x.com/JoshCStein/status/1729893879191621702)                             | [Recording](https://www.youtube.com/watch?v=EhWHHmPo_5Q) |
 | 2      | December 13, 2023 | [Agenda](https://github.com/celestiaorg/CIPs/issues/22)  | [Tweet Thread](https://x.com/JoshCStein/status/1734967567075168697)                             | [Recording](https://www.youtube.com/watch?v=yYt600kvf4g) |
 | 3      | January 24, 2024  | [Agenda](https://github.com/celestiaorg/CIPs/issues/40)  | [Tweet Thread](https://x.com/JoshCStein/status/1750187535911837848?s=20)                        | [Recording](https://www.youtube.com/watch?v=g_8e3h6iixM) |
@@ -39,12 +39,14 @@ Read [CIP-1](./cip-001.md) for information on the CIP process.
 | 31     | May 27, 2025      | [Agenda](https://github.com/celestiaorg/CIPs/issues/300) | TBD                                                                                             | [Recording](https://youtu.be/Te8l9M2_OPM)                |
 | 32     | June 11, 2025     | [Agenda](https://github.com/celestiaorg/CIPs/issues/306) | TBD                                                                                             | [Recording](https://youtu.be/3ySaOJAV6zo)                |
 | 33     | June 25, 2025     | [Agenda](https://github.com/celestiaorg/CIPs/issues/311) | TBD                                                                                             | [Recording](https://youtu.be/E8zOVidQD-g)                |
-| 34     | July 8, 2025      | [Agenda](https://github.com/celestiaorg/CIPs/issues/317) | TBD                                                                                             | [Set reminder](https://youtu.be/PRaCzVk5v5M)                |
+| 34     | July 8, 2025      | [Agenda](https://github.com/celestiaorg/CIPs/issues/317) | TBD                                                                                             | [Recording](https://youtu.be/PRaCzVk5v5M)                |
+| 35     | July 22, 2025     | [Agenda](https://github.com/celestiaorg/CIPs/issues/326) | [Tweet thread](https://x.com/JoshCStein/status/1947848823381864604)                             | [Recording](https://youtu.be/5oHGN2St9wo)                |
+| 36     | August 5, 2025    | [Agenda](https://github.com/celestiaorg/CIPs/issues/333) | TBD                                                                                             | [Set reminder](https://youtu.be/EpuIO4L3VvE)             |
 
 ## Celestia Improvement Proposals (CIPs)
 
 | Number             | Title                                                                        | Author(s)                                                                                                                                                                    |
-|--------------------|------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ------------------ | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [1](./cip-001.md)  | Celestia Improvement Proposal Process and Guidelines                         | [@YazzyYaz](https://github.com/YazzyYaz)                                                                                                                                     |
 | [2](./cip-002.md)  | CIP Editor Handbook                                                          | [@YazzyYaz](https://github.com/YazzyYaz)                                                                                                                                     |
 | [3](./cip-003.md)  | Process for Approving External Resources                                     | [@YazzyYaz](https://github.com/YazzyYaz)                                                                                                                                     |
@@ -83,7 +85,7 @@ Read [CIP-1](./cip-001.md) for information on the CIP process.
 | [36](./cip-036.md) | Lowering Trusting Period to 7 Days                                           | [@nashqueue](https://github.com/nashqueue)                                                                                                                                   |
 | [37](./cip-037.md) | Lower unbonding period to ~14 days                                           | [@cmwaters](https://github.com/cmwaters)                                                                                                                                     |
 | [38](./cip-038.md) | Increase maximum block, square and transaction size                          | [@evan-forbes](https://github.com/evan-forbes)                                                                                                                               |
-| [39](./cip-039.md) | Remove token filter for Hyperlane and IBC            | [@Manav-Aggarwal](https://github.com/Manav-Aggarwal)                                                                                                                         |
+| [39](./cip-039.md) | Remove token filter for Hyperlane and IBC                                    | [@Manav-Aggarwal](https://github.com/Manav-Aggarwal)                                                                                                                         |
 
 ## Contributing
 
