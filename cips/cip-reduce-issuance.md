@@ -7,7 +7,7 @@
 | status | Draft |
 | type | Standards Track |
 | category | Core |
-| created | 2025-01-02 |
+| created | 2025-07-28 |
 
 ## Abstract
 
@@ -34,7 +34,7 @@ The following parameter changes are proposed for the Celestia network:
 
 | Parameter | Current value | Proposed value | Description | Changeable via Governance |
 |-----------|---------------|----------------|-------------|---------------------------|
-| `InitialInflationRate` | 5.36% | 2.67% | The initial inflation rate at genesis (the chain has been running for 1 year) | No |
+| `InitialInflationRate` | 5.36% | 2.67% | The initial inflation rate at genesis | No |
 | `MinCommissionRate` | 5% | 10% | The minimum commission rate validators can set | Yes |
 
 ### APR Impact Analysis
@@ -43,7 +43,7 @@ The following tables show the impact of the proposed changes on APR for differen
 
 **Current Schedule (5% inflation, 5% minimum commission):**
 
-| Bonding Ratio | Total Staking APR | Delegator APR | Validator APR|
+| Bonding Ratio | Total Staking APR | Delegator APR | Validator APR |
 |---------------|-------------------|-----------------------|----------------------------|
 | 35% | 14.29% | 13.58% | 0.71% |
 | 50% | 10.00% | 9.50% | 0.50% |
@@ -96,7 +96,7 @@ This change introduces modifications that require careful coordination:
 
 1. **Network Upgrade Required**: The inflation and commission changes must be implemented through a coordinated network upgrade to ensure all validators adopt the new parameters simultaneously.
 
-2. **Validator Commission Adjustments**: This will need to be done as a governance proposal and can happen prior of after the inflation change.
+2. **Validator Commission Adjustments**: This will need to be done as a governance proposal and can happen prior to or after the inflation change.
 
 No other backward compatibility issues are expected.
 
