@@ -3,7 +3,7 @@
 | title | Further reduce issuance to 2.5% and increase minimum commission to 10% |
 | description | Reduce inflation to 2.5% and increase minimum validator commission to 10% to improve TIA's suitability for financial applications |
 | author | Callum Waters (@cmwaters), Nashqueue (@nashqueue) |
-| discussions-to | https://forum.celestia.org/t/cip-reduce-issuance-to-2-5-and-increase-minimum-commission-to-10/2103 |
+| discussions-to | <https://forum.celestia.org/t/cip-reduce-issuance-to-2-5-and-increase-minimum-commission-to-10/2103> |
 | status | Draft |
 | type | Standards Track |
 | category | Core |
