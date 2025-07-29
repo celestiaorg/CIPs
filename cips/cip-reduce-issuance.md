@@ -12,7 +12,7 @@
 
 ## Abstract
 
-This CIP proposes to further reduce Celestia's inflation rate from 5% to 2.5% and increase the minimum validator commission from 5% to 10% in the next major upgrade (v5). These changes aim to make TIA more suitable for financial applications by reducing the opportunity cost of using TIA as collateral or in DeFi protocols, while ensuring validators remain adequately compensated for their services. The proposal builds upon [CIP-29](./cip-029.md) which previously reduced inflation by 33%, and maintains the same disinflation rate of 6.7% annually.
+This CIP proposes to further reduce Celestia's inflation rate from 5% to 2.5% and increase the minimum validator commission from 5% to 10% in the next major upgrade (v6). These changes aim to make TIA more suitable for financial applications by reducing the opportunity cost of using TIA as collateral or in DeFi protocols, while ensuring validators remain adequately compensated for their services. The proposal builds upon [CIP-29](./cip-029.md) which previously reduced inflation by 33%, and maintains the same disinflation rate of 6.7% annually.
 
 ## Motivation
 
@@ -79,7 +79,7 @@ The following table shows the inflation rate progression over time, starting fro
 | **0** | 8.00% | 8.00% | Genesis year, no change |
 | **1** | 7.20% | 7.20% | |
 | **v4** | 5.00% | 5.00% | After CIP-29 reduction |
-| **v5** | 4.67% | 2.50% | **Proposed CIP** |
+| **v6** | 4.67% | 2.50% | **Proposed CIP** |
 | **2** | 4.35% | 2.33% | Regular annual disinflation applied (6.7%) |
 | **3** | 4.06% | 2.17% | Regular annual disinflation applied (6.7%) |
 | **4** | 3.79% | 2.02% | Regular annual disinflation applied (6.7%) |
