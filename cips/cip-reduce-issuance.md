@@ -8,6 +8,7 @@
 | type | Standards Track |
 | category | Core |
 | created | 2025-07-28 |
+| requires | [CIP-29](https://github.com/celestiaorg/CIPs/blob/main/cips/cip-029.md) |
 
 ## Abstract
 
