@@ -22,7 +22,8 @@ This Meta CIP lists the CIPs included in the Matcha network upgrade.
 - [CIP-38](./cip-038.md): Increase maximum block, square and transaction size
 - [CIP-39](./cip-039.md): Remove token filter for Hyperlane and IBC
 - [CIP-40](./cip-040.md): Privval Interface Extension for Arbitrary Message Signing
-- CIP-41: 
+- [CIP-41](./cip-041.md): Reduce issuance to 2.5% and increase minimum commission to 10%
+
 All of the above CIPs are state breaking, and thus require a breaking network upgrade.
 
 ## Rationale
