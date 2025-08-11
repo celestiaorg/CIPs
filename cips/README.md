@@ -86,6 +86,8 @@ Read [CIP-1](./cip-001.md) for information on the CIP process.
 | [37](./cip-037.md) | Lower unbonding period to ~14 days                                           | [@cmwaters](https://github.com/cmwaters)                                                                                                                                     |
 | [38](./cip-038.md) | Increase maximum block, square and transaction size                          | [@evan-forbes](https://github.com/evan-forbes)                                                                                                                               |
 | [39](./cip-039.md) | Remove token filter for Hyperlane and IBC                                    | [@Manav-Aggarwal](https://github.com/Manav-Aggarwal)                                                                                                                         |
+| [40](./cip-040.md) | Privval Interface Extension for Arbitrary Message Signing              | [@rach-id](https://github.com/rach-id), [@evan-forbes](https://github.com/evan-forbes)        |
+| [41](./cip-041.md) | Reduce issuance to 2.5% and increase minimum commission to 10%              | [Callum Waters](https://github.com/cmwaters), [Nashqueue](https://github.com/nashqueue)     |
 
 ## Contributing
 
