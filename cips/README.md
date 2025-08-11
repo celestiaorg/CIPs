@@ -88,6 +88,7 @@ Read [CIP-1](./cip-001.md) for information on the CIP process.
 | [39](./cip-039.md) | Remove token filter for Hyperlane and IBC                                    | [@Manav-Aggarwal](https://github.com/Manav-Aggarwal)                                                                                                                         |
 | [40](./cip-040.md) | Privval Interface Extension for Arbitrary Message Signing              | [@rach-id](https://github.com/rach-id), [@evan-forbes](https://github.com/evan-forbes)        |
 | [41](./cip-041.md) | Reduce issuance to 2.5% and increase minimum commission to 10%              | [Callum Waters](https://github.com/cmwaters), [Nashqueue](https://github.com/nashqueue)     |
+| [42](./cip-042.md) | Matcha Network Upgrade                                                                         | [@evan-forbes](https://github.com/evan-forbes)     |
 
 ## Contributing
 
