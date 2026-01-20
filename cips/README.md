@@ -95,6 +95,7 @@ Read [CIP-1](./cip-001.md) for information on the CIP process.
 | [42](./cip-042.md) | Matcha Network Upgrade                                                       | [@evan-forbes](https://github.com/evan-forbes)                                                                                                                               |
 | [43](./cip-043.md) | Token burn mechanism                                                         | [@Manav-Aggarwal](https://github.com/Manav-Aggarwal)                                                                                                                         |
 | [44](./cip-044.md) | Adjust Validator Commission Bounds                                           | [@cmwaters](https://github.com/cmwaters)                                                                                                                                     |
+| [45](./cip-045.md) | Forwarding Module                                                            | [@Manav-Aggarwal](https://github.com/Manav-Aggarwal)                                                                                                                         |
 | [46](./cip-046.md) | ZK Interchain Security Module                                                | [@Manav-Aggarwal](https://github.com/Manav-Aggarwal)                                                                                                                         |
 
 ## Contributing

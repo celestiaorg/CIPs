@@ -47,6 +47,7 @@
   - [CIP-42](./cip-042.md)
   - [CIP-43](./cip-043.md)
   - [CIP-44](./cip-044.md)
+  - [CIP-45](./cip-045.md)
   - [CIP-46](./cip-046.md)
 
 - [Core Devs Call notes](./notes/README.md)
