@@ -6,3 +6,6 @@ cips/*.html
 
 # WGs - same note as above
 cips/wgs/**/*.html
+
+# Claude Code local settings
+.claude/*.local.json
