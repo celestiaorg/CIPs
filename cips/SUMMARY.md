@@ -50,6 +50,7 @@
   - [CIP-45](./cip-045.md)
   - [CIP-46](./cip-046.md)
   - [CIP-47](./cip-047.md)
+  - [CIP-48](./cip-048.md)
 
 - [Core Devs Call notes](./notes/README.md)
   - [CDC #14](./notes/cdc-14.md)
