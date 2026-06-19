@@ -100,6 +100,7 @@ Read [CIP-1](./cip-001.md) for information on the CIP process.
 | [47](./cip-047.md) | Hibiscus (v7) Network Upgrade                                                | [@rootulp](https://github.com/rootulp)                                                                                                                                       |
 | [48](./cip-048.md) | Lower block time to 3 seconds                                                | [@rootulp](https://github.com/rootulp)                                                                                                                                       |
 | [49](./cip-049.md) | v8 Network Upgrade                                                           | [@jcstein](https://github.com/jcstein)                                                                                                                                       |
+| [50](./cip-050.md) | v9 Network Upgrade                                                           | [@jcstein](https://github.com/jcstein)                                                                                                                                       |
 
 ## Contributing
 
