@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+import "befp/befp.proto";
+// https://github.com/celestiaorg/celestia-node/blob/main/share/eds/byzantine/pb/share.proto
+import "befp/third_party/share.proto";
+
+package befp;
+
+service BadEncodingFraudProofService {
+  rpc GetAll(BEFPRequest) returns (share.eds.byzantine.pb.BadEncoding) {}
+  rpc SubscribeBEFPs(BEFPsSubscribeRequest) returns (stream share.eds.byzantine.pb.BadEncoding) {}
+}

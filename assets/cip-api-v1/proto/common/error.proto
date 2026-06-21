@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package common;
+
+enum ErrorCode {
+  UNKNOWN_ERROR = 0;
+  INVALID_REQUEST = 1;
+  INVALID_PARAMS = 3;
+  INTERNAL_ERROR = 4;
+  // Add more specific error codes as needed
+  // https://github.com/celestiaorg/celestia-node/issues/3335#issuecomment-2079748320
+  // https://github.com/rollkit/go-da/issues/65
+}
+
+message RpcError {
+  ErrorCode code = 1;
+  string message = 2;
+}
