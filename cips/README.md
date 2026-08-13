@@ -102,6 +102,7 @@ Read [CIP-1](./cip-001.md) for information on the CIP process.
 | [49](./cip-049.md) | v8 Network Upgrade                                                           | [@jcstein](https://github.com/jcstein)                                                                                                                                       |
 | [50](./cip-050.md) | v9 Network Upgrade                                                           | [@jcstein](https://github.com/jcstein)                                                                                                                                       |
 | [51](./cip-051.md) | Fibre Protocol                                                               | [@rach-id](https://github.com/rach-id)                                                                                                                                       |
+| [52](./cip-052.md) | v10 Network Upgrade                                                          | [@rach-id](https://github.com/rach-id)                                                                                                                                       |
 
 ## Contributing
 
