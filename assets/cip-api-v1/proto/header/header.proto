@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+package header;
+
+import "common/error.proto";
+
+message ExtendedHeader {
+  tendermint.types.Header header = 1;
+  tendermint.types.Commit commit = 2;
+  tendermint.types.ValidatorSet validator_set = 3;
+  celestia.da.DataAvailabilityHeader dah = 4;
+}
+
+message ExtendedHeaderList {
+  repeated ExtendedHeader extended_headers = 1;
+}
+
+message ExtendedHeaderRequest {
+    uint32 height = 1;
+}
+
+message HeaderRequest {
+  uint64 height = 1;
+}
+
+message HeaderResponse {
+  oneof response {
+    // returns just the plain core header:
+    tendermint.types.Header header = 1;
+    common.RpcError error = 2;
+  }
+}
+
+message HeaderSubscribeRequest {}
+
+
+message ExtendedHeaderListRequest {
+  uint32 start_block = 1;
+  uint32 end_block = 2;
+}
+
+message ExtendedHeaderResponse {
+  ExtendedHeader extended_header = 1;
+}
+
+message ExtendedHeaderListResponse {
+  ExtendedHeaderList extended_header_list = 1;
+}

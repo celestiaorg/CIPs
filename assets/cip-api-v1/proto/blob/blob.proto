@@ -1,0 +1,76 @@
+syntax = "proto3";
+
+package blob;
+
+import "common/retrieval_options.proto";
+import "common/error.proto";
+import "common/tx_config.proto";
+
+message Blob {
+  bytes namespace_id = 1;
+  bytes data = 2;
+  uint32 share_version = 3;
+  bytes commitment = 4;
+  uint32 index = 5;
+  // TODO do we need namespace version in here as well?
+}
+
+message BlobRequest {
+  uint64 height = 1;
+  bytes namespace_id = 2;
+  bytes commitment = 3;
+  common.RetrievalMode retrieval_mode = 4;
+}
+
+// TODO simpler alternative?
+//message BlobResponse {
+//    Blob blob = 1;
+//    common.RpcError error = 2;
+//}
+message BlobResponse {
+  oneof response {
+    // TODO: can there always only be one unique blob?
+    // e.g. what if someone submits the same blob twice into a block?
+    // should that be indicated somehow? Or is it fine to only return one blob as nothing
+    // is gained from returning it twice/multiple times anyways.
+    Blob blob = 1;
+    common.RpcError error = 2;
+  }
+}
+
+
+message BlobList {
+  repeated Blob blobs = 1;
+}
+
+message BlobListRequest {
+  uint64 height = 1;
+  bytes namespace_id = 2;
+  common.RetrievalMode retrieval_mode = 3;
+}
+
+message BlobListResponse {
+  oneof response {
+    BlobList blob_list = 1;
+    common.RpcError error = 2;
+  }
+}
+
+message SubmitBlobRequest {
+  Blob blob = 1;
+  common.TxConfig tx_config = 2;
+}
+
+message SubmitBlobResponse {
+  bytes commitment = 1;
+  // https://github.com/celestiaorg/celestia-node/discussions/3517#discussioncomment-9838338
+  oneof identifier {
+    uint32 block_height = 2; // ID for sync blob submission.
+    bytes tx_hash = 3; // ID for async blob submission.
+  }
+  common.RpcError error = 4;
+}
+
+message SubscribeBlobByNamespaceRequest {
+  bytes namespace_id = 1;
+}
