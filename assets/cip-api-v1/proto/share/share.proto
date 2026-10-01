@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+package share;
+
+import "common/error.proto";
+import "common/retrieval_options.proto";
+import "header/header.proto";
+
+message Share {
+  bytes namespace_id = 1;
+  bytes data = 2;
+  uint32 share_version = 3;
+  uint32 namespace_version = 4;
+  bytes commitment = 5;
+  uint32 index = 6;
+}
+
+message ShareRequest {
+  header.ExtendedHeader extended_header = 1;
+  uint32 row = 2;
+  uint32 column = 3;
+  common.RetrievalMode options = 4;
+}
+
+message ShareResponse {
+  oneof response {
+    Share share = 1;
+    common.RpcError error = 2;
+  }
+}
+
+message ShareList {
+  repeated Share shares = 1;
+}
+
+message ShareListRequest {
+  header.ExtendedHeader extended_header = 1;
+  bytes namespace_id = 2;
+  common.RetrievalMode options = 3;
+}
+
+message ShareListResponse {
+  oneof response {
+    ShareList share_list = 1;
+    common.RpcError error = 2;
+  }
+}
+
+message GetRowRequest {
+  uint64 height = 1;
+  uint32 index = 2;
+  common.RetrievalMode options = 3;
+}
