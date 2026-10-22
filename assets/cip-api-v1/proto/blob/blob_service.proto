@@ -1,0 +1,13 @@
+syntax = "proto3";
+package blob;
+
+import "blob/blob.proto";
+
+
+service BlobService {
+  rpc GetBlobByCommitment (BlobRequest) returns (BlobResponse) {}
+  rpc GetBlobs (BlobListRequest) returns (BlobListResponse) {}
+  rpc SubmitBlob (SubmitBlobRequest) returns (SubmitBlobResponse) {}
+
+  rpc Subscribe(SubscribeBlobByNamespaceRequest) returns (stream Blob) {}
+}

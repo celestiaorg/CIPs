@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+import "header/header.proto";
+
+package header;
+
+service ExtendedHeaderService {
+  // simple "core" header related:
+  rpc GetHeaderByHeight (HeaderRequest) returns (HeaderResponse) {}
+  rpc SubscribeHeaders (HeaderSubscribeRequest) returns (stream tendermint.types.Header) {}
+
+  // extended header related:
+  rpc GetExtendedHeaderByHash (ExtendedHeaderRequest) returns (ExtendedHeaderResponse) {}
+  rpc GetExtendedHeaderByHeight (ExtendedHeaderRequest) returns (ExtendedHeaderResponse) {}
+  rpc GetExtendedHeaderListByHeights (ExtendedHeaderListRequest) returns (ExtendedHeaderListResponse) {}
+  rpc SubscribeExtendedHeaders (HeaderSubscribeRequest) returns (stream ExtendedHeader) {}
+}
