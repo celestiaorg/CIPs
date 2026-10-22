@@ -8,7 +8,7 @@
 | type | Standards Track, Meta, or Informational |
 | category | Core, Data Availability, Networking, Interface, or Celestia Request for Comment(CRC). Only required for Standards Track. Otherwise, remove this field. |
 | created | Date created on, in ISO 8601 (yyyy-mm-dd) format |
-| requires | CIP number(s). Only required when you reference a CIP in the Specification section. Otherwise, remove this field. |
+| requires | CIP number(s) that this proposal depends on to be understood or implemented. Merely mentioning another CIP does not create a dependency. Otherwise, remove this field. |
 
 > Note:
 **READ CIP-1 BEFORE USING THIS TEMPLATE!**
@@ -36,7 +36,7 @@ TODO: Remove the previous comments before submitting
 
 The Specification section should describe the syntax and semantics of any new feature. The specification should be detailed enough to allow competing, interoperable implementations for any of the current Celestia clients (celestia-node, celestia-core, celestia-app).
 
-It is recommended to follow RFC 2119 and RFC 8170. Do not remove the key word definitions if RFC 2119 and RFC 8170 are followed.
+It is recommended to follow RFC 2119 and RFC 8174. Do not remove the key word definitions if RFC 2119 and RFC 8174 are followed.
 
 TODO: Remove the previous comments before submitting
 
@@ -44,7 +44,7 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 ## Parameters
 
-The parameters section should summarize any changes to global or module parameters, including any new parameters, introduced by the CIP. All mainnet parameters are tracked in [CIP-13](./cip-013.md). Once a CIP is accepted and deployed to mainnet, CIP-13 MUST be updated with these parameter changes. If there are no parameter changes in the CIP, this section can be omitted.
+The parameters section should summarize any changes to global or module parameters, including any new parameters, introduced by the CIP. [CIP-13](./cip-013.md) is withdrawn. Consult the [celestia-app parameter specifications](https://celestiaorg.github.io/celestia-app/parameters.html) for the relevant application version when documenting fixed parameters. For governance-modifiable parameters, query the chain and record the network and query height alongside the current values. If there are no parameter changes in the CIP, this section can be omitted.
 
 TODO: Remove the previous comments and update the following table before submitting
 
