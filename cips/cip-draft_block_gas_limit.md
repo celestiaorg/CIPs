@@ -101,13 +101,23 @@ Excluding these transactions also means that blob throughput, Celestia's primary
 `MaxSDKGas` = 100,000,000 is chosen to:
 
 1. **Bound execution time.** At the measured 2.7 to 5 nanoseconds per gas unit for typical messages, 100 million gas is about 0.27 to 0.5 seconds of execution. This is the same order as the 0.25 second processing target in [CIP-27](./cip-027.md), and well under the about 2.6 second block time.
-1. **Leave headroom for current usage.** Sampled Celestia mainnet blocks use far less non-blob gas than this limit (see [Mainnet usage](#mainnet-usage)). Typical transfers, staking, governance, and IBC transactions declare 100,000 to a few million gas, so many fit in one block.
+1. **Leave headroom for current usage.** The busiest sampled mainnet block declares about 3.3 million non-blob gas, about 3% of this limit (see [Mainnet usage](#mainnet-usage)). Typical transfers, staking, governance, and IBC transactions declare 100,000 to a few million gas, so many fit in one block.
 1. **Stay compatible with `MaxSDKMessages`.** A block of 600 transactions that each declare 150,000 gas, a generous limit for a token transfer, uses 90 million gas and fits.
 1. **Allow large single transactions.** A single transaction can still declare up to 100 million gas. A non-blob transaction of the maximum size, 8 MiB, pays about 84 million gas in `TxSizeCostPerByte` alone, so it still fits.
 
 ### Mainnet usage
 
-TBA
+Declared gas was sampled from 3,500 Celestia mainnet blocks between heights 3,175,000 and 15,379,220 (queried on 2026-10-28). The sample includes about 1,200 consecutive recent blocks, about 2,000 blocks spread evenly over the preceding month, and about 300 blocks spread across earlier history.
+
+| Metric                                         | p50     | p99        | p99.9      | Max        |
+|------------------------------------------------|---------|------------|------------|------------|
+| Non-blob gas declared per block                | 0       | 495,666    | 1,198,671  | 3,273,835  |
+| Non-blob gas used per block                    | 0       | 330,385    | 952,052    | 2,560,221  |
+| Non-blob transactions per block                | 0       | 2          | 3          | 5          |
+| Largest non-blob transaction gas limit         | 0       | 464,511    | 750,711    | 2,885,723  |
+| Gas declared per block, all transactions       | 606,868 | 13,938,157 | 50,259,702 | 73,057,814 |
+
+The largest non-blob transaction in the sample is an IBC relay transaction (`MsgUpdateClient` and `MsgRecvPacket`) that declares about 2.9 million gas. A separate scan of block headers between 2026-09-29 and 2026-10-14 found that the block with the most transactions had 31, and it declared 3.6 million gas in total. The busiest sampled block declares about 3% of `MaxSDKGas`. Nearly all gas on mainnet comes from blob transactions, which this CIP does not limit.
 
 ### Alternatives considered
 
@@ -138,7 +148,7 @@ Effects on users and clients:
 
 ## Reference Implementation
 
-TBA
+<https://github.com/celestiaorg/celestia-app/pull/8399>
 
 The implementation adds the `MaxSDKGas` constant to `pkg/appconsts`. It adds the overflow-safe check next to the existing `MaxSDKMessages` checks in the `PrepareProposal` filter and `ProcessProposal`, and adds a `CheckTx` check next to the other per-transaction admission limits.
 
