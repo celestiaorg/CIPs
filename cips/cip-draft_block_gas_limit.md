@@ -3,7 +3,7 @@
 | title | Block gas limit for non-blob transactions |
 | description | Bound the total gas that non-blob transactions can declare in a block. |
 | author | Rootul Patel ([@rootulp](https://github.com/rootulp)) |
-| discussions-to | TBA |
+| discussions-to | <https://forum.celestia.org/t/cip-53-block-gas-limit-for-non-blob-transactions/2324> |
 | status | Draft |
 | type | Standards Track |
 | category | Core |
