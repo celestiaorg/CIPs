@@ -20,7 +20,7 @@ Celestia bounds a block by its size and by message counts, but not by how much e
 
 1. `ConsensusParams.Block.MaxGas` is -1, so blocks have no gas limit.
 1. `MaxBytes` (32 MiB) and `MaxTxSize` (8 MiB) bound block and transaction size.
-1. `MaxPFBMessages` (200) and `MaxSDKMessages` (600) bound message counts. [CIP-27](./cip-027.md) introduced these limits to keep block processing at about 0.25 seconds.
+1. `MaxPFBMessages` (200) and `MaxSDKMessages` (600) bound message counts. [CIP-27](./cip-027.md) introduced these limits, with 600 PFB and 200 non-PFB messages, to keep block processing at about 0.25 seconds. celestia-app has since changed the values to those listed here.
 
 Message counts bound the fixed cost of each message, such as decoding, ante handler checks, and signature verification. They do not bound what a message does once it executes. One message can iterate over a list it carries, write many state entries, or verify a large payload. That work is metered in gas, and a transaction pays for the gas it declares, but nothing caps the gas a block can contain. The worst-case block is therefore bounded only by how much gas-dense work fits in 32 MiB and by what the attacker will pay.
 
