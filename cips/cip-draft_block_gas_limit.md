@@ -118,7 +118,7 @@ TBA
 
 ## Backwards Compatibility
 
-This CIP changes block validity, so it is consensus-breaking and activates with the v11 network upgrade. Validators running v11 reject proposals that exceed `MaxSDKGas`. The rule only applies in `ProcessProposal`, which does not run when a node replays committed blocks, so syncing earlier heights is not affected.
+This CIP changes block validity, so it is consensus-breaking and activates with the v11 network upgrade. Validators running v11 reject proposals that exceed `MaxSDKGas`. Blocks at app version 10 and earlier are processed by the application for that version, which does not have this rule, so syncing earlier heights is not affected.
 
 Effects on users and clients:
 
