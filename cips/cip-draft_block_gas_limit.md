@@ -8,6 +8,7 @@
 | type | Standards Track |
 | category | Core |
 | created | 2026-10-28 |
+| requires | [CIP-51](./cip-051.md) |
 
 ## Abstract
 
@@ -143,7 +144,7 @@ Effects on users and clients:
 1. A block whose non-blob transactions sum to `MaxSDKGas` and that also contains blob transactions is accepted.
 1. Given three non-blob transactions that each declare `MaxSDKGas / 2`, `PrepareProposal` includes the first two and skips the third.
 1. Given a non-blob transaction that declares `MaxSDKGas + 1` followed by one that declares `MaxSDKGas / 2`, `PrepareProposal` skips the first and includes the second.
-1. `CheckTx` rejects a non-blob transaction that declares `MaxSDKGas + 1` with `ErrTxExceedsMaxSDKGas`, for both new transactions and rechecks, and does not return that error for one that declares `MaxSDKGas`.
+1. An implementation that applies the recommended `CheckTx` admission check rejects a non-blob transaction that declares `MaxSDKGas + 1` with `ErrTxExceedsMaxSDKGas`, for both new transactions and rechecks, and does not return that error for one that declares `MaxSDKGas`.
 1. The overflow-safe check rejects a transaction that declares 2^64 - 1 gas when the running sum is non-zero.
 
 ## Reference Implementation
