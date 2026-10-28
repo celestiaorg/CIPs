@@ -55,6 +55,7 @@
   - [CIP-50](./cip-050.md)
   - [CIP-51](./cip-051.md)
   - [CIP-52](./cip-052.md)
+  - [CIP-53](./cip-053.md)
 
 - [Core Devs Call notes](./notes/README.md)
   - [CDC #14](./notes/cdc-14.md)
