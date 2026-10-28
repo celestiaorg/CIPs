@@ -103,7 +103,7 @@ Excluding these transactions also means that blob throughput, Celestia's primary
 1. **Bound execution time.** At the measured 2.7 to 5 nanoseconds per gas unit for typical messages, 100 million gas is about 0.27 to 0.5 seconds of execution. This is the same order as the 0.25 second processing target in [CIP-27](./cip-027.md), and well under the about 2.6 second block time.
 1. **Leave headroom for current usage.** Sampled Celestia mainnet blocks use far less non-blob gas than this limit (see [Mainnet usage](#mainnet-usage)). Typical transfers, staking, governance, and IBC transactions declare 100,000 to a few million gas, so many fit in one block.
 1. **Stay compatible with `MaxSDKMessages`.** A block of 600 transactions that each declare 150,000 gas, a generous limit for a token transfer, uses 90 million gas and fits.
-1. **Allow large single transactions.** A single transaction can still declare up to 100 million gas.
+1. **Allow large single transactions.** A single transaction can still declare up to 100 million gas. A non-blob transaction of the maximum size, 8 MiB, pays about 84 million gas in `TxSizeCostPerByte` alone, so it still fits.
 
 ### Mainnet usage
 
