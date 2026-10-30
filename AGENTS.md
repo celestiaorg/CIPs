@@ -68,3 +68,4 @@ response. Do not commit generated `book/` output.
 - Keep generated files and local agent settings out of commits.
 - Do not overwrite unrelated workspace changes.
 - Summarize content changes and validation results in the pull request body.
+- When you open a PR, assign it to the engineer you are working for (their GitHub login, e.g. from the GitHub `get_me` tool).
