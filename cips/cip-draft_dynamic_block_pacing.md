@@ -122,8 +122,11 @@ Client applications and tooling that estimate confirmation times or convert betw
 
 ## Reference Implementation
 
-- [celestia-core#3539](https://github.com/celestiaorg/celestia-core/pull/3539): `TimeoutInfo.dynamic_timeout_commit` and the pacing rule.
-- [celestia-app#8411](https://github.com/celestiaorg/celestia-app/pull/8411): versioned consensus timeouts, the rescaled block-count parameters and the v11 upgrade handler.
+- [celestia-core#3542](https://github.com/celestiaorg/celestia-core/pull/3542): the `TimeoutInfo.dynamic_timeout_commit` field and its plumbing.
+- [celestia-core#3539](https://github.com/celestiaorg/celestia-core/pull/3539): the pacing rule.
+- [celestia-app#8415](https://github.com/celestiaorg/celestia-app/pull/8415): builds celestia-app against celestia-core main (prerequisite).
+- [celestia-app#8411](https://github.com/celestiaorg/celestia-app/pull/8411): versioned consensus timeouts.
+- [celestia-app#8416](https://github.com/celestiaorg/celestia-app/pull/8416): the rescaled block-count parameters and the v11 upgrade handler.
 
 ## Security Considerations
 
