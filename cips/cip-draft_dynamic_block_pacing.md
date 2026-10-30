@@ -132,6 +132,7 @@ Client applications and tooling that estimate confirmation times or convert betw
 1. **LastCommit inclusion**: With a 1 ns `TimeoutCommit`, the next proposer collects precommits for the previous block only until the floor lets it propose. A validator whose precommit arrives later may be absent from the next block's `LastCommit`. This affects reward distribution and the signed-blocks window, not safety.
 1. **Peer influence on pacing**: `StartTime` is computed from the node's own clock. The only exemption from the floor requires precommits from +2/3 of the voting power in round 0 of the height, so a peer cannot shorten or extend another node's floor.
 1. **Evidence window**: `MaxAgeDuration` remains equal to the unbonding period. The block bound stays within it only while blocks average at most 0.923 seconds; see Rationale.
+1. **Throughput and storage**: Per-block limits are unchanged, so the maximum data rate rises with the block rate, from about 12 MiB/s to about 40 MiB/s at 32 MiB blocks. Raising `staking.HistoricalEntries` to 32,500 adds about 1.3 GB of state on Mainnet. Validators and archival nodes should size bandwidth and disk accordingly.
 1. **Upgrade coordination**: All parameters MUST be activated together, and the celestia-core version that implements `DynamicTimeoutCommit` MUST be deployed on every validator before activation.
 
 ## Copyright
