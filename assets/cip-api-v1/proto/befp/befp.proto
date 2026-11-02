@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package befp;
+
+message BEFPRequest {
+  uint64 from_height = 1;
+}
+
+message BEFPsSubscribeRequest {}
+

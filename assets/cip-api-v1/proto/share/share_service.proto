@@ -1,0 +1,11 @@
+syntax = "proto3";
+import "share.proto";
+
+package share;
+
+service ShareService {
+  rpc GetShareByNamespace (ShareRequest) returns (ShareResponse) {}
+  rpc GetSharesInRange (ShareRangeRequest) returns (ShareRangeResponse) {}
+  rpc GetSharesWithProof (ShareProofRequest) returns (ShareProofResponse) {}
+  rpc GetRow (GetRowRequest) returns (ShareListResponse) {}
+}
