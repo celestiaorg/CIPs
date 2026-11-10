@@ -12,7 +12,7 @@
 
 ## Abstract
 
-This CIP adds a new consensus timeout, `DynamicTimeoutCommit`, that the application returns in `TimeoutInfo` next to the existing timeouts. When it is non-zero, a node schedules height `H+1` no earlier than `DynamicTimeoutCommit` after it started height `H` (or after it committed `H`, if that came first), measured on its own clock, instead of waiting a fixed time after each phase. When it is zero, nodes pace heights exactly as today, so chains and app versions that do not set it are unaffected. `TimeoutCommit` and `DelayedPrecommitTimeout` keep their current meaning. In app version 11, `DynamicTimeoutCommit` is 800 ms, `TimeoutCommit` is 1 ns, `DelayedPrecommitTimeout` is 0, and the base `TimeoutPropose`, `TimeoutPrevote` and `TimeoutPrecommit` values are halved. The parameters counted in blocks are rescaled by 3.25, the ratio of the current 2.6 second block interval to 0.8 seconds, so that they keep their durations, and the IBC `MaxExpectedTimePerBlock` parameter is lowered from 13 seconds to 4 seconds.
+This CIP adds a new consensus timeout, `DynamicTimeoutCommit`, that the application returns in `TimeoutInfo` next to the existing timeouts. When it is non-zero, a node schedules height `H+1` no earlier than `DynamicTimeoutCommit` after it started height `H` (or after it committed `H`, if that came first), measured on its own clock, instead of waiting a fixed time after each phase. When it is zero, nodes pace heights exactly as today, so chains and app versions that do not set it are unaffected. `TimeoutCommit` and `DelayedPrecommitTimeout` keep their current meaning. In app version 11, `DynamicTimeoutCommit` is 800 ms, `TimeoutCommit` is 100 ms, `DelayedPrecommitTimeout` is 0, and the base `TimeoutPropose`, `TimeoutPrevote` and `TimeoutPrecommit` values are 3000 ms, 2000 ms and 2000 ms. The parameters counted in blocks are rescaled by 3.25, the ratio of the current 2.6 second block interval to 0.8 seconds, so that they keep their durations, except the evidence `MaxAgeNumBlocks`, which is the unbonding period at an assumed 0.9 second average block time. The IBC `MaxExpectedTimePerBlock` parameter is lowered from 13 seconds to 4 seconds.
 
 ## Motivation
 
@@ -40,10 +40,10 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 1. **Consensus timeouts (celestia-app)**: The application MUST return the timeouts of the app version in state after the block's state transition in `TimeoutInfo` from `InitChain`, `FinalizeBlock` and `Info`.
     1. App version 10 SHALL keep the values in [CIP-48](./cip-048.md), and app versions 10 and below SHALL return `DynamicTimeoutCommit = 0`.
     1. For app version 11, `DynamicTimeoutCommit` SHALL be 800 ms.
-    1. For app version 11, `TimeoutCommit` SHALL be 1 ns. A zero `TimeoutCommit` would fall back to the node's local `timeout_commit` setting.
+    1. For app version 11, `TimeoutCommit` SHALL be 100 ms.
     1. For app version 11, `DelayedPrecommitTimeout` SHALL be 0.
-    1. For app version 11, `TimeoutPropose`, `TimeoutPrevote` and `TimeoutPrecommit` SHALL be 1500 ms, 1000 ms and 1500 ms. `TimeoutProposeDelta`, `TimeoutPrevoteDelta` and `TimeoutPrecommitDelta` remain 500 ms.
-1. **Block-count parameters**: The block-count parameters in the table below SHALL be set to their app version 10 values multiplied by 3.25 (2.6 s / 0.8 s), or, for the upgrade height delays, to their duration divided by 0.8 s, so that they keep their durations. The v11 upgrade handler MUST set the on-chain values on existing chains, replacing any current value, and new chains MUST use them in genesis. The node-local values are defaults and startup minimums of the v11 binary. Parameters counted in time are unchanged, except those defined as a multiple of the block interval (`MaxExpectedTimePerBlock` and the Fibre `HostRefreshInterval` default).
+    1. For app version 11, `TimeoutPropose`, `TimeoutPrevote` and `TimeoutPrecommit` SHALL be 3000 ms, 2000 ms and 2000 ms. `TimeoutProposeDelta`, `TimeoutPrevoteDelta` and `TimeoutPrecommitDelta` remain 500 ms.
+1. **Block-count parameters**: The block-count parameters in the table below SHALL be set to their app version 10 values multiplied by 3.25 (2.6 s / 0.8 s), or, for the upgrade height delays, to their duration divided by 0.8 s, so that they keep their durations. `consensus.evidence.MaxAgeNumBlocks` SHALL be the unbonding period divided by 0.9 s, the assumed average block interval of app version 11. The v11 upgrade handler MUST set the on-chain values on existing chains, replacing any current value, and new chains MUST use them in genesis. The node-local values are defaults and startup minimums of the v11 binary. Parameters counted in time are unchanged, except those defined as a multiple of the block interval (`MaxExpectedTimePerBlock` and the Fibre `HostRefreshInterval` default).
 1. **IBC `MaxExpectedTimePerBlock`**: The parameter MUST be reduced from 13 seconds to 4 seconds, 5 times the 800 ms floor, by the v11 upgrade handler and in genesis.
 1. **Network upgrade**: These changes are state-breaking and MUST be activated together by the v11 network upgrade. Every validator MUST run a celestia-core version that implements `DynamicTimeoutCommit` before the activation height.
 
@@ -52,13 +52,13 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 | Parameter | App version 10 | App version 11 | Where it is set | Changeable via Governance |
 |-----------|----------------|----------------|-----------------|---------------------------|
 | `DynamicTimeoutCommit` (new) | 0 (disabled) | 800 ms | Versioned constant | No |
-| `TimeoutCommit` | 500 ms | 1 ns | Versioned constant | No |
+| `TimeoutCommit` | 500 ms | 100 ms | Versioned constant | No |
 | `DelayedPrecommitTimeout` | 2100 ms | 0 ms | Versioned constant | No |
-| `TimeoutPropose` | 3000 ms | 1500 ms | Versioned constant | No |
-| `TimeoutPrevote` | 2000 ms | 1000 ms | Versioned constant | No |
-| `TimeoutPrecommit` | 3000 ms | 1500 ms | Versioned constant | No |
+| `TimeoutPropose` | 3000 ms | 3000 ms | Versioned constant | No |
+| `TimeoutPrevote` | 2000 ms | 2000 ms | Versioned constant | No |
+| `TimeoutPrecommit` | 3000 ms | 2000 ms | Versioned constant | No |
 | `TimeoutProposeDelta`, `TimeoutPrevoteDelta`, `TimeoutPrecommitDelta` | 500 ms | 500 ms | Versioned constant | No |
-| `consensus.evidence.MaxAgeNumBlocks` | 404,400 | 1,314,300 | v11 upgrade handler, genesis | No |
+| `consensus.evidence.MaxAgeNumBlocks` | 404,400 | 1,348,000 (337 h at a 0.9 s average block time) | v11 upgrade handler, genesis | No |
 | `slashing.SignedBlocksWindow` | 10,000 | 32,500 | v11 upgrade handler, genesis | Yes |
 | `staking.HistoricalEntries` | 10,000 | 32,500 | v11 upgrade handler, genesis | Yes |
 | `fibre.PaymentPromiseHeightWindow` | 1,000 | 3,250 | v11 upgrade handler, genesis | Yes |
@@ -82,9 +82,9 @@ Parameters counted in time keep their values, except the two defined as a multip
 
 **Why 800 ms?** It is the target block time for app version 11. It leaves room for proposal propagation and the prevote and precommit steps across a globally distributed validator set when blocks are small.
 
-**Why 1 ns and not 0 for `TimeoutCommit`?** celestia-core reads a zero `TimeoutCommit` as "use the node's `timeout_commit` setting", which existing nodes have set to 500 ms. 1 ns removes the sleep after commit on every node regardless of its configuration. `DelayedPrecommitTimeout` has no such fallback, so 0 disables it.
+**Why 100 ms for `TimeoutCommit`?** It is the minimum time a node keeps collecting precommits for the previous block after it commits it, so precommits that arrive shortly after +2/3 are still included in the next block's `LastCommit` when a height takes longer than the floor. It is non-zero on purpose: celestia-core reads a zero `TimeoutCommit` as "use the node's `timeout_commit` setting". `DelayedPrecommitTimeout` has no such fallback, so 0 disables it.
 
-**Why halve the round timeouts?** The round timeouts only matter when a round fails. With 2.6 second blocks, a failed round 0 cost about 3 seconds of `TimeoutPropose` before round 1. At an 800 ms floor that would be almost four blocks. Halving the base values keeps recovery proportionate while leaving the deltas, which grow the timeouts on every further round, unchanged so that a network under stress still converges.
+**Why these round timeouts?** The round timeouts only matter when a round fails. `TimeoutPropose` and `TimeoutPrevote` keep their app version 10 values, so a 32 MiB proposal that takes longer than the floor to reach a globally distributed validator set does not time out round 0. `TimeoutPrecommit` drops from 3000 ms to 2000 ms, the same as `TimeoutPrevote`. The deltas, which grow the timeouts on every further round, are unchanged so that a network under stress still converges.
 
 **Why anchor on the node's previous start time?** Anchoring on `StartTime(H)` rather than the commit time makes the floor start-to-start, so voting and execution count towards the interval. Anchoring on the node's own clock rather than on the proposal timestamp means no peer can shorten or lengthen a node's floor.
 
@@ -96,7 +96,7 @@ Parameters counted in time keep their values, except the two defined as a multip
 
 **Why rescale the block counts?** Each of these parameters stands for a duration: a liveness window, an evidence window, a promise window, a retention window or an upgrade notice period. Keeping the block counts would shorten each of them by 3.25 times. For example, the Fibre payment promise window would drop from 43 minutes to 13 minutes and the mempool TTL from 94 seconds to 29 seconds. Rescaling keeps the durations that were chosen for them.
 
-**`MaxAgeNumBlocks` and the unbonding period.** Evidence expires only once both `MaxAgeDuration` and `MaxAgeNumBlocks` are exceeded, so the block bound must not outlast the unbonding period ([CIP-37](./cip-037.md)). The app version 10 value, 404,400, is 337 hours divided by a 3 second upper bound on block time. 1,314,300 keeps that bound only while blocks average at most 0.923 seconds. The 800 ms floor leaves 123 ms of headroom. If the average interval rises above 0.923 seconds, evidence can be submitted after the stake it would slash has unbonded. A follow-up can lower the value if measured block times approach that bound.
+**`MaxAgeNumBlocks` and the unbonding period.** Evidence expires only once both `MaxAgeDuration` and `MaxAgeNumBlocks` are exceeded, so the block bound must not outlast the unbonding period ([CIP-37](./cip-037.md)). The app version 10 value, 404,400, is 337 hours divided by a 3 second upper bound on block time. App version 11 sets 1,348,000, 337 hours divided by an assumed 0.9 second average block time: the 800 ms floor plus heights whose work runs past it. The block bound stays within the unbonding period only while blocks average at most 0.9 seconds. If the average interval rises above that, evidence can be submitted after the stake it would slash has unbonded. A follow-up can lower the value if measured block times approach that bound.
 
 ## Backwards Compatibility
 
@@ -104,7 +104,7 @@ This change is not backwards compatible. All consensus nodes must upgrade to the
 
 App version 10 and below return `DynamicTimeoutCommit = 0`. A network still at app version 10 whose validators run the new celestia-core therefore keeps the pacing of [CIP-48](./cip-048.md), about 2.6 seconds per block, and mixes nodes on the previous and the new celestia-core without effect on pacing. The block-count parameters change only at the v11 activation, together with the timeouts.
 
-celestia-core versions that predate this CIP ignore field 9. With the app version 11 values (`TimeoutCommit` 1 ns, `DelayedPrecommitTimeout` 0) they would run with no floor at all, so every validator MUST run the new celestia-core before the activation height. This is the case for any v11 binary.
+celestia-core versions that predate this CIP ignore field 9. With the app version 11 values (`TimeoutCommit` 100 ms, `DelayedPrecommitTimeout` 0) they would run with no floor, only a 100 ms wait after each commit, so every validator MUST run the new celestia-core before the activation height. This is the case for any v11 binary.
 
 On a node that runs the v11 binary before the activation height, the node-local minimums (`ttl-num-blocks` 117, `min-retain-blocks` 9,750) apply at 2.6 second blocks until activation. They keep transactions and blocks longer than before, which is harmless.
 
@@ -130,11 +130,11 @@ Client applications and tooling that estimate confirmation times or convert betw
 
 ## Security Considerations
 
-1. **Validator infrastructure**: Each validator must propose, vote on and execute blocks within tighter timeouts. A proposer that cannot disseminate its block within 1500 ms causes a new round. Validators with slow networks or slow block execution lengthen the interval of the heights they take part in rather than break liveness, but they may miss more proposals and votes.
+1. **Validator infrastructure**: Each validator must propose, vote on and execute blocks within tighter timeouts. A proposer that cannot disseminate its block within 3000 ms causes a new round. Validators with slow networks or slow block execution lengthen the interval of the heights they take part in rather than break liveness, but they may miss more proposals and votes.
 1. **Remote signers**: Without a delayed precommit, the signing latency of remote signers and key management systems is on the critical path of every height. Validators should measure their signer's prevote and precommit latency before the upgrade.
-1. **LastCommit inclusion**: With a 1 ns `TimeoutCommit`, the next proposer collects precommits for the previous block only until the floor lets it propose. A validator whose precommit arrives later may be absent from the next block's `LastCommit`. This affects reward distribution and the signed-blocks window, not safety.
+1. **LastCommit inclusion**: The next proposer collects precommits for the previous block until the later of 100 ms (`TimeoutCommit`) after it commits and the time the floor lets it propose. A validator whose precommit arrives later may be absent from the next block's `LastCommit`. This affects reward distribution and the signed-blocks window, not safety.
 1. **Peer influence on pacing**: `StartTime` is computed from the node's own clock. The only exemption from the floor requires precommits from +2/3 of the voting power in round 0 of the height, so a peer cannot shorten or extend another node's floor.
-1. **Evidence window**: `MaxAgeDuration` remains equal to the unbonding period. The block bound stays within it only while blocks average at most 0.923 seconds; see Rationale.
+1. **Evidence window**: `MaxAgeDuration` remains equal to the unbonding period. The block bound stays within it only while blocks average at most 0.9 seconds, the assumed average; see Rationale.
 1. **Throughput and storage**: Per-block limits are unchanged, so the maximum data rate rises with the block rate, from about 12 MiB/s to about 40 MiB/s at 32 MiB blocks. Raising `staking.HistoricalEntries` to 32,500 adds about 1.3 GB of state on Mainnet. Validators and archival nodes should size bandwidth and disk accordingly.
 1. **Upgrade coordination**: All parameters MUST be activated together, and the celestia-core version that implements `DynamicTimeoutCommit` MUST be deployed on every validator before activation.
 
