@@ -112,18 +112,13 @@ Changing `slashing.SignedBlocksWindow` keeps each validator's missed-block count
 
 Client applications and tooling that estimate confirmation times or convert between heights and timestamps should assume an 800 ms minimum block interval from app version 11 and measure the actual interval, which varies with load.
 
-## Test Cases
-
-1. celestia-core tests check that with `DynamicTimeoutCommit = 0` the start time, round 0, proposals and `skip_timeout_commit` behave exactly as before, and that `DynamicTimeoutCommit` is stored from `InitChain`, `FinalizeBlock` and state sync.
-1. celestia-core tests check that with `DynamicTimeoutCommit > 0` the interval between idle heights is the floor, a slow block starts the next height immediately, a multi-round height does not shorten the next one, and a node that is behind catches up without waiting for the floor at each height.
-1. celestia-app unit tests check that `InitChain`, `FinalizeBlock` and `Info` return the app version 10 values at app version 10 and the values in this CIP at app version 11, and that the upgrade handler sets every rescaled parameter.
-1. A docker end-to-end test upgrades a chain from app version 10 to 11 and checks the timeouts, the rescaled parameters and the IBC parameter.
-1. A 100-validator network in six regions measured 845 ms idle (2789 ms with the app version 10 timeouts), 1009 ms with about 237 PFFs per block (3233 ms) and 1198 ms at 32 MiB. The changes will then be tested on the Corto devnet and the Mocha testnet before activation on Mainnet.
-
 ## Reference Implementation
 
 - [celestia-core#3542](https://github.com/celestiaorg/celestia-core/pull/3542): the `TimeoutInfo.dynamic_timeout_commit` field and its plumbing.
-- [celestia-core#3539](https://github.com/celestiaorg/celestia-core/pull/3539): the pacing rule.
+- [celestia-core#3639](https://github.com/celestiaorg/celestia-core/pull/3639): the start time rule (rule 2.2).
+- [celestia-core#3539](https://github.com/celestiaorg/celestia-core/pull/3539): holding round 0 until the start time (rules 2.3 to 2.5).
+- [celestia-core#3640](https://github.com/celestiaorg/celestia-core/pull/3640): keeping precommits that arrive while a node executes the previous block.
+- [celestia-core#3664](https://github.com/celestiaorg/celestia-core/pull/3664): the node-local `legacy_pacing` recovery switch.
 - [celestia-app#8415](https://github.com/celestiaorg/celestia-app/pull/8415): builds celestia-app against celestia-core main (prerequisite).
 - [celestia-app#8411](https://github.com/celestiaorg/celestia-app/pull/8411): versioned consensus timeouts.
 - [celestia-app#8416](https://github.com/celestiaorg/celestia-app/pull/8416): the rescaled block-count parameters and the v11 upgrade handler.
@@ -132,10 +127,11 @@ Client applications and tooling that estimate confirmation times or convert betw
 
 1. **Validator infrastructure**: Each validator must propose, vote on and execute blocks within tighter timeouts. A proposer that cannot disseminate its block within 3000 ms causes a new round. Validators with slow networks or slow block execution lengthen the interval of the heights they take part in rather than break liveness, but they may miss more proposals and votes.
 1. **Remote signers**: Without a delayed precommit, the signing latency of remote signers and key management systems is on the critical path of every height. Validators should measure their signer's prevote and precommit latency before the upgrade.
-1. **LastCommit inclusion**: The next proposer collects precommits for the previous block until the later of 100 ms (`TimeoutCommit`) after it commits and the time the floor lets it propose. A validator whose precommit arrives later may be absent from the next block's `LastCommit`. This affects reward distribution and the signed-blocks window, not safety.
+1. **LastCommit inclusion**: The next proposer collects precommits for the previous block until the later of 100 ms (`TimeoutCommit`) after it commits and the time the floor lets it propose. Precommits that reach a node while it executes the previous block are processed before round 0 of the next height, and peers send precommits to nodes that are still committing, so only precommits that arrive after round 0 starts are missed. A validator whose precommit arrives that late is absent from the next block's `LastCommit`. The 100-validator network measured 1.2 % to 3.7 % absent stake with the app version 11 timeouts (0 % idle and 31.2 % under load with the app version 10 timeouts). This affects reward distribution and the signed-blocks window, not safety.
 1. **Peer influence on pacing**: `StartTime` is computed from the node's own clock. The only exemption from the floor requires precommits from +2/3 of the voting power in round 0 of the height, so a peer cannot shorten or extend another node's floor.
 1. **Evidence window**: `MaxAgeDuration` remains equal to the unbonding period. The block bound stays within it only while blocks average at most 1.2 seconds, the assumed upper bound; see Rationale.
 1. **Throughput and storage**: Per-block limits are unchanged, so the maximum data rate rises with the block rate, from about 12 MiB/s to about 40 MiB/s at 32 MiB blocks. Raising `staking.HistoricalEntries` to 32,500 adds about 1.3 GB of state on Mainnet. Validators and archival nodes should size bandwidth and disk accordingly.
+1. **Recovery without an upgrade**: celestia-core has a node-local `legacy_pacing` setting. While the application returns a non-zero `DynamicTimeoutCommit`, a node that enables it ignores the floor and paces with a configured `TimeoutCommit` and `DelayedPrecommitTimeout` (100 ms and 550 ms by default, about the app version 11 block time); it has no effect while `DynamicTimeoutCommit` is 0. Pacing is local timing, so a mixed network stays safe. Once validators with more than 1/3 of the voting power enable it, every height waits for one of their delayed precommits and the chain follows the legacy rule; validators that enable it while below 1/3 fall behind and miss signatures. It is meant for a coordinated rolling restart if the floor misbehaves on a live network, without a new app version.
 1. **Upgrade coordination**: All parameters MUST be activated together, and the celestia-core version that implements `DynamicTimeoutCommit` MUST be deployed on every validator before activation.
 
 ## Copyright
