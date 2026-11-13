@@ -37,12 +37,7 @@ Check that:
 - The motivation explains the problem, while the specification defines the
   solution precisely enough for interoperable implementations.
 - Normative key words follow RFC 2119 and RFC 8174 when used.
-- Parameter changes are summarized. CIP-13 is withdrawn. For fixed
-  parameters, consult the
-  [celestia-app parameter specifications](https://celestiaorg.github.io/celestia-app/parameters.html)
-  for the relevant application version. For governance-modifiable
-  parameters, query the chain and record the network and query height
-  alongside the current values.
+- Parameter changes are summarized and account for CIP-13 when applicable.
 - Backward compatibility and security consequences are explicit.
 - Test cases do not introduce requirements absent from the specification.
 - External resources comply with the CIP process.
