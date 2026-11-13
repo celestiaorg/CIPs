@@ -49,7 +49,7 @@ request explicitly requires it.
 Run Markdown lint after changing Markdown:
 
 ```sh
-markdownlint --config .markdownlint.yaml '**/*.md'
+markdownlint --config .markdownlint.yaml --dot '**/*.md'
 ```
 
 Build the site after changing navigation, templates, theme files, or book
