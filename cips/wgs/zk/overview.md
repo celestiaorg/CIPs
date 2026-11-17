@@ -56,7 +56,7 @@ Finally, a [keystore rollup](https://notes.ethereum.org/@vbuterin/minimal_keysto
 
 ### Working Group and CIP
 
-A working group for designing and implementing ZK accounts meets every two weeks: [Zero Knowledge in the Celestia Baselayer](https://forum.celestia.org/t/zero-knowledge-in-the-celestia-baselayer/1475). A [work-in-progress CIP](https://github.com/celestiaorg/CIPs/pull/91) is also available, with [call recordings](https://github.com/celestiaorg/CIPs/tree/main/wgs/zk) and additional resources.
+A working group for designing and implementing ZK accounts meets every two weeks: [Zero Knowledge in the Celestia Baselayer](https://forum.celestia.org/t/zero-knowledge-in-the-celestia-baselayer/1475). A [work-in-progress CIP](https://github.com/celestiaorg/CIPs/pull/91) is also available, with [call recordings](https://github.com/celestiaorg/CIPs/tree/main/cips/wgs/zk) and additional resources.
 
 ### Content
 
