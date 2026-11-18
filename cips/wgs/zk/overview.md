@@ -64,4 +64,4 @@ A working group for designing and implementing ZK accounts meets every two weeks
 - Proposed designs: [Celestia Snark Accounts Design Spec](https://forum.celestia.org/t/celestia-snark-accounts-design-spec/1639)
 - Discussion on inputs: [Public Inputs for SNARK Accounts](https://github.com/celestiaorg/celestia-app/discussions/2902)
 - Talk: [ZK Accounts on Celestia](https://www.youtube.com/watch?v=SrZ9Ux2Ktt8)
-- Podcast: How ZK Accounts Expand dApp Limits
+- Podcast: [How ZK Accounts Expand dApp Limits](https://player.megaphone.fm/BWG7646126866)
