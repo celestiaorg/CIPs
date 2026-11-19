@@ -25,7 +25,7 @@
 *   Celestia Node to release update supporting Celestia App v2 soon
 *   Arabica devnet upgrade planned for **August 14th**
 *   Node operators must upgrade within **1 week** timeframe
-*   Consensus node operators need to use a specific CLI flag ([see documentation](https://github.com/celestiaorg/docs/blob/4e4c010a1d724f909731cd3c0cb75ca8988d5c57/nodes/hardfork-process.md#lemongrass-hardfork))
+*   Consensus node operators need to use a specific CLI flag ([see documentation](https://docs.celestia.org/nodes/network-upgrade-process#lemongrass-network-upgrade))
 *   **Application owners on Arabica advised to monitor before and after upgrade**
 *   Upgrade process: Arabica first, then Mocha, finally Mainnet
     
