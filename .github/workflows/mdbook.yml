@@ -26,13 +26,17 @@ jobs:
     runs-on: ubuntu-latest
     env:
       MDBOOK_VERSION: 0.4.40
+      MDBOOK_SHA256: 9ef07fd288ba58ff3b99d1c94e6d414d431c9a61fdb20348e5beb74b823d546b
     steps:
       - uses: actions/checkout@v4
       - name: Install mdBook
         run: |
-          curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf -y | sh
-          rustup update
-          cargo install --version ${MDBOOK_VERSION} mdbook
+          archive="$RUNNER_TEMP/mdbook.tar.gz"
+          curl -fsSL "https://github.com/rust-lang/mdBook/releases/download/v${MDBOOK_VERSION}/mdbook-v${MDBOOK_VERSION}-x86_64-unknown-linux-gnu.tar.gz" -o "$archive"
+          printf '%s  %s\n' "$MDBOOK_SHA256" "$archive" | sha256sum --check
+          mkdir -p "$HOME/.local/bin"
+          tar -xzf "$archive" -C "$HOME/.local/bin" mdbook
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
