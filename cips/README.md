@@ -104,7 +104,7 @@ Read [CIP-1](./cip-001.md) for information on the CIP process.
 | [51](./cip-051.md) | Fibre Protocol                                                               | [@rach-id](https://github.com/rach-id)                                                                                                                                       |
 | [52](./cip-052.md) | v10 Network Upgrade                                                          | [@rach-id](https://github.com/rach-id)                                                                                                                                       |
 | [53](./cip-053.md) | Block gas limit for non-blob transactions                                    | [@rootulp](https://github.com/rootulp)                                                                                                                                       |
-| [Draft (Core)](./cip-draft_dynamic_block_pacing.md) | Dynamic block pacing with an 800 ms floor | [@rach-id](https://github.com/rach-id) |
+| [54](./cip-054.md) | Dynamic block pacing with an 800 ms floor                                    | [@rach-id](https://github.com/rach-id)                                                                                                                                       |
 
 ## Contributing
 
