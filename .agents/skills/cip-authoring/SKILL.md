@@ -65,7 +65,7 @@ When an editor assigns a number:
 Run:
 
 ```sh
-markdownlint --config .markdownlint.yaml '**/*.md'
+markdownlint --config .markdownlint.yaml --dot '**/*.md'
 mdbook build
 ```
 

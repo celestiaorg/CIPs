@@ -110,7 +110,7 @@ Read [CIP-1](./cip-001.md) for information on the CIP process.
 Files in this repo must conform to [markdownlint](https://github.com/DavidAnson/markdownlint). Install [markdownlint](https://github.com/DavidAnson/markdownlint) and then run:
 
 ```shell
-markdownlint --config .markdownlint.yaml '**/*.md'
+markdownlint --config .markdownlint.yaml --dot '**/*.md'
 ```
 
 ### Running the site locally
